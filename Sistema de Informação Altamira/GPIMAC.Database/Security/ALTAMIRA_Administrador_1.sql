@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [ALTAMIRA\Administrador]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [Português (Brasil)];
+

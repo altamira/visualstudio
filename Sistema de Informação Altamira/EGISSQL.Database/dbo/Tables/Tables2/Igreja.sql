@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Igreja] (
+    [cd_igreja]               INT           NOT NULL,
+    [nm_igreja]               VARCHAR (60)  NULL,
+    [cd_identificacao_igreja] INT           NULL,
+    [nm_fantasia_igreja]      VARCHAR (15)  NULL,
+    [cd_usuario]              INT           NULL,
+    [dt_usuario]              DATETIME      NULL,
+    [cd_status_igreja]        INT           NULL,
+    [cd_pais]                 INT           NULL,
+    [cd_estado]               INT           NULL,
+    [cd_cidade]               INT           NULL,
+    [cd_identifica_cep]       INT           NULL,
+    [ds_igreja]               TEXT          NULL,
+    [cd_cnpj_igreja]          VARCHAR (18)  NULL,
+    [nm_endereco_igreja]      VARCHAR (60)  NULL,
+    [cd_numero_endereco]      VARCHAR (10)  NULL,
+    [nm_complemento_endereco] VARCHAR (30)  NULL,
+    [nm_bairro_igreja]        VARCHAR (25)  NULL,
+    [nm_foto_igreja]          VARCHAR (100) NULL,
+    [cd_ddd_igreja]           CHAR (4)      NULL,
+    [cd_fone_igreja]          VARCHAR (15)  NULL,
+    [dt_inauguracao_igreja]   DATETIME      NULL,
+    [cd_tipo_igreja]          INT           NULL,
+    [ic_novo_endereco]        CHAR (1)      NULL,
+    CONSTRAINT [PK_Igreja] PRIMARY KEY CLUSTERED ([cd_igreja] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Igreja_Tipo_Igreja] FOREIGN KEY ([cd_tipo_igreja]) REFERENCES [dbo].[Tipo_Igreja] ([cd_tipo_igreja])
+);
+

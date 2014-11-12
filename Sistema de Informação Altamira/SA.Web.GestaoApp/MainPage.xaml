@@ -1,0 +1,230 @@
+﻿<UserControl x:Class="GestaoApp.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+  xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+  xmlns:viewmodel="clr-namespace:GestaoApp.ViewModel"
+  xmlns:view="clr-namespace:GestaoApp.View" 
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480" >
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="DockPaneHeaderTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding}"/>
+                <Image Source="/GestaoApp;component/Images/IconMSOffice/16/save.png" Width="16" Height="16"/>
+            </StackPanel>
+        </DataTemplate>
+        <viewmodel:MainPageViewModel x:Key="MainPageViewModel" />
+    </UserControl.Resources>
+
+    <telerik:RadBusyIndicator x:Name="busyIndicator" DisplayAfter="00:00:00" BusyContent="Carregando as informações, aguarde...">
+
+        <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource MainPageViewModel}}">
+
+            <telerik:RadRibbonBar Margin="8,8,8,0" telerik:StyleManager.Theme="Office_Blue" Name="radRibbonBar" Width="Auto" ApplicationButtonImageSource="/GestaoApp;component/Images/logo_21x21.png" HorizontalContentAlignment="Left" FontFamily="Portable User Interface" Title="" ApplicationName="Gestao Altamira" IsMinimized="True" MinimizeButtonVisibility="Collapsed">
+                <telerik:RadRibbonBar.ApplicationMenu>
+                    <telerik:ApplicationMenu>
+
+                        <telerik:RadRibbonButton Text="Incluir..." LargeImage="/GestaoApp;component/Images/IconPaint/menu/new.png"/>
+                        <telerik:RadRibbonButton Text="Abrir" LargeImage="/GestaoApp;component/Images/IconPaint/menu/open.png"/>
+                        <telerik:RadRibbonButton Text="Salvar" LargeImage="/GestaoApp;component/Images/IconPaint/menu/save.png"/>
+
+                        <telerik:RadRibbonSplitButton Text="Salvar como..." LargeImage="/GestaoApp;component/Images/IconPaint/menu/save_as.png">
+                            <telerik:RadRibbonSplitButton.DropDownContent>
+                                <StackPanel HorizontalAlignment="Stretch" >
+                                    <telerik:RadGroupHeader Content="Save as"/>
+                                    <telerik:RadRibbonButton Margin="1 0 2 0"  Width="292" >
+                                        <StackPanel Orientation="Horizontal"  Margin="3 0  5 0">
+                                            <Image Stretch="None" Source="/GestaoApp;component/Images/IconMSOffice/ApplicationMenu/worddoc.png" />
+                                            <StackPanel Margin="5 5 0 0">
+                                                <TextBlock  Text="Word Document " FontWeight="Bold"/>
+                                                <TextBlock TextWrapping="Wrap" Width="220"  Text="Salvar o arquivo" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </telerik:RadRibbonButton>
+                                </StackPanel>
+                            </telerik:RadRibbonSplitButton.DropDownContent>
+                        </telerik:RadRibbonSplitButton>
+
+                        <telerik:Separator />
+
+                        <telerik:RadRibbonDropDownButton  Text="Preparar" LargeImage="/GestaoApp;component/Images/IconMSOffice/ApplicationMenu/Prepare32.png">
+                            <telerik:RadRibbonDropDownButton.DropDownContent>
+                                <StackPanel HorizontalAlignment="Stretch" >
+                                    <telerik:RadGroupHeader Content="Prepare"/>
+                                    <telerik:RadRibbonButton Margin="1 0 2 0"  Width="292" >
+                                        <StackPanel Orientation="Horizontal"  Margin="3 0  5 0">
+                                            <Image Stretch="None"  Source="/GestaoApp;component/Images/IconPaint/menu/print.png" />
+                                            <StackPanel Margin="5 5 0 0">
+                                                <TextBlock  Text="Propriedades " FontWeight="Bold"/>
+                                                <TextBlock TextWrapping="Wrap" Width="220" Text="Editar propriedades" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </telerik:RadRibbonButton>
+                                </StackPanel>
+                            </telerik:RadRibbonDropDownButton.DropDownContent>
+                        </telerik:RadRibbonDropDownButton>
+
+                        <telerik:ApplicationMenu.Content>
+
+                            <StackPanel Width="300">
+                                <telerik:RadGroupHeader Content="Itens Recentes"/>
+                                <telerik:RadRibbonButton Content="1 Cadastro de Cliente" HorizontalAlignment="Stretch"/>
+                                <telerik:RadRibbonButton Content="2 Registro de Atendimento" HorizontalAlignment="Stretch"/>
+                                <telerik:RadRibbonButton Content="3 Orçamento" HorizontalAlignment="Stretch"/>
+                                <telerik:RadRibbonButton Content="4 Cadastro de Vendedores" HorizontalAlignment="Stretch"/>
+                                <telerik:RadRibbonButton Content="5 Consulta Atendimento" HorizontalAlignment="Stretch"/>
+                                <telerik:RadRibbonButton Content="6 Relatório" HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+
+                        </telerik:ApplicationMenu.Content>
+
+                        <telerik:ApplicationMenu.FooterContent>
+                            <StackPanel Orientation="Horizontal">
+                                <telerik:RadRibbonButton Content="Opções"/>
+                                <telerik:RadRibbonButton Content="Sair"/>
+                            </StackPanel>
+                        </telerik:ApplicationMenu.FooterContent>
+
+                    </telerik:ApplicationMenu>
+                </telerik:RadRibbonBar.ApplicationMenu>
+
+                <telerik:RadRibbonTab Header="Opções">
+                    <telerik:RadRibbonGroup Header="Opções">
+                        <telerik:RadRibbonButton Text="Novo" LargeImage="/GestaoApp;component/Images/IconMSOffice/32/new.png" Size="Large"
+                                             telerik:ScreenTip.Title="{Binding Path=ApplicationStrings.MainPageRibbonGroupButtonOptionsNewTip, Source={StaticResource ResourceWrapper}}" telerik:ScreenTip.Description="{Binding Path=ApplicationStrings.MainPageRibbonGroupButtonOptionsNewDesc, Source={StaticResource ResourceWrapper}}">
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonButton Text="Atualizar" LargeImage="/GestaoApp;component/Images/IconPaint/menu/properties.png" Size="Large"
+                                             telerik:ScreenTip.Title="Atualizar" telerik:ScreenTip.Description="Atualiza com as novas alterações">
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonSplitButton Text="Gravar" LargeImage="/GestaoApp;component/Images/IconMSOffice/32/save.png" Size="Large" 
+                                                  telerik:ScreenTip.Title="Gravar(Ctrl+S)" telerik:ScreenTip.Description="Grava todas as alterações pendentes" Name="SaveButton" >
+                            <telerik:RadRibbonSplitButton.DropDownContent>
+                                <telerik:RadContextMenu BorderThickness="0">
+                                    <telerik:RadMenuItem Header="Gravar"/>
+                                    <telerik:RadMenuItem Header="Gravar Todos..."/>
+                                </telerik:RadContextMenu>
+                            </telerik:RadRibbonSplitButton.DropDownContent>
+                        </telerik:RadRibbonSplitButton>
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Impressão">
+                        <telerik:RadRibbonButton Text="Imprimir" LargeImage="/GestaoApp;component/Images/IconMSOffice/32/print.png" Size="Large"
+                                             telerik:ScreenTip.Title="Imprimir(Ctrl+P)" telerik:ScreenTip.Description="Imprimir..." Click="PrintButton_Click">
+                        </telerik:RadRibbonButton>
+                        <telerik:RadRibbonButton Text="Visualizar" LargeImage="/GestaoApp;component/Images/IconMSOffice/32/printpreview.png" Size="Large"
+                                             telerik:ScreenTip.Title="Visualizar(Ctrl+V)" telerik:ScreenTip.Description="Visualizar Impressão">
+                        </telerik:RadRibbonButton>
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Tela">
+                        <telerik:RadRibbonButton Name="FullScreenButton" Text="Tela Inteira" LargeImage="/GestaoApp;component/Images/IconPaint/32/fill_screen.png" Size="Large"
+                                             telerik:ScreenTip.Title="Tela inteira(Ctrl+T)" telerik:ScreenTip.Description="Tela inteira" Click="FullScreenButton_Click">
+                        </telerik:RadRibbonButton>
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+
+            </telerik:RadRibbonBar>
+
+            <telerik:RadPanelBar telerik:StyleManager.Theme="Office_Blue" HorizontalAlignment="Left" Margin="8,70,0,0" Name="radPanelBar1" Width="180" Height="Auto" ExpandMode="Multiple">
+                <telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Atendimento ao Cliente" IsExpanded="True">
+                    <HyperlinkButton TargetName="" Content="Registro de Atendimento" Click="AttendanceRegisterLink_Click" />
+                    <HyperlinkButton TargetName="" Content="Envio de Mensagem" Click="AttendanceMessageLink_Click" />
+                    <HyperlinkButton TargetName="" Content="Estatística de Atendimento" Click="AttendanceDashboardLink_Click" />
+                </telerik:RadPanelBarItem>
+                <telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Orçamento" IsExpanded="True" >
+                    <HyperlinkButton TargetName="" Content="Registro de Orçamento" Click="BidRegisterLink_Click"/>
+                    <HyperlinkButton TargetName="" Content="Estatística de Vendas" Click="SalesDashboardLink_Click" />
+                </telerik:RadPanelBarItem>
+                <telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Pedido" IsExpanded="True" >
+                    <HyperlinkButton TargetName="" Content="Consulta de Pedido" Click="OrderLink_Click"/>
+                    <!--<HyperlinkButton TargetName="" Content="Estatística de Vendas" Click="SalesDashboardLink_Click" />-->
+                </telerik:RadPanelBarItem>
+                <!--<telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Pedido" IsExpanded="True" >
+                    <HyperlinkButton x:Name="PedidoNewLink"  TargetName="" Content="Novo Pedido" />
+                    <HyperlinkButton x:Name="PedidoConsultaLink"  TargetName="" Content="Consulta Pedido" />
+                    <HyperlinkButton x:Name="PedidoOKLink"  TargetName="" Content="Pedidos em Aberto" />
+                </telerik:RadPanelBarItem>-->
+                <!--<telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Ordem de Produção" IsExpanded="True" >
+                    <HyperlinkButton x:Name="OSNewLink"  TargetName="" Content="Novo O.S." />
+                    <HyperlinkButton x:Name="OSConsultaLink"  TargetName="" Content="Consulta O.S." />
+                    <HyperlinkButton x:Name="OSOKLink"  TargetName="" Content="O.S. em Aberto" />
+                </telerik:RadPanelBarItem>-->
+                <!--<telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Expedição e Transporte" IsExpanded="True" >
+                    <HyperlinkButton TargetName="" Content="Registro de Romaneio" Click="PackingListLink_Click" />
+                </telerik:RadPanelBarItem>-->
+                <telerik:RadPanelBarItem telerik:StyleManager.Theme="Office_Blue" Header="Cadastros" IsExpanded="True">
+                    <HyperlinkButton TargetName="" Content="Representantes" Click="SalesVendorLink_Click" />
+                    <HyperlinkButton TargetName="" Content="Clientes" Click="ClientLink_Click" />
+                </telerik:RadPanelBarItem>
+            </telerik:RadPanelBar>
+
+            <telerik:RadDocking telerik:StyleManager.Theme="Office_Blue" HasDocumentHost="False" HorizontalAlignment="Stretch" Margin="194,70,8,12" Name="radDocking" VerticalAlignment="Stretch">
+                <telerik:RadSplitContainer telerik:StyleManager.Theme="Office_Blue">
+                    <telerik:RadPaneGroup telerik:StyleManager.Theme="Office_Blue" Name="radPaneGroup" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <!--<telerik:RadPane telerik:StyleManager.Theme="Office_Blue" HeaderTemplate="{StaticResource DockPaneHeaderTemplate}" Header="Cadastro de Vendedores" />-->
+                        <!--<telerik:RadPane telerik:StyleManager.Theme="Office_Blue" HeaderTemplate="{StaticResource DockPaneHeaderTemplate}" Header="Cadastro de Clientes" />-->
+                    </telerik:RadPaneGroup>
+                </telerik:RadSplitContainer>
+            </telerik:RadDocking>
+
+            <view:LoginView x:Name="LoginView" />
+            <view:AddPasswordView x:Name="AddPasswordView" />
+        </Grid>
+
+    <!--</toolkit:BusyIndicator>-->
+    </telerik:RadBusyIndicator>
+        
+    <!--<Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}">
+    <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
+                        Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+        <navigation:Frame.UriMapper>
+            <uriMapper:UriMapper>
+            <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+            <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+            </uriMapper:UriMapper>
+        </navigation:Frame.UriMapper>
+    </navigation:Frame>
+    </Border>
+
+    <Grid Style="{StaticResource NavigationOuterGridStyle}">
+      <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
+
+        <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
+          <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
+
+            <ContentControl Style="{StaticResource LogoIcon}"/>
+            <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
+                               Text="{Binding ApplicationStrings.ApplicationName, Source={StaticResource ResourceWrapper}}"/>
+
+          </StackPanel>
+        </Border>
+
+        <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
+          <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+
+            <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}"/>
+
+            <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
+
+            <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/About" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+
+            <Rectangle x:Name="Divider2" Style="{StaticResource DividerStyle}"/>
+
+            <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/SalesVendor" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.SalesVendor, Source={StaticResource ResourceWrapper}}"/>
+
+          </StackPanel>
+        </Border>
+
+      </Grid>
+
+      <Border x:Name="loginContainer" Style="{StaticResource LoginContainerStyle}">-->
+    <!-- LoginStatus will be added here in code behind. This is required for the designer view to work -->
+    <!--</Border>
+    </Grid>-->
+    <!--ApplicationButtonImageSource="/Gestao;component/Images/logo_icon.png"-->
+
+</UserControl>

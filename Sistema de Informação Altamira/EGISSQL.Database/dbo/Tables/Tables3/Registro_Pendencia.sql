@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Registro_Pendencia] (
+    [cd_registro_pendencia]  INT           NOT NULL,
+    [dt_registro_pendencia]  DATETIME      NULL,
+    [nm_rp]                  VARCHAR (25)  NULL,
+    [cd_cliente]             INT           NULL,
+    [cd_contato]             INT           NULL,
+    [cd_departamento]        INT           NULL,
+    [cd_modulo]              INT           NULL,
+    [cd_funcao]              INT           NULL,
+    [cd_menu]                INT           NULL,
+    [cd_registro_suporte]    INT           NULL,
+    [cd_registro_atividade]  INT           NULL,
+    [cd_atividade_cliente]   INT           NULL,
+    [cd_menu_historico]      INT           NULL,
+    [cd_consultor]           INT           NULL,
+    [ds_registro_pendencia]  TEXT          NULL,
+    [nm_documento_pendencia] VARCHAR (100) NULL,
+    [dt_solucao_pendencia]   DATETIME      NULL,
+    [cd_usuario]             INT           NULL,
+    [dt_usuario]             DATETIME      NULL,
+    [cd_status_pendencia]    INT           NULL,
+    [cd_tipo_pendencia]      INT           NULL,
+    CONSTRAINT [PK_Registro_Pendencia] PRIMARY KEY CLUSTERED ([cd_registro_pendencia] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Registro_Pendencia_Status_Pendencia] FOREIGN KEY ([cd_status_pendencia]) REFERENCES [dbo].[Status_Pendencia] ([cd_status_pendencia]),
+    CONSTRAINT [FK_Registro_Pendencia_Tipo_Pendencia] FOREIGN KEY ([cd_tipo_pendencia]) REFERENCES [dbo].[Tipo_Pendencia] ([cd_tipo_pendencia])
+);
+

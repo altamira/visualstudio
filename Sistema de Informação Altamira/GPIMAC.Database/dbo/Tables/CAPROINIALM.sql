@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CAPROINIALM] (
+    [CProIniAlmCod] CHAR (10)  NOT NULL,
+    [CPRoIniAlmObs] CHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([CProIniAlmCod] ASC)
+);
+

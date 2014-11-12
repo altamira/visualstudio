@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7B89582-7621-4CD9-832F-2AB40C27FDF2}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestaoApp</RootNamespace>
+    <AssemblyName>GestaoApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>en-US;pt-BR</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>GestaoApp.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>GestaoApp.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentArt.Silverlight.DataVisualization.Charting, Version=2011.1.2220.40, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL" />
+    <Reference Include="ComponentArt.Silverlight.DataVisualization.Common, Version=2011.1.2220.40, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL" />
+    <Reference Include="ComponentArt.Silverlight.DataVisualization.Gauges, Version=2011.1.2220.40, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL" />
+    <Reference Include="ComponentArt.Silverlight.DataVisualization.TimeNavigator, Version=2011.1.2220.40, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL" />
+    <Reference Include="Divelements.SilverlightTools">
+      <HintPath>..\..\EIS\SilverlightApp\Lib\Divelements.SilverlightTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SilverlightMessageBoxLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input" />
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonBar, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Controls.RibbonBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Office_Blue, Version=2011.2.920.1040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\AppData\Roaming\Telerik\Updates\RadControls_for_Silverlight4_2011_2_0920_Dev_hotfix\Binaries\Silverlight\Telerik.Windows.Themes.Office_Blue.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\ApplicationStrings.Designer.cs" />
+    <Compile Include="Behaviors\InvokeMethodAction.cs" />
+    <Compile Include="Behaviors\SetTabItemZIndexOnSelectionChangedBehavior.cs" />
+    <Compile Include="Behaviors\Triggers.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Controls\Address.xaml.cs">
+      <DependentUpon>Address.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AutoCompleteComboBox.cs" />
+    <Compile Include="Controls\CommandBar.xaml.cs">
+      <DependentUpon>CommandBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CultureHelper.cs" />
+    <Compile Include="Controls\CustomBinding.cs" />
+    <Compile Include="Controls\Fone.xaml.cs">
+      <DependentUpon>Fone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KeyHelper.cs" />
+    <Compile Include="Controls\NameTextbox.cs" />
+    <Compile Include="Controls\NumericUpDown.cs" />
+    <Compile Include="Controls\SearchGridView.xaml.cs">
+      <DependentUpon>SearchGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchListView.xaml.cs">
+      <DependentUpon>SearchListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Validator.cs" />
+    <Compile Include="Helpers\Base64ImageConverter.cs" />
+    <Compile Include="Helpers\BindingHelper.cs" />
+    <Compile Include="Helpers\ConvertBoolToVisibility.cs" />
+    <Compile Include="Helpers\ConvertReadOnlyToBool.cs" />
+    <Compile Include="Helpers\ConvertReadOnlyToVisibility.cs" />
+    <Compile Include="Helpers\DataGridMultiSelection.cs" />
+    <Compile Include="Helpers\DataGridSelectionAdapter.cs" />
+    <Compile Include="Helpers\Error.cs" />
+    <Compile Include="Helpers\FilterAsyncBehavior.cs" />
+    <Compile Include="Helpers\FilterAsyncParameters.cs" />
+    <Compile Include="Helpers\HttpRequestHelper.cs" />
+    <Compile Include="Behaviors\RadGridViewMultiSelectBehavior.cs" />
+    <Compile Include="Helpers\ResourceWrapper.cs" />
+    <Compile Include="Helpers\Security.cs" />
+    <Compile Include="Helpers\Session.cs" />
+    <Compile Include="Helpers\ValidationHelper.cs" />
+    <Compile Include="Models\Attendance\History.cs" />
+    <Compile Include="Models\Attendance\SMS.cs" />
+    <Compile Include="Models\Attendance\Register.cs" />
+    <Compile Include="Models\Attendance\Status.cs" />
+    <Compile Include="Models\Attendance\Type.cs" />
+    <Compile Include="Models\Bid\Order.cs" />
+    <Compile Include="Models\Bid\Register.cs" />
+    <Compile Include="Models\Bid\PurchaseType.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Location\Address.cs" />
+    <Compile Include="Models\Base.cs" />
+    <Compile Include="Models\Location\City.cs" />
+    <Compile Include="Models\Sales\Client.cs" />
+    <Compile Include="Models\Contact\Media.cs" />
+    <Compile Include="Models\Location\Country.cs" />
+    <Compile Include="Models\Contact\Email.cs" />
+    <Compile Include="Models\Contact\Fone.cs" />
+    <Compile Include="Models\Contact\FoneType.cs" />
+    <Compile Include="Models\Contact\Person.cs" />
+    <Compile Include="Models\Location\State.cs" />
+    <Compile Include="Models\Attendance\Product.cs" />
+    <Compile Include="Models\Sales\Order.cs" />
+    <Compile Include="Models\Shipping\Material.cs" />
+    <Compile Include="Models\Shipping\PackingList.cs" />
+    <Compile Include="Controls\BusyIndicator.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Helpers\DataBindingExtensions.cs" />
+    <Compile Include="Helpers\DataFieldExtensions.cs" />
+    <Compile Include="Helpers\NotOperatorValueConverter.cs" />
+    <Compile Include="Helpers\StringFormatValueConverter.cs" />
+    <Compile Include="Helpers\TargetNullValueConverter.cs" />
+    <Compile Include="Models\Sales\Vendor.cs" />
+    <Compile Include="ViewModel\AddPasswordViewModel.cs" />
+    <Compile Include="ViewModel\Attendance\MessageViewModel.cs" />
+    <Compile Include="ViewModel\Bid\DocumentViewModel.cs" />
+    <Compile Include="ViewModel\Bid\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModel\Location\AddressViewModel.cs" />
+    <Compile Include="ViewModel\Attendance\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\Attendance\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\Location\CityViewModel.cs" />
+    <Compile Include="ViewModel\Sales\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\Sales\ClientViewModel.cs" />
+    <Compile Include="ViewModel\EditViewModel.cs" />
+    <Compile Include="ViewModel\Contact\EmailViewModel.cs" />
+    <Compile Include="ViewModel\Contact\FoneViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\Contact\PersonViewModel.cs" />
+    <Compile Include="ViewModel\Sales\OrderViewModel.cs" />
+    <Compile Include="ViewModel\SearchViewModel.cs" />
+    <Compile Include="ViewModel\Sales\VendorViewModel.cs" />
+    <Compile Include="ViewModel\Shipping\PackingListViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AddPasswordView.xaml.cs">
+      <DependentUpon>AddPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Attendance\MessageFormView.xaml.cs">
+      <DependentUpon>MessageFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bid\DocumentView.xaml.cs">
+      <DependentUpon>DocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bid\RegisterFormView.xaml.cs">
+      <DependentUpon>RegisterFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Bid\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangePasswordView.xaml.cs">
+      <DependentUpon>ChangePasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HTMLHostView.xaml.cs">
+      <DependentUpon>HTMLHostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Location\AddressFormView.xaml.cs">
+      <DependentUpon>AddressFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Attendance\RegisterFormView.xaml.cs">
+      <DependentUpon>RegisterFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Attendance\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Attendance\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\ClientFormView.xaml.cs">
+      <DependentUpon>ClientFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\ClientSelectView.xaml.cs">
+      <DependentUpon>ClientSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\ClientView.xaml.cs">
+      <DependentUpon>ClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Contact\EmailFormView.xaml.cs">
+      <DependentUpon>EmailFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Contact\FoneFormView.xaml.cs">
+      <DependentUpon>FoneFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Contact\PersonFormView.xaml.cs">
+      <DependentUpon>PersonFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\OrderView.xaml.cs">
+      <DependentUpon>OrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\OrderFormView.xaml.cs">
+      <DependentUpon>OrderFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\VendorFormView.xaml.cs">
+      <DependentUpon>VendorFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sales\VendorView.xaml.cs">
+      <DependentUpon>VendorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shipping\PackingListFormView.xaml.cs">
+      <DependentUpon>PackingListFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shipping\PackingListView.xaml.cs">
+      <DependentUpon>PackingListView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Address.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BusyIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CommandBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Fone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SearchGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SearchListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Templates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Attendance\MessageFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Bid\DocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Bid\RegisterFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Bid\RegisterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ChangePasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HTMLHostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Location\AddressFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Attendance\RegisterFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Attendance\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Attendance\DashboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Sales\ClientFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\ClientSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\ClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Contact\EmailFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Contact\FoneFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Contact\PersonFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\DashboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Sales\OrderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Sales\OrderFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Sales\VendorFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sales\VendorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Shipping\PackingListFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Shipping\PackingListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComponentArt.Silverlight.DataVisualization.lic" />
+    <None Include="Libs\license.rtf" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.pt-BR.resx" />
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BRA.png" />
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\logo_icon.png" />
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Slide\" />
+    <Folder Include="Models\Order\" />
+    <Folder Include="View\Client\" />
+    <Folder Include="View\Vendor\" />
+    <Folder Include="Web\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconMSOffice\AppIcon.png" />
+    <Resource Include="Images\IconMSOffice\Bold.png" />
+    <Resource Include="Images\IconMSOffice\Chart.png" />
+    <Resource Include="Images\IconMSOffice\ClipboardScreenTipIcon.png" />
+    <Resource Include="Images\IconMSOffice\colorpicker.png" />
+    <Resource Include="Images\IconMSOffice\doc.png" />
+    <Resource Include="Images\IconMSOffice\Emphasis.png" />
+    <Resource Include="Images\IconMSOffice\FontScreenTipIcon.png" />
+    <Resource Include="Images\IconMSOffice\footer.png" />
+    <Resource Include="Images\IconMSOffice\footerSlider.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsNone.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType1.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType2.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType3.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType4.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType5.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType6.png" />
+    <Resource Include="Images\IconMSOffice\GalleryBulletsType7.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersNone.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType1.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType2.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType3.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType4.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType5.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType6.png" />
+    <Resource Include="Images\IconMSOffice\GalleryNumbersType7.png" />
+    <Resource Include="Images\IconMSOffice\Heading1.png" />
+    <Resource Include="Images\IconMSOffice\Heading2.png" />
+    <Resource Include="Images\IconMSOffice\HorizontalRuler.png" />
+    <Resource Include="Images\IconMSOffice\Intense_Emphasis.png" />
+    <Resource Include="Images\IconMSOffice\Normal.png" />
+    <Resource Include="Images\IconMSOffice\No_Spacing.png" />
+    <Resource Include="Images\IconMSOffice\paragraph.png" />
+    <Resource Include="Images\IconMSOffice\paragraph1.png" />
+    <Resource Include="Images\IconMSOffice\paragraph10.png" />
+    <Resource Include="Images\IconMSOffice\paragraph2.png" />
+    <Resource Include="Images\IconMSOffice\paragraph3.png" />
+    <Resource Include="Images\IconMSOffice\paragraph4.png" />
+    <Resource Include="Images\IconMSOffice\paragraph5.png" />
+    <Resource Include="Images\IconMSOffice\paragraph6.png" />
+    <Resource Include="Images\IconMSOffice\paragraph7.png" />
+    <Resource Include="Images\IconMSOffice\paragraph8.png" />
+    <Resource Include="Images\IconMSOffice\paragraph9.png" />
+    <Resource Include="Images\IconMSOffice\ParagraphScreenTipIcon.png" />
+    <Resource Include="Images\IconMSOffice\Strong.png" />
+    <Resource Include="Images\IconMSOffice\StylesScreenTipIcon.png" />
+    <Resource Include="Images\IconMSOffice\Subtitle.png" />
+    <Resource Include="Images\IconMSOffice\Subtitle_Emphasis.png" />
+    <Resource Include="Images\IconMSOffice\TextField.png" />
+    <Resource Include="Images\IconMSOffice\Title.png" />
+    <Resource Include="Images\IconMSOffice\truetype.png" />
+    <Resource Include="Images\IconMSOffice\underline1.png" />
+    <Resource Include="Images\IconMSOffice\underline2.png" />
+    <Resource Include="Images\IconMSOffice\underline3.png" />
+    <Resource Include="Images\IconMSOffice\underline4.png" />
+    <Resource Include="Images\IconMSOffice\underline5.png" />
+    <Resource Include="Images\IconMSOffice\underline6.png" />
+    <Resource Include="Images\IconMSOffice\underline7.png" />
+    <Resource Include="Images\IconMSOffice\underline8.png" />
+    <Resource Include="Images\IconMSOffice\Underlined.png" />
+    <Resource Include="Images\IconMSOffice\users.png" />
+    <Resource Include="Images\IconMSOffice\VerticalRuler.png" />
+    <Resource Include="Images\IconMSOffice\Word_doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconMSOffice\16\aligncenter.png" />
+    <Resource Include="Images\IconMSOffice\16\alignjustify.png" />
+    <Resource Include="Images\IconMSOffice\16\alignleft.png" />
+    <Resource Include="Images\IconMSOffice\16\alignright.png" />
+    <Resource Include="Images\IconMSOffice\16\bold.png" />
+    <Resource Include="Images\IconMSOffice\16\ClearFormatting16.png" />
+    <Resource Include="Images\IconMSOffice\16\color.png" />
+    <Resource Include="Images\IconMSOffice\16\copy.png" />
+    <Resource Include="Images\IconMSOffice\16\cut.png" />
+    <Resource Include="Images\IconMSOffice\16\DateTime.png" />
+    <Resource Include="Images\IconMSOffice\16\expandspace.png" />
+    <Resource Include="Images\IconMSOffice\16\find.png" />
+    <Resource Include="Images\IconMSOffice\16\findnext.png" />
+    <Resource Include="Images\IconMSOffice\16\font-decreasesize.png" />
+    <Resource Include="Images\IconMSOffice\16\font-increasesize.png" />
+    <Resource Include="Images\IconMSOffice\16\fontcolor.png" />
+    <Resource Include="Images\IconMSOffice\16\fontdialog.png" />
+    <Resource Include="Images\IconMSOffice\16\fontscheme.png" />
+    <Resource Include="Images\IconMSOffice\16\formatpainter.png" />
+    <Resource Include="Images\IconMSOffice\16\highlight.png" />
+    <Resource Include="Images\IconMSOffice\16\indent.png" />
+    <Resource Include="Images\IconMSOffice\16\inserthyperlink.png" />
+    <Resource Include="Images\IconMSOffice\16\inserttabcontrol.png" />
+    <Resource Include="Images\IconMSOffice\16\italic.png" />
+    <Resource Include="Images\IconMSOffice\16\linecolor.png" />
+    <Resource Include="Images\IconMSOffice\16\list-bullets.png" />
+    <Resource Include="Images\IconMSOffice\16\list-numbered-tb.png" />
+    <Resource Include="Images\IconMSOffice\16\list-numbered.png" />
+    <Resource Include="Images\IconMSOffice\16\new.png" />
+    <Resource Include="Images\IconMSOffice\16\Object.png" />
+    <Resource Include="Images\IconMSOffice\16\outdent.png" />
+    <Resource Include="Images\IconMSOffice\16\paste.png" />
+    <Resource Include="Images\IconMSOffice\16\pastehyperlink.png" />
+    <Resource Include="Images\IconMSOffice\16\pastespecial.png" />
+    <Resource Include="Images\IconMSOffice\16\pointer.png" />
+    <Resource Include="Images\IconMSOffice\16\print.png" />
+    <Resource Include="Images\IconMSOffice\16\pushpin.png" />
+    <Resource Include="Images\IconMSOffice\16\recolorpicture.png" />
+    <Resource Include="Images\IconMSOffice\16\refresh.png" />
+    <Resource Include="Images\IconMSOffice\16\ruler.png" />
+    <Resource Include="Images\IconMSOffice\16\save.png" />
+    <Resource Include="Images\IconMSOffice\16\SignatureLine.png" />
+    <Resource Include="Images\IconMSOffice\16\sortasc.png" />
+    <Resource Include="Images\IconMSOffice\16\strikeout.png" />
+    <Resource Include="Images\IconMSOffice\16\Strikethrough16.png" />
+    <Resource Include="Images\IconMSOffice\16\subscript.png" />
+    <Resource Include="Images\IconMSOffice\16\superscript.png" />
+    <Resource Include="Images\IconMSOffice\16\synchronizelist.png" />
+    <Resource Include="Images\IconMSOffice\16\underline.png" />
+    <Resource Include="Images\IconMSOffice\16\UnderlineDouble.png" />
+    <Resource Include="Images\IconMSOffice\16\undo.png" />
+    <Resource Include="Images\IconMSOffice\16\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconMSOffice\32\arrangewindows.png" />
+    <Resource Include="Images\IconMSOffice\32\blog.png" />
+    <Resource Include="Images\IconMSOffice\32\Bookmark.png" />
+    <Resource Include="Images\IconMSOffice\32\ChangeStyles32.png" />
+    <Resource Include="Images\IconMSOffice\32\chart.png" />
+    <Resource Include="Images\IconMSOffice\32\ClipArt.png" />
+    <Resource Include="Images\IconMSOffice\32\copy.png" />
+    <Resource Include="Images\IconMSOffice\32\CoverPage.png" />
+    <Resource Include="Images\IconMSOffice\32\crop.png" />
+    <Resource Include="Images\IconMSOffice\32\CrossReference.png" />
+    <Resource Include="Images\IconMSOffice\32\digitalsignature.png" />
+    <Resource Include="Images\IconMSOffice\32\documentserver.png" />
+    <Resource Include="Images\IconMSOffice\32\documentworkspace.png" />
+    <Resource Include="Images\IconMSOffice\32\DropCap.png" />
+    <Resource Include="Images\IconMSOffice\32\encryptdocument.png" />
+    <Resource Include="Images\IconMSOffice\32\Equation.png" />
+    <Resource Include="Images\IconMSOffice\32\find.png" />
+    <Resource Include="Images\IconMSOffice\32\Footer.png" />
+    <Resource Include="Images\IconMSOffice\32\fullscreen.png" />
+    <Resource Include="Images\IconMSOffice\32\function.png" />
+    <Resource Include="Images\IconMSOffice\32\Header.png" />
+    <Resource Include="Images\IconMSOffice\32\highlight.png" />
+    <Resource Include="Images\IconMSOffice\32\homepage.png" />
+    <Resource Include="Images\IconMSOffice\32\inserthyperlink.png" />
+    <Resource Include="Images\IconMSOffice\32\inspectdocument.png" />
+    <Resource Include="Images\IconMSOffice\32\markasfinal.png" />
+    <Resource Include="Images\IconMSOffice\32\new.png" />
+    <Resource Include="Images\IconMSOffice\32\newclassmodule.png" />
+    <Resource Include="Images\IconMSOffice\32\open.png" />
+    <Resource Include="Images\IconMSOffice\32\PageBreak.png" />
+    <Resource Include="Images\IconMSOffice\32\PageNumber.png" />
+    <Resource Include="Images\IconMSOffice\32\paste.png" />
+    <Resource Include="Images\IconMSOffice\32\Picture.png" />
+    <Resource Include="Images\IconMSOffice\32\portraitlandscape.png" />
+    <Resource Include="Images\IconMSOffice\32\print.png" />
+    <Resource Include="Images\IconMSOffice\32\printpreview.png" />
+    <Resource Include="Images\IconMSOffice\32\properties.png" />
+    <Resource Include="Images\IconMSOffice\32\properties32.png" />
+    <Resource Include="Images\IconMSOffice\32\protectform.png" />
+    <Resource Include="Images\IconMSOffice\32\QuickParts.png" />
+    <Resource Include="Images\IconMSOffice\32\relationships.png" />
+    <Resource Include="Images\IconMSOffice\32\restrictpermisions.png" />
+    <Resource Include="Images\IconMSOffice\32\save.png" />
+    <Resource Include="Images\IconMSOffice\32\saveas.png" />
+    <Resource Include="Images\IconMSOffice\32\Shapes.png" />
+    <Resource Include="Images\IconMSOffice\32\SmartArt.png" />
+    <Resource Include="Images\IconMSOffice\32\Symbol.png" />
+    <Resource Include="Images\IconMSOffice\32\Table.png" />
+    <Resource Include="Images\IconMSOffice\32\textbox.png" />
+    <Resource Include="Images\IconMSOffice\32\TextBox32.png" />
+    <Resource Include="Images\IconMSOffice\32\WordArt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\Close32.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\Prepare32.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\Publish32.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\Send32.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\word2003.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\worddoc.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\wordother.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\wordpdf.png" />
+    <Resource Include="Images\IconMSOffice\ApplicationMenu\wordtemplate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\Bubble.png" />
+    <Resource Include="Images\IconPaint\ColorPicker.png" />
+    <Resource Include="Images\IconPaint\content.png" />
+    <Resource Include="Images\IconPaint\edit_color.png" />
+    <Resource Include="Images\IconPaint\footer.png" />
+    <Resource Include="Images\IconPaint\paint.png" />
+    <Resource Include="Images\IconPaint\rules.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\16\100screen.png" />
+    <Resource Include="Images\IconPaint\16\colors_icon.png" />
+    <Resource Include="Images\IconPaint\16\crop.png" />
+    <Resource Include="Images\IconPaint\16\delete_disable.png" />
+    <Resource Include="Images\IconPaint\16\eraser.png" />
+    <Resource Include="Images\IconPaint\16\exit.png" />
+    <Resource Include="Images\IconPaint\16\Eyedropper.png" />
+    <Resource Include="Images\IconPaint\16\fill.png" />
+    <Resource Include="Images\IconPaint\16\free_form_selection.png" />
+    <Resource Include="Images\IconPaint\16\full_screen.png" />
+    <Resource Include="Images\IconPaint\16\invert_selection_disable.png" />
+    <Resource Include="Images\IconPaint\16\Opaque.png" />
+    <Resource Include="Images\IconPaint\16\options.png" />
+    <Resource Include="Images\IconPaint\16\outline.png" />
+    <Resource Include="Images\IconPaint\16\paint-bucket.png" />
+    <Resource Include="Images\IconPaint\16\paste.png" />
+    <Resource Include="Images\IconPaint\16\paste_form.png" />
+    <Resource Include="Images\IconPaint\16\pen.png" />
+    <Resource Include="Images\IconPaint\16\rect_select.png" />
+    <Resource Include="Images\IconPaint\16\resize.png" />
+    <Resource Include="Images\IconPaint\16\rotate.png" />
+    <Resource Include="Images\IconPaint\16\select_all.png" />
+    <Resource Include="Images\IconPaint\16\shape_icon.png" />
+    <Resource Include="Images\IconPaint\16\text.png" />
+    <Resource Include="Images\IconPaint\16\thumbnail.png" />
+    <Resource Include="Images\IconPaint\16\tool.png" />
+    <Resource Include="Images\IconPaint\16\transparent.png" />
+    <Resource Include="Images\IconPaint\16\zoom.png" />
+    <Resource Include="Images\IconPaint\16\zoom_in.png" />
+    <Resource Include="Images\IconPaint\16\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\32\brush1.png" />
+    <Resource Include="Images\IconPaint\32\brush2.png" />
+    <Resource Include="Images\IconPaint\32\brush3.png" />
+    <Resource Include="Images\IconPaint\32\brush4.png" />
+    <Resource Include="Images\IconPaint\32\brush5.png" />
+    <Resource Include="Images\IconPaint\32\brush6.png" />
+    <Resource Include="Images\IconPaint\32\brush7.png" />
+    <Resource Include="Images\IconPaint\32\brush8.png" />
+    <Resource Include="Images\IconPaint\32\brush9.png" />
+    <Resource Include="Images\IconPaint\32\fill_screen.png" />
+    <Resource Include="Images\IconPaint\32\fill_zoom.png" />
+    <Resource Include="Images\IconPaint\32\paste.png" />
+    <Resource Include="Images\IconPaint\32\select.png" />
+    <Resource Include="Images\IconPaint\32\shape_icon.png" />
+    <Resource Include="Images\IconPaint\32\size.png" />
+    <Resource Include="Images\IconPaint\32\thumbnail_active.png" />
+    <Resource Include="Images\IconPaint\32\zoom_negative.png" />
+    <Resource Include="Images\IconPaint\32\zoom_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\menu\about_paint.png" />
+    <Resource Include="Images\IconPaint\menu\bmp.png" />
+    <Resource Include="Images\IconPaint\menu\center.png" />
+    <Resource Include="Images\IconPaint\menu\exit.png" />
+    <Resource Include="Images\IconPaint\menu\fill.png" />
+    <Resource Include="Images\IconPaint\menu\from_scanner_camera.png" />
+    <Resource Include="Images\IconPaint\menu\gif.png" />
+    <Resource Include="Images\IconPaint\menu\jpg.png" />
+    <Resource Include="Images\IconPaint\menu\new.png" />
+    <Resource Include="Images\IconPaint\menu\open.png" />
+    <Resource Include="Images\IconPaint\menu\pagesetup.png" />
+    <Resource Include="Images\IconPaint\menu\png.png" />
+    <Resource Include="Images\IconPaint\menu\print.png" />
+    <Resource Include="Images\IconPaint\menu\print_preview.png" />
+    <Resource Include="Images\IconPaint\menu\properties.png" />
+    <Resource Include="Images\IconPaint\menu\save.png" />
+    <Resource Include="Images\IconPaint\menu\save_as.png" />
+    <Resource Include="Images\IconPaint\menu\send_email.png" />
+    <Resource Include="Images\IconPaint\menu\set_as_desktop.png" />
+    <Resource Include="Images\IconPaint\menu\tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\16\Outline\crayon.png" />
+    <Resource Include="Images\IconPaint\16\Outline\marker.png" />
+    <Resource Include="Images\IconPaint\16\Outline\natural-pencil.png" />
+    <Resource Include="Images\IconPaint\16\Outline\no_outline.png" />
+    <Resource Include="Images\IconPaint\16\Outline\oil.png" />
+    <Resource Include="Images\IconPaint\16\Outline\solid_color.png" />
+    <Resource Include="Images\IconPaint\16\Outline\watercolor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\16\Rotate\rotate1.png" />
+    <Resource Include="Images\IconPaint\16\Rotate\rotate2.png" />
+    <Resource Include="Images\IconPaint\16\Rotate\rotate3.png" />
+    <Resource Include="Images\IconPaint\16\Rotate\rotate4.png" />
+    <Resource Include="Images\IconPaint\16\Rotate\rotate5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\16\Shapes\curved_line.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\down.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\ellipse.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\heart.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\hexagon.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\left_arrow.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\line.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\outline.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\paint_bucker.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\path.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\path1.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\path2.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\path3.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\path4.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\path5.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\pentagon.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\rectangle.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\right-angled-triangle.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\right_arrow.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\rounded_rectangle.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\star.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\star1.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\triangle.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\turned_rectangle.png" />
+    <Resource Include="Images\IconPaint\16\Shapes\up_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconPaint\16\View\fill_screen.png" />
+    <Resource Include="Images\IconPaint\16\View\fill_zoom.png" />
+    <Resource Include="Images\IconPaint\16\View\thumbnail.png" />
+    <Resource Include="Images\IconPaint\16\View\thumbnail_active.png" />
+    <Resource Include="Images\IconPaint\16\View\zoom_negative.png" />
+    <Resource Include="Images\IconPaint\16\View\zoom_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo_21x21.png" />
+    <Resource Include="Images\logo_25x25.png" />
+    <Resource Include="Images\logo_altamira.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconMSOffice\32\delete.png" />
+    <Resource Include="Images\IconPaint\menu\slice.png" />
+    <Resource Include="Images\IconMSOffice\32\newplus.png" />
+    <Resource Include="Images\cel.jpg" />
+    <Resource Include="Images\ddr.jpg" />
+    <Resource Include="Images\ddr2.jpg" />
+    <Resource Include="Images\fax.jpg" />
+    <Resource Include="Images\fone.jpg" />
+    <Resource Include="Images\nextel.jpg" />
+    <Resource Include="Images\nextel2.jpg" />
+    <Resource Include="Images\pabx.jpg" />
+    <Resource Include="Images\pager.jpg" />
+    <Resource Include="Images\IconPaint\32\pdf.png" />
+    <Resource Include="Images\IconPaint\32\pdf_word.png" />
+    <Content Include="Libs\Divelements.SilverlightTools.dll" />
+    <Content Include="Libs\Divelements.SilverlightTools.XML" />
+    <Content Include="Libs\SilverlightMessageBoxLibrary.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\System.Windows.Interactivity.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

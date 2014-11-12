@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[TBLSENHA] (
+    [BANCO] NVARCHAR (50) NULL,
+    [SENHA] NVARCHAR (50) NULL
+);
+

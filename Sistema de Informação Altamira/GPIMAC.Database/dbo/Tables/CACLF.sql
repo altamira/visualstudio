@@ -1,0 +1,33 @@
+﻿CREATE TABLE [dbo].[CACLF] (
+    [CClf0Cod]     CHAR (5)   NOT NULL,
+    [CClf0Nom]     CHAR (10)  NULL,
+    [CClf0Ipi]     SMALLMONEY NULL,
+    [CClf0Red]     CHAR (1)   NULL,
+    [CClf0Bas]     SMALLMONEY NULL,
+    [CClf0Icm]     SMALLMONEY NULL,
+    [CClf0Des]     CHAR (30)  NULL,
+    [CClf0Car0Cod] SMALLINT   NULL,
+    [CClf0Let]     CHAR (1)   NULL,
+    PRIMARY KEY CLUSTERED ([CClf0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCACLFA]
+    ON [dbo].[CACLF]([CClf0Nom] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICACLF]
+    ON [dbo].[CACLF]([CClf0Car0Cod] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCACLFB]
+    ON [dbo].[CACLF]([CClf0Let] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCACLF0C]
+    ON [dbo].[CACLF]([CClf0Let] DESC);
+

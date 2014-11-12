@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Fornecedor_Endereco] (
+    [cd_fornecedor]             INT           NOT NULL,
+    [cd_tipo_endereco]          INT           NOT NULL,
+    [dt_cadastro_fornecedor]    DATETIME      NULL,
+    [cd_cnpj_fornecedor]        VARCHAR (18)  NULL,
+    [cd_inscestadual_fornecedo] VARCHAR (18)  NULL,
+    [cd_inscmunicipal_forneced] VARCHAR (18)  NULL,
+    [cd_cep_fornecedor]         CHAR (9)      NULL,
+    [nm_endereco_fornecedor]    VARCHAR (50)  NULL,
+    [cd_numero_endereco]        INT           NULL,
+    [nm_complemento_endereco]   VARCHAR (100) NULL,
+    [nm_bairro_fornecedor]      VARCHAR (25)  NULL,
+    [cd_ddd_fornecedor]         CHAR (4)      NULL,
+    [cd_telefone_fornecedor]    VARCHAR (15)  NULL,
+    [cd_fax_fornecedor]         VARCHAR (15)  NULL,
+    [cd_identifica_cep]         INT           NULL,
+    [cd_pais]                   INT           NULL,
+    [cd_estado]                 INT           NULL,
+    [cd_cidade]                 INT           NULL,
+    [cd_usuario]                INT           NULL,
+    [dt_usuario]                DATETIME      NULL,
+    [nm_ponto_ref_forn_ender]   VARCHAR (100) NULL,
+    CONSTRAINT [PK_Fornecedor_Endereco] PRIMARY KEY CLUSTERED ([cd_fornecedor] ASC, [cd_tipo_endereco] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Fornecedor_Endereco_Fornecedor] FOREIGN KEY ([cd_fornecedor]) REFERENCES [dbo].[Fornecedor] ([cd_fornecedor]) ON DELETE CASCADE
+);
+

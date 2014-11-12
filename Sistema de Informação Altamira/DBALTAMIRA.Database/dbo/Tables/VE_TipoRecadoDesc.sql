@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[VE_TipoRecadoDesc] (
+    [Codigo]    INT       NOT NULL,
+    [Descrição] CHAR (40) NULL,
+    CONSTRAINT [PK_VE_TIPORECADODESC] PRIMARY KEY NONCLUSTERED ([Codigo] ASC) WITH (FILLFACTOR = 90)
+);
+

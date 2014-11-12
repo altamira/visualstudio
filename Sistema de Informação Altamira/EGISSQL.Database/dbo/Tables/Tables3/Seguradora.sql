@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Seguradora] (
+    [cd_seguradora]             INT           NOT NULL,
+    [nm_seguradora]             VARCHAR (40)  NOT NULL,
+    [sg_seguradora]             CHAR (10)     NULL,
+    [nm_site_seguradora]        VARCHAR (100) NULL,
+    [nm_contato_seguradora]     VARCHAR (40)  NULL,
+    [nm_email_ctato_seguradora] VARCHAR (100) NULL,
+    [nm_endereco_seguradora]    VARCHAR (50)  NULL,
+    [nm_bairro_seguradora]      VARCHAR (25)  NULL,
+    [cd_identifica_cep]         INT           NULL,
+    [cd_pais]                   INT           NULL,
+    [cd_cidade]                 INT           NULL,
+    [cd_estado]                 INT           NULL,
+    [cd_fone_seguradora]        VARCHAR (15)  NULL,
+    [cd_fax_seguradora]         VARCHAR (15)  NULL,
+    [nm_obs_seguradora]         VARCHAR (40)  NULL,
+    [cd_usuario]                INT           NULL,
+    [dt_usuario]                DATETIME      NULL,
+    [cd_ddd_seguradora]         CHAR (4)      NULL,
+    [cd_cep_seguradora]         VARCHAR (9)   NULL,
+    [cd_tipo_mercado]           INT           NULL,
+    [ic_pad_imp_seguradora]     CHAR (1)      NULL,
+    [ic_pad_exp_seguradora]     CHAR (1)      NULL,
+    [cd_moeda]                  INT           NULL,
+    CONSTRAINT [PK_Seguradora] PRIMARY KEY CLUSTERED ([cd_seguradora] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Seguradora_Moeda] FOREIGN KEY ([cd_moeda]) REFERENCES [dbo].[Moeda] ([cd_moeda])
+);
+

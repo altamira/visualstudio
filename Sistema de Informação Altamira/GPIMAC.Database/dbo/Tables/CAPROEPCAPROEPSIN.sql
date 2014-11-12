@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[CAPROEPCAPROEPSIN] (
+    [CPROCOD]       CHAR (60)       NOT NULL,
+    [CPRO1EP]       CHAR (2)        NOT NULL,
+    [CPSSeq]        SMALLINT        NOT NULL,
+    [CSERCOD]       CHAR (8)        NULL,
+    [CPSQtdHor]     DECIMAL (11, 4) NULL,
+    [CpsTemSet]     INT             NULL,
+    [CPRO1EPSInOrd] SMALLINT        NULL,
+    [CPSObsS]       CHAR (100)      NULL,
+    PRIMARY KEY CLUSTERED ([CPROCOD] ASC, [CPRO1EP] ASC, [CPSSeq] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICAPROEPCAPROEPSINB]
+    ON [dbo].[CAPROEPCAPROEPSIN]([CSERCOD] ASC);
+

@@ -1,0 +1,121 @@
+﻿<ribbon:RibbonWindow x:Class="SA.WpfRibbonApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        xmlns:local="clr-namespace:SA.WpfRibbonApplication"
+        xmlns:controls="clr-namespace:SA.WpfCustomControlLibrary;assembly=WpfCustomControlLibrary"
+        Title="Altamira Industria Metalurgica Ltda"
+		>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ribbon:Ribbon x:Name="RibbonMain" >
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu SmallImageSource="Images\SmallIcon.png">
+                    <ribbon:RibbonApplicationMenuItem Header="Hello _Ribbon"
+                                                      x:Name="MenuItem1"
+                                                      ImageSource="Images\LargeIcon.png"/>
+                </ribbon:RibbonApplicationMenu>
+            </ribbon:Ribbon.ApplicationMenu>
+            <ribbon:RibbonTab x:Name="Financeiro" Header="Financeiro">
+                <ribbon:RibbonGroup x:Name="FluxoCaixaRibbonGroup" Header="Fluxo de Caixa">
+                    <ribbon:RibbonButton x:Name="FluxoCaixaRibbonButton"
+                                         LargeImageSource="Images\supplies_6_48x48x32.png"
+                                         Label="Fluxo de Caixa" GotMouseCapture="FluxoCaixaRibbonButton_Click" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="BancosRibbonGroup" Header="Bancos">
+                    <ribbon:RibbonButton x:Name="BancosRibbonButton"
+                                         LargeImageSource="Images\supplies_6_48x48x32.png"
+                                         Label="Remessa e Retorno" GotMouseCapture="CNABRibbonButton_Click" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="ContasReceberRibbonGroup" Header="Contas a Receber">
+                    <ribbon:RibbonButton x:Name="CobrancaRibbonButton"
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Boleto" GotMouseCapture="ContasReceberRibbonButton_Click" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="ContasPagarRibbonGroup" Header="Contas a Pagar">
+                    
+                    <ribbon:RibbonMenuButton x:Name="ContasPagarBoletoRibbonButton"
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Boleto" GotMouseCapture="ContasPagarBoletoRibbonButton_Click" >
+                        <ribbon:RibbonMenuItem />
+                        <ribbon:RibbonMenuItem />
+                        <ribbon:RibbonMenuItem />
+                    </ribbon:RibbonMenuButton>
+                    <ribbon:RibbonSplitButton x:Name="ContasPagarBoletoxRibbonButton"
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Boleto" HorizontalContentAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalAlignment="Right">
+                        
+                        <ribbon:RibbonButton x:Name="BotaoRibbonButton"
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Boleto" GotMouseCapture="ContasPagarBoletoRibbonButton_Click" /> 
+                        
+                        <ribbon:RibbonMenuItem ></ribbon:RibbonMenuItem>
+                    </ribbon:RibbonSplitButton>
+
+                    
+                        <ribbon:RibbonButton x:Name="ContasPagarDARFRibbonButton"
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Boleto" GotMouseCapture="ContasPagarDARFRibbonButton_Click" />
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="Comercial" 
+                              Header="Comercial">
+                <ribbon:RibbonGroup x:Name="Vendas" 
+                                    Header="Vendas">
+                    <ribbon:RibbonButton x:Name="PedidoVendaRibbonButton"
+                                         LargeImageSource="Images\Modify_1_48x48x32.png"
+                                         Label="Pedido de Venda" GotMouseCapture="RibbonButton_Click" />
+
+                    <ribbon:RibbonButton x:Name="Button2"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button2" />
+                    <ribbon:RibbonButton x:Name="Button3"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button3" />
+                    <ribbon:RibbonButton x:Name="Button4"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button4" />
+                    
+                </ribbon:RibbonGroup>
+                
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="Engenharia" 
+                              Header="Engenharia">
+                
+                <ribbon:RibbonGroup x:Name="BOM" Header="Lista de Materiais" >
+                    <ribbon:RibbonButton x:Name="BOMRibbonButton"
+                                         LargeImageSource="Images\options_3_64x64x32.png"
+                                         Label="Lista de Material" Click="BOMRibbonButton_Click" />
+
+                    <ribbon:RibbonButton x:Name="BOMToDoRibbonButton"
+                                         SmallImageSource="Images\Edit_4_48x48x32.png"
+                                         Label="A fazer" />
+                    <ribbon:RibbonButton x:Name="BOMSearchRibbonButton"
+                                         SmallImageSource="Images\analysis_4_48x48x32.png"
+                                         Label="Consultar" />
+                    <ribbon:RibbonButton x:Name="BOMReadyRibbonButton"
+                                         SmallImageSource="Images\Select_1_48x48x32.png"
+                                         Label="Liberadas" />
+                    
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+        
+        <controls:CloseableTab x:Name="MainTab" Grid.Row="1" Background="#FFD9E5F3"/>
+        
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Margin="2,2,5,2">
+                <TextBlock Text="Engenharia"/>
+            </StatusBarItem>
+            <StatusBarItem Margin="2,2,5,2">
+                <TextBlock Text="Executando..." />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</ribbon:RibbonWindow>

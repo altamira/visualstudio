@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Processo_Exportacao] (
+    [cd_processo_exportacao]    INT      NOT NULL,
+    [dt_processo_exportacao]    DATETIME NULL,
+    [cd_exportador]             INT      NULL,
+    [cd_idioma]                 INT      NULL,
+    [cd_condicao_pagamento]     INT      NULL,
+    [cd_origem_pais]            INT      NULL,
+    [cd_cliente]                INT      NULL,
+    [cd_termo_comercial]        INT      NULL,
+    [cd_destino_pais]           INT      NULL,
+    [cd_transportadora]         INT      NULL,
+    [cd_instrumento_negociacao] INT      NULL,
+    [cd_moeda]                  INT      NULL,
+    [cd_modalidade_pagamento]   INT      NULL,
+    [cd_porto_origem]           INT      NULL,
+    [cd_porto_destino]          INT      NULL,
+    [cd_tipo_transporte]        INT      NULL,
+    [cd_consignatario]          INT      NULL,
+    [cd_prestador_servico]      INT      NULL,
+    [cd_despachante]            INT      NULL,
+    [cd_corretora_cambio]       INT      NULL,
+    [cd_usuario]                INT      NULL,
+    [dt_usuario]                DATETIME NULL,
+    CONSTRAINT [PK_Processo_Exportacao] PRIMARY KEY CLUSTERED ([cd_processo_exportacao] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Processo_Exportacao_Corretora_Cambio] FOREIGN KEY ([cd_corretora_cambio]) REFERENCES [dbo].[Corretora_Cambio] ([cd_corretora_cambio])
+);
+

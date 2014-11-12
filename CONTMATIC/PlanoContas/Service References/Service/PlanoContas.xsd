@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55972/PlanoContas.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Webservice" />
+  <xs:element name="PlanoContasList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlanoContasListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Webservice" minOccurs="0" name="PlanoContasListResult" nillable="true" type="q1:ArrayOfContaContabil" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContaContabilUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Conta" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContaContabilUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ContaContabilUpdateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParticipantesList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParticipantesListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Webservice" minOccurs="0" name="ParticipantesListResult" nillable="true" type="q2:ArrayOfParticipante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RequestDateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCurrentVersionResult" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RequestDateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LancamentosFluxoCaixaList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Data" type="xs:int" />
+        <xs:element minOccurs="0" name="DataInicial" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DataFinal" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Origem" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Banco" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LancamentosFluxoCaixaListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Webservice" minOccurs="0" name="LancamentosFluxoCaixaListResult" nillable="true" type="q3:ArrayOfLancamentoFluxoCaixa" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LancamentosFluxoCaixaConciliado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Titulo" type="xs:int" />
+        <xs:element minOccurs="0" name="Lancamento" type="xs:int" />
+        <xs:element minOccurs="0" name="Sequencia" type="xs:int" />
+        <xs:element minOccurs="0" name="Debito" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Credito" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LancamentosFluxoCaixaConciliadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LancamentosFluxoCaixaConciliadoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

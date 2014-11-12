@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[ATIVIDADE] (
+    [ATIVIDADE_ID] NVARCHAR (30) NULL
+);
+

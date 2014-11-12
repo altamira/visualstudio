@@ -1,0 +1,410 @@
+﻿
+-------------------------------------------------------------------------------
+--pr_limpeza_tabelas_operacao_banco_novo_cliente
+-------------------------------------------------------------------------------
+--GBS Global Business Solution Ltda                                        2004
+-------------------------------------------------------------------------------
+--Stored Procedure : Microsoft SQL Server 2000
+--Autor(es)        : Carlos Cardoso Fernandes
+--                   Equipe de Consultores
+--                   Wilder, Salvatore, Fernando, Robson, Carlos e Márcio
+--Banco de Dados   : Egissql
+--Objetivo         : Limpeza automática de todas as tabelas
+--Data             : 21.06.2006
+--Alteração        : 21.06.2006
+------------------------------------------------------------------------------
+create procedure pr_limpeza_tabelas_operacao_banco_novo_cliente
+@cd_tabela int = 0
+
+as
+
+
+-- delete Produto_Imagem
+-- delete Produto_Desenho
+-- delete Produto
+-- delete Produto_Venda_Tipo_Pedido
+-- delete Produto_Garantia
+-- delete Produto_Valoracao
+-- delete Produto_Critico
+-- delete Produto_Cilindro
+-- delete Produto_Custo_Calculo_Temporario
+-- delete Produto_Fracionamento
+-- delete Produto_Fechamento
+-- delete Registro_Venda_Item
+-- delete Produto_Custo
+-- delete Produto_Grade
+-- delete Produto_Preco_Venda
+-- delete Produto_Informacao
+-- delete Produto_Caracteristica_Critica
+-- delete Produto_Orcamento_Componente
+-- delete Produto_Preco
+-- delete Produto_Contrato_Parcela
+-- delete Produto_Cemiterio
+-- delete Produto_Grade_Preco
+-- delete Produto_Contrato
+-- delete Produto_Parametro_Pesquisa
+-- delete Produto_Historico
+-- delete Produto_Orcamento
+-- delete Produto_Exportacao
+-- delete Produto_Compra
+-- delete Produto_Especificacao
+-- delete Produto_Fiscal_Observacao
+-- delete Produto_Contrato
+-- delete Produto_Localizacao
+-- delete Produto_Processo
+-- delete Produto_Inspecao
+-- delete Produto_Fiscal_Entrada
+-- delete Produto_Cliente
+-- delete Produto_Endereco
+-- delete Produto_Origem
+-- delete Produto_Kogo
+-- delete Produto_Entrega
+-- delete Produto_Orcamento_Furo
+-- delete Produto_Importacao
+-- delete Produto_Orcamento_Serie
+-- delete Produto_Composicao_Agrupamento
+-- delete Produto_Proposta
+-- delete Produto_Producao
+-- delete Produto_Sinonimo
+-- delete Produto_Mercado
+-- delete Produto_Saldo
+-- delete Produto_Custo_Item_Temporario
+-- delete Produto_Tecnica
+-- delete Produto_Literatura
+-- delete Produto_Fiscal
+-- delete Produto_Pcp
+-- delete Produto_Alternativo
+-- delete Produto_Consignacao
+-- delete Produto_Reposicao_Historico
+-- delete Produto_Idioma
+-- delete Produto_Composicao
+-- delete Produto_Contabilizacao
+-- delete Produto_Concorrente
+-- delete Produto_Grupo_Localizacao
+-- delete Produto_Agrupamento
+-- delete Produto_Composicao
+-- delete Produto_Embalagem
+-- delete Produto_Dominio
+-- delete Produto
+-- delete Movimento_Caixa_Composicao
+-- delete Invoice_Item
+-- delete Tabela_Preco_Produto
+-- delete Agente_Produto
+-- delete Produtos_Relatorio_Repnet
+-- delete Produto_Check_List
+-- delete Produto_Opiniao
+-- delete Produtora
+-- delete Produto_Autor
+-- delete Produto_Autor
+-- delete Produto_Objeto
+-- delete Produto_Script
+-- delete Produto_Apresentacao
+-- delete Produto_Registro
+-- delete Produto_Desenvolvimento
+-- delete Produto_Unidade_Medida
+-- delete produto
+-- delete Promocao_Produto
+-- delete Lista_Equipamento_Composicao
+-- delete Curso_Extracao
+-- delete Processo_Padrao_Produto
+-- delete Composicao_Standard_Material
+-- delete Processo_Producao_Adicao
+-- delete Processo_Padrao
+-- delete Processo_Padrao_Composicao
+-- delete Processo_Padrao_Teste
+-- delete Processo_Padrao_Embalagem
+-- delete Processo_Padrao_Fase
+-- delete Processo_Padrao_Texto
+-- delete Processo_Padrao_Revisao
+-- delete Processo_Producao_Revisao
+-- delete Processo_Producao_Componente
+-- delete Processo_Producao_Apontamento
+-- delete Processo_Producao_Texto
+-- delete Processo_Producao_Embalagem
+-- delete Processo_Producao_Composicao_Placa
+-- delete Processo_Producao_Parada
+-- delete Processo_Producao_Teste
+-- delete Processo_Producao_Adicao
+-- delete Processo_Producao_Composicao
+-- delete Processo_Producao_Fase_Apontamento
+-- delete Processo_Producao
+-- delete Carta_Correcao
+-- delete Carta_Correcao_Item
+-- delete Carta_Anuencia
+-- delete Carta_Anuencia_Composicao
+-- delete Documento_Receber
+-- truncate table Documento_Receber_Pagamento
+-- delete Documento_Receber_Desconto
+-- delete Documento_Receber_Centro_Custo
+-- delete Documento_Receber_Plano_Financ
+-- delete Documento_Receber_Historico
+-- delete Documento_Receber_Contabil
+-- delete Documento_Pagar_Pagamento
+-- delete Documento_Pagar_Cod_Barra
+-- delete Documento_Pagar_Centro_Custo
+-- delete Documento_Pagar_Doc
+-- delete Documento_Pagar_Plano_Financ
+-- delete Documento_Pagar_Contabil
+-- delete Documento_Pagar_Imposto
+-- delete Documento_Pagar
+-- delete Oficina
+-- delete Movimento_Veiculo
+-- delete Fornecedor
+-- delete Fornecedor_Agenda
+-- delete Fornecedor_Concorrente
+-- delete Fornecedor_Concorrente_Produto
+-- delete Fornecedor_Imposto_Produto
+-- delete Fornecedor_Servico
+-- delete Fornecedor_Licenca
+-- delete Fornecedor_Contato
+-- delete Fornecedor_Cone
+-- delete Fornecedor_Logotipo
+-- delete Fornecedor_Historico_Qualidade
+-- delete Fornecedor_Diversos
+-- delete Fornecedor_Historico
+-- delete Fornecedor_Servico_Preco
+-- delete Fornecedor_Produto_Preco
+-- delete Fornecedor_Produto
+-- delete Fornecedor_Iso
+-- delete Fornecedor_Perfil
+-- delete Fornecedor_Adiantamento
+-- delete Fornecedor_Acesso_Intranet
+-- delete Fornecedor_Sintegra
+-- delete Fornecedor_Informacao_Compra
+-- delete Fornecedor_Endereco
+-- delete Pedido_Importacao
+-- delete Pedido_Importacao_CartaCredito
+-- delete Pedido_Importacao_Documento
+-- delete Pedido_Importacao_Historico
+-- delete Pedido_Importacao_Frete
+-- delete Pedido_Importacao_Item
+-- delete Pedido_Importacao_Entreposto
+-- delete Pedido_Importacao_Seguro
+-- delete Pedido_Importacao_Despesa
+-- delete Pedido_Importacao_Texto
+-- delete Pedido_Importacao_Proforma
+-- delete Embarque_Importacao_Parcela
+-- delete Cliente_Concorrente
+-- delete Cliente_Foco_Rel_Diario_Repnet
+-- delete Cliente_Global
+-- delete Cliente_Coface
+-- delete Cliente_Adiantamento
+-- delete Cliente_Serie_Produto_Desconto
+-- delete Cliente_Licenca
+-- delete Cliente_Servico
+-- delete Cliente_Classificacao
+-- delete Cliente_Logotipo
+-- delete Cliente_Fornecedor
+-- delete Cliente_Prospeccao_Contato
+-- delete Cliente_Foco_Progresso
+-- delete Cliente_Cliente
+-- delete Cliente_Acesso_Intranet
+-- delete Cliente_Informacao_Cadastro
+-- delete Cliente_Perfil
+-- delete Cliente_Diversos
+-- delete Cliente_Autorizacao
+-- delete Cliente_Veiculo
+-- delete Cliente_Produto_Preco
+-- delete Cliente_Sintegra
+-- delete Cliente_Prospeccao_Campanha
+-- delete Cliente_Pais
+-- delete Cliente_Suporte
+-- delete Cliente_Prospeccao_Historico
+-- delete Cliente_Prospeccao
+-- delete Prospeccao
+-- delete Visita
+-- delete Pos_Venda
+-- delete Cliente_Tipo_Pessoa
+-- delete Cliente_Historico_Cobranca
+-- delete Cliente_Preco
+-- delete Cliente_Historico
+-- delete Cliente_Produto_Preco_Reajuste
+-- delete Cliente_Conceito
+-- delete Cliente_Concorrente
+-- delete Cliente_Agenda
+-- delete Cliente_Conceito
+-- delete Cliente_Tipo_Informacao
+-- delete Cliente_Contato
+-- delete Cliente_Endereco
+-- delete Cliente_Vendedor
+-- delete Cliente_Classe
+-- delete Cliente_Fase
+-- delete Cliente_Regiao
+-- delete Cliente_Concorrente
+-- delete Cliente_Substituicao_Tributari
+-- delete Cliente_Especificacao_Tecnica
+-- delete Cliente_Grupo
+-- delete Cliente_Registro
+-- delete Cliente_Cemiterio_Financeiro
+-- delete Cliente_Cemiterio_Composicao
+-- delete Cliente_Referencia
+-- delete Analista_Adiantamento
+-- delete Tabela_Preco_Cliente
+-- delete reserva_programacao
+-- delete Recibo
+-- delete Nota_Debito_Despesa
+-- delete Parametro_Loja
+-- delete Informacao_Maquina
+-- delete Informacao_Maquina_Composicao
+-- delete Lista_Equipamento
+-- delete Relatorio_Produto_Check
+-- delete Ordem_Servico
+-- delete Contrato_Servico
+-- delete Relatorio_Diario_Vendas
+-- delete remessa
+-- delete Contrato_Fornecimento
+-- delete Carga_Maquina_Reserva
+-- delete Ordem_Servico_Analista
+-- delete Produto_Opiniao
+-- delete Cliente_Conceito
+-- delete Cliente_Informacao_Credito
+-- delete Nota_Entrada_Item
+-- delete Nota_Entrada_Registro
+-- delete Nota_Entrada_Contabil
+-- delete Nota_Entrada_Peps
+-- delete Nota_Entrada
+-- delete Nota_Entrada_Retencao_Imposto
+-- delete Nota_Entrada_Parcela
+-- delete Nota_Entrada_Item_Registro
+-- delete Nota_Saida
+-- delete Nota_Saida_Complemento
+-- delete Nota_Saida_Item
+-- delete Nota_Saida_Endereco_Entrega
+-- delete Nota_Saida_Item_Lote
+-- delete nota_saida_item_devolucao
+-- delete Nota_Saida_Item_Registro
+-- delete Nota_Saida_Registro
+-- delete Nota_Saida_Devolucao
+-- delete Nota_Saida_Cond_Pagto
+-- delete Nota_Saida_Parcela
+-- delete Nota_Saida_Entrada_Item
+-- delete Nota_Saida_Entrada
+-- delete Nota_Saida_Entrega
+-- delete Nota_Saida_Contabil
+-- delete Nota_Saida_Credito
+-- delete Pedido_Compra_Follow
+-- delete Pedido_Compra_Aprovacao
+-- delete Pedido_Compra_Historico
+-- delete Pedido_Compra_Item
+-- delete Pedido_Compra
+-- delete Avaliacao_Ambiental_Requisito
+-- delete Veiculo_Operacao
+-- delete Requisicao_Viagem
+-- delete Requisicao_Viagem_Composicao
+-- delete Requisicao_Viagem_Prestacao
+-- delete Requisicao_Vaga
+-- delete Requisicao_Treinamento
+-- delete Requisicao_Manutencao
+-- delete Requisicao_Manutencao_Composicao
+-- delete Requisito_Legal
+-- delete Requisicao_Viagem
+-- delete Requisicao_Viagem_Aprovacao
+-- delete Requisicao_Compra
+-- delete Requisicao_Vaga_Composicao
+-- delete Requisicao_Fabricacao
+-- delete Requisicao_Fabricacao_Item
+-- delete Requisicao_Interna_Item
+-- delete Requisicao_Compra_Fornecedor
+-- delete Requisicao_Treinamento_Composicao
+-- delete Requisicao_Interna
+-- delete Requisicao_Faturamento_Item
+-- delete Requisicao_Compra_Item
+-- delete Requisicao_Compra_Aprovacao
+-- delete Requisicao_Faturamento
+-- delete cotacao
+-- delete cotacao_item
+-- delete Pedido_Venda
+-- truncate table Pedido_Venda_Item_Historico_Custo
+-- truncate table Pedido_Venda_Impressao
+-- truncate table Pedido_Venda_Estrutura_Venda
+-- truncate table Pedido_Venda_Item_Lote
+-- truncate table Pedido_Venda_Item_Especial
+-- truncate table Pedido_Venda_Item_Observacao
+-- truncate table Pedido_Venda_Parcela
+-- truncate table Pedido_Venda_Item_SMO
+-- truncate table Pedido_Venda_Historico
+-- truncate table Pedido_Venda_Cond_Pagto
+-- truncate table Pedido_Venda_Item_Embalagem
+-- truncate table Pedido_Venda_Item_Grade
+-- truncate table Pedido_Venda_SMO
+-- truncate table Pedido_Venda_Agrupamento
+-- truncate table Pedido_Venda_Documento
+-- truncate table Pedido_Venda_Item_Acessorio
+-- truncate table Pedido_Venda_Composicao
+-- truncate table pedido_venda_programacao
+-- delete Pedido_Venda_Item
+-- truncate table Pedido_Venda_Item_Desconto
+-- truncate table Pedido_Venda_Exportacao
+-- delete Processo_Producao
+-- delete Processo_Producao_Apontamento
+-- delete Previa_Faturamento_Composicao
+-- delete Consulta_Item_Lote
+-- delete Consulta
+-- delete Consulta_Item_Orcamento_Furo
+-- delete Consulta_Historico
+-- delete Consulta_Cond_Pagto
+-- delete Consulta_Item_Orcamento_Categoria
+-- delete Consulta_Exportacao
+-- delete Consulta_Item_Composicao
+-- delete Consulta_Negociacao
+-- delete Consulta_Item_Servico_Externo
+-- delete Consulta_Caract_Tecnica_CQ
+-- delete Consulta_Item_Orcamento
+-- delete Consulta_Item_Orcamento_Alojamento
+-- delete Consulta_Dinamica_Item
+-- delete Consulta_Item_Observacao
+-- delete Consulta_Parcela
+-- delete Consulta_Item_Orcamento_Servico_Manual
+-- delete Consulta_Item_Texto
+-- delete Consulta_Itens
+-- delete Consulta_Itens_Acessorio
+-- delete Consulta_Item_Orcamento_Refrigeracao
+-- delete Consulta_Item_Embalagem
+-- delete Consulta_Contato
+-- delete Consulta_Item_Orcamento_Bucha_Coluna
+-- delete Consulta_Documento
+-- delete Consulta_Itens_Grade
+-- delete Consulta_Item_Componente
+-- delete Consulta_Dinamica
+-- delete Consulta_Item_Orcamento_Furo_Adicional
+-- delete Consulta_Itens_Desconto
+-- delete Consulta_Item_Perda
+-- delete grupo_produto 
+-- delete Promocao_Grupo_Produto
+-- delete cor
+-- delete Padrao_Cor
+-- delete grupo_produto_custo 
+-- delete Categoria_Orcamento_Grupo
+-- delete Serie_Produto_Especificacao
+-- delete grupo_categoria
+-- delete categoria_produto
+-- delete Sub_Produto_Especial
+-- delete agrupamento_produto
+-- delete Serie_Produto_Categoria
+-- delete vendedor
+-- delete Divisao_Regiao
+-- delete Meta_Prospeccao_Vendedor
+-- delete loja_vendedor
+-- delete Movimento_Caixa
+-- delete Reembolso_Despesa
+-- delete Operador_Telemarketing
+-- delete Movimento_Venda
+-- delete Abertura_Caixa
+-- delete Terminal_Caixa_Operador
+-- delete comissao
+-- delete Projeto
+-- delete Projeto_Apontamento
+-- delete Projeto_Composicao
+-- delete Projeto_Composicao_Material
+-- delete Projeto_Documento
+-- delete Projeto_Material
+-- delete Projeto_Revisao
+-- delete Projeto_Sistema
+-- delete Agenda_Viagem
+-- delete Projeto_viagem_composicao
+-- delete Projeto_Viagem
+-- delete Registro_OS
+-- delete cliente
+-- delete Cliente_Informacao_Credito
+
+

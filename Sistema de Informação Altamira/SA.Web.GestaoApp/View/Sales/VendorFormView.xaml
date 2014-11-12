@@ -1,0 +1,66 @@
+﻿<controls:ChildWindow x:Class="GestaoApp.View.Sales.VendorFormView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:control="clr-namespace:GestaoApp.Controls"
+           Width="700" Height="500" 
+           Title="Representantes">
+    
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+        
+        <sdk:TabControl Name="SalesVendorTab" Margin="5, 5, 5, 5">
+            <sdk:TabItem Header="Informações Básicas">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <input:ValidationSummary />
+                    
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,14,0,0" Text="Código" VerticalAlignment="Center" Width="78" />
+                    <TextBox Name="CodeTextBox" Grid.Row="1" Height="23" Width="90" Margin="90,5,280,0" Text="{Binding Path=SelectedItem.Code, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Center" />
+
+                    <TextBlock Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="6,14,0,0" Text="Nome" VerticalAlignment="Top" Width="78" />
+                    <TextBox Name="NameTextBox" Grid.Row="2" Height="23" Margin="90,5,6,0" Text="{Binding Path=SelectedItem.Name, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="364" />
+
+                    <control:SearchGridView Title="Telefones" Grid.Row="3" DataContext="{Binding FoneViewModel}" />
+
+                    <control:SearchListView Title="Emails" Grid.Row="4" DataContext="{Binding EmailViewModel}" />
+                </Grid>
+            </sdk:TabItem>
+            <!--<sdk:TabItem Header="Endereços">
+                <control:SearchGridView Title="Endereços" Grid.Row="2" DataContext="{Binding AddressViewModel}" />
+            </sdk:TabItem>-->
+            <!--<sdk:TabItem Header="Pessoas de Contatos">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <control:SearchGridView Title="Pessoas de Contato" Grid.Row="0" DataContext="{Binding PersonViewModel}" />
+
+                    <control:SearchGridView Title="Telefones" Grid.Row="1" DataContext="{Binding PersonViewModel.FoneViewModel}" />
+
+                    <control:SearchListView Title="Emails" Grid.Row="2" DataContext="{Binding PersonViewModel.EmailViewModel}" />
+                </Grid>
+            </sdk:TabItem>-->
+        </sdk:TabControl>
+        <Border Grid.Row="1" BorderBrush="{StaticResource DefaultBorderColor}" BorderThickness="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="SaveButton" Content="Gravar" Width="75" Height="25" Margin="5" Click="SaveButton_Click" />
+                <Button x:Name="CancelButton" Content="Cancelar" Width="75" Height="25" Margin="5" Click="CancelButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</controls:ChildWindow>

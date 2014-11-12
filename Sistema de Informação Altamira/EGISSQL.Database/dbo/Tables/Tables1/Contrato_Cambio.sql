@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Contrato_Cambio] (
+    [cd_contrato_cambio]       INT          NOT NULL,
+    [dt_contrato_cambio]       DATETIME     NULL,
+    [cd_ref_contrato_cambio]   INT          NOT NULL,
+    [cd_banco]                 INT          NULL,
+    [cd_agencia_banco]         INT          NULL,
+    [Exportador]               INT          NULL,
+    [nm_ref_banco_contrato]    VARCHAR (20) NULL,
+    [cd_corretora_cambio]      INT          NULL,
+    [cd_moeda]                 INT          NULL,
+    [vl_contrato_cambio]       FLOAT (53)   NULL,
+    [pc_cambial_contrato]      FLOAT (53)   NULL,
+    [pc_juros_contrato]        FLOAT (53)   NULL,
+    [vl_saldo_contrato_cambio] FLOAT (53)   NULL,
+    [dt_credito_contrato]      DATETIME     NULL,
+    [dt_prevista_liquidacao]   DATETIME     NULL,
+    [dt_prev_documento]        DATETIME     NULL,
+    [cd_tipo_contrato_cambio]  INT          NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [nm_obs_contrato_cambio]   VARCHAR (40) NULL,
+    CONSTRAINT [PK_Contrato_Cambio] PRIMARY KEY CLUSTERED ([cd_contrato_cambio] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Contrato_Cambio_Tipo_Contrato_Cambio] FOREIGN KEY ([cd_tipo_contrato_cambio]) REFERENCES [dbo].[Tipo_Contrato_Cambio] ([cd_tipo_contrato_cambio])
+);
+

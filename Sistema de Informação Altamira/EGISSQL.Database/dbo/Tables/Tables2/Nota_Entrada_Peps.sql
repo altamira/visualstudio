@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Nota_Entrada_Peps] (
+    [cd_movimento_estoque]      INT          NOT NULL,
+    [cd_produto]                INT          NOT NULL,
+    [cd_fornecedor]             INT          NOT NULL,
+    [cd_documento_entrada_peps] VARCHAR (30) NOT NULL,
+    [cd_item_documento_entrada] INT          NOT NULL,
+    [qt_entrada_peps]           FLOAT (53)   NOT NULL,
+    [vl_preco_entrada_peps]     FLOAT (53)   NULL,
+    [vl_custo_total_peps]       FLOAT (53)   NULL,
+    [qt_valorizacao_peps]       FLOAT (53)   NULL,
+    [vl_custo_valorizacao_peps] FLOAT (53)   NULL,
+    [vl_fob_entrada_peps]       FLOAT (53)   NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [dt_documento_entrada_peps] DATETIME     NULL,
+    [cd_fase_produto]           INT          NULL,
+    [cd_controle_nota_entrada]  INT          NULL,
+    [dt_controle_nota_entrada]  DATETIME     NULL,
+    [ic_tipo_lancamento]        CHAR (1)     NULL,
+    [qt_peso_entrada_peps]      FLOAT (53)   NULL,
+    [cd_operacao_fiscal]        INT          NULL,
+    [cd_nota_entrada]           INT          NULL,
+    [qt_valoracao_peps_peso]    FLOAT (53)   NULL,
+    CONSTRAINT [PK_Nota_Entrada_Peps] PRIMARY KEY CLUSTERED ([cd_movimento_estoque] ASC) WITH (FILLFACTOR = 90)
+);
+

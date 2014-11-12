@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="GestaoApp.Controls.SearchGridView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:action="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:triggers="clr-namespace:GestaoApp.Behaviors.Triggers"
+    xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+    xmlns:viewmodel="clr-namespace:GestaoApp.ViewModel"
+    xmlns:controls="clr-namespace:GestaoApp.Controls"  
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <!--<helpers:ConvertBoolToVisibility x:Key="ConvertBoolToVisibility" />-->
+        <!--<helpers:ConvertDataRow x:Key="ConvertDataRow" />-->
+        <!--<helpers:Base64ImageConverter x:Key="Base64ImageConverter" />-->
+        <!--<viewmodel:SearchViewModel x:Key="SearchViewModel" />-->
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Border Style="{StaticResource WindowBorderStyle}" Grid.Column="0" Margin="5, 5, 5, 5" >
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                        <TextBlock Name="TitleTextBox" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+
+                <controls:CommandBar Grid.Row="1" />
+
+                <telerik:RadGridView Name="SelectGrid" BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" >
+                    <action:Interaction.Triggers>
+                        <triggers:RadGridViewRowMouseDoubleClickTrigger>
+                            <triggers:RadGridViewRowMouseDoubleClickTrigger.Actions>
+                                <action:InvokeCommandAction Command="{Binding Path=EditCommand}" />
+                            </triggers:RadGridViewRowMouseDoubleClickTrigger.Actions>
+                        </triggers:RadGridViewRowMouseDoubleClickTrigger>
+                    </action:Interaction.Triggers>
+                </telerik:RadGridView>
+
+                <!--<sdk:DataPager Source="{Binding ElementName=SelectListBox, Path=Items}" PageSize="20" Grid.Row="4" BorderThickness="0" Name="DataPager" />-->
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
+

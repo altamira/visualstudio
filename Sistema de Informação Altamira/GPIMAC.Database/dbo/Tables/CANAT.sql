@@ -1,0 +1,36 @@
+﻿CREATE TABLE [dbo].[CANAT] (
+    [COCOD]       CHAR (6)   NOT NULL,
+    [CONOM]       CHAR (70)  NULL,
+    [COICM]       CHAR (1)   NULL,
+    [COIPI]       CHAR (1)   NULL,
+    [COEST]       CHAR (1)   NULL,
+    [TRACOD]      CHAR (6)   NULL,
+    [COTIP]       CHAR (2)   NULL,
+    [COICMST]     CHAR (1)   NULL,
+    [COPISCOFINS] CHAR (1)   NULL,
+    [COFIN]       SMALLINT   NULL,
+    [COPISCST]    CHAR (2)   NULL,
+    [COCOFCST]    CHAR (2)   NULL,
+    [COCOS]       CHAR (1)   NULL,
+    [COCGNRE]     SMALLMONEY NULL,
+    [COICMCSTISE] CHAR (2)   NULL,
+    [CoCacodi]    SMALLINT   NULL,
+    [COIPICST]    CHAR (2)   NULL,
+    PRIMARY KEY CLUSTERED ([COCOD] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICANATB]
+    ON [dbo].[CANAT]([TRACOD] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCANATA]
+    ON [dbo].[CANAT]([CONOM] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICANATC]
+    ON [dbo].[CANAT]([CoCacodi] ASC);
+

@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[PRE_OrçamentoLink] (
+    [ORCNUM]    CHAR (8)     NOT NULL,
+    [SITCOD]    INT          NULL,
+    [ORCALTDTH] DATETIME     NULL,
+    [CLIENTE]   VARCHAR (50) NULL,
+    [SELECIONA] CHAR (1)     NULL,
+    CONSTRAINT [PK_PRE_OrçamentoLink] PRIMARY KEY NONCLUSTERED ([ORCNUM] ASC) WITH (FILLFACTOR = 90)
+);
+

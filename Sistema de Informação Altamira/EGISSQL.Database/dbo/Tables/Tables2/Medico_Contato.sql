@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Medico_Contato] (
+    [cd_medico]                INT           NOT NULL,
+    [cd_contato_medico]        INT           NOT NULL,
+    [nm_contato_medico]        VARCHAR (40)  NULL,
+    [cd_usuario]               INT           NULL,
+    [dt_usuario]               DATETIME      NULL,
+    [nm_fantasia_contato]      VARCHAR (15)  NULL,
+    [cd_ddd_contato_medico]    CHAR (4)      NULL,
+    [cd_telefone_contato]      VARCHAR (15)  NULL,
+    [cd_fax_contato]           VARCHAR (15)  NULL,
+    [cd_celular]               VARCHAR (15)  NULL,
+    [cd_ddd_celular]           VARCHAR (4)   NULL,
+    [cd_ramal]                 VARCHAR (10)  NULL,
+    [cd_email_contato_medico]  VARCHAR (100) NULL,
+    [ds_observacao_contato]    TEXT          NULL,
+    [dt_nascimento_contato]    DATETIME      NULL,
+    [ic_status_contato_medico] CHAR (1)      NULL,
+    [cd_tratamento_pessoa]     INT           NULL,
+    [nm_departamento_medico]   VARCHAR (40)  NULL,
+    [nm_setor_medico]          VARCHAR (40)  NULL,
+    [nm_cargo_medico]          VARCHAR (40)  NULL,
+    CONSTRAINT [PK_Medico_Contato] PRIMARY KEY CLUSTERED ([cd_medico] ASC, [cd_contato_medico] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Medico_Contato_Medico] FOREIGN KEY ([cd_medico]) REFERENCES [dbo].[Medico] ([cd_medico]),
+    CONSTRAINT [FK_Medico_Contato_Tratamento_Pessoa] FOREIGN KEY ([cd_tratamento_pessoa]) REFERENCES [dbo].[Tratamento_Pessoa] ([cd_tratamento])
+);
+

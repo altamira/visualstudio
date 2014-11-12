@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="GestaoApp.Controls.Address"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+    mc:Ignorable="d"
+    d:DesignHeight="250" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <helpers:Base64ImageConverter x:Key="Base64ImageConverter" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Border BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width=".33*"></ColumnDefinition>
+                    <ColumnDefinition Width=".33*"></ColumnDefinition>
+                    <ColumnDefinition Width=".34*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="0" Text="Rua" />
+                <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin="5" Grid.Row="0" Text="{Binding Mode=TwoWay, Path=Street, ValidatesOnDataErrors=True}" MinHeight="3" MaxLength="50" IsEnabled="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToBool}}"/>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="1" Text="Número" />
+                <TextBox Grid.Column="1" Margin="5" Grid.Row="1" Text="{Binding Number, Mode=TwoWay}" MinHeight="3" MaxLength="50" IsEnabled="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToBool}}"/>
+                <TextBlock Grid.Column="2" Margin="5" Grid.Row="1" Text="Complemento" />
+                <TextBox Grid.Column="3" Grid.ColumnSpan="3" Margin="5" Grid.Row="1" Text="{Binding Complement, Mode=TwoWay}" MinHeight="3" MaxLength="50" IsEnabled="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToBool}}"/>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="2" Text="Bairro" />
+                <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin="5" Grid.Row="2" Text="{Binding District, Mode=TwoWay}" MaxLength="50" IsEnabled="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToBool}}"/>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="3" Text="CEP" />
+                <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin="5" Grid.Row="3" Text="{Binding PostalCode, Mode=TwoWay}" MinHeight="8" MaxLength="8" IsEnabled="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToBool}}"/>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="4" Text="Cidade" />
+                <Grid Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="5" DataContext="{Binding City}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">
+                        <TextBlock Text="{Binding Value, Mode=TwoWay}"/>
+                    </Border>
+                    <Button Content="..." Command="{Binding SelectCommand}" Visibility="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToVisibility}}" Width="30" HorizontalAlignment="Right" />
+                </Grid>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="5" Text="Estado" />
+                <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Margin="5" DataContext="{Binding State}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Flag, Converter={StaticResource Base64ImageConverter}}" Height="22" />
+                    <Border Margin="5,0,0,0" Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">
+                        <TextBlock Text="{Binding Value, Mode=TwoWay}" />
+                    </Border>
+                    <!--<Button Content="..." Grid.Column="1" Command="{Binding SelectCommand}" Visibility="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToVisibility}}" Width="30" HorizontalAlignment="Right" />-->
+                </Grid>
+                <TextBlock Grid.Column="0" Margin="5" Grid.Row="6" Text="País" />
+                <Grid Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Margin="5" DataContext="{Binding Country}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Flag, Converter={StaticResource Base64ImageConverter}}" Height="22" />
+                    <Border Margin="5,0,0,0" Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">
+                        <TextBlock Text="{Binding Value, Mode=TwoWay}" />
+                    </Border>
+                    <!--<Button Content="..." Grid.Column="1" Command="{Binding SelectCommand}" Visibility="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToVisibility}}" Width="30" HorizontalAlignment="Right" />-->
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

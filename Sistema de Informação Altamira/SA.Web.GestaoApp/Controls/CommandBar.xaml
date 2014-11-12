@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="GestaoApp.Controls.CommandBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:action="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"  
+    xmlns:triggers="clr-namespace:GestaoApp.Behaviors.Triggers" 
+    xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+    mc:Ignorable="d"
+    d:DesignHeight="30" Height="30" Width="Auto" d:DesignWidth="400" >
+
+    <UserControl.Resources>
+        <helpers:ConvertBoolToVisibility x:Key="ConvertBoolToVisibility" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="#4000CFFC" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+            <telerik:RadButton Name="AddButton" Style="{StaticResource ButtonBarStyle}" Margin="5, 0, 1, 0" Command="{Binding AddCommand, Mode=TwoWay}" Visibility="{Binding CanAdd, Mode=TwoWay, Converter={StaticResource ConvertBoolToVisibility}}" >
+                <Button.Content>
+                    <Image Source="/GestaoApp;component/Images/IconMSOffice/32/newplus.png" Width="22" Height="22" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Incluir..."></ToolTip>
+                </ToolTipService.ToolTip>
+            </telerik:RadButton>
+            <telerik:RadButton Name="EditButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Command="{Binding EditCommand, Mode=TwoWay}" Visibility="{Binding CanEdit, Mode=TwoWay, Converter={StaticResource ConvertBoolToVisibility}}" >
+                <Button.Content>
+                    <Image Source="/GestaoApp;component/Images/IconMSOffice/ApplicationMenu/Prepare32.png" Width="22" Height="22" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Alterar..."></ToolTip>
+                </ToolTipService.ToolTip>
+            </telerik:RadButton>
+            <telerik:RadButton Name="SaveButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Command="{Binding SaveCommand, Mode=TwoWay}" Visibility="{Binding CanSave, Mode=TwoWay, Converter={StaticResource ConvertBoolToVisibility}}" >
+                <Button.Content>
+                    <Image Source="/GestaoApp;component/Images/IconMSOffice/32/save.png" Width="22" Height="22" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Gravar..."></ToolTip>
+                </ToolTipService.ToolTip>
+            </telerik:RadButton>
+            <telerik:RadButton Name="DeleteButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Command="{Binding DeleteCommand, Mode=TwoWay}" Visibility="{Binding CanDelete, Mode=TwoWay, Converter={StaticResource ConvertBoolToVisibility}}" >
+                <Button.Content>
+                    <Image Source="/GestaoApp;component/Images/IconMSOffice/32/delete.png" Width="22" Height="22" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Excluir..."></ToolTip>
+                </ToolTipService.ToolTip>
+            </telerik:RadButton>
+            <!--<telerik:RadButton Name="PrintButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Command="{Binding PrintCommand, Mode=TwoWay}" CommandParameter="{Binding ElementName=SelectDataPager}" Visibility="{Binding CanPrint, Mode=TwoWay, Converter={StaticResource ConvertBoolToVisibility}}" >
+                <Button.Content>
+                    <Image Source="/GestaoApp;component/Images/IconMSOffice/32/print.png" Width="22" Height="22" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Imprimir..."></ToolTip>
+                </ToolTipService.ToolTip>
+            </telerik:RadButton>-->
+            <telerik:RadButton Name="ResetPasswordButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Command="{Binding ResetPasswordCommand, Mode=TwoWay}" CommandParameter="{Binding ElementName=SelectDataPager}" Visibility="{Binding CanResetPassword, Mode=TwoWay, Converter={StaticResource ConvertBoolToVisibility}}" >
+                <Button.Content>
+                    <Image Source="/GestaoApp;component/Images/IconMSOffice/32/protectform.png" Width="22" Height="22" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Limpar Senha"></ToolTip>
+                </ToolTipService.ToolTip>
+            </telerik:RadButton>           
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="Auto" Visibility="{Binding CanSearch, Converter={StaticResource ConvertBoolToVisibility}}" >
+            <TextBlock Text="Busca:" VerticalAlignment="Center" />
+            <TextBox x:Name="SearchTextBox" Height="20" Width="90" Margin="5, 0, 0, 0" Padding="0" Text="{Binding SearchString, Mode=TwoWay}" TextChanged="TextBox_UpdateBinding">
+                <action:Interaction.Triggers>
+                    <action:EventTrigger EventName="KeyUp">
+                        <action:InvokeCommandAction Command="{Binding SearchChangedCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text}" />
+                    </action:EventTrigger>
+                </action:Interaction.Triggers>
+            </TextBox>
+            <telerik:RadButton x:Name="SearchButton" Width="21" Height="20" Margin="-1, 0, 5, 0" Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" BorderBrush="#FF6593D9" CornerRadius="0" BorderThickness="1">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Border.Background>
+                                <ImageBrush ImageSource="/GestaoApp;component/Images/search.png"/>
+                            </Border.Background>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </telerik:RadButton>
+        </StackPanel>
+    </Grid>
+</UserControl>

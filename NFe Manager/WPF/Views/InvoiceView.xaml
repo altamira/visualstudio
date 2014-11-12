@@ -1,0 +1,230 @@
+﻿<RibbonWindow x:Class="WPF.Views.InvoiceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel"
+        xmlns:converter="clr-namespace:WPF.Converters"
+        xmlns:enum="clr-namespace:ViewModel.Enums;assembly=ViewModel"
+        Title="MainWindow" Height="486.842" Width="805.263" >
+
+    <RibbonWindow.Resources>
+        <viewmodel:InvoiceViewModel x:Key="InvoiceViewModel" />
+        
+        <converter:OrderByToBoolConverter x:Key="OrderByToBoolConverter"/>
+        <converter:GroupByToBoolConverter x:Key="GroupByToBoolConverter"/>
+        <converter:ExportToBoolConverter x:Key="ExportToBoolConverter"/>
+        <converter:TypeToStringConverter x:Key="TypeToStringConverter" />
+        <converter:StatusToStringConverter x:Key="StatusToStringConverter" />
+
+        <Style x:Key="RightAlignStyle">
+            <Setter Property="Control.HorizontalAlignment" Value="Right" />
+        </Style>
+
+        <Style x:Key="CenterAlignStyle">
+            <Setter Property="Control.HorizontalAlignment" Value="Center" />
+        </Style>
+        
+        <Style x:Key="GroupHeaderStyle" TargetType="{x:Type GroupItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                        <Expander x:Name="exp" IsExpanded="True" Background="White" Foreground="Black">
+                            <Expander.Header>
+                                <TextBlock Text="{Binding Sender}" />
+                            </Expander.Header>
+                        </Expander>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </RibbonWindow.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource InvoiceViewModel}}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+            
+        <Ribbon>
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Collapsed" />
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab Header="Recebimento">
+                <RibbonGroup Header="Autorização de Recebimento">
+                    <RibbonButton Label="Atualizar"  LargeImageSource="/Images/analysis_5_32x32x32.png" Command="{Binding GetInvoicesCommand}" IsEnabled="{Binding CanGetInvoices}" />
+                    <RibbonButton Label="Autorizar"  LargeImageSource="/Images/Select_2_32x32x32.png" Command="{Binding AcceptInvoiceCommand}" IsEnabled="{Binding CanAcceptInvoice}" />
+                    <RibbonButton Label="Desautorizar" LargeImageSource="/Images/Stop_2_32x32x32.png" Command="{Binding RejectInvoiceCommand}" IsEnabled="{Binding CanRejectInvoice}" />
+                </RibbonGroup>
+            </RibbonTab>
+            
+            <RibbonTab Header="Localizar">
+                <RibbonGroup>
+                    <RibbonButton Label="Localizar" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png"/>
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab Header="Visualizar">
+                <RibbonGroup Header="Agrupar">
+                    <RibbonToggleButton Label="Data de Emissão" LargeImageSource="/Images/calendar-selection-day_5_32x32x32.png" IsChecked="{Binding GroupBy, Converter={StaticResource GroupByToBoolConverter}, ConverterParameter={x:Static enum:GroupBy.Receipt}}" />
+                    <RibbonToggleButton Label="Emitente" LargeImageSource="/Images/Profile_2_32x32x32.png" IsChecked="{Binding GroupBy, Converter={StaticResource GroupByToBoolConverter}, ConverterParameter={x:Static enum:GroupBy.Date}}" />
+                    <RibbonToggleButton Label="Destinatário" LargeImageSource="/Images/About-me_5_32x32x32.png" IsChecked="{Binding GroupBy, Converter={StaticResource GroupByToBoolConverter}, ConverterParameter={x:Static enum:GroupBy.Sender}}" />
+                    <RibbonToggleButton Label="Tipo" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png" IsChecked="{Binding GroupBy, Converter={StaticResource GroupByToBoolConverter}, ConverterParameter={x:Static enum:GroupBy.Type}}" />
+                    <RibbonToggleButton Label="Situação" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png" IsChecked="{Binding GroupBy, Converter={StaticResource GroupByToBoolConverter}, ConverterParameter={x:Static enum:GroupBy.Status}}" />
+                </RibbonGroup>
+                <RibbonGroup Header="Ordenar">
+                    <RibbonToggleButton Label="Data de Emissão" LargeImageSource="/Images/calendar-selection-day_5_32x32x32.png" IsChecked="{Binding OrderBy, Converter={StaticResource OrderByToBoolConverter}, ConverterParameter={x:Static enum:OrderBy.Date}}" />
+                    <RibbonToggleButton Label="Número" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png" IsChecked="{Binding OrderBy, Converter={StaticResource OrderByToBoolConverter}, ConverterParameter={x:Static enum:OrderBy.Number}}" />
+                    <RibbonToggleButton Label="Emitente" LargeImageSource="/Images/Profile_2_32x32x32.png" IsChecked="{Binding OrderBy, Converter={StaticResource OrderByToBoolConverter}, ConverterParameter={x:Static enum:OrderBy.Sender}}" />
+                    <RibbonToggleButton Label="Destinatário" LargeImageSource="/Images/About-me_5_32x32x32.png" IsChecked="{Binding OrderBy, Converter={StaticResource OrderByToBoolConverter}, ConverterParameter={x:Static enum:OrderBy.Receipt}}" />
+                    <RibbonToggleButton Label="Valor" LargeImageSource="/Images/supplies_7_32x32x32.png" IsChecked="{Binding OrderBy, Converter={StaticResource OrderByToBoolConverter}, ConverterParameter={x:Static enum:OrderBy.Value}}" />
+                    <RibbonToggleButton Label="Tipo" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png" IsChecked="{Binding OrderBy, Converter={StaticResource OrderByToBoolConverter}, ConverterParameter={x:Static enum:OrderBy.Type}}" />
+                </RibbonGroup>
+                <RibbonGroup Header="Filtrar">
+                    <RibbonSplitButton Label="Data de Emissão" LargeImageSource="/Images/calendar-selection-day_5_32x32x32.png" >
+                        <RibbonGallery ScrollViewer.CanContentScroll="False">
+                            <Grid Width="100" Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" />
+                                <ListBox Grid.Row="1" ItemsSource="{Binding Dates}" >
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding Date, StringFormat={}{0:d}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Button Grid.Row="2" Content="OK" Width="30" HorizontalAlignment="Right" />
+                            </Grid>
+                        </RibbonGallery>
+                    </RibbonSplitButton>
+                    <RibbonSplitButton Label="Número" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png" >
+                        <RibbonGallery>
+                            <Grid Width="100">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" />
+                                <ListBox Grid.Row="1" ItemsSource="{Binding Numbers}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding Number, StringFormat={}{0:D8}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Button Grid.Row="2" Content="OK" Width="20" HorizontalAlignment="Right" />
+                            </Grid>
+                        </RibbonGallery>
+                    </RibbonSplitButton>
+                    <RibbonSplitButton Label="Emitente" LargeImageSource="/Images/Profile_2_32x32x32.png" >
+                        <RibbonGallery>
+                            <Grid Width="100">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" />
+                                <ListBox Grid.Row="1" ItemsSource="{Binding Senders}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding Sender}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Button Grid.Row="2" Content="OK" Width="20" HorizontalAlignment="Right" />
+                            </Grid>
+                        </RibbonGallery>
+                    </RibbonSplitButton>
+                    <RibbonSplitButton Label="Destinatário" LargeImageSource="/Images/About-me_5_32x32x32.png" >
+                        <RibbonGallery>
+                            <Grid Width="100">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" />
+                                <ListBox Grid.Row="1" ItemsSource="{Binding Receipts}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding Receipt}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Button Grid.Row="2" Content="OK" Width="20" HorizontalAlignment="Right" />
+                            </Grid>
+                        </RibbonGallery>
+                    </RibbonSplitButton>
+                    <RibbonSplitButton Label="Tipo" LargeImageSource="/Images/About-me_5_32x32x32.png" >
+                        <RibbonGallery>
+                            <Grid Width="100">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" />
+                                <ListBox Grid.Row="1" ItemsSource="{Binding Types}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding Type, Converter={StaticResource TypeToStringConverter}}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <Button Grid.Row="2" Content="OK" Width="20" HorizontalAlignment="Right" />
+                            </Grid>
+                        </RibbonGallery>
+                    </RibbonSplitButton>
+                </RibbonGroup>
+            </RibbonTab>
+            
+            <RibbonTab Header="Impressão">
+                <RibbonGroup>
+                    <RibbonButton Label="DANFE" />
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab Header="Exportar">
+
+                <RibbonGroup Header="Opções">
+                    <RibbonCheckBox Label="Compactar arquivo(s)" IsChecked="{Binding Compact}" />
+                    <RibbonCheckBox Label="Enviar por e-mail" IsChecked="{Binding ExportTo, Converter={StaticResource ExportToBoolConverter}, ConverterParameter={x:Static enum:ExportTo.Mail}}" />
+                    <RibbonCheckBox Label="Gerar em arquivo" IsChecked="{Binding ExportTo, Converter={StaticResource ExportToBoolConverter}, ConverterParameter={x:Static enum:ExportTo.File}}" />
+                </RibbonGroup>
+
+                <RibbonGroup Header="Tipo de Arquivo">
+                    <RibbonButton Label="XML" LargeImageSource="/Images/Actions-document-new_6_32x32x32.png"/>
+                    <RibbonButton Label="PDF" LargeImageSource="/Images/pdf_12_32x32x32.png"/>
+                </RibbonGroup>
+                
+            </RibbonTab>
+        </Ribbon>
+
+        <!--<Button Content="Carregar Notas Fiscais Eletronicas" Command="{Binding GetInvoicesCommand}"/>-->
+
+        <DataGrid Grid.Row="1" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding Path=Invoices}" SelectedItem="{Binding SelectedItem}"  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn ElementStyle="{StaticResource CenterAlignStyle}" Binding="{Binding Type, Converter={StaticResource TypeToStringConverter}}" Header="Tipo" Width="50" />
+                <DataGridTextColumn ElementStyle="{StaticResource CenterAlignStyle}" Binding="{Binding Date, StringFormat='{}{0:d}', ConverterCulture=pt-BR}" Header="Emissão" Width="80" />
+                <DataGridTextColumn ElementStyle="{StaticResource RightAlignStyle}" Binding="{Binding Number, StringFormat='{}{0:###,###,###}', ConverterCulture=pt-BR}" Header="Número" Width="70" />
+                <DataGridTextColumn ElementStyle="{StaticResource RightAlignStyle}" Binding="{Binding Value, StringFormat={}{0:n}, ConverterCulture=pt-BR}" Header="Valor" Width="90" />
+                <DataGridTextColumn Binding="{Binding Sender}" Header="Origem" Width="350" />
+                <DataGridTextColumn Binding="{Binding Receipt}" Header="Destino" Width="350" />
+                <!--<DataGridTextColumn Binding="{Binding Key, StringFormat='{}{0:D44}'}" Header="Chave"/>-->
+                <DataGridTextColumn ElementStyle="{StaticResource CenterAlignStyle}" Binding="{Binding Status, Converter={StaticResource StatusToStringConverter}}" Header="Situação" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <TextBlock Text="{Binding Message}" />
+        </StackPanel>
+    </Grid>
+</RibbonWindow>

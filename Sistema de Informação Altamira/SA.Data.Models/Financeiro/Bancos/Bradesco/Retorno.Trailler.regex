@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<SavedRegex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FindPattern>^(?&lt;TIPO_REGISTRO&gt;\d)(?&lt;QUANTIDADE_REGISTROS&gt;\d{6})(?&lt;VALOR_TOTAL_PAGAMENTO&gt;\d{17})(?&lt;RESERVA&gt;.{470})(?&lt;NUMERO_SEQUENCIAL&gt;\d{6})</FindPattern>
+  <ReplacePattern />
+  <Options>IgnoreCase</Options>
+</SavedRegex>

@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Comissao_Simulacao_Composicao] (
+    [cd_controle]              INT          NOT NULL,
+    [cd_item_controle]         INT          NOT NULL,
+    [cd_produto]               INT          NOT NULL,
+    [qt_item_produto]          FLOAT (53)   NULL,
+    [vl_item_produto]          FLOAT (53)   NULL,
+    [pc_item_comissao]         FLOAT (53)   NULL,
+    [vl_lista_produto]         FLOAT (53)   NULL,
+    [nm_obs_produto]           VARCHAR (40) NULL,
+    [vl_margem_item_produto]   FLOAT (53)   NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [vl_total_Itens]           FLOAT (53)   NULL,
+    [pc_icms]                  FLOAT (53)   NULL,
+    [vl_comissao_item_produto] FLOAT (53)   NULL,
+    [vl_net_outra_moeda_item]  FLOAT (53)   NULL,
+    [pc_indice_markup_item]    FLOAT (53)   NULL,
+    [cd_markup]                INT          NULL,
+    [cd_moeda]                 INT          NULL,
+    [dt_moeda]                 DATETIME     NULL,
+    [vl_moeda]                 FLOAT (53)   NULL,
+    [vl_base_calculo]          FLOAT (53)   NULL,
+    CONSTRAINT [PK_Comissao_Simulacao_Composicao] PRIMARY KEY CLUSTERED ([cd_controle] ASC, [cd_item_controle] ASC)
+);
+

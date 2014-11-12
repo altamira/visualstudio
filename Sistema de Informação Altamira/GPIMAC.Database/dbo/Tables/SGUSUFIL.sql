@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[SGUSUFIL] (
+    [FilCod] SMALLINT   NOT NULL,
+    [FilQtd] CHAR (255) NULL,
+    [FilTmo] SMALLINT   NULL,
+    PRIMARY KEY CLUSTERED ([FilCod] ASC)
+);
+

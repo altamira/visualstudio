@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CASPLDET] (
+    [C2PLA]    CHAR (3)  NOT NULL,
+    [C3Pla]    CHAR (3)  NOT NULL,
+    [C3Nom]    CHAR (30) NULL,
+    [C3CodCnt] CHAR (11) NULL,
+    PRIMARY KEY CLUSTERED ([C2PLA] ASC, [C3Pla] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICASPLDETC]
+    ON [dbo].[CASPLDET]([C3CodCnt] ASC);
+

@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Nota_Saida_LayOut] (
+    [cd_empresa]                    INT           NOT NULL,
+    [cd_serie_nota_fiscal]          INT           NOT NULL,
+    [cd_campo_nota_fiscal]          INT           NOT NULL,
+    [ic_fonte_nota_fiscal]          CHAR (1)      NULL,
+    [ic_negrito_nota_fiscal]        CHAR (1)      NULL,
+    [ic_enfatizado_nota_fiscal]     CHAR (1)      NULL,
+    [cd_tabela]                     INT           NULL,
+    [cd_atributo]                   INT           NULL,
+    [cd_usuario]                    INT           NULL,
+    [dt_usuario]                    DATETIME      NULL,
+    [qt_coluna_nota_fiscal]         INT           NULL,
+    [qt_linha_nota_fiscal]          INT           NULL,
+    [nm_fixo_nota_fiscal]           VARCHAR (50)  NULL,
+    [nm_sp_nota_saida_layout]       VARCHAR (100) NULL,
+    [nm_sp_atributo_ns_layout]      VARCHAR (25)  NULL,
+    [ic_imprime_nota_layout]        CHAR (1)      NULL,
+    [qt_linha_fim_nota_fiscal]      INT           NULL,
+    [qt_tam_campo_nota_fiscal]      INT           NULL,
+    [ic_alin_campo_nota_fiscal]     CHAR (1)      NULL,
+    [qt_dec_campo_nota_fiscal]      INT           NULL,
+    [ic_div_linha_campo]            CHAR (1)      NULL,
+    [nm_sp_atributo_ns_layout_mult] VARCHAR (50)  NULL,
+    CONSTRAINT [PK_Nota_Saida_LayOut] PRIMARY KEY CLUSTERED ([cd_empresa] ASC, [cd_serie_nota_fiscal] ASC, [cd_campo_nota_fiscal] ASC) WITH (FILLFACTOR = 90)
+);
+

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Fmea_Padrao_Composicao] (
+    [cd_fmea_padrao]            INT      NULL,
+    [cd_item_fmea_pdrao]        INT      NOT NULL,
+    [cd_composicao_proc_padrao] INT      NULL,
+    [cd_modo_falha]             INT      NULL,
+    [ds_modo_fmea_padrao]       TEXT     NULL,
+    [cd_efeito_falha]           INT      NULL,
+    [ds_efeito_fmea_padrao]     TEXT     NULL,
+    [cd_criterio_severidade]    INT      NULL,
+    [qt_classificacao_fmea]     INT      NULL,
+    [cd_causa_falha]            INT      NULL,
+    [ds_causa_fmea_padrao]      TEXT     NULL,
+    [cd_ocorrencia_falha]       INT      NULL,
+    [cd_controle_prevencao]     INT      NULL,
+    [ds_controle_prev_fmea]     TEXT     NULL,
+    [cd_controle_deteccao]      INT      NULL,
+    [ds_controle_det_fmea]      TEXT     NULL,
+    [cd_criterio_deteccao]      INT      NULL,
+    [qt_npr_fmea_padrao]        INT      NULL,
+    [cd_acao_recomendada]       INT      NULL,
+    [ds_acao_fmea_padrao]       TEXT     NULL,
+    [ds_resp_pcto_fmea_padrao]  TEXT     NULL,
+    [cd_usuário]                INT      NULL,
+    [dt_usuario]                DATETIME NULL,
+    CONSTRAINT [PK_Fmea_Padrao_Composicao] PRIMARY KEY CLUSTERED ([cd_item_fmea_pdrao] ASC) WITH (FILLFACTOR = 90)
+);
+

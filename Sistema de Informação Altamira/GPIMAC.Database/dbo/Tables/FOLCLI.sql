@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[FOLCLI] (
+    [FCCnpj] CHAR (18) NOT NULL,
+    [FCXXX]  SMALLINT  NULL,
+    PRIMARY KEY CLUSTERED ([FCCnpj] ASC)
+);
+

@@ -1,0 +1,100 @@
+﻿CREATE TABLE [dbo].[INCNT] (
+    [Cnt0Emp]         CHAR (2)   NOT NULL,
+    [Cnt0Num]         INT        NOT NULL,
+    [Cnt0Tip]         CHAR (1)   NOT NULL,
+    [Cnt0EmiCnpj]     CHAR (18)  NOT NULL,
+    [Cnt0EmiPes]      CHAR (1)   NULL,
+    [Cnt0Eli]         CHAR (1)   NULL,
+    [Cnt0DatBas]      DATETIME   NULL,
+    [Cnt0Mod]         SMALLINT   NULL,
+    [Cnt0MunCod]      SMALLINT   NULL,
+    [Cnt0UF]          CHAR (2)   NULL,
+    [Cnt0CntCon]      CHAR (18)  NULL,
+    [Cnt0RazSoc]      CHAR (50)  NULL,
+    [Cnt0IE]          CHAR (16)  NULL,
+    [Cnt0LogTip0CodP] CHAR (5)   NULL,
+    [Cnt0LogTip0NomP] CHAR (30)  NULL,
+    [Cnt0EndP]        CHAR (50)  NULL,
+    [Cnt0EndNumP]     CHAR (10)  NULL,
+    [Cnt0EndCplP]     CHAR (30)  NULL,
+    [Cnt0BaiP]        CHAR (30)  NULL,
+    [Cnt0CepP]        CHAR (9)   NULL,
+    [Cnt0CidP]        CHAR (30)  NULL,
+    [Cnt0UFP]         CHAR (2)   NULL,
+    [Cnt0PaiP]        CHAR (30)  NULL,
+    [Cnt0TelDddP]     CHAR (5)   NULL,
+    [Cnt0TelNumP]     CHAR (9)   NULL,
+    [Cnt0ObsLiv]      CHAR (14)  NULL,
+    [Cnt0CodCnt]      SMALLINT   NULL,
+    [Cnt0TipNF]       SMALLINT   NULL,
+    [Cnt0Contr]       SMALLINT   NULL,
+    [Cnt0PisIse]      MONEY      NULL,
+    [Cnt0ValPrz]      MONEY      NULL,
+    [Cnt0ValVis]      MONEY      NULL,
+    [Cnt0Des]         MONEY      NULL,
+    [Cnt0IcmFon]      MONEY      NULL,
+    [Cnt0IpiNao]      MONEY      NULL,
+    [Cnt0IpiOut]      MONEY      NULL,
+    [Cnt0IpiIse]      MONEY      NULL,
+    [Cnt0IpiVal]      MONEY      NULL,
+    [Cnt0IpiBas]      MONEY      NULL,
+    [Cnt0IcmOut05]    MONEY      NULL,
+    [Cnt0IcmIse05]    MONEY      NULL,
+    [Cnt0IcmVal05]    MONEY      NULL,
+    [Cnt0IcmAli05]    SMALLMONEY NULL,
+    [Cnt0IcmBas05]    MONEY      NULL,
+    [Cnt0IcmOut04]    MONEY      NULL,
+    [Cnt0IcmIse04]    MONEY      NULL,
+    [Cnt0IcmVal04]    MONEY      NULL,
+    [Cnt0IcmAli04]    SMALLMONEY NULL,
+    [Cnt0IcmBas04]    MONEY      NULL,
+    [Cnt0IcmOut03]    MONEY      NULL,
+    [Cnt0IcmIse03]    MONEY      NULL,
+    [Cnt0IcmVal03]    MONEY      NULL,
+    [Cnt0IcmAli03]    SMALLMONEY NULL,
+    [Cnt0IcmBas03]    MONEY      NULL,
+    [Cnt0IcmOut02]    MONEY      NULL,
+    [Cnt0IcmIse02]    MONEY      NULL,
+    [Cnt0IcmVal02]    MONEY      NULL,
+    [Cnt0IcmAli02]    SMALLMONEY NULL,
+    [Cnt0IcmBas02]    MONEY      NULL,
+    [Cnt0IcmOut01]    MONEY      NULL,
+    [Cnt0IcmIse01]    MONEY      NULL,
+    [Cnt0IcmVal01]    MONEY      NULL,
+    [Cnt0IcmAli01]    SMALLMONEY NULL,
+    [Cnt0IcmBas01]    MONEY      NULL,
+    [Cnt0Tot]         MONEY      NULL,
+    [Cnt0CoCod]       CHAR (5)   NULL,
+    [Cnt0Ser]         CHAR (3)   NULL,
+    [Cnt0Esp]         CHAR (3)   NULL,
+    [Cnt0DiaInt]      SMALLINT   NULL,
+    [Cnt0DatEntSai]   DATETIME   NULL,
+    [Cnt0DatEmi]      DATETIME   NULL,
+    [Cnt0Emi]         CHAR (1)   NULL,
+    [Cnt0TipVen]      SMALLINT   NULL,
+    [Cnt0EntSai]      CHAR (1)   NULL,
+    [Cnt0ContmaticGr] CHAR (1)   NULL,
+    [Cnt0CAT102Gr]    CHAR (1)   NULL,
+    [Cnt0SintegraGr]  CHAR (1)   NULL,
+    [Cnt0FreTot]      MONEY      NULL,
+    [Cnt0BasSt]       MONEY      NULL,
+    [Cnt0ValSt]       MONEY      NULL,
+    [Cnt0OutDes]      MONEY      NULL,
+    PRIMARY KEY CLUSTERED ([Cnt0Emp] ASC, [Cnt0Num] ASC, [Cnt0Tip] ASC, [Cnt0EmiCnpj] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UNCNTA]
+    ON [dbo].[INCNT]([Cnt0Emp] ASC, [Cnt0Tip] ASC, [Cnt0EntSai] ASC, [Cnt0Emi] ASC, [Cnt0DatEmi] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UNCNTB]
+    ON [dbo].[INCNT]([Cnt0Emp] ASC, [Cnt0Tip] ASC, [Cnt0EntSai] ASC, [Cnt0Emi] ASC, [Cnt0DatEntSai] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UNCNTC]
+    ON [dbo].[INCNT]([Cnt0Emp] ASC, [Cnt0Tip] ASC, [Cnt0EntSai] ASC, [Cnt0Emi] ASC, [Cnt0DatBas] ASC);
+

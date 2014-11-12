@@ -1,0 +1,40 @@
+﻿<RibbonWindow x:Class="SA.WPF.Application.Conta_Contabil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Conta_Contabil" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Ribbon>
+            <RibbonTab Header="Contas" >
+                <RibbonGroup>
+                    <RibbonButton 
+                                         LargeImageSource="/Images/options_3_64x64x32.png"
+                                         Label="Ativo" />
+                    <RibbonButton 
+                                         LargeImageSource="/Images/options_3_64x64x32.png"
+                                         Label="Passivo" />
+                    <RibbonButton 
+                                         LargeImageSource="/Images/options_3_64x64x32.png"
+                                         Label="Receitas" />
+                    <RibbonButton 
+                                         LargeImageSource="/Images/options_3_64x64x32.png"
+                                         Label="Despesas" />
+                    <RibbonButton 
+                                         LargeImageSource="/Images/options_3_64x64x32.png"
+                                         Label="Custo" />
+                    <RibbonButton 
+                                         LargeImageSource="/Images/options_3_64x64x32.png"
+                                         Label="Resultado" />
+                </RibbonGroup>
+                
+            </RibbonTab>
+        </Ribbon>
+            
+        <DataGrid Grid.Row="1" x:Name="LancamentosGridView" Margin="10" ItemsSource="{Binding}"/>
+
+    </Grid>
+</RibbonWindow>

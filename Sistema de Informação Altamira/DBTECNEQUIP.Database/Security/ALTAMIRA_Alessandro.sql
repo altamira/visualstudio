@@ -1,0 +1,2 @@
+﻿CREATE USER [ALTAMIRA\Alessandro] FOR LOGIN [ALTAMIRA\Alessandro];
+

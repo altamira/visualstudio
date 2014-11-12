@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [ALTAMIRA\Alessandro]
+    FROM WINDOWS WITH DEFAULT_DATABASE = [GPIMAC_Altamira], DEFAULT_LANGUAGE = [Português (Brasil)];
+

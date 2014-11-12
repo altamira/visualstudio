@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Empresa_numeracao] (
+    [cd_empresa]                  INT NOT NULL,
+    [cd_fornecedor]               INT NULL,
+    [nu_requisicao_saida]         INT NULL,
+    [nu_cotacao_compra]           INT NULL,
+    [nu_pedido_compra]            INT NULL,
+    [nu_ficha_medida]             INT NULL,
+    [nu_nota_entrada]             INT NULL,
+    [nu_ultima_nota_entrada]      INT NULL,
+    [nu_carta_correcao]           INT NULL,
+    [nu_registro_entrada_nota]    INT NULL,
+    [nu_registro_entrada_servico] INT NULL,
+    [cd_cliente]                  INT NULL,
+    [nu_consulta]                 INT NULL,
+    [nu_comunicado_ocorrencia]    INT NULL,
+    [nu_pedido_venda]             INT NULL,
+    [nu_processo_fabricacao]      INT NULL,
+    [nu_nota_saida]               INT NULL,
+    [nu_ultima_nota_saida]        INT NULL,
+    [nu_requisicao_faturamento]   INT NULL,
+    [nu_previa_faturamento]       INT NULL,
+    [nu_ordem_servico]            INT NULL,
+    CONSTRAINT [PK_empresa_numeracao] PRIMARY KEY CLUSTERED ([cd_empresa] ASC) WITH (FILLFACTOR = 90)
+);
+

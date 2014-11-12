@@ -1,0 +1,36 @@
+﻿CREATE TABLE [dbo].[LRPRO] (
+    [L1CCOD]   INT            NOT NULL,
+    [L1CEMP]   CHAR (2)       NOT NULL,
+    [CSETCOD]  CHAR (3)       NULL,
+    [L1CRET]   CHAR (20)      NULL,
+    [TRACOD]   CHAR (6)       NULL,
+    [L1CDat]   DATETIME       NULL,
+    [L1StaDat] DATETIME       NULL,
+    [L1STA]    CHAR (1)       NULL,
+    [L1OBS]    VARCHAR (1000) NULL,
+    [L1StaDtH] DATETIME       NULL,
+    [L1StaUsu] CHAR (20)      NULL,
+    [L1NF]     INT            NULL,
+    PRIMARY KEY CLUSTERED ([L1CCOD] ASC, [L1CEMP] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ILRPROB]
+    ON [dbo].[LRPRO]([TRACOD] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ILRPROC]
+    ON [dbo].[LRPRO]([CSETCOD] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULRPROA]
+    ON [dbo].[LRPRO]([L1CDat] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULRPROB]
+    ON [dbo].[LRPRO]([L1CDat] DESC);
+

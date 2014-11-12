@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Hotel] (
+    [cd_hotel]           INT           NOT NULL,
+    [nm_hotel]           VARCHAR (40)  NOT NULL,
+    [nm_fantasia_hotel]  VARCHAR (15)  NOT NULL,
+    [cd_cep_hotel]       CHAR (9)      NOT NULL,
+    [nm_endereco_hotel]  VARCHAR (50)  NOT NULL,
+    [nm_bairro_hotel]    VARCHAR (25)  NOT NULL,
+    [cd_pais]            INT           NOT NULL,
+    [cd_estado]          INT           NOT NULL,
+    [cd_cidade]          INT           NOT NULL,
+    [cd_fone_hotel]      INT           NOT NULL,
+    [cd_fax_hotel]       INT           NOT NULL,
+    [nm_site_hotel]      VARCHAR (100) NOT NULL,
+    [nm_email_hotel]     VARCHAR (100) NOT NULL,
+    [nm_contato_hotel]   VARCHAR (40)  NOT NULL,
+    [nm_obs_agencia]     VARCHAR (40)  NOT NULL,
+    [cd_usuario]         INT           NOT NULL,
+    [dt_usuario]         DATETIME      NOT NULL,
+    [cd_categoria_hotel] INT           NULL,
+    [ds_hotel]           TEXT          NULL,
+    [nm_logotio_hotel]   VARCHAR (100) NULL,
+    CONSTRAINT [PK_Hotel] PRIMARY KEY CLUSTERED ([cd_hotel] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Hotel_Pais] FOREIGN KEY ([cd_pais]) REFERENCES [dbo].[Pais] ([cd_pais])
+);
+

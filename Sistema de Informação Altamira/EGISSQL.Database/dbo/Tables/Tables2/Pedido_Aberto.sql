@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Pedido_Aberto] (
+    [cd_pedido_venda]          INT          NOT NULL,
+    [cd_item_pedido_venda]     INT          NOT NULL,
+    [cd_fase_pedido]           INT          NULL,
+    [cd_aviso_pedido]          INT          NULL,
+    [ds_aviso_pedido]          TEXT         NULL,
+    [cd_situacao_pedido]       INT          NULL,
+    [nm_ref_cliente]           VARCHAR (50) NULL,
+    [nm_produto_cliente]       VARCHAR (50) NULL,
+    [nm_serie_produto_cliente] VARCHAR (50) NULL,
+    [dt_recebimento_pedido]    DATETIME     NULL,
+    [dt_entrega_pedido]        DATETIME     NULL,
+    [nm_obs_pedido_aberto]     VARCHAR (50) NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [cd_cliente]               INT          NULL,
+    [cd_interface]             INT          NULL,
+    [dt_entrega_cliente]       DATETIME     NULL,
+    [cd_coordenador]           INT          NULL,
+    [cd_nota_saida]            INT          NULL,
+    [dt_nota_saida]            DATETIME     NULL,
+    [cd_controle]              INT          NOT NULL,
+    [ic_servico_pedido]        CHAR (1)     NULL,
+    CONSTRAINT [PK_Pedido_Aberto] PRIMARY KEY CLUSTERED ([cd_pedido_venda] ASC, [cd_item_pedido_venda] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Pedido_Aberto_Cliente] FOREIGN KEY ([cd_cliente]) REFERENCES [dbo].[Cliente] ([cd_cliente]),
+    CONSTRAINT [FK_Pedido_Aberto_Coordenador] FOREIGN KEY ([cd_coordenador]) REFERENCES [dbo].[Coordenador] ([cd_coordenador])
+);
+

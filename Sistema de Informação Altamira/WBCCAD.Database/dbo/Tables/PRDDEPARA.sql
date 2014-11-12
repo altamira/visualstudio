@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[PRDDEPARA] (
+    [PRODUTO_DE]   NVARCHAR (20) NULL,
+    [PRODUTO_PARA] NVARCHAR (20) NULL,
+    [QTDE]         FLOAT (53)    NULL
+);
+

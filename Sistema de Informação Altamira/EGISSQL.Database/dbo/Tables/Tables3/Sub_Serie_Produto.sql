@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Sub_Serie_Produto] (
+    [cd_serie_produto]          INT          NOT NULL,
+    [cd_sub_serie]              INT          NOT NULL,
+    [cd_item_sub_serie]         INT          NOT NULL,
+    [cd_produto]                INT          NOT NULL,
+    [qt_sub_serie]              FLOAT (53)   NOT NULL,
+    [qt_montagem_sub_serie]     FLOAT (53)   NOT NULL,
+    [qt_espessura]              FLOAT (53)   NOT NULL,
+    [cd_tipo_serie_produto]     INT          NOT NULL,
+    [cd_usuario]                INT          NOT NULL,
+    [dt_usuario]                DATETIME     NOT NULL,
+    [qt_tempofab_sub_serie]     FLOAT (53)   NULL,
+    [cd_tipo_montagem]          INT          NULL,
+    [qt_peso_bruto_sub_serie]   FLOAT (53)   NULL,
+    [qt_peso_liquido_sub_serie] FLOAT (53)   NULL,
+    [ic_gera_prog_cnc]          CHAR (1)     NULL,
+    [cd_caixa]                  INT          NULL,
+    [sg_sub_serie]              CHAR (15)    NULL,
+    [cd_montagem]               INT          NULL,
+    [nm_sub_serie]              VARCHAR (40) NULL,
+    [ic_montagem_g_sub_serie]   CHAR (1)     NULL,
+    [cd_ordem_sub_serie_prod]   INT          NULL,
+    [nm_fantasia_produto]       VARCHAR (20) NULL,
+    CONSTRAINT [PK_Sub_Serie_Produto] PRIMARY KEY CLUSTERED ([cd_serie_produto] ASC, [cd_sub_serie] ASC, [cd_item_sub_serie] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Sub_Serie_Produto_Produto] FOREIGN KEY ([cd_produto]) REFERENCES [dbo].[Produto] ([cd_produto]),
+    CONSTRAINT [FK_Sub_Serie_Produto_Tipo_Serie_Produto] FOREIGN KEY ([cd_tipo_serie_produto]) REFERENCES [dbo].[Tipo_Serie_Produto] ([cd_tipo_serie_produto])
+);
+

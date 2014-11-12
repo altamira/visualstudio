@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [WBCCAD]
+    AUTHORIZATION [dbo];
+

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [NFe].[Invoice.Fetch.Log]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [DateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
+    [History] NVARCHAR(MAX) NOT NULL
+)

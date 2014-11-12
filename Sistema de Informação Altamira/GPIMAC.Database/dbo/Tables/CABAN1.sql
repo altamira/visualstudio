@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[CABAN1] (
+    [CBACOD]  CHAR (3)     NOT NULL,
+    [CBREG]   INT          NOT NULL,
+    [CBDAT]   DATETIME     NULL,
+    [CBDOC]   DECIMAL (10) NULL,
+    [CBDES]   CHAR (40)    NULL,
+    [CBDEB]   MONEY        NULL,
+    [CBDEB1]  MONEY        NULL,
+    [CBCRE1]  MONEY        NULL,
+    [CBDEB2]  MONEY        NULL,
+    [CBCRE2]  MONEY        NULL,
+    [CBCRE]   MONEY        NULL,
+    [CBDIG]   CHAR (1)     NULL,
+    [CBFLURG] INT          NULL,
+    PRIMARY KEY CLUSTERED ([CBACOD] ASC, [CBREG] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCABAN1A]
+    ON [dbo].[CABAN1]([CBACOD] ASC, [CBDAT] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCABAN1B]
+    ON [dbo].[CABAN1]([CBACOD] ASC, [CBFLURG] ASC);
+

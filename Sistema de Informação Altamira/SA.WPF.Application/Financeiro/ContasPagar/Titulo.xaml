@@ -1,0 +1,45 @@
+﻿<Window x:Class="SA.WPF.Application.Financeiro.ContasPagar.Titulo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fields="clr-namespace:SA.WPF.ControlLibrary;assembly=SA.WPF.ControlLibrary" 
+        xmlns:controls="clr-namespace:SA.WPF.CustomControlLibrary;assembly=SA.WPF.CustomControlLibrary"
+        Title="Lançamento de Título" Height="400" Width="600">
+    <Grid x:Name="LayoutRoot" Style="{DynamicResource GridStyle}" DataContext="{Binding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5" />
+                <ColumnDefinition Width=".5" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <controls:FieldName Caption="Tipo de Documento" Value="{Binding Path=TIPO_DOCUMENTO, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" />
+        <controls:FieldName Caption="Reservado para uso da Empresa" Value="{Binding Path=RESERVADO_USO_EMPRESA, Mode=TwoWay}" Margin="5" CaptionWidth="250" Grid.Row="1" />
+        <controls:FieldName Caption="Número da Nota Fiscal/Fatura/Duplicata" Value="{Binding Path=NUMERO_NOTA_FISCAL, Mode=TwoWay}" Margin="5,5,209,5" CaptionWidth="250" Grid.Row="2" />
+        <controls:FieldName Caption="Código de Lançamento" Value="{Binding Path=CODIGO_LANCAMENTO, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="3" />
+        <controls:FieldName Caption="Código de Barras" Name="CodigoBarrasFieldName" Value="{Binding Path=CODIGO_BARRAS, Mode=TwoWay}" CaptionWidth="250" Margin="5" Grid.Row="4" />
+        <controls:FieldName Caption="Pagamento" Value="{Binding Path=PAGAMENTO, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="5" />
+        <controls:FieldName Caption="Agencia" Value="{Binding Path=AGENCIA_FORNECEDOR, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="6" />
+        <controls:FieldName Caption="Conta Cedente" Value="{Binding Path=CONTA_FORNECEDOR, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="7" />
+        <controls:FieldName Caption="Nosso Número" Value="{Binding Path=NOSSO_NUMERO, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="8" />
+        <controls:FieldName Caption="Valor Documento" Value="{Binding Path=VALOR_DOCUMENTO, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="9" />
+        <controls:FieldName Caption="Valor Pagamento" Value="{Binding Path=VALOR_PAGAMENTO, Mode=TwoWay}" CaptionWidth="250" Margin="5,5,209,5" Grid.Row="10" />
+
+        <Button Content="Codigo Barra" Grid.Row="11" Click="Button_Click" />
+    </Grid>
+</Window>

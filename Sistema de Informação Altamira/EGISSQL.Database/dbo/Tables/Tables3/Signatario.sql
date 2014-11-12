@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Signatario] (
+    [cd_signatario]           INT           NOT NULL,
+    [nm_signatario]           VARCHAR (60)  NULL,
+    [nm_fantasia_signatario]  VARCHAR (15)  NULL,
+    [cd_usuario]              INT           NULL,
+    [dt_usuario]              DATETIME      NULL,
+    [nm_email_signatario]     VARCHAR (150) NULL,
+    [cd_cpf_signatario]       VARCHAR (14)  NULL,
+    [cd_identifica_cep]       INT           NULL,
+    [cd_cep]                  INT           NULL,
+    [nm_endereco]             VARCHAR (60)  NULL,
+    [cd_numero_endereco]      VARCHAR (10)  NULL,
+    [nm_bairro]               VARCHAR (25)  NULL,
+    [nm_complemento_endereco] VARCHAR (40)  NULL,
+    [cd_fone]                 INT           NULL,
+    [cd_fax]                  VARCHAR (15)  NULL,
+    [cd_celular]              VARCHAR (15)  NULL,
+    [cd_pais]                 INT           NULL,
+    [cd_estado]               INT           NULL,
+    [cd_cidade]               INT           NULL,
+    [cd_qualificacao]         INT           NULL,
+    CONSTRAINT [PK_Signatario] PRIMARY KEY CLUSTERED ([cd_signatario] ASC),
+    CONSTRAINT [FK_Signatario_SPED_Qualificacao_Assinante] FOREIGN KEY ([cd_qualificacao]) REFERENCES [dbo].[SPED_Qualificacao_Assinante] ([cd_qualificacao])
+);
+

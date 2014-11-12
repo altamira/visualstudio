@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[LARIRLEVEL1] (
+    [LRirEmp]  CHAR (2)   NOT NULL,
+    [LRirCod]  INT        NOT NULL,
+    [LRir1Seq] SMALLINT   NOT NULL,
+    [LRir1Esp] CHAR (100) NULL,
+    [LRir1Enc] CHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([LRirEmp] ASC, [LRirCod] ASC, [LRir1Seq] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ILARIRLEVEL11]
+    ON [dbo].[LARIRLEVEL1]([LRirCod] ASC, [LRirEmp] ASC);
+

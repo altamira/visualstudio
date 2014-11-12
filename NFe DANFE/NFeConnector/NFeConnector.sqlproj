@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>NFeConnector</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{5566b9b5-937c-4cd8-b430-f2b08933a0df}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>NFeConnector</RootNamespace>
+    <AssemblyName>NFeConnector</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <GenerateCreateScript>True</GenerateCreateScript>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Schemas" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NFe.cs" />
+    <Compile Include="SqlFunction1.cs" />
+    <Compile Include="SqlStoredProcedure1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schemas\cancNFe_v2.00.xsd" />
+    <None Include="Schemas\consCad_v2.00.xsd" />
+    <None Include="Schemas\consReciNFe_v2.00.xsd" />
+    <None Include="Schemas\consSitNFe_v2.01.xsd" />
+    <None Include="Schemas\consStatServ_v2.00.xsd" />
+    <None Include="Schemas\enviNFe_v2.00.xsd" />
+    <None Include="Schemas\inutNFe_v2.00.xsd" />
+    <None Include="Schemas\leiauteCancNFe_v2.00.xsd" />
+    <None Include="Schemas\leiauteConsSitNFe_v2.01.xsd" />
+    <None Include="Schemas\leiauteConsStatServ_v2.00.xsd" />
+    <None Include="Schemas\leiauteConsultaCadastro_v2.00.xsd" />
+    <None Include="Schemas\leiauteInutNFe_v2.00.xsd" />
+    <None Include="Schemas\leiauteNFe_v2.00.xsd" />
+    <None Include="Schemas\nfe_v2.00.xsd" />
+    <None Include="Schemas\procCancNFe_v2.00.xsd" />
+    <None Include="Schemas\procInutNFe_v2.00.xsd" />
+    <None Include="Schemas\procNFe_v2.00.xsd" />
+    <None Include="Schemas\retCancNFe_v2.00.xsd" />
+    <None Include="Schemas\retConsCad_v2.00.xsd" />
+    <None Include="Schemas\retConsReciNFe_v2.00.xsd" />
+    <None Include="Schemas\retConsSitNFe_v2.01.xsd" />
+    <None Include="Schemas\retConsStatServ_v2.00.xsd" />
+    <None Include="Schemas\retEnviNFe_v2.00.xsd" />
+    <None Include="Schemas\retInutNFe_v2.00.xsd" />
+    <None Include="Schemas\tiposBasico_v1.03.xsd" />
+    <None Include="Schemas\xmldsig-core-schema_v1.01.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\NFeConnectorXMLSchemaCollection.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+</Project>

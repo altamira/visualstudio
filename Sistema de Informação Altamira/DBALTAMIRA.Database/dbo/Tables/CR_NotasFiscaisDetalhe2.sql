@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[CR_NotasFiscaisDetalhe2] (
+    [crnd_NotaFiscal]      INT           NOT NULL,
+    [crnd_TipoNota]        CHAR (1)      NOT NULL,
+    [crnd_Parcela]         SMALLINT      NOT NULL,
+    [crnd_DataVencimento]  SMALLDATETIME NULL,
+    [crnd_DataPagamento]   SMALLDATETIME NULL,
+    [crnd_DataProrrogacao] SMALLDATETIME NULL,
+    [crnd_ValorParcela]    MONEY         NOT NULL,
+    [crnd_BaseCalculo]     MONEY         NULL,
+    [crnd_ValorAcrescimo]  MONEY         NULL,
+    [crnd_ValorDesconto]   MONEY         NULL,
+    [crnd_ValorTotal]      MONEY         NOT NULL,
+    [crnd_TipoFaturamento] CHAR (1)      NOT NULL,
+    [crnd_Banco]           CHAR (3)      NOT NULL,
+    [crnd_TipoOperacao]    CHAR (1)      NOT NULL,
+    [crnd_NumeroBancario]  CHAR (20)     NULL,
+    [crnd_DiasFaturamento] TINYINT       NULL,
+    [crnd_DataBaixaRepres] SMALLDATETIME NULL,
+    [crnd_Observacao]      VARCHAR (30)  NULL,
+    [crnd_CNPJ]            CHAR (14)     NULL,
+    [crnd_EmissaoNF]       SMALLDATETIME NULL,
+    [crnd_Representante]   CHAR (3)      NULL,
+    [crnd_Comissao]        REAL          NULL,
+    [crnd_Lock]            BINARY (8)    NULL
+);
+

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CAFP] (
+    [CFP0Cod] CHAR (5)  NOT NULL,
+    [CFP0Nom] CHAR (20) NULL,
+    PRIMARY KEY CLUSTERED ([CFP0Cod] ASC)
+);
+

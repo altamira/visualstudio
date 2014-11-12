@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[M0204071] (
+    [L1CCOD]  INT             NOT NULL,
+    [L1CEMP]  CHAR (2)        NOT NULL,
+    [L1cseq]  SMALLINT        NOT NULL,
+    [CPROCOD] CHAR (60)       NULL,
+    [L1CQUA]  DECIMAL (11, 4) NULL,
+    [L1COF]   INT             NULL,
+    [L1RIR]   INT             NULL,
+    PRIMARY KEY CLUSTERED ([L1CCOD] ASC, [L1CEMP] ASC, [L1cseq] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IM02040712]
+    ON [dbo].[M0204071]([CPROCOD] ASC);
+

@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Reembolso_Despesa] (
+    [cd_reembolso_despesa]     INT          NOT NULL,
+    [dt_reembolso_despesa]     DATETIME     NULL,
+    [cd_centro_custo]          INT          NULL,
+    [cd_departamento]          INT          NULL,
+    [dt_inicio_despesa]        DATETIME     NULL,
+    [dt_final_despesa]         DATETIME     NULL,
+    [cd_finalidade_despesa]    INT          NULL,
+    [cd_funcionario]           INT          NULL,
+    [cd_vendedor]              INT          NULL,
+    [cd_moeda]                 INT          NULL,
+    [dt_base_moeda_reembolso]  DATETIME     NULL,
+    [vl_total_reembolso]       FLOAT (53)   NULL,
+    [vl_adto_reembolso]        FLOAT (53)   NULL,
+    [vl_saldo_reembolso]       FLOAT (53)   NULL,
+    [dt_autorizacao_reembolso] DATETIME     NULL,
+    [cd_usu_auto_reembolso]    INT          NULL,
+    [nm_obs_reembolso_despesa] VARCHAR (40) NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    CONSTRAINT [PK_Reembolso_Despesa] PRIMARY KEY CLUSTERED ([cd_reembolso_despesa] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Reembolso_Despesa_Centro_Custo] FOREIGN KEY ([cd_centro_custo]) REFERENCES [dbo].[Centro_Custo] ([cd_centro_custo]),
+    CONSTRAINT [FK_Reembolso_Despesa_Departamento] FOREIGN KEY ([cd_departamento]) REFERENCES [dbo].[Departamento] ([cd_departamento]),
+    CONSTRAINT [FK_Reembolso_Despesa_Finalidade_Despesa] FOREIGN KEY ([cd_finalidade_despesa]) REFERENCES [dbo].[Finalidade_Despesa] ([cd_finalidade_despesa]),
+    CONSTRAINT [FK_Reembolso_Despesa_Moeda] FOREIGN KEY ([cd_moeda]) REFERENCES [dbo].[Moeda] ([cd_moeda]),
+    CONSTRAINT [FK_Reembolso_Despesa_Vendedor] FOREIGN KEY ([cd_vendedor]) REFERENCES [dbo].[Vendedor] ([cd_vendedor])
+);
+

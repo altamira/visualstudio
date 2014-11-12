@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[SGUSU2EMP] (
+    [SgUsu0Cod]    CHAR (20) NOT NULL,
+    [SgUsu2EmpCod] CHAR (2)  NOT NULL,
+    [SgUsu2EmpSel] SMALLINT  NULL,
+    PRIMARY KEY CLUSTERED ([SgUsu0Cod] ASC, [SgUsu2EmpCod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ISGUSU2EMP]
+    ON [dbo].[SGUSU2EMP]([SgUsu2EmpCod] ASC);
+

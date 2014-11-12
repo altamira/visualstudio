@@ -1,0 +1,7 @@
+﻿CREATE TABLE [Mail].[Message.Log]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY (1, 1), 
+    [Date] DATETIME NOT NULL DEFAULT GETDATE(), 
+	[Type] BIT DEFAULT(0),
+    [Message] NVARCHAR(MAX) NOT NULL
+)

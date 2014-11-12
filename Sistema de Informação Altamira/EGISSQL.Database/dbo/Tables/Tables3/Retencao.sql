@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Retencao] (
+    [cd_retencao]          INT          NOT NULL,
+    [dt_retencao]          DATETIME     NULL,
+    [cd_origem_retencao]   INT          NULL,
+    [cd_processo]          INT          NULL,
+    [cd_amostra]           INT          NULL,
+    [cd_produto]           INT          NULL,
+    [dt_fabricacao]        DATETIME     NULL,
+    [dt_validade]          DATETIME     NULL,
+    [cd_lote]              VARCHAR (30) NULL,
+    [nm_localizacao]       VARCHAR (30) NULL,
+    [ic_descartada]        CHAR (1)     NULL,
+    [ds_retencao]          TEXT         NULL,
+    [cd_usuario]           INT          NULL,
+    [dt_usuario]           DATETIME     NULL,
+    [nm_produto_retencao]  VARCHAR (50) NULL,
+    [cd_fornecedor]        INT          NULL,
+    [cd_nota_entrada]      INT          NULL,
+    [cd_serie_nota_fiscal] INT          NULL,
+    [cd_operacao_fiscal]   INT          NULL,
+    [cd_item_nota_entrada] INT          NULL,
+    [cd_amostra_produto]   INT          NULL,
+    [cd_lote_produto]      VARCHAR (25) NULL,
+    CONSTRAINT [PK_Retencao] PRIMARY KEY CLUSTERED ([cd_retencao] ASC) WITH (FILLFACTOR = 90)
+);
+

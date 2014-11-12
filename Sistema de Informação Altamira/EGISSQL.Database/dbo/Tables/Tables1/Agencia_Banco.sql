@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Agencia_Banco] (
+    [cd_banco]                  INT           NOT NULL,
+    [cd_agencia_banco]          INT           NOT NULL,
+    [nm_agencia_banco]          VARCHAR (20)  NOT NULL,
+    [cd_numero_agencia_banco]   VARCHAR (20)  NULL,
+    [cd_cnpj_agencia_banco]     VARCHAR (18)  NULL,
+    [cd_cep_agencia_banco]      CHAR (9)      NULL,
+    [nm_endereco_agencia_banco] VARCHAR (50)  NULL,
+    [cd_telefone_agencia_banco] VARCHAR (15)  NULL,
+    [cd_fax_agencia_banco]      VARCHAR (15)  NULL,
+    [nm_contato_agencia_banco]  VARCHAR (30)  NULL,
+    [nm_email_contato_banco]    VARCHAR (100) NULL,
+    [cd_pais]                   INT           NOT NULL,
+    [cd_estado]                 INT           NOT NULL,
+    [cd_cidade]                 INT           NOT NULL,
+    [cd_identifica_cep]         INT           NULL,
+    [cd_usuario]                INT           NULL,
+    [dt_usuario]                DATETIME      NULL,
+    [cd_empresa]                INT           NOT NULL,
+    [nm_email_contato_agencia]  VARCHAR (100) NULL,
+    [cd_numero_endereco]        INT           NULL,
+    [nm_complemento_endereco]   VARCHAR (30)  NULL,
+    [nm_bairro]                 VARCHAR (30)  NULL,
+    [cd_dac_agencia]            CHAR (1)      NULL,
+    CONSTRAINT [PK_Agencia_Banco] PRIMARY KEY CLUSTERED ([cd_banco] ASC, [cd_agencia_banco] ASC, [cd_pais] ASC, [cd_estado] ASC, [cd_cidade] ASC, [cd_empresa] ASC) WITH (FILLFACTOR = 90)
+);
+

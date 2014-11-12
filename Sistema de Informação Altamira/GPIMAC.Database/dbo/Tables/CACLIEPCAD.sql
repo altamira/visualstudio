@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[CACLIEPCAD] (
+    [CCCGC]   CHAR (18)       NOT NULL,
+    [CCDESEQ] SMALLINT        NOT NULL,
+    [CCIMG]   VARBINARY (MAX) NULL,
+    [CCEXT]   CHAR (5)        NULL,
+    [CCDDES]  CHAR (50)       NULL,
+    PRIMARY KEY CLUSTERED ([CCCGC] ASC, [CCDESEQ] ASC)
+);
+

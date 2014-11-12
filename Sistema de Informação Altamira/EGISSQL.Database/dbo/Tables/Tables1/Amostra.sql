@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Amostra] (
+    [cd_amostra]              INT           NOT NULL,
+    [dt_solicitacao_amostra]  DATETIME      NULL,
+    [dt_liberacao_amostra]    DATETIME      NULL,
+    [dt_retirada_amostra]     DATETIME      NULL,
+    [cd_cliente]              INT           NULL,
+    [cd_contato]              INT           NULL,
+    [cd_vendedor_interno]     INT           NULL,
+    [cd_vendedor_externo]     INT           NULL,
+    [cd_usuario_solicitante]  INT           NULL,
+    [cd_status_amostra]       INT           NULL,
+    [ds_observacao_vendas]    TEXT          NULL,
+    [ds_observacao_lab]       TEXT          NULL,
+    [cd_tecnico]              INT           NULL,
+    [cd_resposta_cliente]     INT           NULL,
+    [dt_cancelamento_amostra] DATETIME      NULL,
+    [nm_motivo_cancelamento]  VARCHAR (100) NULL,
+    [cd_usuario]              INT           NULL,
+    [dt_usuario]              DATETIME      NULL,
+    [qt_densidade_amostra]    FLOAT (53)    NULL,
+    [cd_solicitacao_anterior] INT           NULL,
+    [nm_causa_reprovacao]     VARCHAR (60)  NULL,
+    CONSTRAINT [PK_Amostra] PRIMARY KEY CLUSTERED ([cd_amostra] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Amostra_Resposta_Cliente] FOREIGN KEY ([cd_resposta_cliente]) REFERENCES [dbo].[Resposta_Cliente] ([cd_resposta_cliente])
+);
+

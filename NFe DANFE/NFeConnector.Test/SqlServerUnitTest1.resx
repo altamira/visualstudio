@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SqlTest1_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DECLARE @nfe AS XML --XML([NFe_v200_XMLSchemaCollection])
+
+SET @nfe = CAST('&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;nfeProc versao="2.00" xmlns="http://www.portalfiscal.inf.br/nfe"&gt;&lt;NFe xmlns="http://www.portalfiscal.inf.br/nfe"&gt;&lt;infNFe versao="2.00" Id="NFe35120843799295000110550010000084521593864244" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;ide&gt;&lt;cUF&gt;35&lt;/cUF&gt;&lt;cNF&gt;59386424&lt;/cNF&gt;&lt;natOp&gt;VENDA DE PRODUCAO ESTABELECIMENTO&lt;/natOp&gt;&lt;indPag&gt;1&lt;/indPag&gt;&lt;mod&gt;55&lt;/mod&gt;&lt;serie&gt;1&lt;/serie&gt;&lt;nNF&gt;8452&lt;/nNF&gt;&lt;dEmi&gt;2012-08-20&lt;/dEmi&gt;&lt;tpNF&gt;1&lt;/tpNF&gt;&lt;cMunFG&gt;3550308&lt;/cMunFG&gt;&lt;tpImp&gt;1&lt;/tpImp&gt;&lt;tpEmis&gt;1&lt;/tpEmis&gt;&lt;cDV&gt;4&lt;/cDV&gt;&lt;tpAmb&gt;1&lt;/tpAmb&gt;&lt;finNFe&gt;1&lt;/finNFe&gt;&lt;procEmi&gt;0&lt;/procEmi&gt;&lt;verProc&gt;9&lt;/verProc&gt;&lt;/ide&gt;&lt;emit&gt;&lt;CNPJ&gt;43799295000110&lt;/CNPJ&gt;&lt;xNome&gt;Altamira Industria Metalurgica Ltda.&lt;/xNome&gt;&lt;xFant&gt;Altamira&lt;/xFant&gt;&lt;enderEmit&gt;&lt;xLgr&gt;Rua Ganges&lt;/xLgr&gt;&lt;nro&gt;528&lt;/nro&gt;&lt;xBairro&gt;Vila Nova Manchester&lt;/xBairro&gt;&lt;cMun&gt;3550308&lt;/cMun&gt;&lt;xMun&gt;SAO PAULO&lt;/xMun&gt;&lt;UF&gt;SP&lt;/UF&gt;&lt;CEP&gt;03445030&lt;/CEP&gt;&lt;cPais&gt;1058&lt;/cPais&gt;&lt;xPais&gt;BRASIL&lt;/xPais&gt;&lt;fone&gt;1120952855&lt;/fone&gt;&lt;/enderEmit&gt;&lt;IE&gt;109095380110&lt;/IE&gt;&lt;CRT&gt;3&lt;/CRT&gt;&lt;/emit&gt;&lt;dest&gt;&lt;CNPJ&gt;03470727001607&lt;/CNPJ&gt;&lt;xNome&gt;FORD MOTOR COMPANY BRASIL LTDA&lt;/xNome&gt;&lt;enderDest&gt;&lt;xLgr&gt;AV HENRY FORD&lt;/xLgr&gt;&lt;nro&gt;2000&lt;/nro&gt;&lt;xBairro&gt;COPEC&lt;/xBairro&gt;&lt;cMun&gt;2905701&lt;/cMun&gt;&lt;xMun&gt;CAMACARI&lt;/xMun&gt;&lt;UF&gt;BA&lt;/UF&gt;&lt;CEP&gt;42810225&lt;/CEP&gt;&lt;cPais&gt;1058&lt;/cPais&gt;&lt;xPais&gt;BRASIL&lt;/xPais&gt;&lt;fone&gt;36492240&lt;/fone&gt;&lt;/enderDest&gt;&lt;IE&gt;51852847&lt;/IE&gt;&lt;/dest&gt;&lt;entrega&gt;&lt;CNPJ&gt;03470727001607&lt;/CNPJ&gt;&lt;xLgr&gt;HENRY FORD&lt;/xLgr&gt;&lt;nro&gt;2000&lt;/nro&gt;&lt;xBairro&gt;COPEC&lt;/xBairro&gt;&lt;cMun&gt;2905701&lt;/cMun&gt;&lt;xMun&gt;CAMACARI&lt;/xMun&gt;&lt;UF&gt;BA&lt;/UF&gt;&lt;/entrega&gt;&lt;det nItem="1"&gt;&lt;prod&gt;&lt;cProd&gt;1&lt;/cProd&gt;&lt;cEAN /&gt;&lt;xProd&gt;ESTRUT. METALICA&lt;/xProd&gt;&lt;NCM&gt;73089090&lt;/NCM&gt;&lt;CFOP&gt;6101&lt;/CFOP&gt;&lt;uCom&gt;CJ&lt;/uCom&gt;&lt;qCom&gt;1.0000&lt;/qCom&gt;&lt;vUnCom&gt;25111.8500000&lt;/vUnCom&gt;&lt;vProd&gt;25111.85&lt;/vProd&gt;&lt;cEANTrib /&gt;&lt;uTrib&gt;CJ&lt;/uTrib&gt;&lt;qTrib&gt;1.0000&lt;/qTrib&gt;&lt;vUnTrib&gt;25111.8500000&lt;/vUnTrib&gt;&lt;indTot&gt;1&lt;/indTot&gt;&lt;xPed&gt;36691&lt;/xPed&gt;&lt;nItemPed&gt;0&lt;/nItemPed&gt;&lt;/prod&gt;&lt;imposto&gt;&lt;ICMS&gt;&lt;ICMS00&gt;&lt;orig&gt;0&lt;/orig&gt;&lt;CST&gt;00&lt;/CST&gt;&lt;modBC&gt;3&lt;/modBC&gt;&lt;vBC&gt;26367.44&lt;/vBC&gt;&lt;pICMS&gt;7.00&lt;/pICMS&gt;&lt;vICMS&gt;1845.72&lt;/vICMS&gt;&lt;/ICMS00&gt;&lt;/ICMS&gt;&lt;IPI&gt;&lt;cEnq&gt;999&lt;/cEnq&gt;&lt;IPITrib&gt;&lt;CST&gt;50&lt;/CST&gt;&lt;vBC&gt;25111.85&lt;/vBC&gt;&lt;pIPI&gt;5.00&lt;/pIPI&gt;&lt;vIPI&gt;1255.59&lt;/vIPI&gt;&lt;/IPITrib&gt;&lt;/IPI&gt;&lt;PIS&gt;&lt;PISAliq&gt;&lt;CST&gt;01&lt;/CST&gt;&lt;vBC&gt;25111.85&lt;/vBC&gt;&lt;pPIS&gt;1.65&lt;/pPIS&gt;&lt;vPIS&gt;414.35&lt;/vPIS&gt;&lt;/PISAliq&gt;&lt;/PIS&gt;&lt;COFINS&gt;&lt;COFINSAliq&gt;&lt;CST&gt;01&lt;/CST&gt;&lt;vBC&gt;25111.85&lt;/vBC&gt;&lt;pCOFINS&gt;7.60&lt;/pCOFINS&gt;&lt;vCOFINS&gt;1908.50&lt;/vCOFINS&gt;&lt;/COFINSAliq&gt;&lt;/COFINS&gt;&lt;/imposto&gt;&lt;infAdProd&gt;AREA I 01 Conjunto de estruturas metalicas do tipo porta-paletes ( triplos ) medindo 6620 x 1900 x 4000 mm composto por 03 modulos medindo cada um 2100 x 1900 x 4000 mm e 03 conjuntos medindo 4440 x 1900 x 4000 mm compostos por 02 modulos medindo 2100 x 1900 x 4000 mm. todos com 03 trios de longarinas aptos a suportar uma carga uniformemente distribuida de 1200 kgf cada. Todos os trios de longarinas serao cobertos por piso metalico do tipo grelha. Acompanham 3 stops traseiros em perfil tipo Z 87&lt;/infAdProd&gt;&lt;/det&gt;&lt;total&gt;&lt;ICMSTot&gt;&lt;vBC&gt;26367.44&lt;/vBC&gt;&lt;vICMS&gt;1845.72&lt;/vICMS&gt;&lt;vBCST&gt;0.00&lt;/vBCST&gt;&lt;vST&gt;0.00&lt;/vST&gt;&lt;vProd&gt;25111.85&lt;/vProd&gt;&lt;vFrete&gt;0.00&lt;/vFrete&gt;&lt;vSeg&gt;0.00&lt;/vSeg&gt;&lt;vDesc&gt;0.00&lt;/vDesc&gt;&lt;vII&gt;0.00&lt;/vII&gt;&lt;vIPI&gt;1255.59&lt;/vIPI&gt;&lt;vPIS&gt;414.35&lt;/vPIS&gt;&lt;vCOFINS&gt;1908.50&lt;/vCOFINS&gt;&lt;vOutro&gt;0.00&lt;/vOutro&gt;&lt;vNF&gt;26367.44&lt;/vNF&gt;&lt;/ICMSTot&gt;&lt;/total&gt;&lt;transp&gt;&lt;modFrete&gt;0&lt;/modFrete&gt;&lt;transporta&gt;&lt;CNPJ&gt;11317047001090&lt;/CNPJ&gt;&lt;xNome&gt;TRANSPORTADORA ASA DE PRATA LTDA&lt;/xNome&gt;&lt;IE&gt;336491586113&lt;/IE&gt;&lt;xEnder&gt;RUA JEQUITAI 20&lt;/xEnder&gt;&lt;xMun&gt;GUARULHOS&lt;/xMun&gt;&lt;UF&gt;SP&lt;/UF&gt;&lt;/transporta&gt;&lt;vol&gt;&lt;qVol&gt;32&lt;/qVol&gt;&lt;esp&gt;VOLUMES&lt;/esp&gt;&lt;marca&gt;PROPRIO&lt;/marca&gt;&lt;nVol&gt;1&lt;/nVol&gt;&lt;pesoL&gt;4796.000&lt;/pesoL&gt;&lt;pesoB&gt;4796.000&lt;/pesoB&gt;&lt;/vol&gt;&lt;/transp&gt;&lt;cobr&gt;&lt;fat&gt;&lt;nFat&gt;8452&lt;/nFat&gt;&lt;vOrig&gt;26367.44&lt;/vOrig&gt;&lt;vLiq&gt;26367.44&lt;/vLiq&gt;&lt;/fat&gt;&lt;dup&gt;&lt;nDup&gt;01M-00008452A&lt;/nDup&gt;&lt;dVenc&gt;2012-09-19&lt;/dVenc&gt;&lt;vDup&gt;26367.44&lt;/vDup&gt;&lt;/dup&gt;&lt;/cobr&gt;&lt;infAdic&gt;&lt;infCpl&gt;DADOS BANCARIOS PARA DEPOSITO BANCO BRADESCO AGENCIA 33936 E CONTA CORRENTE 202568 Referente ao(s) Seu(s) pedido(s) 36691 Pedido No 68632 de 28062012 REPRESENTANTE 001 ADMINISTRACAO&lt;/infCpl&gt;&lt;/infAdic&gt;&lt;/infNFe&gt;&lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#"&gt;&lt;SignedInfo&gt;&lt;CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /&gt;&lt;SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /&gt;&lt;Reference URI="#NFe35120843799295000110550010000084521593864244"&gt;&lt;Transforms&gt;&lt;Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /&gt;&lt;Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /&gt;&lt;/Transforms&gt;&lt;DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /&gt;&lt;DigestValue&gt;4U+wtUSG6NoROgmH1qJQ22lhs0w=&lt;/DigestValue&gt;&lt;/Reference&gt;&lt;/SignedInfo&gt;&lt;SignatureValue&gt;XascykCcmCnnIH2XWNQth10ihe/ukBz2AFeIwsLnGJbr/PQIMbInHdpWIdoZCKK2MK9/pG4s2QHFvBSlLGN4B/04/1D/JrfEkwJKvKZfSf2E2zp6nue4wg3LxPmXhqcbIU/bfa61eyu0k9FA0DqT8ASIe/cSspWOlHUwCrfZy6sl+SNs66L5dHTUiLNw/8CFbvcbLmlunNP3cbPz2sUKwApRSPfXsfBcNSdEiBIz3Sn71NZSVAIdcxxoHQubufIsUGxPyqRwWk+pyOnNzRVkYG892Emx6MTuds3ZOn+vOIOsEHjHFSQFdHc+MDuS3IUerBHJ8/Br3QmoiR5aYCTyJQ==&lt;/SignatureValue&gt;&lt;KeyInfo&gt;&lt;X509Data&gt;&lt;X509Certificate&gt;MIIIYTCCBkmgAwIBAgIQWmvsFHJfc1KOdW+QCuPlSzANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJCUjETMBEGA1UEChMKSUNQLUJyYXNpbDEtMCsGA1UECxMkQ2VydGlzaWduIENlcnRpZmljYWRvcmEgRGlnaXRhbCBTLkEuMSEwHwYDVQQDExhBQyBDZXJ0aXNpZ24gTXVsdGlwbGEgRzUwHhcNMTIwNzE5MDAwMDAwWhcNMTUwNzE4MjM1OTU5WjCB6jELMAkGA1UEBhMCQlIxEzARBgNVBAoUCklDUC1CcmFzaWwxODA2BgNVBAsUL0F1dGVudGljYWRvIHBvciBDZXJ0aXNpZ24gQ2VydGlmaWNhZG9yYSBEaWdpdGFsMRswGQYDVQQLFBJBc3NpbmF0dXJhIFRpcG8gQTMxFTATBgNVBAsUDElEIC0gMzM4MzA4OTEsMCoGA1UEAxMjQUxUQU1JUkEgSU5EVVNUUklBIE1FVEFMVVJHSUNBIExUREExKjAoBgkqhkiG9w0BCQEWG2dlcmVuY2lhLnRpQGFsdGFtaXJhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPJjBvBUtNkik5tWUvPE9SSRDgajyMjcW1lypfMskEWf6oxTd+7R9SrRSGTTy90E6RG5GL2+uwG/bTcOWevZdH745WZm+talLykJz9yaAMioV1nzaWyRqmXJWx3sVkkimHzoGkgtVwZGhUtNFml3U6XEhQ/0Y9VXaWEXr6xoH+fcnMFNjVaVPElYdnnj7B+zSAlZgK5TO4Es+Bs3eIEeHW6pqnPp/Xu7sEV5DNo/MkRv37cz37KYwlg9GuBuuDzdwKpq5VwfEwCokb0nwUN+WM8ac4zkdE+NC6XG3eOlp2Koz3UU57N86crI8RztfrGDSBioFHtOrN9N1TIZrxP99pECAwEAAaOCA3YwggNyMIG8BgNVHREEgbQwgbGgOAYFYEwBAwSgLwQtMDYwMTE5NTgwMTA5ODIxMzg2NjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwoCQGBWBMAQMCoBsEGUZMQVZJTyBET1MgU0FOVE9TIE1JUkFOREGgGQYFYEwBAwOgEAQONDM3OTkyOTUwMDAxMTCgFwYFYEwBAwegDgQMMDAwMDAwMDAwMDAwgRtnZXJlbmNpYS50aUBhbHRhbWlyYS5jb20uYnIwCQYDVR0TBAIwADAfBgNVHSMEGDAWgBSdUM+9/yTKr7Ez6xfiQnqOaSqOUzAOBgNVHQ8BAf8EBAMCBeAwgYkGA1UdIASBgTB/MH0GBmBMAQIDBTBzMHEGCCsGAQUFBwIBFmVodHRwOi8vaWNwLWJyYXNpbC5jZXJ0aXNpZ24uY29tLmJyL3JlcG9zaXRvcmlvL2RwYy9BQ19DZXJ0aXNpZ25fTXVsdGlwbGEvRFBDX0FDX0NlcnRpU2lnbk11bHRpcGxhLnBkZjCCASUGA1UdHwSCARwwggEYMFygWqBYhlZodHRwOi8vaWNwLWJyYXNpbC5jZXJ0aXNpZ24uY29tLmJyL3JlcG9zaXRvcmlvL2xjci9BQ0NlcnRpc2lnbk11bHRpcGxhRzUvTGF0ZXN0Q1JMLmNybDBboFmgV4ZVaHR0cDovL2ljcC1icmFzaWwub3V0cmFsY3IuY29tLmJyL3JlcG9zaXRvcmlvL2xjci9BQ0NlcnRpc2lnbk11bHRpcGxhRzUvTGF0ZXN0Q1JMLmNybDBboFmgV4ZVaHR0cDovL3JlcG9zaXRvcmlvLmljcGJyYXNpbC5nb3YuYnIvbGNyL0NlcnRpc2lnbi9BQ0NlcnRpc2lnbk11bHRpcGxhRzUvTGF0ZXN0Q1JMLmNybDAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgaAGCCsGAQUFBwEBBIGTMIGQMGQGCCsGAQUFBzAChlhodHRwOi8vaWNwLWJyYXNpbC5jZXJ0aXNpZ24uY29tLmJyL3JlcG9zaXRvcmlvL2NlcnRpZmljYWRvcy9BQ19DZXJ0aXNpZ25fTXVsdGlwbGFfRzUucDdjMCgGCCsGAQUFBzABhhxodHRwOi8vb2NzcC5jZXJ0aXNpZ24uY29tLmJyMA0GCSqGSIb3DQEBCwUAA4ICAQCke/uhqD8hQTsX/OXqKISf6Io+8PGNdacO5FIMcoBs9kns7YYKkqmUow8lDAkr830zZPU0SbJDcC5geK0b2mvjHjLF7EJNrqtBQdFGuPwbaMFsCcgqQ4KoXofdo79QLkYEwlStGw1f8aiF7tri0y6jZ94qwgPB5JUMfrdoT+iW2uyVXe9jIlj5JNPBJb/9H4aP05zk0HD6cWgPfPpF0N2Agrbc1pPo2p88xiZjzG6S84/tbKju/c15JMswpUC/szaDhYXxy0n2nFusDWa9F4h8tkcHDyX3f34u0hMD7uFqa27aFd/9P05Y5eciz2QUH1/ePr8bW5BgCQlnrZcrIIjdrG5qD8v/dWoWVdNL3sNg7tchc6sTGlCFEC48umkloU5uyMWdrrNX0SAHiY7AlEAdW34LlOEivbXkAXCfCDxA3+JdIs3dcWuvwQXnmV406q83aWyIuwzPO5Vp5LRnWz+VjkCm+D3x8thbc7zZIqlgdBgMNizVmtccCI6EtkEwnHT42+F50soy1226W1LCDVDOaGK+94zrgOzfvUgXFnBCiB386Jt4gHguS+tnxjiyiaKWpovmZORYaebh6VUA4FDSWuv91QluMbsEIb/WQHNY0wBQgqZy5BPKemnMngApLXp4Q195o/67dcZYjqyLPRFe1ypxOjkmGLAcg2NFfnpo/g==&lt;/X509Certificate&gt;&lt;/X509Data&gt;&lt;/KeyInfo&gt;&lt;/Signature&gt;&lt;/NFe&gt;&lt;protNFe versao="2.00"&gt;&lt;infProt Id="Id135120471420766"&gt;&lt;tpAmb&gt;1&lt;/tpAmb&gt;&lt;verAplic&gt;SP_NFE_PL_006j&lt;/verAplic&gt;&lt;chNFe&gt;35120843799295000110550010000084521593864244&lt;/chNFe&gt;&lt;dhRecbto&gt;2012-08-20T15:40:53&lt;/dhRecbto&gt;&lt;nProt&gt;135120471420766&lt;/nProt&gt;&lt;digVal&gt;4U+wtUSG6NoROgmH1qJQ22lhs0w=&lt;/digVal&gt;&lt;cStat&gt;100&lt;/cStat&gt;&lt;xMotivo&gt;Autorizado o uso da NF-e&lt;/xMotivo&gt;&lt;/infProt&gt;&lt;/protNFe&gt;&lt;/nfeProc&gt;' AS XML)
+SET NOCOUNT ON
+
+DECLARE @number AS INT
+DECLARE @key AS NVARCHAR(48)
+DECLARE @hash AS VARBINARY(20)
+
+SET @number = @nfe.value('declare namespace ns="http://www.portalfiscal.inf.br/nfe";(/ns:nfeProc/ns:NFe/ns:infNFe/ns:ide/ns:nNF)[1]', 'INT')
+SET @key = RIGHT(@nfe.value('declare namespace ns="http://www.portalfiscal.inf.br/nfe";(/ns:nfeProc/ns:NFe/ns:infNFe/@Id)[1]', 'NVARCHAR(48)'), 44)
+SET @hash = dbo.BigHashBytes('SHA1', '&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;nfeProc versao="2.00" xmlns="http://www.portalfiscal.inf.br/nfe"&gt;&lt;NFe xmlns="http://www.portalfiscal.inf.br/nfe"&gt;&lt;infNFe versao="2.00" Id="NFe35120843799295000110550010000084521593864244" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;ide&gt;&lt;cUF&gt;35&lt;/cUF&gt;&lt;cNF&gt;59386424&lt;/cNF&gt;&lt;natOp&gt;VENDA DE PRODUCAO ESTABELECIMENTO&lt;/natOp&gt;&lt;indPag&gt;1&lt;/indPag&gt;&lt;mod&gt;55&lt;/mod&gt;&lt;serie&gt;1&lt;/serie&gt;&lt;nNF&gt;8452&lt;/nNF&gt;&lt;dEmi&gt;2012-08-20&lt;/dEmi&gt;&lt;tpNF&gt;1&lt;/tpNF&gt;&lt;cMunFG&gt;3550308&lt;/cMunFG&gt;&lt;tpImp&gt;1&lt;/tpImp&gt;&lt;tpEmis&gt;1&lt;/tpEmis&gt;&lt;cDV&gt;4&lt;/cDV&gt;&lt;tpAmb&gt;1&lt;/tpAmb&gt;&lt;finNFe&gt;1&lt;/finNFe&gt;&lt;procEmi&gt;0&lt;/procEmi&gt;&lt;verProc&gt;9&lt;/verProc&gt;&lt;/ide&gt;&lt;emit&gt;&lt;CNPJ&gt;43799295000110&lt;/CNPJ&gt;&lt;xNome&gt;Altamira Industria Metalurgica Ltda.&lt;/xNome&gt;&lt;xFant&gt;Altamira&lt;/xFant&gt;&lt;enderEmit&gt;&lt;xLgr&gt;Rua Ganges&lt;/xLgr&gt;&lt;nro&gt;528&lt;/nro&gt;&lt;xBairro&gt;Vila Nova Manchester&lt;/xBairro&gt;&lt;cMun&gt;3550308&lt;/cMun&gt;&lt;xMun&gt;SAO PAULO&lt;/xMun&gt;&lt;UF&gt;SP&lt;/UF&gt;&lt;CEP&gt;03445030&lt;/CEP&gt;&lt;cPais&gt;1058&lt;/cPais&gt;&lt;xPais&gt;BRASIL&lt;/xPais&gt;&lt;fone&gt;1120952855&lt;/fone&gt;&lt;/enderEmit&gt;&lt;IE&gt;109095380110&lt;/IE&gt;&lt;CRT&gt;3&lt;/CRT&gt;&lt;/emit&gt;&lt;dest&gt;&lt;CNPJ&gt;03470727001607&lt;/CNPJ&gt;&lt;xNome&gt;FORD MOTOR COMPANY BRASIL LTDA&lt;/xNome&gt;&lt;enderDest&gt;&lt;xLgr&gt;AV HENRY FORD&lt;/xLgr&gt;&lt;nro&gt;2000&lt;/nro&gt;&lt;xBairro&gt;COPEC&lt;/xBairro&gt;&lt;cMun&gt;2905701&lt;/cMun&gt;&lt;xMun&gt;CAMACARI&lt;/xMun&gt;&lt;UF&gt;BA&lt;/UF&gt;&lt;CEP&gt;42810225&lt;/CEP&gt;&lt;cPais&gt;1058&lt;/cPais&gt;&lt;xPais&gt;BRASIL&lt;/xPais&gt;&lt;fone&gt;36492240&lt;/fone&gt;&lt;/enderDest&gt;&lt;IE&gt;51852847&lt;/IE&gt;&lt;/dest&gt;&lt;entrega&gt;&lt;CNPJ&gt;03470727001607&lt;/CNPJ&gt;&lt;xLgr&gt;HENRY FORD&lt;/xLgr&gt;&lt;nro&gt;2000&lt;/nro&gt;&lt;xBairro&gt;COPEC&lt;/xBairro&gt;&lt;cMun&gt;2905701&lt;/cMun&gt;&lt;xMun&gt;CAMACARI&lt;/xMun&gt;&lt;UF&gt;BA&lt;/UF&gt;&lt;/entrega&gt;&lt;det nItem="1"&gt;&lt;prod&gt;&lt;cProd&gt;1&lt;/cProd&gt;&lt;cEAN /&gt;&lt;xProd&gt;ESTRUT. METALICA&lt;/xProd&gt;&lt;NCM&gt;73089090&lt;/NCM&gt;&lt;CFOP&gt;6101&lt;/CFOP&gt;&lt;uCom&gt;CJ&lt;/uCom&gt;&lt;qCom&gt;1.0000&lt;/qCom&gt;&lt;vUnCom&gt;25111.8500000&lt;/vUnCom&gt;&lt;vProd&gt;25111.85&lt;/vProd&gt;&lt;cEANTrib /&gt;&lt;uTrib&gt;CJ&lt;/uTrib&gt;&lt;qTrib&gt;1.0000&lt;/qTrib&gt;&lt;vUnTrib&gt;25111.8500000&lt;/vUnTrib&gt;&lt;indTot&gt;1&lt;/indTot&gt;&lt;xPed&gt;36691&lt;/xPed&gt;&lt;nItemPed&gt;0&lt;/nItemPed&gt;&lt;/prod&gt;&lt;imposto&gt;&lt;ICMS&gt;&lt;ICMS00&gt;&lt;orig&gt;0&lt;/orig&gt;&lt;CST&gt;00&lt;/CST&gt;&lt;modBC&gt;3&lt;/modBC&gt;&lt;vBC&gt;26367.44&lt;/vBC&gt;&lt;pICMS&gt;7.00&lt;/pICMS&gt;&lt;vICMS&gt;1845.72&lt;/vICMS&gt;&lt;/ICMS00&gt;&lt;/ICMS&gt;&lt;IPI&gt;&lt;cEnq&gt;999&lt;/cEnq&gt;&lt;IPITrib&gt;&lt;CST&gt;50&lt;/CST&gt;&lt;vBC&gt;25111.85&lt;/vBC&gt;&lt;pIPI&gt;5.00&lt;/pIPI&gt;&lt;vIPI&gt;1255.59&lt;/vIPI&gt;&lt;/IPITrib&gt;&lt;/IPI&gt;&lt;PIS&gt;&lt;PISAliq&gt;&lt;CST&gt;01&lt;/CST&gt;&lt;vBC&gt;25111.85&lt;/vBC&gt;&lt;pPIS&gt;1.65&lt;/pPIS&gt;&lt;vPIS&gt;414.35&lt;/vPIS&gt;&lt;/PISAliq&gt;&lt;/PIS&gt;&lt;COFINS&gt;&lt;COFINSAliq&gt;&lt;CST&gt;01&lt;/CST&gt;&lt;vBC&gt;25111.85&lt;/vBC&gt;&lt;pCOFINS&gt;7.60&lt;/pCOFINS&gt;&lt;vCOFINS&gt;1908.50&lt;/vCOFINS&gt;&lt;/COFINSAliq&gt;&lt;/COFINS&gt;&lt;/imposto&gt;&lt;infAdProd&gt;AREA I 01 Conjunto de estruturas metalicas do tipo porta-paletes ( triplos ) medindo 6620 x 1900 x 4000 mm composto por 03 modulos medindo cada um 2100 x 1900 x 4000 mm e 03 conjuntos medindo 4440 x 1900 x 4000 mm compostos por 02 modulos medindo 2100 x 1900 x 4000 mm. todos com 03 trios de longarinas aptos a suportar uma carga uniformemente distribuida de 1200 kgf cada. Todos os trios de longarinas serao cobertos por piso metalico do tipo grelha. Acompanham 3 stops traseiros em perfil tipo Z 87&lt;/infAdProd&gt;&lt;/det&gt;&lt;total&gt;&lt;ICMSTot&gt;&lt;vBC&gt;26367.44&lt;/vBC&gt;&lt;vICMS&gt;1845.72&lt;/vICMS&gt;&lt;vBCST&gt;0.00&lt;/vBCST&gt;&lt;vST&gt;0.00&lt;/vST&gt;&lt;vProd&gt;25111.85&lt;/vProd&gt;&lt;vFrete&gt;0.00&lt;/vFrete&gt;&lt;vSeg&gt;0.00&lt;/vSeg&gt;&lt;vDesc&gt;0.00&lt;/vDesc&gt;&lt;vII&gt;0.00&lt;/vII&gt;&lt;vIPI&gt;1255.59&lt;/vIPI&gt;&lt;vPIS&gt;414.35&lt;/vPIS&gt;&lt;vCOFINS&gt;1908.50&lt;/vCOFINS&gt;&lt;vOutro&gt;0.00&lt;/vOutro&gt;&lt;vNF&gt;26367.44&lt;/vNF&gt;&lt;/ICMSTot&gt;&lt;/total&gt;&lt;transp&gt;&lt;modFrete&gt;0&lt;/modFrete&gt;&lt;transporta&gt;&lt;CNPJ&gt;11317047001090&lt;/CNPJ&gt;&lt;xNome&gt;TRANSPORTADORA ASA DE PRATA LTDA&lt;/xNome&gt;&lt;IE&gt;336491586113&lt;/IE&gt;&lt;xEnder&gt;RUA JEQUITAI 20&lt;/xEnder&gt;&lt;xMun&gt;GUARULHOS&lt;/xMun&gt;&lt;UF&gt;SP&lt;/UF&gt;&lt;/transporta&gt;&lt;vol&gt;&lt;qVol&gt;32&lt;/qVol&gt;&lt;esp&gt;VOLUMES&lt;/esp&gt;&lt;marca&gt;PROPRIO&lt;/marca&gt;&lt;nVol&gt;1&lt;/nVol&gt;&lt;pesoL&gt;4796.000&lt;/pesoL&gt;&lt;pesoB&gt;4796.000&lt;/pesoB&gt;&lt;/vol&gt;&lt;/transp&gt;&lt;cobr&gt;&lt;fat&gt;&lt;nFat&gt;8452&lt;/nFat&gt;&lt;vOrig&gt;26367.44&lt;/vOrig&gt;&lt;vLiq&gt;26367.44&lt;/vLiq&gt;&lt;/fat&gt;&lt;dup&gt;&lt;nDup&gt;01M-00008452A&lt;/nDup&gt;&lt;dVenc&gt;2012-09-19&lt;/dVenc&gt;&lt;vDup&gt;26367.44&lt;/vDup&gt;&lt;/dup&gt;&lt;/cobr&gt;&lt;infAdic&gt;&lt;infCpl&gt;DADOS BANCARIOS PARA DEPOSITO BANCO BRADESCO AGENCIA 33936 E CONTA CORRENTE 202568 Referente ao(s) Seu(s) pedido(s) 36691 Pedido No 68632 de 28062012 REPRESENTANTE 001 ADMINISTRACAO&lt;/infCpl&gt;&lt;/infAdic&gt;&lt;/infNFe&gt;&lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#"&gt;&lt;SignedInfo&gt;&lt;CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /&gt;&lt;SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /&gt;&lt;Reference URI="#NFe35120843799295000110550010000084521593864244"&gt;&lt;Transforms&gt;&lt;Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /&gt;&lt;Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /&gt;&lt;/Transforms&gt;&lt;DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /&gt;&lt;DigestValue&gt;4U+wtUSG6NoROgmH1qJQ22lhs0w=&lt;/DigestValue&gt;&lt;/Reference&gt;&lt;/SignedInfo&gt;&lt;SignatureValue&gt;XascykCcmCnnIH2XWNQth10ihe/ukBz2AFeIwsLnGJbr/PQIMbInHdpWIdoZCKK2MK9/pG4s2QHFvBSlLGN4B/04/1D/JrfEkwJKvKZfSf2E2zp6nue4wg3LxPmXhqcbIU/bfa61eyu0k9FA0DqT8ASIe/cSspWOlHUwCrfZy6sl+SNs66L5dHTUiLNw/8CFbvcbLmlunNP3cbPz2sUKwApRSPfXsfBcNSdEiBIz3Sn71NZSVAIdcxxoHQubufIsUGxPyqRwWk+pyOnNzRVkYG892Emx6MTuds3ZOn+vOIOsEHjHFSQFdHc+MDuS3IUerBHJ8/Br3QmoiR5aYCTyJQ==&lt;/SignatureValue&gt;&lt;KeyInfo&gt;&lt;X509Data&gt;&lt;X509Certificate&gt;MIIIYTCCBkmgAwIBAgIQWmvsFHJfc1KOdW+QCuPlSzANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJCUjETMBEGA1UEChMKSUNQLUJyYXNpbDEtMCsGA1UECxMkQ2VydGlzaWduIENlcnRpZmljYWRvcmEgRGlnaXRhbCBTLkEuMSEwHwYDVQQDExhBQyBDZXJ0aXNpZ24gTXVsdGlwbGEgRzUwHhcNMTIwNzE5MDAwMDAwWhcNMTUwNzE4MjM1OTU5WjCB6jELMAkGA1UEBhMCQlIxEzARBgNVBAoUCklDUC1CcmFzaWwxODA2BgNVBAsUL0F1dGVudGljYWRvIHBvciBDZXJ0aXNpZ24gQ2VydGlmaWNhZG9yYSBEaWdpdGFsMRswGQYDVQQLFBJBc3NpbmF0dXJhIFRpcG8gQTMxFTATBgNVBAsUDElEIC0gMzM4MzA4OTEsMCoGA1UEAxMjQUxUQU1JUkEgSU5EVVNUUklBIE1FVEFMVVJHSUNBIExUREExKjAoBgkqhkiG9w0BCQEWG2dlcmVuY2lhLnRpQGFsdGFtaXJhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPJjBvBUtNkik5tWUvPE9SSRDgajyMjcW1lypfMskEWf6oxTd+7R9SrRSGTTy90E6RG5GL2+uwG/bTcOWevZdH745WZm+talLykJz9yaAMioV1nzaWyRqmXJWx3sVkkimHzoGkgtVwZGhUtNFml3U6XEhQ/0Y9VXaWEXr6xoH+fcnMFNjVaVPElYdnnj7B+zSAlZgK5TO4Es+Bs3eIEeHW6pqnPp/Xu7sEV5DNo/MkRv37cz37KYwlg9GuBuuDzdwKpq5VwfEwCokb0nwUN+WM8ac4zkdE+NC6XG3eOlp2Koz3UU57N86crI8RztfrGDSBioFHtOrN9N1TIZrxP99pECAwEAAaOCA3YwggNyMIG8BgNVHREEgbQwgbGgOAYFYEwBAwSgLwQtMDYwMTE5NTgwMTA5ODIxMzg2NjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwoCQGBWBMAQMCoBsEGUZMQVZJTyBET1MgU0FOVE9TIE1JUkFOREGgGQYFYEwBAwOgEAQONDM3OTkyOTUwMDAxMTCgFwYFYEwBAwegDgQMMDAwMDAwMDAwMDAwgRtnZXJlbmNpYS50aUBhbHRhbWlyYS5jb20uYnIwCQYDVR0TBAIwADAfBgNVHSMEGDAWgBSdUM+9/yTKr7Ez6xfiQnqOaSqOUzAOBgNVHQ8BAf8EBAMCBeAwgYkGA1UdIASBgTB/MH0GBmBMAQIDBTBzMHEGCCsGAQUFBwIBFmVodHRwOi8vaWNwLWJyYXNpbC5jZXJ0aXNpZ24uY29tLmJyL3JlcG9zaXRvcmlvL2RwYy9BQ19DZXJ0aXNpZ25fTXVsdGlwbGEvRFBDX0FDX0NlcnRpU2lnbk11bHRpcGxhLnBkZjCCASUGA1UdHwSCARwwggEYMFygWqBYhlZodHRwOi8vaWNwLWJyYXNpbC5jZXJ0aXNpZ24uY29tLmJyL3JlcG9zaXRvcmlvL2xjci9BQ0NlcnRpc2lnbk11bHRpcGxhRzUvTGF0ZXN0Q1JMLmNybDBboFmgV4ZVaHR0cDovL2ljcC1icmFzaWwub3V0cmFsY3IuY29tLmJyL3JlcG9zaXRvcmlvL2xjci9BQ0NlcnRpc2lnbk11bHRpcGxhRzUvTGF0ZXN0Q1JMLmNybDBboFmgV4ZVaHR0cDovL3JlcG9zaXRvcmlvLmljcGJyYXNpbC5nb3YuYnIvbGNyL0NlcnRpc2lnbi9BQ0NlcnRpc2lnbk11bHRpcGxhRzUvTGF0ZXN0Q1JMLmNybDAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgaAGCCsGAQUFBwEBBIGTMIGQMGQGCCsGAQUFBzAChlhodHRwOi8vaWNwLWJyYXNpbC5jZXJ0aXNpZ24uY29tLmJyL3JlcG9zaXRvcmlvL2NlcnRpZmljYWRvcy9BQ19DZXJ0aXNpZ25fTXVsdGlwbGFfRzUucDdjMCgGCCsGAQUFBzABhhxodHRwOi8vb2NzcC5jZXJ0aXNpZ24uY29tLmJyMA0GCSqGSIb3DQEBCwUAA4ICAQCke/uhqD8hQTsX/OXqKISf6Io+8PGNdacO5FIMcoBs9kns7YYKkqmUow8lDAkr830zZPU0SbJDcC5geK0b2mvjHjLF7EJNrqtBQdFGuPwbaMFsCcgqQ4KoXofdo79QLkYEwlStGw1f8aiF7tri0y6jZ94qwgPB5JUMfrdoT+iW2uyVXe9jIlj5JNPBJb/9H4aP05zk0HD6cWgPfPpF0N2Agrbc1pPo2p88xiZjzG6S84/tbKju/c15JMswpUC/szaDhYXxy0n2nFusDWa9F4h8tkcHDyX3f34u0hMD7uFqa27aFd/9P05Y5eciz2QUH1/ePr8bW5BgCQlnrZcrIIjdrG5qD8v/dWoWVdNL3sNg7tchc6sTGlCFEC48umkloU5uyMWdrrNX0SAHiY7AlEAdW34LlOEivbXkAXCfCDxA3+JdIs3dcWuvwQXnmV406q83aWyIuwzPO5Vp5LRnWz+VjkCm+D3x8thbc7zZIqlgdBgMNizVmtccCI6EtkEwnHT42+F50soy1226W1LCDVDOaGK+94zrgOzfvUgXFnBCiB386Jt4gHguS+tnxjiyiaKWpovmZORYaebh6VUA4FDSWuv91QluMbsEIb/WQHNY0wBQgqZy5BPKemnMngApLXp4Q195o/67dcZYjqyLPRFe1ypxOjkmGLAcg2NFfnpo/g==&lt;/X509Certificate&gt;&lt;/X509Data&gt;&lt;/KeyInfo&gt;&lt;/Signature&gt;&lt;/NFe&gt;&lt;protNFe versao="2.00"&gt;&lt;infProt Id="Id135120471420766"&gt;&lt;tpAmb&gt;1&lt;/tpAmb&gt;&lt;verAplic&gt;SP_NFE_PL_006j&lt;/verAplic&gt;&lt;chNFe&gt;35120843799295000110550010000084521593864244&lt;/chNFe&gt;&lt;dhRecbto&gt;2012-08-20T15:40:53&lt;/dhRecbto&gt;&lt;nProt&gt;135120471420766&lt;/nProt&gt;&lt;digVal&gt;4U+wtUSG6NoROgmH1qJQ22lhs0w=&lt;/digVal&gt;&lt;cStat&gt;100&lt;/cStat&gt;&lt;xMotivo&gt;Autorizado o uso da NF-e&lt;/xMotivo&gt;&lt;/infProt&gt;&lt;/protNFe&gt;&lt;/nfeProc&gt;')
+
+SELECT 
+	@hash AS [Hash]
+	, @number AS [Number]
+	, @key AS [Key]
+	, @nfe.value('declare namespace ns="http://www.portalfiscal.inf.br/nfe"; (/ns:nfeProc/ns:NFe/ns:infNFe)[1]', 'NVARCHAR(MAX)') AS [NFeInfo]
+	, @nfe.value('declare namespace ns="http://www.portalfiscal.inf.br/nfe"; (/ns:nfeProc)[1]', 'NVARCHAR(MAX)') AS [NFeProc]
+	, @nfe AS [NFeXml]
+
+INSERT INTO NFe 
+	([Date], [Number], [Key], [Hash], [Xml])
+VALUES
+	(GETDATE(), @number, @key, @hash, @nfe)
+</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

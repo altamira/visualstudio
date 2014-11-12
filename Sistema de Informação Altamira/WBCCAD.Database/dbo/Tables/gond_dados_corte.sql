@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[gond_dados_corte] (
+    [Nome_corte]                NVARCHAR (50) NULL,
+    [Tipo_corte]                NVARCHAR (50) NULL,
+    [lista]                     NVARCHAR (50) NULL,
+    [idcorte]                   INT           IDENTITY (1, 1) NOT NULL,
+    [altura_base]               FLOAT (53)    NULL,
+    [desenho_planta]            NVARCHAR (20) NULL,
+    [posicao]                   NVARCHAR (1)  NULL,
+    [corte_config]              BIT           NULL,
+    [ALturaMinima]              FLOAT (53)    NULL,
+    [passo]                     FLOAT (53)    NULL,
+    [prof_estr]                 INT           NULL,
+    [travar_representante]      BIT           NULL,
+    [sobra_modulo]              FLOAT (53)    NULL,
+    [sufixo_estrutura]          NVARCHAR (10) NULL,
+    [trat_base]                 BIT           NULL,
+    [alt_max_ins]               BIT           NULL,
+    [tratar_como_triplo]        BIT           NULL,
+    [compl_comprimento]         FLOAT (53)    NULL,
+    [somente_manter_regra]      BIT           NULL,
+    [nao_deixar_modulo_central] BIT           NULL,
+    [nao_deixar_modulo_parede]  BIT           NULL,
+    [GOND_UTILIZADO_EM]         INT           NULL
+);
+

@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[PRDACM] (
+    [PRDACM_ACMCOD] NVARCHAR (50) NULL,
+    [PRODUTO]       NVARCHAR (50) NULL
+);
+

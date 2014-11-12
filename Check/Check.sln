@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library_Portable", "Library\Library_Portable.csproj", "{24C54A20-FC38-455D-A18A-92E4B2603DE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{BA480AD2-923D-4624-9491-B4F936D90E39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckPrint", "CheckPrint\CheckPrint.csproj", "{7C40A573-DEC2-4DDF-9137-756E1ECC4087}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://altamira.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CheckPrint\\CheckPrint.csproj
+		SccProjectName1 = CheckPrint
+		SccLocalPath1 = CheckPrint
+		SccProjectUniqueName2 = Library\\Library_Portable.csproj
+		SccProjectName2 = Library
+		SccLocalPath2 = Library
+		SccProjectUniqueName3 = Test\\Test.csproj
+		SccProjectName3 = Test
+		SccLocalPath3 = Test
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24C54A20-FC38-455D-A18A-92E4B2603DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C54A20-FC38-455D-A18A-92E4B2603DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C54A20-FC38-455D-A18A-92E4B2603DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C54A20-FC38-455D-A18A-92E4B2603DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA480AD2-923D-4624-9491-B4F936D90E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA480AD2-923D-4624-9491-B4F936D90E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA480AD2-923D-4624-9491-B4F936D90E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA480AD2-923D-4624-9491-B4F936D90E39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C40A573-DEC2-4DDF-9137-756E1ECC4087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C40A573-DEC2-4DDF-9137-756E1ECC4087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C40A573-DEC2-4DDF-9137-756E1ECC4087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C40A573-DEC2-4DDF-9137-756E1ECC4087}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

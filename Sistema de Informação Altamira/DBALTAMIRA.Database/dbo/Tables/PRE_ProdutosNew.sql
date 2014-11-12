@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[PRE_ProdutosNew] (
+    [prpr_Codigo]        NVARCHAR (16) NOT NULL,
+    [prpr_Descricao]     NVARCHAR (60) NOT NULL,
+    [prpr_Unidade]       SMALLINT      NULL,
+    [prpr_Peso]          FLOAT (53)    NOT NULL,
+    [prpr_Largura]       INT           NULL,
+    [prpr_Comprimento]   INT           NULL,
+    [prpr_SaldoEstoque]  NVARCHAR (6)  NULL,
+    [prpr_ValorUnitario] MONEY         NULL,
+    [prpr_TipoChapa]     INT           NULL,
+    [prpr_EstoqueMinimo] INT           NULL,
+    [prpr_EstoqueMaximo] INT           NULL,
+    [prpr_Guilhotina]    TINYINT       NULL,
+    [prpr_Dobradeira]    TINYINT       NULL,
+    [prpr_Prensas]       TINYINT       NULL,
+    [prpr_Perfiladeira]  TINYINT       NULL,
+    [prpr_Blanks]        TINYINT       NULL,
+    [prpr_Estamparia]    TINYINT       NULL,
+    [prpr_SoldaPonto]    TINYINT       NULL,
+    [prpr_SoldaEletrica] TINYINT       NULL,
+    [prpr_Pintura]       TINYINT       NULL,
+    [prpr_Almoxarifado]  TINYINT       NULL,
+    [prpr_Entrega]       TINYINT       NULL,
+    [prpr_Marcenaria]    TINYINT       NULL,
+    [prpr_Terceirizado]  TINYINT       NULL,
+    [prpr_MatEstoque]    TINYINT       NULL
+);
+

@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[SGMOD1] (
+    [SgMod0Cod] CHAR (3)  NOT NULL,
+    [SgPrg0Cod] CHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([SgMod0Cod] ASC, [SgPrg0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ISGMOD1B]
+    ON [dbo].[SGMOD1]([SgPrg0Cod] ASC);
+

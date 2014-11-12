@@ -1,0 +1,313 @@
+﻿<controls:ChildWindow x:Class="GestaoApp.View.Location.AddressFormView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:sdk="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+           xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" 
+           xmlns:interactivity="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+           xmlns:control="clr-namespace:GestaoApp.Controls"
+           xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+           xmlns:viewmodel="clr-namespace:GestaoApp.ViewModel"
+           Width="550" Height="520" 
+           Title="Endereço">
+
+    <controls:ChildWindow.Resources>
+        <helpers:Base64ImageConverter x:Key="Base64ImageConverter" />
+        <helpers:ConvertBoolToVisibility x:Key="ConvertBoolToVisibility" />
+        <helpers:ConvertReadOnlyToBool x:Key="ConvertReadOnlyToBool" />
+        <helpers:ConvertReadOnlyToVisibility x:Key="ConvertReadOnlyToVisibility" />
+        
+        <DataTemplate x:Key="AddressDataGridTemplate">
+            <helpers:DataGridSelectionAdapter x:Name="SelectionAdapter" AutoGenerateColumns="False" IsReadOnly="True">
+                <helpers:DataGridSelectionAdapter.Columns>
+                    <data:DataGridTextColumn Header="Endereço" FontWeight="Bold" Foreground="#CC000000" Binding="{Binding Street}"/>
+                    <data:DataGridTextColumn Header="Bairro" Binding="{Binding District}"/>
+                    <data:DataGridTextColumn Header="Cidade" Binding="{Binding City.Name}"/>
+                    <data:DataGridTextColumn Header="Estado" Binding="{Binding State.Name}"/>
+                    <data:DataGridTextColumn Header="CEP" Binding="{Binding PostalCode}"/>
+                </helpers:DataGridSelectionAdapter.Columns>
+            </helpers:DataGridSelectionAdapter>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CityDataGridTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Text="{Binding Name}" Grid.Column="0" />
+                <TextBlock Text="{Binding State.Name}" Grid.Column="1" />
+                <TextBlock Text="{Binding Country.Name}" Grid.Column="2" />
+            </Grid>
+        </DataTemplate>
+        
+        <Style x:Key="AutoCompleteBoxDataGridTemplate" TargetType="sdk:AutoCompleteBox">
+            <Setter Property="Background" Value="#FF1F3B53"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#FF617584" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="sdk:AutoCompleteBox">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="PopupStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.2" To="PopupOpened"/>
+                                        <VisualTransition GeneratedDuration="0:0:0.5" To="PopupClosed"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="PopupOpened">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PopupClosed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PopupBorder" Storyboard.TargetProperty="Opacity" To="0.0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <TextBox IsTabStop="True" x:Name="Text" Style="{TemplateBinding TextBoxStyle}" Margin="0"/>
+                            <Popup x:Name="Popup">
+                                <Border x:Name="PopupBorder" HorizontalAlignment="Stretch" Opacity="0.0" BorderThickness="0" CornerRadius="3">
+                                    <Border.RenderTransform>
+                                        <TranslateTransform X="2" Y="2"/>
+                                    </Border.RenderTransform>
+                                    <Border.Background>
+                                        <SolidColorBrush Color="#11000000"/>
+                                    </Border.Background>
+                                    <Border HorizontalAlignment="Stretch" BorderThickness="0" CornerRadius="3">
+                                        <Border.Background>
+                                            <SolidColorBrush Color="#11000000"/>
+                                        </Border.Background>
+                                        <Border.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform X="-1" Y="-1"/>
+                                            </TransformGroup>
+                                        </Border.RenderTransform>
+                                        <Border HorizontalAlignment="Stretch" Opacity="1.0" Padding="1" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3">
+                                            <Border.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform/>
+                                                    <TranslateTransform X="-2" Y="-2"/>
+                                                </TransformGroup>
+                                            </Border.RenderTransform>
+                                            <Border.Background>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FFDDDDDD" Offset="0"/>
+                                                    <GradientStop Color="#AADDDDDD" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <helpers:DataGridSelectionAdapter x:Name="SelectionAdapter" AutoGenerateColumns="False" IsReadOnly="True">
+                                                <helpers:DataGridSelectionAdapter.Columns>
+                                                    <data:DataGridTextColumn Header="Endereço" FontWeight="Bold" Foreground="#CC000000" Binding="{Binding Street}"/>
+                                                    <data:DataGridTextColumn Header="Bairro" Binding="{Binding District}"/>
+                                                    <data:DataGridTextColumn Header="Cidade" Binding="{Binding City.Name}"/>
+                                                    <data:DataGridTextColumn Header="Estado" Binding="{Binding State.Name}"/>
+                                                    <data:DataGridTextColumn Header="CEP" Binding="{Binding PostalCode}"/>
+                                                </helpers:DataGridSelectionAdapter.Columns>
+                                            </helpers:DataGridSelectionAdapter>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </controls:ChildWindow.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White" BindingValidationError="LayoutRoot_BindingValidationError">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+        
+        <input:ValidationSummary />
+        
+        <Border Grid.Row="1" BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="170*"></ColumnDefinition>
+                    <ColumnDefinition Width="85*"></ColumnDefinition>
+                    <ColumnDefinition Width="160*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Código" Margin="5" VerticalAlignment="Center" />
+                <TextBox Name="CodeTextBox" Grid.Column="1" Margin="5" Text="{Binding Path=SelectedItem.Code, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Center" IsEnabled="false" />
+
+                <TextBlock Text="CNPJ" Margin="5" Grid.Column="2" VerticalAlignment="Center" />
+                <TextBox Name="CNPJTextBox" Grid.Column="3" Margin="5" Text="{Binding Path=SelectedItem.CNPJ, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Center" IsEnabled="false" />
+
+                <TextBlock Grid.Row="1" Margin="5" Text="Razão Social" VerticalAlignment="Center" />
+                <TextBox Grid.Row="1" Name="NameTextBox" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" Text="{Binding Path=SelectedItem.Name, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top" IsEnabled="False" />
+
+                <TextBlock Grid.Row="2" Margin="5" Text="Rua" VerticalAlignment="Center" />
+                <!--<TextBox Name="StreetTextBox" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" Grid.Row="0" Text="{Binding Street, Mode=TwoWay}" MinHeight="3" MaxLength="50" />-->
+                <control:AutoCompleteComboBox 
+                                     SelectedValue="{Binding SelectedItem.Street, Mode=TwoWay}"
+                                     SelectedValuePath="Street"
+                                     ItemsSource="{Binding SearchResultList}" 
+                                     GotFocus="StreetAutoCompleteComboBox_GotFocus"
+                                     LostFocus="StreetAutoCompleteComboBox_LostFocus"
+                                     x:Name="StreetAutoCompleteComboBox" 
+                                     IsTextCompletionEnabled="True" TabIndex="0"
+                                     Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5">
+                    <interactivity:Interaction.Behaviors>
+                        <helpers:FilterAsyncBehavior FilterAsyncCommand="{Binding FilterAsyncCommand}" />
+                    </interactivity:Interaction.Behaviors>
+                    <control:AutoCompleteComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="{Binding Street}" Grid.Column="0" />
+                                <TextBlock Text="{Binding District}" Grid.Column="1" />
+                                <TextBlock Text="{Binding City.Name}" Grid.Column="2" />
+                                <TextBlock Text="{Binding PostalCode}" Grid.Column="3" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </control:AutoCompleteComboBox.ItemTemplate>
+                </control:AutoCompleteComboBox>
+                <!--<sdk:AutoCompleteBox  Style="{StaticResource AutoCompleteBoxDataGridTemplate}"
+                                     ToolTipService.ToolTip="{Binding SelectedItem, RelativeSource={RelativeSource Self}}"
+                                     FilterMode="StartsWith"
+                                     ValueMemberPath="Street"
+                                     SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                                     ItemsSource="{Binding SearchResultList}"
+                                     Name="StreetTextBox" 
+                                     IsTextCompletionEnabled="True" TabIndex="0"
+                                     Height="25" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,0,5,0" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" >
+                    <interactivity:Interaction.Behaviors>
+                        <helpers:FilterAsyncBehavior FilterAsyncCommand="{Binding FilterAsyncCommand}" />
+                    </interactivity:Interaction.Behaviors>
+                    <sdk:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Street}" Grid.Column="0" />
+                                <TextBlock Text="{Binding District}" Grid.Column="1" />
+                                <TextBlock Text="{Binding City.Name}" Grid.Column="2" />
+                                <TextBlock Text="{Binding PostalCode}" Grid.Column="3" />
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:AutoCompleteBox.ItemTemplate>
+                </sdk:AutoCompleteBox>-->
+                <!--<ContentPresenter Grid.Row="0" Name="SelectedItemContent" Grid.Column="3"/>-->
+                
+                <TextBlock Grid.Row="3" Margin="5" Text="Número" VerticalAlignment="Center" />
+                <TextBox Name="NumberTextBox" Grid.Row="3" Grid.Column="1" Margin="5" TabIndex="1" Text="{Binding SelectedItem.Number, Mode=TwoWay}" MinHeight="3" MaxLength="50" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" />
+                
+                <TextBlock Grid.Row="3" Grid.Column="2" Margin="5" Text="Complemento" VerticalAlignment="Center" />
+                <TextBox Grid.Row="3" Name="ComplementTextBox" Grid.Column="3" TabIndex="2" Margin="5" Text="{Binding SelectedItem.Complement, Mode=TwoWay}" MinHeight="3" MaxLength="50" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" />
+                
+                <TextBlock Grid.Row="4" Margin="5" Text="Bairro" VerticalAlignment="Center" />
+                <TextBox Grid.Row="4" Name="DistrictTextBox" Grid.Column="1" Margin="5" TabIndex="3" Text="{Binding SelectedItem.District, Mode=TwoWay}" MaxLength="50" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" />
+                
+                <TextBlock Grid.Row="4" Grid.Column="2" Margin="5" Text="CEP" VerticalAlignment="Center" />
+                <TextBox Grid.Row="4" Name="PostalCodeTextBox" Grid.Column="3" Margin="5" TabIndex="4" Text="{Binding SelectedItem.PostalCode, Mode=TwoWay}" MinHeight="8" MaxLength="8" KeyDown="TextBox_KeyDown" TextChanged="TextBox_TextChanged" />
+
+                <TextBlock Grid.Row="5" Margin="5" Text="Referência" VerticalAlignment="Center" />
+                <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" MaxLength="8" MinHeight="8" Name="ReferenceTextBox" Text="{Binding SelectedItem.Reference, Mode=TwoWay}" />
+
+                <TextBlock Grid.Row="6" Margin="5" Text="Cidade" VerticalAlignment="Center" />
+                <Grid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <!--<Border BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">-->
+                        <control:AutoCompleteComboBox 
+                                             ToolTipService.ToolTip="{Binding SelectedItem, RelativeSource={RelativeSource Self}}"
+                                             SelectedItemBinding="{Binding SelectedItem.City, Mode=TwoWay}"
+                                             x:Name="CityAutoCompleteComboBox" TabIndex="5"
+                                             Height="25" Grid.Column="1" IsTextCompletionEnabled="True" FilterMode="StartsWith">
+                        </control:AutoCompleteComboBox>
+                    <!--</Border>-->
+                    <!--<Button Content="..." Command="{Binding SelectCommand}" Visibility="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToVisibility}}" Width="30" HorizontalAlignment="Right" />-->
+                </Grid>
+                <TextBlock Grid.Row="7" Margin="5" Text="Estado" VerticalAlignment="Center" />
+                <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" DataContext="{Binding SelectedItem.City.State}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Flag, Converter={StaticResource Base64ImageConverter}}" Height="22" />
+                    <!--<Border Margin="5,0,0,0" Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">-->
+                    <TextBlock Text="{Binding Name, Mode=TwoWay}" Grid.Column="1" />
+                    <!--</Border>-->
+                    <!--<Button Content="..." Grid.Column="1" Command="{Binding SelectCommand}" Visibility="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToVisibility}}" Width="30" HorizontalAlignment="Right" />-->
+                </Grid>
+
+                <TextBlock Grid.Row="8" Margin="5" Text="País" VerticalAlignment="Center" />
+                <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" DataContext="{Binding SelectedItem.City.State.Country}" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Flag, Converter={StaticResource Base64ImageConverter}}" Height="22" />
+                    <!--<Border Margin="5,0,0,0" Grid.Column="1" BorderThickness="1,1,1,1" BorderBrush="{StaticResource DefaultBorderColor}">-->
+                    <TextBlock Text="{Binding Name}" Grid.Column="1" />
+                    <!--</Border>-->
+                    <!--<Button Content="..." Grid.Column="1" Command="{Binding SelectCommand}" Visibility="{Binding ReadOnly, Converter={StaticResource ConvertReadOnlyToVisibility}}" Width="30" HorizontalAlignment="Right" />-->
+                </Grid>
+
+                <TextBlock Grid.Row="9" Margin="5" Text="Representante" VerticalAlignment="Center" />
+                <control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Vendor, Mode=TwoWay}"
+                                                 ValueMemberPath="Name"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="VendorAutoCompleteComboBox" 
+                                                 Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" BorderBrush="{StaticResource DefaultBorderColor}" >
+                </control:AutoCompleteComboBox>
+                
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" BorderBrush="{StaticResource DefaultBorderColor}" BorderThickness="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="SaveButton" Content="Gravar" Width="75" Height="25" Margin="5" Click="SaveButton_Click" />
+                <Button x:Name="CancelButton" Content="Cancelar" Width="75" Height="25" Margin="5" Click="CancelButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</controls:ChildWindow>

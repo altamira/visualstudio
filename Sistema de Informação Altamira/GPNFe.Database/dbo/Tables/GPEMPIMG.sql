@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[GPEMPIMG] (
+    [GPEmpImgCod] CHAR (2) NOT NULL,
+    [GPEmpImgImg] IMAGE    NULL,
+    [GPEmpImgExt] CHAR (5) NULL,
+    CONSTRAINT [PK_GPEMPIMG] PRIMARY KEY CLUSTERED ([GPEmpImgCod] ASC)
+);
+

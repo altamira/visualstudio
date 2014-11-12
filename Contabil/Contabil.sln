@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User Interface", "User Interface\User Interface.csproj", "{0F99EBE4-E15C-4654-BB26-F215E327AB68}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70} = {0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{48AEA320-13D3-402A-B70E-4FDE6B965C5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPIMAC", "GPIMAC\GPIMAC.csproj", "{472311AF-C690-42E6-B8D9-B301475F3AB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTMATIC", "CONTMATIC\CONTMATIC.csproj", "{715A833A-B730-40D5-9D78-FF6F2776AE46}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://altamira.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CONTMATIC\\CONTMATIC.csproj
+		SccProjectName1 = CONTMATIC
+		SccLocalPath1 = CONTMATIC
+		SccProjectUniqueName2 = GPIMAC\\GPIMAC.csproj
+		SccProjectName2 = GPIMAC
+		SccLocalPath2 = GPIMAC
+		SccProjectUniqueName3 = Model\\Model.csproj
+		SccProjectName3 = Model
+		SccLocalPath3 = Model
+		SccProjectUniqueName4 = Service\\Service.csproj
+		SccProjectName4 = Service
+		SccLocalPath4 = Service
+		SccProjectUniqueName5 = User\u0020Interface\\User\u0020Interface.csproj
+		SccProjectName5 = User\u0020Interface
+		SccLocalPath5 = User\u0020Interface
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F99EBE4-E15C-4654-BB26-F215E327AB68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F99EBE4-E15C-4654-BB26-F215E327AB68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F99EBE4-E15C-4654-BB26-F215E327AB68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F99EBE4-E15C-4654-BB26-F215E327AB68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48AEA320-13D3-402A-B70E-4FDE6B965C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AEA320-13D3-402A-B70E-4FDE6B965C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AEA320-13D3-402A-B70E-4FDE6B965C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AEA320-13D3-402A-B70E-4FDE6B965C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE02EE9-5CC9-42AD-9CD3-13F9292B3E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472311AF-C690-42E6-B8D9-B301475F3AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472311AF-C690-42E6-B8D9-B301475F3AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472311AF-C690-42E6-B8D9-B301475F3AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472311AF-C690-42E6-B8D9-B301475F3AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{715A833A-B730-40D5-9D78-FF6F2776AE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{715A833A-B730-40D5-9D78-FF6F2776AE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715A833A-B730-40D5-9D78-FF6F2776AE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{715A833A-B730-40D5-9D78-FF6F2776AE46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

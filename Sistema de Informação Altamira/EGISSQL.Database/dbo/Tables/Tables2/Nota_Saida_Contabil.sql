@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Nota_Saida_Contabil] (
+    [cd_nota_saida]             INT          NOT NULL,
+    [cd_item_contab_nota_saida] INT          NOT NULL,
+    [dt_contab_nota_saida]      DATETIME     NULL,
+    [cd_lancamento_padrao]      INT          NULL,
+    [cd_conta_debito]           INT          NULL,
+    [cd_conta_credito]          INT          NULL,
+    [cd_historico_contabil]     INT          NULL,
+    [nm_historico_nota_saida]   VARCHAR (40) NULL,
+    [ic_sct_contab_nota_saida]  CHAR (1)     NULL,
+    [dt_sct_contab_nota_saida]  DATETIME     NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [vl_contab_nota_saida]      FLOAT (53)   NULL,
+    [vl_ipi_nota_saida]         FLOAT (53)   NULL,
+    [cd_cliente]                INT          NULL,
+    [cd_operacao_fiscal]        INT          NULL,
+    [cd_tipo_destinatario]      INT          NULL,
+    [vl_icms_nota_saida]        FLOAT (53)   NULL,
+    [nm_fantasia_destinatario]  VARCHAR (15) NULL,
+    [cd_lote_contabil]          INT          NULL,
+    [vl_pis_nota_saida]         FLOAT (53)   NULL,
+    [vl_cofins_nota_saida]      FLOAT (53)   NULL
+);
+

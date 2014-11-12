@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
+  <Class Name="Sefaz.NFe.Models.NFeElementBase&lt;T&gt;">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAgIAAAACAAIAAAAAAAgCBAAAAAIAAAAAAAEBA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sefaz.NFe.Models.PropertyValueState">
+    <Position X="53.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAABABAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ObjectStateChangingEventArgs">
+    <Position X="52" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ObjectList">
+    <Position X="52" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ObjectChangeTracker" BaseTypeListCollapsed="true">
+    <Position X="48.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAMJQgAAAKAAAAmMgBAABACgAgIhQAFBABERAAASAI=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TrackableCollection&lt;T&gt;">
+    <Position X="57.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.PropertyValueStatesDictionary">
+    <Position X="55.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ObjectsRemovedFromCollectionProperties">
+    <Position X="57.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ObjectsAddedToCollectionProperties">
+    <Position X="53.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ObjectsOriginalFromCollectionProperties">
+    <Position X="55.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TConsSitNFe">
+    <Position X="34.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAQAAAggAAAYAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TRetConsSitNFe">
+    <Position X="18.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAQAAGAgAAA4AAABCAAIAAAABAAEAAAAgJFAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TProtNFe">
+    <Position X="28.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAgAAAAAAAAAgAAAAAAAAAAAAAAABAAQAAE=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TProtNFeInfProt">
+    <Position X="37" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAQgAAAAAAA4AAAACAQAAACAAACAAAAAgBFCAoAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.SignatureType">
+    <Position X="43.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAABAAAAAAAAAAgAAIAAIAACSAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.SignedInfoType">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoACAECAAEAAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.SignedInfoTypeCanonicalizationMethod">
+    <Position X="9.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.SignedInfoTypeSignatureMethod">
+    <Position X="20.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ReferenceType">
+    <Position X="26.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAACAAAAAEAAEABAAiABBCAAAQAAAAAAACA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TransformType">
+    <Position X="30.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAgAAAQAABA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.ReferenceTypeDigestMethod">
+    <Position X="46" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.SignatureValueType">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAACACAAAAAgAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.KeyInfoType">
+    <Position X="11.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAACAAgAAAAAAACAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.X509DataType">
+    <Position X="22.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TRetCancNFe_v200107">
+    <Position X="32.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgEAAAAAAAAgAAAAAAAAAAAAAAABAAAgAE=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TRetCancNFe_v200107InfCanc">
+    <Position X="39.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAQAAAAAAAA4AAABCAAAAACAABCAAAAAgJFCAoAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TProcEvento">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAgAAAAAAAAAAAAAAAAAAAIAAAAABAAEAIA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TEvento">
+    <Position X="14" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAACAAAAAgAAAAAAAEAAAAAAABAAAAAE=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TEventoInfEvento">
+    <Position X="24.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgSAQQAAIAACAYAAAEAAAQHIAFAACAAAAAkAAEAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TEventoInfEventoDetEvento">
+    <Position X="41.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TRetEvento">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAACAAAAAgAAAAAAAEAAAAAAABAAAAAE=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sefaz.NFe.Models.TRetEventoInfEvento">
+    <Position X="16.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggCAQAAAIAACA4UAAECIAQHACAAACAAAAAkBFEAgAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Sefaz.NFe.Models.ObjectState">
+    <Position X="52" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAABAAEEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TAmb">
+    <Position X="55.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TConsSitNFeXServ">
+    <Position X="52" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TVerConsSitNFe">
+    <Position X="52" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TCodUfIBGE">
+    <Position X="50.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAIBAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TTransformURI">
+    <Position X="55.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TVerNFe">
+    <Position X="55.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TVerCancNFe_v200107">
+    <Position X="57.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TCOrgaoIBGE">
+    <Position X="53.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAAAAAIBAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.ItemChoiceType">
+    <Position X="57.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.TVerEvento">
+    <Position X="55.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sefaz.NFe.Models.ItemChoiceType1">
+    <Position X="52" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Sefaz.NFe.Models.NotifyTrackableCollectionChangedEventHandler">
+    <Position X="48.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NFe\Models\leiauteConsSitNFe_v2.01.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

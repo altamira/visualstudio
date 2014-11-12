@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Invoice_Item] (
+    [cd_invoice]               INT          NOT NULL,
+    [cd_invoice_item]          INT          NOT NULL,
+    [cd_fornecedor]            INT          NOT NULL,
+    [cd_importador]            INT          NOT NULL,
+    [cd_produto]               INT          NULL,
+    [qt_invoice_item]          FLOAT (53)   NULL,
+    [vl_invoice_item]          FLOAT (53)   NULL,
+    [pc_invoice_item_desconto] FLOAT (53)   NULL,
+    [vl_invoice_item_total]    FLOAT (53)   NULL,
+    [qt_peso_bruto]            FLOAT (53)   NULL,
+    [qt_peso_liquido]          FLOAT (53)   NULL,
+    [cd_pedido_importacao]     INT          NULL,
+    [cd_item_ped_imp]          INT          NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [cd_origem_importacao]     INT          NULL,
+    [nm_produto_invoice]       VARCHAR (50) NULL,
+    [nm_obs_invoice_item]      VARCHAR (60) NULL,
+    [sg_tipo_embalagem]        CHAR (2)     NULL,
+    [cd_embalagem]             CHAR (4)     NULL,
+    CONSTRAINT [PK_Invoice_Item] PRIMARY KEY CLUSTERED ([cd_invoice] ASC, [cd_invoice_item] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Invoice_Item_Produto] FOREIGN KEY ([cd_produto]) REFERENCES [dbo].[Produto] ([cd_produto])
+);
+

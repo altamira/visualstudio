@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9876D225-E5FF-4985-93B2-A553E7B677ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SA.Data</RootNamespace>
+    <AssemblyName>SA.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Empresa.cs" />
+    <Compile Include="Financeiro.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Financeiro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Financeiro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Financeiro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Arquivo.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Cabecalho.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\CNAB.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Convenio.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Empresa.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Instrucao.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Registro.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Remessa.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Retorno.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CNAB\Rodape.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\CodigoBarras.cs" />
+    <Compile Include="Financeiro\Bancos\CodigoBarras.cs" />
+    <Compile Include="Financeiro\Bancos\Conta.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Financeiro\Bancos\Banco.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\Bradesco.cs" />
+    <Compile Include="Financeiro\Bancos\Cedente.cs" />
+    <Compile Include="Financeiro\Bancos\Sacado.cs" />
+    <Compile Include="Fiscal\NFe.cs" />
+    <Compile Include="GPIMAC\Fluxo de Caixa\Orcamento.cs" />
+    <Compile Include="Models\Agencia.cs" />
+    <Compile Include="Models\Banco.cs" />
+    <Compile Include="Models\Conta.cs" />
+    <Compile Include="Models\Mapping\AgenciaMap.cs" />
+    <Compile Include="Models\Mapping\BancoMap.cs" />
+    <Compile Include="Models\Mapping\ContaMap.cs" />
+    <Compile Include="Models\Mapping\MovimentoMap.cs" />
+    <Compile Include="Models\Movimento.cs" />
+    <Compile Include="Models\SAContext.cs" />
+    <Compile Include="ORM\Generated\WBCCAD.cs">
+      <DependentUpon>WBCCAD.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ORM\Generated\GPIMAC.cs">
+      <DependentUpon>GPIMAC.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ORM\Generated\SA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\PetaPoco.cs" />
+    <Compile Include="ORM\PetaPocoRelationExtensions.cs" />
+    <Compile Include="ORM\Contexto.cs" />
+    <Compile Include="Produto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GPIMAC\Fluxo de Caixa\Titulo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="WBCCAD\Item.cs" />
+    <Compile Include="WBCCAD\Material.cs" />
+    <Compile Include="WBCCAD\MateriaPrima.cs" />
+    <Compile Include="WBCCAD\Modulo.cs" />
+    <Compile Include="WBCCAD\Orcamento.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <EntityDeploy Include="Financeiro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Financeiro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Financeiro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Financeiro.edmx</DependentUpon>
+      <LastGenOutput>Financeiro.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Financeiro.edmx.diagram">
+      <DependentUpon>Financeiro.edmx</DependentUpon>
+    </None>
+    <None Include="Financeiro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Financeiro.edmx</DependentUpon>
+      <LastGenOutput>Financeiro.cs</LastGenOutput>
+    </None>
+    <None Include="Financeiro\Bancos\Bradesco\Bradesco.cd" />
+    <None Include="Diagrama.cd" />
+    <None Include="Financeiro\Bancos\Bradesco\layout_pagfor.pdf" />
+    <None Include="Financeiro\Bancos\Bradesco\Layout_PagFor_DDA.pdf" />
+    <None Include="Financeiro\Bancos\Bradesco\Remessa.Header.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Remessa.Transacao.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Retorno.Header.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Retorno.Trailler.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Retorno.Transacao.regex" />
+    <None Include="ORM\Generated\WBCCAD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WBCCAD.cs</LastGenOutput>
+    </None>
+    <None Include="ORM\Generated\GPIMAC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GPIMAC.cs</LastGenOutput>
+    </None>
+    <None Include="ORM\Generated\SA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SA.cs</LastGenOutput>
+    </None>
+    <None Include="ORM\Generated\PetaPoco.Core.ttinclude" />
+    <None Include="ORM\Generated\PetaPoco.Generator.ttinclude" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Comercial\" />
+    <Folder Include="Compras\" />
+    <Folder Include="Engenharia\" />
+    <Folder Include="Expedicao\" />
+    <Folder Include="Producao\" />
+    <Folder Include="Recursos Humanos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SA.Data.Types\SA.Data.Types.sqlproj">
+      <Project>{d5444eb4-feb9-4318-9900-2eb0e75e7bf4}</Project>
+      <Name>SA.Data.Types</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

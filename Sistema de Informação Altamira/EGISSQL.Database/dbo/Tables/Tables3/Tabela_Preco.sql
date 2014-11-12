@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Tabela_Preco] (
+    [cd_tabela_preco]         INT          NOT NULL,
+    [nm_tabela_preco]         VARCHAR (40) NULL,
+    [sg_tabela_preco]         CHAR (10)    NULL,
+    [cd_tipo_tabela_preco]    INT          NULL,
+    [ic_padrao_tabela_preco]  CHAR (1)     NULL,
+    [ic_status_tabela_preco]  CHAR (1)     NULL,
+    [ds_tabela_preco]         TEXT         NULL,
+    [cd_usuario]              INT          NULL,
+    [dt_usuario]              DATETIME     NULL,
+    [cd_moeda]                INT          NULL,
+    [nm_obs_tabela_preco]     VARCHAR (40) NULL,
+    [ic_exporta_tabela_preco] CHAR (1)     NULL,
+    [cd_identificacao_tabela] VARCHAR (2)  NULL,
+    [cd_destinacao_produto]   INT          NULL,
+    [pc_tabela_preco]         FLOAT (53)   NULL,
+    [vl_fator_imposto_tabela] FLOAT (53)   NULL,
+    [cd_cliente_grupo]        INT          NULL,
+    CONSTRAINT [PK_Tabela_Preco] PRIMARY KEY CLUSTERED ([cd_tabela_preco] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Tabela_Preco_Cliente_Grupo] FOREIGN KEY ([cd_cliente_grupo]) REFERENCES [dbo].[Cliente_Grupo] ([cd_cliente_grupo]),
+    CONSTRAINT [FK_Tabela_Preco_Destinacao_Produto] FOREIGN KEY ([cd_destinacao_produto]) REFERENCES [dbo].[Destinacao_Produto] ([cd_destinacao_produto]),
+    CONSTRAINT [FK_Tabela_Preco_Moeda] FOREIGN KEY ([cd_moeda]) REFERENCES [dbo].[Moeda] ([cd_moeda]),
+    CONSTRAINT [FK_Tabela_Preco_Tipo_Tabela_Preco] FOREIGN KEY ([cd_tipo_tabela_preco]) REFERENCES [dbo].[Tipo_Tabela_Preco] ([cd_tipo_tabela_preco])
+);
+

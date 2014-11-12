@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Empresa_Cotacao] (
+    [cd_empresa]                INT      NOT NULL,
+    [cd_cotacao_empresa]        INT      NOT NULL,
+    [ic_confirma_cotacao_emp]   CHAR (1) NULL,
+    [ic_condforn_cotacao_emp]   CHAR (1) NULL,
+    [ic_propaganda_cotacao_emp] CHAR (1) NULL,
+    [ic_iso_cotacao_empresa]    CHAR (1) NULL,
+    [ic_frete_cotacao_empresa]  CHAR (1) NULL,
+    [ds_msg_sup_cotacao_emp]    TEXT     NULL,
+    [ds_msg_inf_cotacao_emp]    TEXT     NULL,
+    [ic_site_cotacao_empresa]   CHAR (1) NULL,
+    [ic_endereco_cotacao_emp]   CHAR (1) NULL,
+    [ic_garantia_cotacao_emp]   CHAR (1) NULL,
+    [ic_desc_tec_cotacao_emp]   CHAR (1) NULL,
+    [ic_iest_cotacao_empresa]   CHAR (1) NULL,
+    [ic_cnpj_cotacao_empresa]   CHAR (1) NULL,
+    [cd_empresa_assinatura]     INT      NULL,
+    [ic_logotipo_cotacao_emp]   CHAR (1) NULL,
+    [ic_proposta_cotacao_emp]   CHAR (1) NULL,
+    [ds_obs_cotacao_empresa]    TEXT     NULL,
+    [cd_usuario]                INT      NULL,
+    [dt_usuario]                DATETIME NULL,
+    [ic_imp_data_nec_cotacao]   CHAR (1) NULL,
+    [ic_modelo_cotacao]         CHAR (1) NULL,
+    CONSTRAINT [PK_Empresa_Cotacao] PRIMARY KEY CLUSTERED ([cd_empresa] ASC, [cd_cotacao_empresa] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Empresa_Cotacao_Empresa_Assinatura] FOREIGN KEY ([cd_empresa_assinatura]) REFERENCES [dbo].[Empresa_Assinatura] ([cd_empresa_assinatura])
+);
+

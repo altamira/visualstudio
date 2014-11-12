@@ -1,0 +1,26 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Models="clr-namespace:SA.Data.Models;assembly=SA.Data" mc:Ignorable="d" x:Class="SA.WPF.Application.Financeiro.ConciliacaoBancaria.Conciliacao"
+        Title="Conciliacao" Height="300" Width="300" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="bancoViewSource" d:DesignSource="{d:DesignInstance {x:Type Models:Banco}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource bancoViewSource}">
+
+        <DataGrid x:Name="bancoDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,10,7,5" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="agenciaColumn" Width="SizeToHeader" Header="Agencia" Binding="{Binding Agencia}"/>
+                <DataGridTextColumn x:Name="borderoColumn" Width="SizeToHeader" Header="Bordero" Binding="{Binding Bordero}"/>
+                <DataGridTextColumn x:Name="chequeEspecialColumn" Width="SizeToHeader" Header="Cheque Especial" Binding="{Binding ChequeEspecial}"/>
+                <DataGridTextColumn x:Name="codigoColumn" Width="SizeToHeader" Header="Codigo" Binding="{Binding Codigo}"/>
+                <DataGridTextColumn x:Name="contratoColumn" Width="SizeToHeader" Header="Contrato" Binding="{Binding Contrato}"/>
+                <DataGridTextColumn x:Name="financeiroColumn" Width="SizeToHeader" Header="Financeiro" Binding="{Binding Financeiro}"/>
+                <DataGridTextColumn x:Name="limiteColumn" Width="SizeToHeader" Header="Limite" Binding="{Binding Limite}"/>
+                <DataGridTextColumn x:Name="nomeColumn" Width="SizeToHeader" Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn x:Name="taxaColumn" Width="SizeToHeader" Header="Taxa" Binding="{Binding Taxa}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

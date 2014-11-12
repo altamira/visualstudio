@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[CALOGTIP] (
+    [LogTip0Cod] CHAR (3)  NOT NULL,
+    [LogTip0Nom] CHAR (30) NULL,
+    [LogTip0Num] SMALLINT  NULL,
+    PRIMARY KEY CLUSTERED ([LogTip0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCALOGTIPA]
+    ON [dbo].[CALOGTIP]([LogTip0Nom] ASC);
+

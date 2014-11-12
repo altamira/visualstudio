@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[SPED_Config_Empresa] (
+    [cd_empresa]               INT          NOT NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [cd_indicador]             INT          NULL,
+    [cd_periodo]               INT          NULL,
+    [cd_indicador_movimento]   INT          NULL,
+    [cd_entidade_plano]        INT          NULL,
+    [cd_entidade]              INT          NULL,
+    [cd_qualificacao]          INT          NULL,
+    [cd_inscricao_entidade]    VARCHAR (30) NULL,
+    [cd_indicador_d]           INT          NULL,
+    [cd_reg_junta_comercial]   VARCHAR (15) NULL,
+    [cd_participante]          VARCHAR (30) NULL,
+    [cd_relacionamento]        INT          NULL,
+    [cd_forma_escrituracao]    INT          NULL,
+    [cd_versao_layout]         VARCHAR (10) NULL,
+    [dt_arq_atos_empresa]      DATETIME     NULL,
+    [dt_arq_atos_conv_empresa] DATETIME     NULL,
+    [cd_contador]              INT          NULL,
+    [cd_signatario]            INT          NULL,
+    CONSTRAINT [PK_SPED_Config_Empresa] PRIMARY KEY CLUSTERED ([cd_empresa] ASC),
+    CONSTRAINT [FK_SPED_Config_Empresa_Signatario] FOREIGN KEY ([cd_signatario]) REFERENCES [dbo].[Signatario] ([cd_signatario])
+);
+

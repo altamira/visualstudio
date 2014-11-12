@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9876D225-E5FF-4985-93B2-A553E7B677ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SA.Data.Models</RootNamespace>
+    <AssemblyName>SA.Data.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Empresa.cs" />
+    <Compile Include="Financeiro\Bancos\Conta.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Financeiro\Bancos\Banco.cs" />
+    <Compile Include="Financeiro\Bancos\Bradesco\Bradesco.cs" />
+    <Compile Include="Financeiro\Bancos\Cedente.cs" />
+    <Compile Include="Financeiro\Bancos\Sacado.cs" />
+    <Compile Include="Fiscal\NFe.cs" />
+    <Compile Include="GPIMAC\Fluxo de Caixa\Orcamento.cs" />
+    <Compile Include="ORM\Dapper.cs" />
+    <Compile Include="ORM\PetaPoco.cs" />
+    <Compile Include="Produto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GPIMAC\Fluxo de Caixa\Titulo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="WBCCAD\Item.cs" />
+    <Compile Include="WBCCAD\Material.cs" />
+    <Compile Include="WBCCAD\MateriaPrima.cs" />
+    <Compile Include="WBCCAD\Modulo.cs" />
+    <Compile Include="WBCCAD\Orcamento.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Diagrama.cd" />
+    <None Include="Financeiro\Bancos\Bradesco\layout_pagfor.pdf" />
+    <None Include="Financeiro\Bancos\Bradesco\Layout_PagFor_DDA.pdf" />
+    <None Include="Financeiro\Bancos\Bradesco\Remessa.Header.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Remessa.Transacao.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Retorno.Header.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Retorno.Trailler.regex" />
+    <None Include="Financeiro\Bancos\Bradesco\Retorno.Transacao.regex" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Comercial\" />
+    <Folder Include="Compras\" />
+    <Folder Include="Engenharia\" />
+    <Folder Include="Expedicao\" />
+    <Folder Include="Producao\" />
+    <Folder Include="Recursos Humanos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SQLServerUDTAssemblyProject\SA.Data.Types.sqlproj">
+      <Project>{d5444eb4-feb9-4318-9900-2eb0e75e7bf4}</Project>
+      <Name>SA.Data.Types</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

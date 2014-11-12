@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[NFEProduto] (
+    [Codigo]    VARCHAR (14) NOT NULL,
+    [Descricao] VARCHAR (53) NULL,
+    CONSTRAINT [PK_NFEProduto] PRIMARY KEY NONCLUSTERED ([Codigo] ASC) WITH (FILLFACTOR = 90)
+);
+

@@ -1,0 +1,6 @@
+﻿CREATE VIEW [View_INT_WBCCAD_ORCINC] AS SELECT     ORCNUM AS INT_ORCINC_OrcNum,            ORCDAT AS INT_ORCINC_OrcDat,            CLINOM AS INT_ORCINC_CliNom,            CLIEND AS INT_ORCINC_CliEnd,            CLIFON AS INT_ORCINC_CliFon,            CLIFAX AS INT_ORCINC_CliFax,            CLIEMA AS INT_ORCINC_CliEml,            CLICON AS INT_ORCINC_CliCon,            USRCOD AS INT_ORCINC_UsrCod,            ESTCOD AS INT_ORCINC_EstCod,            TIPVNDCOD AS INT_ORCINC_TipVndCod,            REPCOD AS INT_ORCINC_RepCod,            ACADSC AS INT_ORCINC_AcaDsc,            CLIMUN AS INT_ORCINC_CliMun  FROM       WBCCAD..INTEGRACAO_ORCINC 
+GO
+GRANT SELECT
+    ON OBJECT::[dbo].[View_INT_WBCCAD_ORCINC] TO [interclick]
+    AS [dbo];
+

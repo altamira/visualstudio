@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CONTMATIC.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GeralPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\phoenix\geral</Value>
+    </Setting>
+    <Setting Name="EmpresaPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\phoenix\empresas</Value>
+    </Setting>
+    <Setting Name="PlanoContasAtual" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Usuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)">consult</Value>
+    </Setting>
+    <Setting Name="Senha" Type="System.String" Scope="User">
+      <Value Profile="(Default)">consult@2013</Value>
+    </Setting>
+    <Setting Name="PlanoContasAnterior" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WebServiceURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://consult.altamira.com.br/PlanoContas.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

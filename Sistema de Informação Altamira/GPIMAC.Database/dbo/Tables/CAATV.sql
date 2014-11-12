@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[CAATV] (
+    [CatCod] SMALLINT  NOT NULL,
+    [CatNom] CHAR (40) NULL,
+    PRIMARY KEY CLUSTERED ([CatCod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAATVA]
+    ON [dbo].[CAATV]([CatNom] ASC);
+

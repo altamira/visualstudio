@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Procedimento_Atributo] (
+    [cd_procedimento]           INT          NOT NULL,
+    [cd_atributo_procedimento]  INT          NOT NULL,
+    [nm_atributo_procedimento]  VARCHAR (40) NOT NULL,
+    [cd_natureza_atributo]      INT          NOT NULL,
+    [nm_con_atrib_procedimento] VARCHAR (25) NULL,
+    [nm_mascara_procedimento]   VARCHAR (20) NULL,
+    [ic_atributo_procedimento]  CHAR (1)     NOT NULL,
+    [cd_usuario]                INT          NOT NULL,
+    [dt_usuario]                DATETIME     NOT NULL,
+    [qt_ordem]                  INT          NULL,
+    [ic_chave_estrangeira]      CHAR (1)     NULL,
+    [nm_tabela_combo_box]       VARCHAR (50) NULL,
+    [nm_campo_mostra_combo_box] VARCHAR (50) NULL,
+    [nm_campo_chave_combo_box]  VARCHAR (50) NULL,
+    [ic_aliasadmin_combo_box]   CHAR (1)     NULL,
+    [ic_lista_valor]            CHAR (1)     NULL,
+    [ic_mostar_grid]            CHAR (1)     NULL,
+    [ic_total_grid]             CHAR (1)     NULL,
+    [ic_filtro_tabela]          CHAR (1)     NULL,
+    [ic_filtro_atributo]        CHAR (1)     NULL,
+    [ic_legenda_atributo]       CHAR (1)     NULL,
+    [nm_cor_legenda_atributo]   VARCHAR (15) NULL,
+    [ic_contador_grid]          CHAR (1)     NULL,
+    [cd_mascara_atributo]       VARCHAR (15) NULL,
+    CONSTRAINT [PK_Procedimento_Atributo] PRIMARY KEY CLUSTERED ([cd_procedimento] ASC, [cd_atributo_procedimento] ASC) WITH (FILLFACTOR = 90)
+);
+

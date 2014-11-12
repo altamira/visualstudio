@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[CAACAPLE] (
+    [CAcPl0Cod]    CHAR (10) NOT NULL,
+    [CAcPl0Nom]    CHAR (80) NULL,
+    [CAcPl0NomCur] CHAR (20) NULL,
+    CONSTRAINT [PK_CAACAPLE] PRIMARY KEY CLUSTERED ([CAcPl0Cod] ASC)
+);
+

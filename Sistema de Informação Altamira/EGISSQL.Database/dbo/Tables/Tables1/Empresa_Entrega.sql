@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Empresa_Entrega] (
+    [cd_empresa]                INT          NOT NULL,
+    [cd_local_entrega_empresa]  INT          NOT NULL,
+    [nm_local_entrega_empresa]  VARCHAR (40) NOT NULL,
+    [nm_endereco_entrega]       VARCHAR (60) NOT NULL,
+    [nm_compl_end_entrega]      VARCHAR (30) NULL,
+    [nm_bairro_entrega]         VARCHAR (25) NULL,
+    [cd_identifica_cep]         INT          NULL,
+    [cd_ddd_entrega]            CHAR (4)     NULL,
+    [cd_fone_entrega]           VARCHAR (15) NULL,
+    [cd_pais]                   INT          NULL,
+    [cd_estado]                 INT          NULL,
+    [cd_cidade]                 INT          NULL,
+    [nm_ref_entrega]            VARCHAR (25) NULL,
+    [nm_obs_entrega]            VARCHAR (40) NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [ic_padrao_empresa_entrega] CHAR (1)     NULL,
+    [cd_cep_entrega]            VARCHAR (8)  NULL,
+    [cd_numero]                 CHAR (6)     NULL,
+    [ic_endereco_pedido_compra] CHAR (1)     NULL,
+    CONSTRAINT [PK_Empresa_Entrega] PRIMARY KEY CLUSTERED ([cd_empresa] ASC, [cd_local_entrega_empresa] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Empresa_Entrega_Cep] FOREIGN KEY ([cd_identifica_cep]) REFERENCES [dbo].[Cep] ([cd_identifica_cep]),
+    CONSTRAINT [FK_Empresa_Entrega_Pais] FOREIGN KEY ([cd_pais]) REFERENCES [dbo].[Pais] ([cd_pais])
+);
+

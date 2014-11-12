@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinanceiroModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="FinanceiroModelStoreContainer">
+          <EntitySet Name="Agencia" EntityType="FinanceiroModel.Store.Agencia" store:Type="Tables" Schema="Financeiro" />
+          <EntitySet Name="Banco" EntityType="FinanceiroModel.Store.Banco" store:Type="Tables" Schema="Financeiro" />
+          <EntitySet Name="Conta" EntityType="FinanceiroModel.Store.Conta" store:Type="Tables" Schema="Financeiro" />
+          <EntitySet Name="Movimento" EntityType="FinanceiroModel.Store.Movimento" store:Type="Tables" Schema="Financeiro" />
+          <AssociationSet Name="FK_Agencia_Banco" Association="FinanceiroModel.Store.FK_Agencia_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="Agencia" EntitySet="Agencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conta_Agencia" Association="FinanceiroModel.Store.FK_Conta_Agencia">
+            <End Role="Agencia" EntitySet="Agencia" />
+            <End Role="Conta" EntitySet="Conta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimento_Conta" Association="FinanceiroModel.Store.FK_Movimento_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Movimento" EntitySet="Movimento" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Agencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Banco" Type="int" Nullable="false" />
+          <Property Name="Numero" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Gerente" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefone" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Conta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Agencia" Type="int" Nullable="false" />
+          <Property Name="Numero" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Movimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Conta" Type="int" Nullable="false" />
+          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="Cheque" Type="int" />
+          <Property Name="Descricao" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Valor" Type="money" Nullable="false" />
+          <Property Name="Operacao" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Liquidado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Agencia_Banco">
+          <End Role="Banco" Type="FinanceiroModel.Store.Banco" Multiplicity="1" />
+          <End Role="Agencia" Type="FinanceiroModel.Store.Agencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Agencia">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conta_Agencia">
+          <End Role="Agencia" Type="FinanceiroModel.Store.Agencia" Multiplicity="1" />
+          <End Role="Conta" Type="FinanceiroModel.Store.Conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conta">
+              <PropertyRef Name="Agencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimento_Conta">
+          <End Role="Conta" Type="FinanceiroModel.Store.Conta" Multiplicity="1" />
+          <End Role="Movimento" Type="FinanceiroModel.Store.Movimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movimento">
+              <PropertyRef Name="Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinanceiroModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FinanceiroEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Agencia" EntityType="FinanceiroModel.Agencia" />
+          <EntitySet Name="Banco" EntityType="FinanceiroModel.Banco" />
+          <EntitySet Name="Conta" EntityType="FinanceiroModel.Conta" />
+          <EntitySet Name="Movimento" EntityType="FinanceiroModel.Movimento" />
+          <AssociationSet Name="FK_Agencia_Banco" Association="FinanceiroModel.FK_Agencia_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="Agencia" EntitySet="Agencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conta_Agencia" Association="FinanceiroModel.FK_Conta_Agencia">
+            <End Role="Agencia" EntitySet="Agencia" />
+            <End Role="Conta" EntitySet="Conta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimento_Conta" Association="FinanceiroModel.FK_Movimento_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Movimento" EntitySet="Movimento" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Agencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Banco" Type="Int32" Nullable="false" />
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Gerente" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Telefone" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Banco1" Relationship="FinanceiroModel.FK_Agencia_Banco" FromRole="Agencia" ToRole="Banco" />
+          <NavigationProperty Name="Conta" Relationship="FinanceiroModel.FK_Conta_Agencia" FromRole="Agencia" ToRole="Conta" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Agencia" Relationship="FinanceiroModel.FK_Agencia_Banco" FromRole="Banco" ToRole="Agencia" />
+        </EntityType>
+        <EntityType Name="Conta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Agencia" Type="Int32" Nullable="false" />
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Agencia1" Relationship="FinanceiroModel.FK_Conta_Agencia" FromRole="Conta" ToRole="Agencia" />
+          <NavigationProperty Name="Movimento" Relationship="FinanceiroModel.FK_Movimento_Conta" FromRole="Conta" ToRole="Movimento" />
+        </EntityType>
+        <EntityType Name="Movimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Conta" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cheque" Type="Int32" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Operacao" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="Liquidado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Conta1" Relationship="FinanceiroModel.FK_Movimento_Conta" FromRole="Movimento" ToRole="Conta" />
+        </EntityType>
+        <Association Name="FK_Agencia_Banco">
+          <End Role="Banco" Type="FinanceiroModel.Banco" Multiplicity="1" />
+          <End Role="Agencia" Type="FinanceiroModel.Agencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Agencia">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conta_Agencia">
+          <End Role="Agencia" Type="FinanceiroModel.Agencia" Multiplicity="1" />
+          <End Role="Conta" Type="FinanceiroModel.Conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Conta">
+              <PropertyRef Name="Agencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimento_Conta">
+          <End Role="Conta" Type="FinanceiroModel.Conta" Multiplicity="1" />
+          <End Role="Movimento" Type="FinanceiroModel.Movimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movimento">
+              <PropertyRef Name="Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinanceiroModelStoreContainer" CdmEntityContainer="FinanceiroEntities">
+          <EntitySetMapping Name="Agencia">
+            <EntityTypeMapping TypeName="FinanceiroModel.Agencia">
+              <MappingFragment StoreEntitySet="Agencia">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Gerente" ColumnName="Gerente" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banco">
+            <EntityTypeMapping TypeName="FinanceiroModel.Banco">
+              <MappingFragment StoreEntitySet="Banco">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conta">
+            <EntityTypeMapping TypeName="FinanceiroModel.Conta">
+              <MappingFragment StoreEntitySet="Conta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimento">
+            <EntityTypeMapping TypeName="FinanceiroModel.Movimento">
+              <MappingFragment StoreEntitySet="Movimento">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Conta" ColumnName="Conta" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Operacao" ColumnName="Operacao" />
+                <ScalarProperty Name="Liquidado" ColumnName="Liquidado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

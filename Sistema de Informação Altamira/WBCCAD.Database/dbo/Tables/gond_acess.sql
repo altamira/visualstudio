@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[gond_acess] (
+    [descricao]                     NVARCHAR (50)  NULL,
+    [grupo_acab]                    NVARCHAR (50)  NULL,
+    [qtde_p_nivel]                  NVARCHAR (50)  NULL,
+    [inc_no_mod]                    NVARCHAR (50)  NULL,
+    [alt_conceito]                  NVARCHAR (50)  NULL,
+    [alt_valor]                     INT            NULL,
+    [compr_conceito]                NVARCHAR (50)  NULL,
+    [compr_valor]                   INT            NULL,
+    [desenhar]                      INT            NULL,
+    [dist_compr]                    INT            NULL,
+    [dist_fundo]                    INT            NULL,
+    [qtde_p_nivel_valor]            INT            NULL,
+    [TEXTO_CORTE]                   NVARCHAR (255) NULL,
+    [CODIGO_DEPENDE_COR]            BIT            NULL,
+    [Nao_montar_chave_altura]       BIT            NULL,
+    [Nao_montar_chave_profundidade] BIT            NULL,
+    [Nao_montar_chave_comprimento]  BIT            NULL,
+    [nao_utilizar_compr_parametro]  BIT            NULL,
+    [qtde_p_nivel_formula]          NVARCHAR (250) NULL,
+    [utilizar_carga_total]          BIT            NULL,
+    [agrupar_acessorio]             BIT            NULL,
+    [idGondAcess]                   INT            IDENTITY (1, 1) NOT NULL
+);
+

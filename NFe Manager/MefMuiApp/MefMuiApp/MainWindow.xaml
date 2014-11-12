@@ -1,0 +1,25 @@
+﻿<mui:ModernWindow x:Class="MefMuiApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        Title="MainWindow"
+        ContentSource="/Home">
+
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Autorização para Recebimento de Material">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Pendente de Autorização" Source="/Home/InvoiceList" />
+                <mui:Link DisplayName="Busca" Source="/Home/InvoiceSearch" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <!--<mui:LinkGroup DisplayName="Preferências" GroupName="settings">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Preferências" Source="/Settings" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>-->
+    </mui:ModernWindow.MenuLinkGroups>
+    
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="Preferências" Source="/Settings" />
+    </mui:ModernWindow.TitleLinks>
+</mui:ModernWindow>

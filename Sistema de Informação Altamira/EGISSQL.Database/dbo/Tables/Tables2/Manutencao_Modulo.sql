@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Manutencao_Modulo] (
+    [cd_modulo]                 INT          NOT NULL,
+    [cd_item_manutencao_modulo] INT          NOT NULL,
+    [cd_tipo_prioridade]        INT          NOT NULL,
+    [dt_manutencao_modulo]      DATETIME     NOT NULL,
+    [nm_manutencao_modulo]      VARCHAR (50) NOT NULL,
+    [ds_manutencao_modulo]      TEXT         NOT NULL,
+    [qt_dia_manutencao_modulo]  INT          NOT NULL,
+    [qt_hora_manutencao_modulo] FLOAT (53)   NOT NULL,
+    [dt_entrega_manutencao_mod] DATETIME     NOT NULL,
+    [cd_tipo_manutencao_sis]    INT          NOT NULL,
+    [cd_status_manutencao_sis]  INT          NOT NULL,
+    [dt_baixa_manutencao_mod]   DATETIME     NOT NULL,
+    [cd_usuario]                INT          NOT NULL,
+    [dt_usuario]                DATETIME     NOT NULL,
+    [cd_usuario_baixa_man_mod]  INT          NULL,
+    [dt_entrega_manutenc_modul] DATETIME     NULL,
+    [cd_tipo_manutencao_sistem] INT          NULL,
+    [cd_status_manutenca_siste] INT          NULL,
+    [dt_baixa_manutencao_modul] DATETIME     NULL,
+    [cd_usuario_baixa_mant_mod] INT          NULL,
+    CONSTRAINT [PK_Manutencao_Modulo] PRIMARY KEY CLUSTERED ([cd_modulo] ASC, [cd_item_manutencao_modulo] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Manutencao_Modulo_Status_Manutencao_Sistema] FOREIGN KEY ([cd_status_manutencao_sis]) REFERENCES [dbo].[Status_Manutencao_Sistema] ([cd_status_manutencao_sis]),
+    CONSTRAINT [FK_Manutencao_Modulo_Tipo_Manutencao_Sistema] FOREIGN KEY ([cd_tipo_manutencao_sis]) REFERENCES [dbo].[Tipo_Manutencao_Sistema] ([cd_tipo_manutencao_sis]),
+    CONSTRAINT [FK_Manutencao_Modulo_Tipo_Prioridade] FOREIGN KEY ([cd_tipo_prioridade]) REFERENCES [dbo].[Tipo_Prioridade] ([cd_tipo_prioridade])
+);
+

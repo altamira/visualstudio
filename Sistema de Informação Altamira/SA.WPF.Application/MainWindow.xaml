@@ -1,0 +1,153 @@
+﻿<RibbonWindow x:Class="SA.WPF.Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:SA.WPF.CustomControlLibrary;assembly=SA.WPF.CustomControlLibrary"
+        Title="MainWindow" >
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Ribbon x:Name="RibbonMain" >
+            
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Collapsed" />
+            </Ribbon.ApplicationMenu>
+
+            <!--<Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu SmallImageSource="Images\SmallIcon.png">
+                    <RibbonApplicationMenuItem Header="Hello _Ribbon"
+                                                      x:Name="MenuItem1"
+                                                      ImageSource="Images\LargeIcon.png"/>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>-->
+
+            <!-- Help Pane, located at the right-hand side -->
+            <Ribbon.HelpPaneContent>
+                <RibbonButton SmallImageSource="Images\Ribbon\help.png" />
+            </Ribbon.HelpPaneContent>
+            
+            <!-- Quick Access Toolbar - located at the upper-left corner -->
+            <!--<Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton x:Name ="Save" SmallImageSource="Images\save.png" />
+                    <RibbonSplitButton x:Name ="Undo" SmallImageSource="Images\undo.png" >
+                        <RibbonSplitMenuItem Header="Undo 1" />
+                        <RibbonSplitMenuItem Header="Undo 2" />
+                        <RibbonSplitMenuItem Header="Undo 3" />
+                    </RibbonSplitButton>
+                    <RibbonSplitButton x:Name="Redo" SmallImageSource="Images\redo.png" >
+                        <RibbonSplitMenuItem Header="Redo 1" />
+                        <RibbonSplitMenuItem Header="Redo 2" />
+                    </RibbonSplitButton>
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>-->
+            
+            <!-- Application Menu, located at the left-hand side (down arrow) -->
+            <!--<Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu KeyTip="F">
+                    <RibbonApplicationMenuItem Header="Options" ImageSource="Images\options.png" />
+                    <RibbonApplicationMenuItem Header="Exit" ImageSource="Images\quit.png" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>-->
+
+            <RibbonTab x:Name="Financeiro" Header="Financeiro">
+                <RibbonGroup x:Name="FluxoCaixaRibbonGroup" Header="Fluxo de Caixa">
+                    <RibbonButton x:Name="FluxoCaixaRibbonButton"
+                                         LargeImageSource="Images\supplies_6_48x48x32.png"
+                                         Label="Fluxo de Caixa" Click="FluxoCaixaRibbonButton_Click"/>
+                </RibbonGroup>
+                <!--<RibbonGroup x:Name="BancosRibbonGroup" Header="Bancos">
+                    <RibbonButton x:Name="BancosRibbonButton"
+                                         LargeImageSource="Images\supplies_6_48x48x32.png"
+                                         Label="Remessa e Retorno"
+                                         Click="BancosRibbonButton_Click" />
+                </RibbonGroup>
+                <RibbonGroup x:Name="ContasReceberRibbonGroup" Header="Contas a Receber">
+                    <RibbonButton x:Name="CobrancaRibbonButton"
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Boleto" />
+                </RibbonGroup>-->
+                <RibbonGroup Header="Contas a Pagar">
+
+                    <RibbonButton 
+                                         LargeImageSource="Images\barcode_checkmark.png"
+                                         Label="Lançamentos"
+                                        Click="LançamentoTitulosRibbonButton_Click" />
+                                        
+                </RibbonGroup>
+            </RibbonTab>
+            <!--<RibbonTab x:Name="Comercial" Header="Comercial">
+                <RibbonGroup x:Name="Vendas" Header="Vendas">
+                    <RibbonButton x:Name="PedidoVendaRibbonButton"
+                                         LargeImageSource="Images\Modify_1_48x48x32.png"
+                                         Label="Pedido de Venda" />
+
+                    <RibbonButton x:Name="Button2"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button2" />
+                    <RibbonButton x:Name="Button3"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button3" />
+                    <RibbonButton x:Name="Button4"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button4" />
+
+                </RibbonGroup>
+
+            </RibbonTab>-->
+            <!--<RibbonTab x:Name="Engenharia" Header="Engenharia">
+
+                <RibbonGroup x:Name="BOM" Header="Lista de Materiais" >
+                    <RibbonButton x:Name="BOMRibbonButton"
+                                         LargeImageSource="Images\options_3_64x64x32.png"
+                                         Label="Lista de Material"
+                                         Click="BOMRibbonButton_Click"/>
+
+                    <RibbonButton x:Name="BOMToDoRibbonButton"
+                                         SmallImageSource="Images\Edit_4_48x48x32.png"
+                                         Label="A fazer" />
+                    <RibbonButton x:Name="BOMSearchRibbonButton"
+                                         SmallImageSource="Images\analysis_4_48x48x32.png"
+                                         Label="Consultar" />
+                    <RibbonButton x:Name="BOMReadyRibbonButton"
+                                         SmallImageSource="Images\Select_1_48x48x32.png"
+                                         Label="Liberadas" />
+
+                </RibbonGroup>
+            </RibbonTab>-->
+            <!--<RibbonTab x:Name="Contabilidade" Header="Contabilidade">
+
+                <RibbonGroup x:Name="Contas" Header="Plano de Contas" >
+                    
+                    <RibbonButton x:Name="CCO"
+                                         LargeImageSource="Images\options_3_64x64x32.png"
+                                         Label="Conta Contabil" Click="CCO_Click" />
+
+                    <RibbonButton x:Name="CCONT"
+                                         SmallImageSource="Images\Select_1_48x48x32.png"
+                                         Label="Contas Controle" Click="CCONT_Click"  />
+
+                </RibbonGroup>
+            </RibbonTab>-->
+        </Ribbon>
+
+        <DockPanel Grid.Row="1" >
+            <controls:CloseableTab x:Name="MainTab" Background="#FFD9E5F3" Style="{DynamicResource CloseableTabStyle}"/>
+        </DockPanel>
+        
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Margin="2,2,5,2">
+                <TextBlock Text="Engenharia"/>
+            </StatusBarItem>
+            <StatusBarItem Margin="2,2,5,2">
+                <TextBlock Text="Executando..." />
+            </StatusBarItem>
+        </StatusBar>
+        
+    </Grid>
+
+</RibbonWindow>

@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EmailConnector", "EmailConnector\EmailConnector.sqlproj", "{867C8029-6D91-4C63-967F-90842618E40D}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NFeConnector", "NFeConnector\NFeConnector.sqlproj", "{5566B9B5-937C-4CD8-B430-F2B08933A0DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailConnector.Test", "EmailConnector.Test\EmailConnector.Test.csproj", "{AC2B8BD0-B56F-42EA-A8CF-0BB74D33C59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFeConnector.Test", "NFeConnector.Test\NFeConnector.Test.csproj", "{2C9C8B28-FF63-4445-A1B7-E9AA1FAC2DAE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NFe.Database", "NFe.Database\NFe.Database.sqlproj", "{B90DEE28-0833-4030-9FA5-01283754CE50}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://altamira.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EmailConnector.Test\\EmailConnector.Test.csproj
+		SccProjectName1 = EmailConnector.Test
+		SccLocalPath1 = EmailConnector.Test
+		SccProjectUniqueName2 = EmailConnector\\EmailConnector.sqlproj
+		SccProjectName2 = EmailConnector
+		SccLocalPath2 = EmailConnector
+		SccProjectUniqueName3 = NFe.Database\\NFe.Database.sqlproj
+		SccProjectName3 = NFe.Database
+		SccLocalPath3 = NFe.Database
+		SccProjectUniqueName4 = NFeConnector.Test\\NFeConnector.Test.csproj
+		SccProjectName4 = NFeConnector.Test
+		SccLocalPath4 = NFeConnector.Test
+		SccProjectUniqueName5 = NFeConnector\\NFeConnector.sqlproj
+		SccProjectName5 = NFeConnector
+		SccLocalPath5 = NFeConnector
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{867C8029-6D91-4C63-967F-90842618E40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867C8029-6D91-4C63-967F-90842618E40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867C8029-6D91-4C63-967F-90842618E40D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{867C8029-6D91-4C63-967F-90842618E40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867C8029-6D91-4C63-967F-90842618E40D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867C8029-6D91-4C63-967F-90842618E40D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5566B9B5-937C-4CD8-B430-F2B08933A0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5566B9B5-937C-4CD8-B430-F2B08933A0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5566B9B5-937C-4CD8-B430-F2B08933A0DF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5566B9B5-937C-4CD8-B430-F2B08933A0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5566B9B5-937C-4CD8-B430-F2B08933A0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5566B9B5-937C-4CD8-B430-F2B08933A0DF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AC2B8BD0-B56F-42EA-A8CF-0BB74D33C59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2B8BD0-B56F-42EA-A8CF-0BB74D33C59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2B8BD0-B56F-42EA-A8CF-0BB74D33C59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2B8BD0-B56F-42EA-A8CF-0BB74D33C59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9C8B28-FF63-4445-A1B7-E9AA1FAC2DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9C8B28-FF63-4445-A1B7-E9AA1FAC2DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9C8B28-FF63-4445-A1B7-E9AA1FAC2DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9C8B28-FF63-4445-A1B7-E9AA1FAC2DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90DEE28-0833-4030-9FA5-01283754CE50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90DEE28-0833-4030-9FA5-01283754CE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90DEE28-0833-4030-9FA5-01283754CE50}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B90DEE28-0833-4030-9FA5-01283754CE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90DEE28-0833-4030-9FA5-01283754CE50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90DEE28-0833-4030-9FA5-01283754CE50}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Historico_Reajuste_Funcionario] (
+    [cd_reajuste]                INT          NOT NULL,
+    [dt_reajuste]                DATETIME     NULL,
+    [dt_base_reajuste]           DATETIME     NULL,
+    [cd_tipo_reajuste_salario]   INT          NULL,
+    [cd_motivo_reajuste]         INT          NULL,
+    [cd_departamento]            INT          NULL,
+    [cd_centro_custo]            INT          NULL,
+    [cd_cargo_funcionario]       INT          NULL,
+    [cd_tipo_salario]            INT          NULL,
+    [cd_grupo_salario]           INT          NULL,
+    [cd_categoria_salario]       INT          NULL,
+    [pc_reajuste]                FLOAT (53)   NULL,
+    [vl_reajuste]                FLOAT (53)   NULL,
+    [vl_menor_reajuste]          FLOAT (53)   NULL,
+    [vl_maior_reajuste]          FLOAT (53)   NULL,
+    [vl_inicial_reajuste]        FLOAT (53)   NULL,
+    [vl_final_reajuste]          FLOAT (53)   NULL,
+    [vl_arredondamento_reajuste] FLOAT (53)   NULL,
+    [nm_obs_reajuste]            VARCHAR (40) NULL,
+    [cd_usuario]                 INT          NULL,
+    [dt_usuario]                 DATETIME     NULL,
+    CONSTRAINT [PK_Historico_Reajuste_Funcionario] PRIMARY KEY CLUSTERED ([cd_reajuste] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Historico_Reajuste_Funcionario_Categoria_Salario] FOREIGN KEY ([cd_categoria_salario]) REFERENCES [dbo].[Categoria_Salario] ([cd_categoria_salario])
+);
+

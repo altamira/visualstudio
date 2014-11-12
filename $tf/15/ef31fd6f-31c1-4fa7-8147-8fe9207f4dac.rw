@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[CFOCFGPAD] (
+    [PERFIL] NVARCHAR (50) NULL
+);
+

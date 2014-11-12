@@ -1,0 +1,67 @@
+﻿
+/****** Object:  Stored Procedure dbo.SPVE_PEDIDOS_ALTERAR    Script Date: 23/10/2010 13:58:21 ******/
+/****** Object:  Stored Procedure dbo.SPVE_PEDIDOS_ALTERAR    Script Date: 25/08/1999 20:11:52 ******/
+CREATE PROCEDURE SPVE_PEDIDOS_ALTERAR
+    @Pedido             int,
+    @Cliente            char(14),
+	@Projeto            char(6),
+	@Orcamento          int,
+    @PedidoCliente      char(10),
+	@Representante      char(3),
+	@Transportadora     int,
+    @DataPedido         smalldatetime,
+    @DataEntrega        smalldatetime,
+    @Observacao         varchar(250),
+    @EntEndereco        varchar(40),
+    @EntBairro          varchar(25),
+	@EntCidade          varchar(25),
+    @EntEstado          varchar(2),
+	@EntCGC             varchar(14),
+    @EntInscricao       varchar(14),
+    @EntDDD             varchar(4),
+    @EntTelefone        varchar(10),
+    @EntCEP   varchar(8),
+     @DataSaida  smalldatetime,
+@DataPendente smalldatetime,
+	@TipoTransporte     int,
+	@ValorTransporte  real,
+	@TipoMontagem      real,
+	@ValorMontagem      real,
+	@Montador	int,
+	@PorcMontadora real,
+	@PorcAltamira real,
+	@PorcCliente real
+
+AS
+BEGIN
+    UPDATE VE_Pedidos
+              SET    vepe_Cliente         =  @Cliente,
+               vepe_Projeto         =  @Projeto,
+               vepe_Orcamento       =  @Orcamento,
+               vepe_PedidoCliente   =  @PedidoCliente,
+               vepe_Representante   =  @Representante,
+               vepe_Transportadora  =  @Transportadora,
+               vepe_DataPedido      =  @DataPedido,           
+               vepe_DataEntrega     =  @DataEntrega,
+               vepe_Observacao      =  @Observacao,
+               vepe_EntEndereco     =  @EntEndereco,     
+               vepe_EntBairro       =  @EntBairro,       
+               vepe_EntCidade       =  @EntCidade,      
+               vepe_EntEstado       =  @EntEstado,      
+               vepe_EntCGC          =  @EntCGC, 
+               vepe_EntInscricao    =  @EntInscricao, 
+               vepe_EntDDD          =  @EntDDD, 
+               vepe_EntTelefone     =  @EntTelefone,
+	  vepe_EntCEP		= @EntCEP,
+	  vepe_DataSaida    	= @DataSaida,
+	  vepe_DataPendente 	= @DataPendente,
+	vepe_TipoTransporte = @TipoTransporte   ,
+	vepe_ValorTransporte=@ValorTransporte   ,
+	vepe_TipoMontagem=@TipoMontagem       ,
+	vepe_ValorMontagem=@ValorMontagem     ,
+	vepe_Montador=@Montador,
+	vepe_PorcMontadora=@PorcMontadora,
+	vepe_PorcAltamira=@PorcAltamira,
+	vepe_PorcCliente=@PorcCliente
+        WHERE vepe_Pedido = @Pedido
+END

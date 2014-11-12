@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="Parse Tests" id="3d7be784-29a0-413d-b908-b04fdc49d997" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <TestLinks>
+      <TestLink id="6e7a3a08-752e-a682-49d8-7d34e264a6ca" name="Banco_Bradesco_CNAB_Arquivo_Remessa_Parse_Write_Test" storage="sa.data.models.test\bin\debug\sa.data.models.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="0903c3fe-c4ee-f3e2-dd6b-9a5396dcf21f" name="Banco_Bradesco_CNAB_Arquivo_Retorno_Parse_Write_Test" storage="sa.data.models.test\bin\debug\sa.data.models.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="SA.Data.Models.Tests" id="8fec7c5d-ad55-4fd7-ac8d-b62cbcc3069a" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="Modulo 11 Tests" id="a16479f4-e7fe-4654-86cf-5715e5f08732" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <TestLinks>
+      <TestLink id="53036433-82c3-a0fe-8250-8eacd57f4b4d" name="Banco_Modulo11_Test" storage="sa.data.models.test\bin\debug\sa.data.models.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="6c9bcfa6-3c1c-766d-7f73-bdb555c8f371" name="Banco_Bradesco_Modulo11_Test" storage="sa.data.models.test\bin\debug\sa.data.models.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="5990c8bd-76e4-978c-027b-0cced7f8d40c" name="Banco_Bradesco_Modulo11_Test" storage="sa.data.models.test\bin\debug\sa.data.models.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="a41a9778-e126-76ec-0d89-fd069e0c3c7d" name="Banco_Modulo11_Test" storage="sa.data.models.test\bin\debug\sa.data.models.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+</TestLists>

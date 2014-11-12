@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Identificacao_Sintegra] (
+    [cd_identificacao]        INT          NOT NULL,
+    [cd_consulta]             INT          NULL,
+    [dt_consulta]             DATETIME     NULL,
+    [cd_tipo_pessoa]          INT          NULL,
+    [cd_cnpj]                 VARCHAR (18) NULL,
+    [cd_ie]                   VARCHAR (18) NULL,
+    [nm_endereco]             VARCHAR (60) NULL,
+    [cd_numero_endereco]      CHAR (10)    NULL,
+    [nm_complemento_endereco] VARCHAR (25) NULL,
+    [nm_bairro]               VARCHAR (25) NULL,
+    [nm_cidade]               VARCHAR (40) NULL,
+    [sg_estado]               CHAR (2)     NULL,
+    [cd_cep]                  VARCHAR (8)  NULL,
+    [ds_atividade_economica]  TEXT         NULL,
+    [nm_situacao_cadastro]    VARCHAR (40) NULL,
+    [dt_situacao_cadastro]    DATETIME     NULL,
+    [dt_concessao]            DATETIME     NULL,
+    [nm_regime_icms]          VARCHAR (20) NULL,
+    [nm_observacao]           VARCHAR (40) NULL,
+    [cd_usuario]              INT          NULL,
+    [dt_usuario]              DATETIME     NULL,
+    CONSTRAINT [PK_Identificacao_Sintegra] PRIMARY KEY CLUSTERED ([cd_identificacao] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Identificacao_Sintegra_Tipo_Pessoa] FOREIGN KEY ([cd_tipo_pessoa]) REFERENCES [dbo].[Tipo_Pessoa] ([cd_tipo_pessoa])
+);
+

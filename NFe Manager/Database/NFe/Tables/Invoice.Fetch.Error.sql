@@ -1,0 +1,11 @@
+﻿CREATE TABLE [NFe].[Invoice.Fetch.Error.Message]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[Sent] DATETIME NOT NULL,
+    [From] NVARCHAR(MAX) NOT NULL, 
+    [To] NVARCHAR(MAX) NULL, 
+    [Cc] NVARCHAR(MAX) NULL, 
+    [Bcc] NVARCHAR(MAX) NULL, 
+    [Subject] NVARCHAR(MAX) NULL, 
+    [Body] VARBINARY(MAX) NULL 
+)

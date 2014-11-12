@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [dbaltamira]
+    WITH PASSWORD = N'rd&t0nfora4c9=t=pvqhsp4DmsFT7_&#$!~<uyqu|qgvayaz', SID = 0x73A6DA47663246448984331E8AED1B91, DEFAULT_DATABASE = [DBALTAMIRA], DEFAULT_LANGUAGE = [Português (Brasil)], CHECK_POLICY = OFF;
+

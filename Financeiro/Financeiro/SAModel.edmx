@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SAModelStoreContainer">
+          <EntitySet Name="Banco" EntityType="SAModel.Store.Banco" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContaCorrente" EntityType="SAModel.Store.ContaCorrente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Empresa" EntityType="SAModel.Store.Empresa" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Movimento" EntityType="SAModel.Store.Movimento" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ContaCorrente_Banco" Association="SAModel.Store.FK_ContaCorrente_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Empresa" Association="SAModel.Store.FK_ContaCorrente_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimento_ContaCorrente" Association="SAModel.Store.FK_Movimento_ContaCorrente">
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+            <End Role="Movimento" EntitySet="Movimento" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContaCorrente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa" Type="int" Nullable="false" />
+          <Property Name="Banco" Type="int" Nullable="false" />
+          <Property Name="Agencia" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Conta" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RazaoSocial" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CNPJ" Type="char" Nullable="false" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="Movimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Conta" Type="int" Nullable="false" />
+          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Valor" Type="money" Nullable="false" />
+          <Property Name="Tipo" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_ContaCorrente_Banco">
+          <End Role="Banco" Type="SAModel.Store.Banco" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="SAModel.Store.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_Empresa">
+          <End Role="Empresa" Type="SAModel.Store.Empresa" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="SAModel.Store.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimento_ContaCorrente">
+          <End Role="ContaCorrente" Type="SAModel.Store.ContaCorrente" Multiplicity="1" />
+          <End Role="Movimento" Type="SAModel.Store.Movimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContaCorrente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movimento">
+              <PropertyRef Name="Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SAModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SAContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Banco" EntityType="SAModel.Banco" />
+          <EntitySet Name="ContaCorrente" EntityType="SAModel.ContaCorrente" />
+          <EntitySet Name="Empresa" EntityType="SAModel.Empresa" />
+          <AssociationSet Name="FK_ContaCorrente_Banco" Association="SAModel.FK_ContaCorrente_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Empresa" Association="SAModel.FK_ContaCorrente_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <EntitySet Name="Movimento" EntityType="SAModel.Movimento" />
+          <AssociationSet Name="FK_Movimento_ContaCorrente" Association="SAModel.FK_Movimento_ContaCorrente">
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+            <End Role="Movimento" EntitySet="Movimento" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ContaCorrente" Relationship="SAModel.FK_ContaCorrente_Banco" FromRole="Banco" ToRole="ContaCorrente" />
+        </EntityType>
+        <EntityType Name="ContaCorrente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa" Type="Int32" Nullable="false" />
+          <Property Name="Banco" Type="Int32" Nullable="false" />
+          <Property Name="Agencia" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Conta" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Banco1" Relationship="SAModel.FK_ContaCorrente_Banco" FromRole="ContaCorrente" ToRole="Banco" />
+          <NavigationProperty Name="Empresa1" Relationship="SAModel.FK_ContaCorrente_Empresa" FromRole="ContaCorrente" ToRole="Empresa" />
+          <NavigationProperty Name="Movimento" Relationship="SAModel.FK_Movimento_ContaCorrente" FromRole="ContaCorrente" ToRole="Movimento" />
+          </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RazaoSocial" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="14" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="ContaCorrente" Relationship="SAModel.FK_ContaCorrente_Empresa" FromRole="Empresa" ToRole="ContaCorrente" />
+        </EntityType>
+        <Association Name="FK_ContaCorrente_Banco">
+          <End Role="Banco" Type="SAModel.Banco" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="SAModel.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_Empresa">
+          <End Role="Empresa" Type="SAModel.Empresa" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="SAModel.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Movimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Conta" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Descricao" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Valor" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ContaCorrente" Relationship="SAModel.FK_Movimento_ContaCorrente" FromRole="Movimento" ToRole="ContaCorrente" />
+        </EntityType>
+        <Association Name="FK_Movimento_ContaCorrente">
+          <End Type="SAModel.ContaCorrente" Role="ContaCorrente" Multiplicity="1" />
+          <End Type="SAModel.Movimento" Role="Movimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContaCorrente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movimento">
+              <PropertyRef Name="Conta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SAModelStoreContainer" CdmEntityContainer="SAContext">
+          <EntitySetMapping Name="Banco">
+            <EntityTypeMapping TypeName="SAModel.Banco">
+              <MappingFragment StoreEntitySet="Banco">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContaCorrente">
+            <EntityTypeMapping TypeName="SAModel.ContaCorrente">
+              <MappingFragment StoreEntitySet="ContaCorrente">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="Conta" ColumnName="Conta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="SAModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimento">
+            <EntityTypeMapping TypeName="SAModel.Movimento">
+              <MappingFragment StoreEntitySet="Movimento">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Conta" ColumnName="Conta" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75085ed1503d4a24b290af9cb712c8c2" Name="Diagram1">
+        <EntityTypeShape EntityType="SAModel.Banco" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAModel.ContaCorrente" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SAModel.Empresa" Width="1.5" PointX="0.875" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="SAModel.FK_ContaCorrente_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="SAModel.FK_ContaCorrente_Empresa" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SAModel.Movimento" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="SAModel.FK_Movimento_ContaCorrente" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [scada]
+    WITH PASSWORD = N'|eAdubeujibs<n!xmz5GitvgmsFT7_&#$!~<{z#eaQxbgxQ:', SID = 0x5719343BEEBD6344AFFB7FBC22FCC39C, DEFAULT_DATABASE = [SCADA], DEFAULT_LANGUAGE = [Português (Brasil)], CHECK_POLICY = OFF;
+

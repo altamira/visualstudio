@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Registro_Contato] (
+    [cd_registro_contato]       INT          NOT NULL,
+    [dt_registro_contato]       DATETIME     NULL,
+    [cd_operador_telemarketing] INT          NULL,
+    [cd_tipo_contato]           INT          NULL,
+    [cd_cliente]                INT          NULL,
+    [cd_fornecedor]             INT          NULL,
+    [cd_banco]                  INT          NULL,
+    [cd_agencia_banco]          INT          NULL,
+    [cd_cliente_prospeccao]     INT          NULL,
+    [cd_contato_cliente]        INT          NULL,
+    [cd_contato_fornecedor]     INT          NULL,
+    [cd_contato_agencia]        INT          NULL,
+    [qt_dia_retorno]            INT          NULL,
+    [dt_previsto_retorno]       DATETIME     NULL,
+    [dt_real_retorno]           DATETIME     NULL,
+    [cd_assunto_contato]        INT          NULL,
+    [cd_acao_contato]           INT          NULL,
+    [nm_obs_registro]           VARCHAR (40) NULL,
+    [ds_registro_contato]       TEXT         NULL,
+    [cd_vendedor]               INT          NULL,
+    [cd_comprador]              INT          NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    CONSTRAINT [PK_Registro_Contato] PRIMARY KEY CLUSTERED ([cd_registro_contato] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Registro_Contato_Comprador] FOREIGN KEY ([cd_comprador]) REFERENCES [dbo].[Comprador] ([cd_comprador])
+);
+

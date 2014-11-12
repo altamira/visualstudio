@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[FA_REGISTRO502009] (
+    [TIPO]       VARCHAR (2)  NULL,
+    [CNPJ]       VARCHAR (14) NULL,
+    [INSCRICAO]  VARCHAR (14) NULL,
+    [ANO]        VARCHAR (4)  NULL,
+    [MES]        VARCHAR (2)  NULL,
+    [DIA]        VARCHAR (2)  NULL,
+    [UF]         VARCHAR (2)  NULL,
+    [MODELO]     VARCHAR (2)  NULL,
+    [SERIE]      VARCHAR (3)  NULL,
+    [NUMERO]     VARCHAR (6)  NULL,
+    [CFOP]       VARCHAR (4)  NULL,
+    [EMITENTE]   VARCHAR (1)  NULL,
+    [VALORTOTAL] VARCHAR (13) NULL,
+    [BICMS]      VARCHAR (13) NULL,
+    [VALORICMS]  VARCHAR (13) NULL,
+    [ISENTA]     VARCHAR (13) NULL,
+    [OUTRAS]     VARCHAR (13) NULL,
+    [ALIQICMS]   VARCHAR (4)  NULL,
+    [SITUACAO]   VARCHAR (1)  NULL
+);
+

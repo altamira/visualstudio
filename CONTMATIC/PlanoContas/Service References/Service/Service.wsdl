@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55972/PlanoContas.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55972/PlanoContas.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55972/PlanoContas.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Webservice" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlanoContas_PlanoContasList_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlanoContasList" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_PlanoContasList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlanoContasListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_ContaContabilUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContaContabilUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_ContaContabilUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContaContabilUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_ParticipantesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParticipantesList" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_ParticipantesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParticipantesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_GetCurrentVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentVersion" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_GetCurrentVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_GetToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetToken" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_GetToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_LancamentosFluxoCaixaList_InputMessage">
+    <wsdl:part name="parameters" element="tns:LancamentosFluxoCaixaList" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_LancamentosFluxoCaixaList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LancamentosFluxoCaixaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_LancamentosFluxoCaixaConciliado_InputMessage">
+    <wsdl:part name="parameters" element="tns:LancamentosFluxoCaixaConciliado" />
+  </wsdl:message>
+  <wsdl:message name="IPlanoContas_LancamentosFluxoCaixaConciliado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LancamentosFluxoCaixaConciliadoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlanoContas">
+    <wsdl:operation name="PlanoContasList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/PlanoContasList" message="tns:IPlanoContas_PlanoContasList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/PlanoContasListResponse" message="tns:IPlanoContas_PlanoContasList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContaContabilUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/ContaContabilUpdate" message="tns:IPlanoContas_ContaContabilUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/ContaContabilUpdateResponse" message="tns:IPlanoContas_ContaContabilUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParticipantesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/ParticipantesList" message="tns:IPlanoContas_ParticipantesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/ParticipantesListResponse" message="tns:IPlanoContas_ParticipantesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/GetCurrentVersion" message="tns:IPlanoContas_GetCurrentVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/GetCurrentVersionResponse" message="tns:IPlanoContas_GetCurrentVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/GetToken" message="tns:IPlanoContas_GetToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/GetTokenResponse" message="tns:IPlanoContas_GetToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LancamentosFluxoCaixaList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/LancamentosFluxoCaixaList" message="tns:IPlanoContas_LancamentosFluxoCaixaList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/LancamentosFluxoCaixaListResponse" message="tns:IPlanoContas_LancamentosFluxoCaixaList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LancamentosFluxoCaixaConciliado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanoContas/LancamentosFluxoCaixaConciliado" message="tns:IPlanoContas_LancamentosFluxoCaixaConciliado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanoContas/LancamentosFluxoCaixaConciliadoResponse" message="tns:IPlanoContas_LancamentosFluxoCaixaConciliado_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPlanoContas" type="tns:IPlanoContas">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PlanoContasList">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/PlanoContasList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContaContabilUpdate">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/ContaContabilUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParticipantesList">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/ParticipantesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentVersion">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/GetCurrentVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/GetToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LancamentosFluxoCaixaList">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/LancamentosFluxoCaixaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LancamentosFluxoCaixaConciliado">
+      <soap:operation soapAction="http://tempuri.org/IPlanoContas/LancamentosFluxoCaixaConciliado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IPlanoContas" binding="tns:BasicHttpBinding_IPlanoContas">
+      <soap:address location="http://localhost:55972/PlanoContas.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

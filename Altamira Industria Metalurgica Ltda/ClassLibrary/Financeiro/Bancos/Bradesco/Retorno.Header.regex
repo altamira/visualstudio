@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<SavedRegex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FindPattern>^(?&lt;Tipo_Registro&gt;\d)(?&lt;Identificacao_Empresa&gt;\d{8})(?&lt;Tipo_Inscricao&gt;\d)(?&lt;CNPJ_CPF&gt;\d{9})(?&lt;CNPJ_Filial&gt;\d{4})(?&lt;CNPJ_Digito&gt;\d{2})(?&lt;Empresa&gt;.{40})(?&lt;Tipo_Servico&gt;\d{2})(?&lt;Codigo_Origem&gt;\d)(?&lt;Numero_Remessa&gt;\d{5})(?&lt;Numero_Retorno&gt;\d{5})(?&lt;Data_Gravacao&gt;\d{8})(?&lt;Hora_Gravacao&gt;\d{6})(?&lt;Densidade_Gravacao&gt;.{5})(?&lt;Unidade_Densidade&gt;.{3})(?&lt;Identificacao_Modulo&gt;.{5})(?&lt;Tipo_Processamento&gt;\d)(?&lt;Reservado_Empresa&gt;.{74})(?&lt;Reservado_Banco&gt;.{80})(?&lt;Reservado_Banco&gt;.{217})(?&lt;Lista_Debito&gt;.{9})(?&lt;Reservado_Banco&gt;.{8})(?&lt;Numero_Sequencia&gt;\d{6})</FindPattern>
+  <ReplacePattern />
+  <Options>IgnoreCase Multiline</Options>
+</SavedRegex>

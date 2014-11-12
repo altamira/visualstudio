@@ -1,0 +1,7 @@
+﻿CREATE LOGIN [gestao]
+    WITH PASSWORD = N'mltsfjloyltZj|lsjititoDpmsFT7_&#$!~<S#9uvng{jkes', SID = 0x306B79B810FAE4459EB8AB36E0D8DF7B, DEFAULT_DATABASE = [GestaoApp], DEFAULT_LANGUAGE = [Português (Brasil)], CHECK_POLICY = OFF;
+
+
+GO
+ALTER LOGIN [gestao] DISABLE;
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CAPROIMG] (
+    [CPROCOD]     CHAR (60)       NOT NULL,
+    [CPro2ImgSeq] SMALLINT        NOT NULL,
+    [CPro2Img]    VARBINARY (MAX) NULL,
+    [CPro2Pad]    SMALLINT        NULL,
+    PRIMARY KEY CLUSTERED ([CPROCOD] ASC, [CPro2ImgSeq] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAPROIMGA]
+    ON [dbo].[CAPROIMG]([CPROCOD] ASC, [CPro2ImgSeq] DESC);
+

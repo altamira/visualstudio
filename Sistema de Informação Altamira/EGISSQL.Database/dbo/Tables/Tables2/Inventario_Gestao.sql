@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Inventario_Gestao] (
+    [cd_inventario_gestao]       INT          NOT NULL,
+    [dt_ini_inventario_gestao]   DATETIME     NULL,
+    [dt_fim_inventario_gestao]   DATETIME     NULL,
+    [cd_produto]                 INT          NULL,
+    [cd_fase_produto]            INT          NULL,
+    [qt_inventario_gestao]       FLOAT (53)   NULL,
+    [nm_obs_inventario_gestao]   VARCHAR (40) NULL,
+    [cd_usuario]                 INT          NULL,
+    [dt_usuario]                 DATETIME     NULL,
+    [vl_custo_total_gestao]      FLOAT (53)   NULL,
+    [cd_grupo_inventario]        INT          NULL,
+    [cd_destinatario]            INT          NULL,
+    [dt_nota_fiscal_origem]      DATETIME     NULL,
+    [cd_tipo_destinatario]       INT          NULL,
+    [cd_nota_fiscal_origem]      INT          NULL,
+    [cd_pedido_venda]            INT          NULL,
+    [cd_item_pedido_venda]       INT          NULL,
+    [cd_produto_inventario]      VARCHAR (50) NULL,
+    [cd_classificacao_fiscal]    INT          NULL,
+    [nm_produto_inventario]      VARCHAR (50) NULL,
+    [dt_baixa_inventario_gestao] DATETIME     NULL,
+    CONSTRAINT [PK_Inventario_Gestao] PRIMARY KEY CLUSTERED ([cd_inventario_gestao] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Inventario_Gestao_Fase_Produto] FOREIGN KEY ([cd_fase_produto]) REFERENCES [dbo].[Fase_Produto] ([cd_fase_produto]),
+    CONSTRAINT [FK_Inventario_Gestao_Produto] FOREIGN KEY ([cd_produto]) REFERENCES [dbo].[Produto] ([cd_produto])
+);
+

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SA.SQL.Nfe.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{916d5abf-7bdc-45d0-92d9-7f1a66019129}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SA.SQL.Nfe.Database</RootNamespace>
+    <AssemblyName>SA.SQL.Nfe.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="NFe" />
+    <Folder Include="NFe\Procedures" />
+    <Folder Include="NFe\Tables" />
+    <Folder Include="NFe\XMLSchemaCollections" />
+    <Folder Include="Mail" />
+    <Folder Include="Mail\Procedures" />
+    <Folder Include="Mail\Tables" />
+    <Folder Include="dbo" />
+    <Folder Include="System" />
+    <Folder Include="System\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="NFe\Procedures\Invoice.Add.sql" />
+    <Build Include="NFe\Procedures\Invoice.Fetch.Error.Message.Add.sql" />
+    <Build Include="NFe\Procedures\Invoice.Fetch.Error.Message.Part.Add.sql" />
+    <Build Include="NFe\Procedures\Invoice.Fetch.Log.Add.sql" />
+    <Build Include="NFe\Tables\Invoice.Fetch.Error.Message.Part.sql" />
+    <Build Include="NFe\Tables\Invoice.Fetch.Error.sql" />
+    <Build Include="NFe\Tables\Invoice.Fetch.Log.sql" />
+    <Build Include="NFe\Tables\Invoice.sql" />
+    <Build Include="NFe\XMLSchemaCollections\NFe_v200.sql" />
+    <Build Include="NFe\XMLSchemaCollections\XMLDSIG_CORE_SCHEMA_v101.sql" />
+    <Build Include="NFe\NFe.sql" />
+    <Build Include="Mail\Procedures\Message.Add.sql" />
+    <Build Include="Mail\Tables\Message.sql" />
+    <Build Include="Mail\Mail.sql" />
+    <Build Include="System\Tables\Parameters.sql" />
+    <Build Include="System\System.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NFe\Procedures\Invoice.Inbox.Fetch.cs" />
+    <Compile Include="Mail\Procedures\Message.Fetch.cs" />
+    <Compile Include="Mail\Procedures\Message.List.Attachments.cs" />
+    <Compile Include="System\HashBytes.cs" />
+  </ItemGroup>
+</Project>

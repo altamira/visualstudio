@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Produto_Fiscal] (
+    [cd_produto]                INT        NOT NULL,
+    [cd_destinacao_produto]     INT        NULL,
+    [cd_dispositivo_legal_ipi]  INT        NULL,
+    [cd_dispositivo_legal_icms] INT        NULL,
+    [cd_tipo_produto]           INT        NULL,
+    [cd_procedencia_produto]    INT        NULL,
+    [cd_classificacao_fiscal]   INT        NULL,
+    [cd_tributacao]             INT        NULL,
+    [cd_usuario]                INT        NULL,
+    [dt_usuario]                DATETIME   NULL,
+    [pc_aliquota_iss_produto]   FLOAT (53) NULL,
+    [pc_aliquota_icms_produto]  FLOAT (53) NULL,
+    [ic_substrib_produto]       CHAR (1)   NULL,
+    [qt_aliquota_icms_produto]  FLOAT (53) NULL,
+    [pc_interna_icms_produto]   FLOAT (53) NULL,
+    [ic_isento_icms_produto]    CHAR (1)   NULL,
+    [vl_ipi_produto_fiscal]     FLOAT (53) NULL,
+    [cd_modalidade_icms]        INT        NULL,
+    [cd_modalidade_icms_st]     INT        NULL,
+    [vl_pauta_icms_produto]     FLOAT (53) NULL,
+    [pc_iva_icms_produto]       FLOAT (53) NULL,
+    [cd_tipo_item]              INT        NULL,
+    [pc_reducao_piscofins]      FLOAT (53) NULL,
+    CONSTRAINT [PK_Produto_Fiscal] PRIMARY KEY CLUSTERED ([cd_produto] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Produto_Fiscal_Produto] FOREIGN KEY ([cd_produto]) REFERENCES [dbo].[Produto] ([cd_produto]) ON DELETE CASCADE ON UPDATE CASCADE
+);
+

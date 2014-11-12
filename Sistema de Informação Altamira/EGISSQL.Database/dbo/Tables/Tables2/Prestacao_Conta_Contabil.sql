@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Prestacao_Conta_Contabil] (
+    [cd_contab_prestacao]         INT          NOT NULL,
+    [dt_contab_prestacao]         DATETIME     NULL,
+    [cd_prestacao]                INT          NULL,
+    [cd_lancamento_padrao]        INT          NULL,
+    [cd_conta_debito]             INT          NULL,
+    [cd_conta_credito]            INT          NULL,
+    [cd_historico_contabil]       INT          NULL,
+    [nm_historico_contabil]       VARCHAR (40) NULL,
+    [ic_sct_prestacao]            CHAR (1)     NULL,
+    [dt_sct_prestacao]            DATETIME     NULL,
+    [vl_contab_prestacao]         FLOAT (53)   NULL,
+    [cd_lote_contabil]            INT          NULL,
+    [ic_manutencao_contabil]      CHAR (1)     NULL,
+    [cd_usuario]                  INT          NULL,
+    [dt_usuario]                  DATETIME     NULL,
+    [cd_centro_custo]             INT          NULL,
+    [cd_projeto_viagem]           INT          NULL,
+    [nm_projeto_viagem]           VARCHAR (40) NULL,
+    [ic_contabilizado]            CHAR (1)     NULL,
+    [ic_cartao_credito]           CHAR (1)     NULL,
+    [cd_lancamento_contabil]      INT          NULL,
+    [ic_contabilizado_fornecedor] CHAR (1)     NULL,
+    [cd_funcionario]              INT          NULL,
+    [cd_item_prestacao]           INT          NULL,
+    CONSTRAINT [PK_Prestacao_Conta_Contabil] PRIMARY KEY CLUSTERED ([cd_contab_prestacao] ASC) WITH (FILLFACTOR = 90)
+);
+

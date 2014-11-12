@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[SGPRGPER] (
+    [SgPer0Cod]   CHAR (20) NOT NULL,
+    [SgPrg0Cod]   CHAR (50) NOT NULL,
+    [SgPrgPer0RW] CHAR (2)  NULL,
+    PRIMARY KEY CLUSTERED ([SgPer0Cod] ASC, [SgPrg0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ISGPRGPERB]
+    ON [dbo].[SGPRGPER]([SgPrg0Cod] ASC);
+

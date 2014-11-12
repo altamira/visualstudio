@@ -1,0 +1,292 @@
+﻿<controls:ChildWindow x:Class="GestaoApp.View.Attendance.RegisterFormView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:action="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+           xmlns:triggers="clr-namespace:GestaoApp.Behaviors.Triggers"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+           xmlns:control="clr-namespace:GestaoApp.Controls"
+           xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+           xmlns:viewmodel="clr-namespace:GestaoApp.ViewModel"   
+           xmlns:behavior="clr-namespace:GestaoApp.Behaviors"
+           Width="800" Height="600" 
+           Title="Registro de Atendimento">
+
+    <Grid x:Name="LayoutRoot" Margin="2" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <input:ValidationSummary Name="ValidationSummary"  />
+
+        <sdk:TabControl Name="Tabs" Grid.Row="1" Grid.Column="1" Margin="5, 5, 5, 5">
+            
+            <sdk:TabItem Name="AttendanceTab" Header="Atendimento">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="*" />
+                        <!--<RowDefinition Height="*" />-->
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Height="23" HorizontalAlignment="Left" Text="Data" VerticalAlignment="Center" Width="78" Margin="6,6,0,6" />
+                    <TextBox Name="DateTextBox" Height="23" Grid.Column="1" Text="{Binding Path=SelectedItem.DateTime, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" IsEnabled="{Binding SelectedItem.CanChange}" VerticalAlignment="Center" Width="164" Margin="0,6" HorizontalAlignment="Left" />
+                    <CheckBox Content="Enviar Mensagem" Grid.Column="1" HorizontalAlignment="Right" IsChecked="{Binding SelectedItem.Send, Mode=TwoWay}" Margin="0,9,7,3" />
+
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,14,0,0" Text="Cliente" VerticalAlignment="Top" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="ClientTextBox" Text="{Binding SelectedItem.Client.CodeName, Mode=OneWay}" IsEnabled="{Binding SelectedItem.CanChange}" Margin="0,5" KeyUp="ClientTextBox_KeyUp" LostFocus="ClientTextBox_LostFocus" GotFocus="ClientTextBox_GotFocus" />
+                    <!--<control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Client, Mode=TwoWay}"
+                                                 ValueMemberBinding="{Binding CodeName}"
+                                                 SelectedItemBinding="{Binding ClientViewModel.SelectedItem, Mode=TwoWay}"
+                                                 IsTextCompletionEnabled="True"
+                                                 x:Name="ClientAutoCompleteComboBox" 
+                                                 Grid.Row="1" Grid.Column="1" BorderBrush="{StaticResource DefaultBorderColor}" Margin="0,5" Width="573" HorizontalAlignment="Left">
+                    </control:AutoCompleteComboBox>-->
+                    <!--<Button Name="ClientAddButton" Grid.Row="1" Grid.Column="1" BorderThickness="0" Height="32" Width="32" Command="{Binding ClientViewModel.AddCommand, Mode=TwoWay}" HorizontalAlignment="Right">
+                        <Button.Content>
+                            <Image Source="/GestaoApp;component/Images/IconMSOffice/32/newplus.png" Width="22" Height="22" />
+                        </Button.Content>
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="Incluir Novo Cliente"></ToolTip>
+                        </ToolTipService.ToolTip>
+                    </Button>-->
+
+                    <TextBlock Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Representante" VerticalAlignment="Top" Width="104" />
+                    <control:AutoCompleteComboBox IsEnabled="{Binding SelectedItem.CanChange}" 
+                                                 SelectedItem="{Binding SelectedItem.Vendor, Mode=TwoWay}"
+                                                 ValueMemberPath="Name"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="VendorAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="2" Grid.Column="1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                    </control:AutoCompleteComboBox>
+                    
+                    <TextBlock Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Tipo" VerticalAlignment="Top" Width="78" />
+                    <control:AutoCompleteComboBox IsEnabled="{Binding SelectedItem.CanChange}" 
+                                                 SelectedItem="{Binding SelectedItem.Type, Mode=TwoWay}"
+                                                 ValueMemberPath="Description"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="TypeAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="3" Grid.Column="1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                    </control:AutoCompleteComboBox>
+
+                    <TextBlock Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Situação" VerticalAlignment="Top" Width="78" />
+                    <control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Status, Mode=TwoWay}"
+                                                 ValueMemberPath="Description"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="StatusAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="4" Grid.Column="1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                    </control:AutoCompleteComboBox>
+
+                    <TextBlock Grid.Row="5" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Produtos" VerticalAlignment="Top" Width="78" />
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.Column="1" Grid.Row="5" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Name="TitleTextBox" Margin="2,0,0,0"  VerticalAlignment="Center" Text="Lista de Produtos" />
+                                </StackPanel>
+                            </Border>
+
+                            <ListBox Name="ProductListBox" BorderThickness="0" Grid.Row="1" BorderBrush="{x:Null}" ItemsSource="{Binding SelectedItem.Products}" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox Name="ProductCheckBox" IsChecked="{Binding Selected, Mode=TwoWay}" />
+                                            <TextBlock Name="ProductTextBlock" Text="{Binding Description}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Grid.Row="6" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Observação" VerticalAlignment="Top" Width="78" />
+                    <TextBox Name="CommentsTextBox" Text="{Binding SelectedItem.Comments, Mode=TwoWay}" Grid.Row="6" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="149,0,1,0" />
+
+                    <!--<TextBlock Grid.Row="7" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Histórico" VerticalAlignment="Top" Width="78" />
+                    <TextBox Name="HistoryTextBox" Text="{Binding SelectedItem.History, Mode=TwoWay}" Grid.Row="7" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="149,0,1,0" />-->
+
+                </Grid>
+
+            </sdk:TabItem>
+
+            <!--<sdk:TabItem Name="InfoTab" Header="Informações Básicas" DataContext="{Binding ClientViewModel, Mode=TwoWay}" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Height="23" HorizontalAlignment="Left" Margin="6,14,0,0" Text="Código" VerticalAlignment="Center" Width="78" />
+                    <TextBox Name="CodeTextBox" Height="23" Margin="116,9,564,3" Text="{Binding Path=SelectedItem.Code, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Center" />
+
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,14,0,0" Text="Nome" VerticalAlignment="Top" Width="78" />
+                    <TextBox Name="NameTextBox" Grid.Row="1" Height="23" Margin="116,5,6,0" Text="{Binding Path=SelectedItem.Name, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top" />
+
+                    <TextBlock Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Representante" VerticalAlignment="Top" Width="104" />
+                    <control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Vendor, Mode=TwoWay}"
+                                                 ValueMemberPath="Name"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="VendorAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="2" BorderBrush="{StaticResource DefaultBorderColor}" Margin="116,5,6,0">
+                    </control:AutoCompleteComboBox>
+
+                    <TextBlock Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Mídia" VerticalAlignment="Top" Width="78" />
+                    <control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Media, Mode=TwoWay}"
+                                                 ValueMemberPath="Description"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="MediaAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="3" BorderBrush="{StaticResource DefaultBorderColor}" Margin="116,5,6,0" >
+                    </control:AutoCompleteComboBox>
+
+                    <control:SearchGridView Title="Telefones" Grid.Row="4" DataContext="{Binding FoneViewModel}" />
+
+                    <control:SearchListView Title="Emails" Grid.Row="5" DataContext="{Binding EmailViewModel}" />
+                </Grid>
+            </sdk:TabItem>-->
+
+            <!--<sdk:TabItem Name="HistoryTab" Header="Histórico" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </sdk:TabItem>-->
+            
+            <sdk:TabItem Name="AddressTab" Header="Endereços" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.RowSpan="2" Margin="5, 5, 5, 5" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Endereços" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <control:CommandBar Grid.Row="1" DataContext="{Binding ClientViewModel.AddressViewModel}" />
+
+                            <telerik:RadGridView Name="AddressGrid" BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectionMode="Single" SelectionChanged="AddressGrid_SelectionChanged"
+                                                 CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True"
+                                                 SelectedItem="{Binding ClientViewModel.AddressViewModel.SelectedItem, Mode=TwoWay}" 
+                                                 ItemsSource="{Binding ClientViewModel.AddressViewModel.SearchResultList}" IsSynchronizedWithCurrentItem="false" >
+                                <action:Interaction.Behaviors>
+                                    <behavior:RadGridViewMultiSelectBehavior SelectedItems="{Binding SelectedItem.LocationAddress}" />
+                                </action:Interaction.Behaviors>
+                                <action:Interaction.Triggers>
+                                    <triggers:RadGridViewRowMouseDoubleClickTrigger>
+                                        <triggers:RadGridViewRowMouseDoubleClickTrigger.Actions>
+                                            <action:InvokeCommandAction Command="{Binding ClientViewModel.AddressViewModel.EditCommand}" />
+                                        </triggers:RadGridViewRowMouseDoubleClickTrigger.Actions>
+                                    </triggers:RadGridViewRowMouseDoubleClickTrigger>
+                                </action:Interaction.Triggers>
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewSelectColumn />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Name="PersonTab" Header="Pessoas de Contato" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".4*" />
+                        <ColumnDefinition Width=".6*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.RowSpan="2" Margin="5, 5, 5, 5" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Pessoas de Contato" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <control:CommandBar Grid.Row="1" DataContext="{Binding ClientViewModel.PersonViewModel}" />
+
+                            <telerik:RadGridView Name="PersonGrid" BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectionMode="Extended" SelectionChanged="PersonGrid_SelectionChanged" 
+                                                 CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True"
+                                                 SelectedItem="{Binding ClientViewModel.PersonViewModel.SelectedItem, Mode=TwoWay}" 
+                                                 ItemsSource="{Binding ClientViewModel.PersonViewModel.SearchResultList}" IsSynchronizedWithCurrentItem="false" >
+                                <action:Interaction.Behaviors>
+                                    <behavior:RadGridViewMultiSelectBehavior SelectedItems="{Binding SelectedItem.ContactPerson}" />
+                                </action:Interaction.Behaviors>
+                                <action:Interaction.Triggers>
+                                    <triggers:RadGridViewRowMouseDoubleClickTrigger>
+                                        <triggers:RadGridViewRowMouseDoubleClickTrigger.Actions>
+                                            <action:InvokeCommandAction Command="{Binding ClientViewModel.PersonViewModel.EditCommand}" />
+                                        </triggers:RadGridViewRowMouseDoubleClickTrigger.Actions>
+                                    </triggers:RadGridViewRowMouseDoubleClickTrigger>
+                                </action:Interaction.Triggers>
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewSelectColumn />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                        </Grid>
+                    </Border>
+
+                    <control:SearchGridView Title="Telefones" Grid.Column="1" Grid.Row="0" DataContext="{Binding ClientViewModel.PersonViewModel.FoneViewModel}" />
+
+                    <control:SearchListView Title="Emails" Grid.Column="1" Grid.Row="1" DataContext="{Binding ClientViewModel.PersonViewModel.EmailViewModel}" />
+                </Grid>
+            </sdk:TabItem>
+            
+        </sdk:TabControl>
+
+        <Border Grid.Row="2" BorderBrush="{StaticResource DefaultBorderColor}" BorderThickness="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="SaveButton" Content="Gravar" Width="75" Height="25" Margin="5" Click="SaveButton_Click" />
+                <Button x:Name="CancelButton" Content="Cancelar" Width="75" Height="25" Margin="5" Click="CancelButton_Click" />
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</controls:ChildWindow>

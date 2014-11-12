@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CATRF] (
+    [CTrf0Cod] CHAR (1)  NOT NULL,
+    [CTrf0Nom] CHAR (20) NULL,
+    [CTrf0Icm] CHAR (1)  NULL,
+    [CTrf0Ipi] CHAR (1)  NULL,
+    PRIMARY KEY CLUSTERED ([CTrf0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCATRFA]
+    ON [dbo].[CATRF]([CTrf0Nom] ASC);
+

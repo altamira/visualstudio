@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Embarque_Despesa] (
+    [cd_pedido_venda]          INT          NOT NULL,
+    [cd_embarque]              INT          NOT NULL,
+    [cd_item_despesa_embarque] INT          NOT NULL,
+    [cd_tipo_despesa_comex]    INT          NULL,
+    [dt_despesa_embarque]      DATETIME     NULL,
+    [vl_despesa_embarque]      FLOAT (53)   NULL,
+    [nm_obs_despesa_embarque]  VARCHAR (40) NULL,
+    [cd_plano_financeiro]      INT          NULL,
+    [cd_historico_financeiro]  INT          NULL,
+    [nm_compl_historico]       VARCHAR (40) NULL,
+    [ic_conversao_moeda]       CHAR (1)     NULL,
+    [cd_moeda]                 INT          NULL,
+    [dt_conversao_moeda]       DATETIME     NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [cd_movimento_financeiro]  INT          NULL,
+    [ic_scp_despesa_embarque]  CHAR (1)     NULL,
+    [cd_empresa_diversa]       INT          NULL,
+    [cd_favorecido_empresa]    INT          NULL,
+    [dt_vencimento_despesa]    DATETIME     NULL,
+    [cd_documento_pagar]       INT          NULL,
+    [cd_tipo_conta_pagar]      INT          NULL,
+    CONSTRAINT [PK_Embarque_Despesa] PRIMARY KEY CLUSTERED ([cd_pedido_venda] ASC, [cd_embarque] ASC, [cd_item_despesa_embarque] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Embarque_Despesa_Moeda] FOREIGN KEY ([cd_moeda]) REFERENCES [dbo].[Moeda] ([cd_moeda])
+);
+

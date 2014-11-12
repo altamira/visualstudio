@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [office]
+    WITH PASSWORD = N'|_ed?ueuj7i,bn>m%Aitv{:emsFT7_&#$!~<|~aUxbgxyK|a', SID = 0x7D60A14CACA87849AED28273724D645D, DEFAULT_DATABASE = [GPIMAC_Altamira], DEFAULT_LANGUAGE = [Português (Brasil)], CHECK_POLICY = OFF;
+

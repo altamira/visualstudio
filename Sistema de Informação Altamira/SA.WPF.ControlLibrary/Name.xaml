@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="SA.WPF.ControlLibrary.Name"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="25"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".50*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="Label" Content="FieldName" Margin="0" />
+
+        <TextBox x:Name="Value" Grid.RowSpan="2" Grid.Column="1" Margin="0" BorderThickness="1,1,1,2" SelectionBrush="#FF137FF7" Text="asdadada ASDADASDSA" AcceptsReturn="True" FontSize="16" FontStretch="Normal" FontStyle="Normal" Foreground="Black" FontFamily="Global Monospace" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" >
+        	<TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF99B4D1"/>
+        	</TextBox.BorderBrush>
+        </TextBox>
+        
+        <Border Grid.Row="1" BorderThickness="2" Margin="0" BorderBrush="#FF99B4D1">
+        </Border>
+    </Grid>
+</UserControl>

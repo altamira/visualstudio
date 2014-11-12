@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Projeto_Viagem] (
+    [cd_projeto_viagem]        INT           NOT NULL,
+    [dt_projeto_viagem]        DATETIME      NULL,
+    [dt_inicio_projeto_viagem] DATETIME      NULL,
+    [dt_fim_projeto_viagem]    DATETIME      NULL,
+    [cd_tipo_projeto_viagem]   INT           NULL,
+    [nm_projeto_viagem]        VARCHAR (40)  NULL,
+    [ds_projeto_viagem]        TEXT          NULL,
+    [cd_usuario]               INT           NULL,
+    [dt_usuario]               DATETIME      NULL,
+    [cd_cliente]               INT           NULL,
+    [cd_conta]                 INT           NULL,
+    [nm_local_projeto_viagem]  VARCHAR (100) NULL,
+    [ic_garantia_projeto]      CHAR (1)      NULL,
+    [cd_status_projeto]        INT           NULL,
+    [nm_gerente_projeto]       VARCHAR (50)  NULL,
+    [nm_referencia_projeto]    VARCHAR (25)  NULL,
+    [cd_identificacao_projeto] INT           NULL,
+    [ic_setor_projeto]         CHAR (1)      NULL,
+    [ic_projeto_projeto]       CHAR (1)      NULL,
+    [ic_centro_custo_projeto]  CHAR (1)      NULL,
+    [cd_serie_projeto_viagem]  VARCHAR (15)  NULL,
+    CONSTRAINT [PK_Projeto_Viagem] PRIMARY KEY CLUSTERED ([cd_projeto_viagem] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Projeto_Viagem_Cliente] FOREIGN KEY ([cd_cliente]) REFERENCES [dbo].[Cliente] ([cd_cliente]),
+    CONSTRAINT [FK_Projeto_Viagem_Status_Projeto_Viagem] FOREIGN KEY ([cd_status_projeto]) REFERENCES [dbo].[Status_Projeto_Viagem] ([cd_status_projeto])
+);
+

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Tipo_Frete] (
+    [cd_tipo_frete]              INT          NOT NULL,
+    [nm_tipo_frete]              VARCHAR (30) NULL,
+    [sg_tipo_frete]              CHAR (10)    NULL,
+    [vl_ate1kg_tipo_frete]       FLOAT (53)   NULL,
+    [vl_diferentekg_tipo_frete]  FLOAT (53)   NULL,
+    [vl_taxa_tipo_frete]         FLOAT (53)   NULL,
+    [pc_taxa_tipo_frete]         FLOAT (53)   NULL,
+    [vl_seguro_tipo_frete]       FLOAT (53)   NULL,
+    [pc_seguro_tipo_frete]       FLOAT (53)   NULL,
+    [cd_usuario]                 INT          NULL,
+    [dt_usuario]                 DATETIME     NULL,
+    [nm_obs_tipo_frete]          VARCHAR (30) COLLATE SQL_Latin1_General_CP1250_CI_AS NULL,
+    [ic_courier_importacao]      CHAR (1)     NULL,
+    [ic_ipi_tipo_frete]          CHAR (1)     NULL,
+    [ic_pis_tipo_frete]          CHAR (1)     NULL,
+    [ic_cofins_tipo_frete]       CHAR (1)     NULL,
+    [ic_siscomex_tipo_frete]     CHAR (1)     NULL,
+    [ic_reducao_icms_tipo_frete] CHAR (1)     NULL,
+    [pc_importacao_tipo_frete]   FLOAT (53)   NULL,
+    [ic_pad_exp_frete]           CHAR (1)     NULL,
+    [ic_pad_imp_frete]           CHAR (1)     NULL,
+    [vl_peso_inicial_frete]      FLOAT (53)   NULL,
+    [vl_peso_final_frete]        FLOAT (53)   NULL,
+    CONSTRAINT [PK_Tipo_Frete] PRIMARY KEY CLUSTERED ([cd_tipo_frete] ASC) WITH (FILLFACTOR = 90)
+);
+

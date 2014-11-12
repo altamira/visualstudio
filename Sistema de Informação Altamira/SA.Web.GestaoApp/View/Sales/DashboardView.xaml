@@ -1,0 +1,316 @@
+﻿<UserControl 
+    x:Class="GestaoApp.View.Sales.DashboardView"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:caCommon="clr-namespace:ComponentArt.Silverlight.DataVisualization.Common;assembly=ComponentArt.Silverlight.DataVisualization.Common"
+    xmlns:caUtils="clr-namespace:ComponentArt.Silverlight.DataVisualization.Utils;assembly=ComponentArt.Silverlight.DataVisualization.Common"
+    xmlns:caTimeNav="clr-namespace:ComponentArt.Silverlight.DataVisualization.TimeNavigator;assembly=ComponentArt.Silverlight.DataVisualization.TimeNavigator"
+    xmlns:caChart="clr-namespace:ComponentArt.Silverlight.DataVisualization.Charting;assembly=ComponentArt.Silverlight.DataVisualization.Charting" 
+    xmlns:caCalc="clr-namespace:ComponentArt.Silverlight.DataVisualization.CalcEngine;assembly=ComponentArt.Silverlight.DataVisualization.Common"
+    xmlns:gauge="clr-namespace:ComponentArt.Silverlight.DataVisualization.Gauges;assembly=ComponentArt.Silverlight.DataVisualization.Gauges"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+    xmlns:viewmodel="clr-namespace:GestaoApp.ViewModel"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="880" >
+
+    <UserControl.Resources>
+        <helpers:ConvertBoolToVisibility x:Key="ConvertBoolToVisibility" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="White" >
+        <caCommon:DashboardLayout x:Name="DashboardLayout" Title="Estatística de Vendas" SubTitle="{Binding SubTitle}" Theme="ArcticWhite" ThemeVariant="Accent" Palette="VibrantA">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Time Nav -->
+                <caTimeNav:TimeNavigator x:Name="TimeNav" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                    HeaderVisibility="Collapsed"
+                    StartTime="{Binding StartTime}" 
+                    EndTime="{Binding EndTime}" 
+                    SelectedStartTime="{Binding SelectedStartTime, Mode=TwoWay}" 
+                    SelectedEndTime="{Binding SelectedEndTime, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch">
+
+                    <caTimeNav:TimeNavigator.TimeContext>
+                        <caCommon:TimeContext Levels="Month,Year" />
+                    </caTimeNav:TimeNavigator.TimeContext>
+
+                    <!--<Grid>
+                        <caChart:XYChart 
+                            EnableDataPointPopup="False" 
+                            EnableDataPointSelectionOnMouseClick="False" 
+                            EnableSeriesSelectionOnMouseClick="False"
+                            HorizontalAlignment="Stretch" 
+                            InnerMargins="0 0 0 0" 
+                            Is3D="False" 
+                            DefaultAxisAnnotationsVisible="False" 
+                            DefaultGridLinesVisible="False" 
+                            DefaultStripesVisible="False" 
+                            DefaultCoordinateSystemFrameVisible="False" 
+                            EnableAnimation="False"
+                            HighlightDataPointOnHover="False"
+                            HighlightXCoordinateOnHover="False"
+                            DataSource="{Binding DaysList}"
+                            XRangeStart="{Binding ViewportStartTime}"
+                            XRangeEnd="{Binding ViewportEndTime}"                            
+                            Palette="VibrantB" 
+                            Theme="ArcticWhite" 
+                            XPath="Data">
+
+                            <caChart:AreaSeries AreaKind="Polygon" GradientBottomColorShift="A-80" GradientTopColorShift="A-80" Id="AreaSeries1" LineThickness="2" SeriesLineVisible="true" YPath="Qtd" />
+                            <caChart:SeriesTracker SeriesId="AreaSeries1" />
+                            <caChart:SeriesAnnotationTracker SeriesIdsCSS="AreaSeries1" />
+                        </caChart:XYChart>
+                    </Grid>-->
+                </caTimeNav:TimeNavigator>
+
+                <sdk:TabControl Grid.Row="1" TabStripPlacement="Top">
+                    <sdk:TabItem Header="Orçamentos x Pedidos">
+                        <caCommon:DashboardLayout SubTitle="Orçamentos Enviados x Revertidos em Pedido" Title="Orçamentos x Pedidos">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="80" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0" Grid.Row="0">
+                                    <gauge:RadialGauge Name="BidSendRadialGauge" Value="{Binding BidSend.ValPercentage}" Minimum="{Binding BidSend.Minimum}" Maximum="{Binding BidSend.Maximum}" Palette="VibrantA" Theme="ArcticWhite" ThemeVariant="Standard" VerticalAlignment="Top" Margin="5" />
+                                </Grid>
+                                <Grid Grid.Column="1" Grid.Row="0">
+                                    <gauge:RadialGauge Name="BidApprovedRadialGauge" Value="{Binding BidApproved.ValPercentage}" Minimum="{Binding BidApproved.Minimum}" Maximum="{Binding BidApproved.Maximum}" Palette="VibrantA" ThemeVariant="Standard" Theme="ArcticWhite" Margin="5" />
+                                </Grid>
+                                <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">
+                                    <TextBlock Text="Orçamentos Enviados (R$ / Qtd):" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" />
+                                    <TextBlock Text="{Binding BidSend.ValueToString}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0000FC" FontFamily="Verdana" FontSize="24" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+                                    <TextBlock Text="Orçamentos Revertidos em Pedido (R$ / Qtd):" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" />
+                                    <TextBlock Text="{Binding BidApproved.ValueToString}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0000FC" FontFamily="Verdana" FontSize="24" />
+                                    <TextBlock Text="{Binding BidApproved.PercentageToString}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="#FF0000FC" FontFamily="Verdana" FontSize="24" />
+                                </StackPanel>
+                            </Grid>
+                        </caCommon:DashboardLayout>
+                    </sdk:TabItem>
+
+                    <sdk:TabItem Header="Orçamentos no Período">
+                        <caCommon:DashboardLayout SubTitle="Orçamentos no Período" Title="Volume de orçamentos diários">
+                            <Grid>
+                                <sdk:TabControl TabStripPlacement="Bottom">
+                                    <sdk:TabItem Header="Gráfico" >
+                                        <caChart:XYChart Is3D="True" XPath="Data" XRangeStart="{Binding SelectedStartTime}"
+                                                XRangeEnd="{Binding SelectedEndTime}" DataSource="{Binding DaysList}" EnableDataPointPopup="True" LegendVisible="False" Palette="VibrantA">
+
+                                            <caChart:BarSeries YPath="Qtd" BarKind="Cylinder" />
+
+                                        </caChart:XYChart>
+                                    </sdk:TabItem>
+
+                                    <sdk:TabItem Header="Dados" >
+                                        <telerik:RadGridView Name="PeriodGrid" ItemsSource="{Binding DaysList}" IsSynchronizedWithCurrentItem="True" BorderThickness="0" BorderBrush="{x:Null}" AutoGenerateColumns="true" IsFilteringAllowed="False" IsEnabled="True" IsReadOnly="False" GridLinesVisibility="Horizontal" ShowGroupPanel="False" CanUserInsertRows="False" CanUserDeleteRows="False" />
+                                    </sdk:TabItem>
+                                </sdk:TabControl>
+                            </Grid>
+                        </caCommon:DashboardLayout>
+                    </sdk:TabItem>
+
+                    <sdk:TabItem Header="Situação dos Orçamentos">
+                        <caCommon:DashboardPanel Title="Situação dos Orçamentos" SubTitle="" ThemeVariant="Accent" Grid.Column="1" Grid.Row="0">
+                            <Grid>
+                                <sdk:TabControl TabStripPlacement="Bottom">
+                                    <sdk:TabItem Header="Gráfico Pizza" >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Text="Valores em Reais (R$)" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" />
+
+                                            <caChart:PieChart Grid.Column="0" ChartKind="Donut" Name="StatusPieChartQtd" EnableAnimation="true" DataSource="{Binding StatusList}" LegendVisible="False" InnerMargins="0" Palette="VibrantB" Theme="ArcticWhite" XPath="Descricao" EnableShadows="true" EnableDataPointPopup="True">
+
+                                                <caChart:PieSeries YPath="QtdPerc" ShowPointAnnotations="True" ShiftPath="ZAxis" >
+                                                    <caChart:PieSeries.DataPointAnnotations>
+                                                        <caChart:DataPointAnnotation RelativeRadialOffset="0.1">
+                                                            <caChart:DataPointAnnotation.Template>
+                                                                <DataTemplate>
+                                                                    <StackPanel Orientation="Vertical">
+                                                                        <!--<TextBlock Margin="0" TextAlignment="Center" Text="{Binding DataPoint.X}" Foreground="#FF333333" FontFamily="Calibri" FontSize="13" />-->
+                                                                        <TextBlock Margin="0,-4,0,0" TextAlignment="Center" Text="{Binding DataPoint.Y, StringFormat=0.#%}" Foreground="#FF333333" FontFamily="Arial Black" FontSize="10" FontWeight="ExtraBlack"></TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </caChart:DataPointAnnotation.Template>
+                                                        </caChart:DataPointAnnotation>
+                                                    </caChart:PieSeries.DataPointAnnotations>
+                                                </caChart:PieSeries>
+
+                                            </caChart:PieChart>
+
+                                            <TextBlock Text="Valores em Quantidade (Qtd)" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" />
+
+                                            <caChart:PieChart Grid.Column="1" ChartKind="Donut" Name="StatusPieChartVal" EnableAnimation="True" DataSource="{Binding StatusList}" LegendVisible="True" InnerMargins="0" Palette="VibrantB" Theme="ArcticWhite" XPath="Descricao" EnableShadows="true" EnableDataPointPopup="True">
+
+                                                <caChart:PieSeries YPath="ValPerc" ShowPointAnnotations="True" ShiftPath="ZAxis" >
+                                                    <caChart:PieSeries.DataPointAnnotations>
+                                                        <caChart:DataPointAnnotation RelativeRadialOffset="0.1">
+                                                            <caChart:DataPointAnnotation.Template>
+                                                                <DataTemplate>
+                                                                    <StackPanel Orientation="Vertical">
+                                                                        <!--<TextBlock Margin="0" TextAlignment="Center" Text="{Binding DataPoint.X}" Foreground="#FF333333" FontFamily="Calibri" FontSize="13" />-->
+                                                                        <TextBlock Margin="0,-4,0,0" TextAlignment="Center" Text="{Binding DataPoint.Y, StringFormat=0.#%}" Foreground="#FF333333" FontFamily="Arial Black" FontSize="10" FontWeight="ExtraBlack"></TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </caChart:DataPointAnnotation.Template>
+                                                        </caChart:DataPointAnnotation>
+                                                    </caChart:PieSeries.DataPointAnnotations>
+                                                </caChart:PieSeries>
+
+                                            </caChart:PieChart>
+
+                                        </Grid>
+                                    </sdk:TabItem>
+                                    <sdk:TabItem Header="Gráfico de Barras">
+                                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                            <caChart:XYChart Name="StatusBarChart" DataSource="{Binding StatusList}" DefaultStripesVisible="True" Height="600" EnableAnimation="False" Orientation="Horizontal" EnableDataPointPopup="False" HighlightDataPointOnHover="False" Is3D="False" Theme="Glass" Margin="5,20,5,20" UseDifferentBarColors="True" XPath="Descricao">
+                                                <caChart:BarSeries BarKind="Rectangle" Id="S0" YPath="Val">
+                                                </caChart:BarSeries>
+                                            </caChart:XYChart>
+                                        </ScrollViewer>
+                                    </sdk:TabItem>
+                                    <sdk:TabItem Header="Dados" >
+                                        <telerik:RadGridView Name="StatusGrid" ItemsSource="{Binding StatusList}" IsSynchronizedWithCurrentItem="True" BorderThickness="0" BorderBrush="{x:Null}" AutoGenerateColumns="true" IsFilteringAllowed="False" IsEnabled="True" IsReadOnly="False" GridLinesVisibility="Horizontal" ShowGroupPanel="False" CanUserInsertRows="False" CanUserDeleteRows="False" >
+
+                                        </telerik:RadGridView>
+                                    </sdk:TabItem>
+
+                                </sdk:TabControl>
+                            </Grid>
+                        </caCommon:DashboardPanel>
+
+                    </sdk:TabItem>
+
+                    <sdk:TabItem Header="Representantes">
+                        <caCommon:DashboardPanel Title="Orçamentos por Representante" SubTitle="" ThemeVariant="Accent" Grid.Column="1" Grid.Row="0">
+                            <Grid>
+                                <sdk:TabControl TabStripPlacement="Bottom">
+
+                                    <sdk:TabItem Header="Por Quantidade">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Background="#4000CFFC" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                                                    <telerik:RadButton Name="VendorQtdPrintButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Click="VendorQtdPrintButton_Click" >
+                                                        <Button.Content>
+                                                            <Image Source="/GestaoApp;component/Images/IconMSOffice/32/print.png" Width="22" Height="22" />
+                                                        </Button.Content>
+                                                        <ToolTipService.ToolTip>
+                                                            <ToolTip Content="Imprimir..."></ToolTip>
+                                                        </ToolTipService.ToolTip>
+                                                    </telerik:RadButton>
+                                                </StackPanel>
+                                            </Grid>
+
+                                            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" >
+                                                <caChart:XYChart Name="VendorQtdBarChart" DataSource="{Binding VendorList}" DefaultStripesVisible="True" Height="600" EnableAnimation="False" Orientation="Horizontal" EnableDataPointPopup="False" HighlightDataPointOnHover="False" Is3D="False" Theme="Glass" Margin="5,20,5,20" UseDifferentBarColors="True" XPath="Name">
+                                                    <caChart:BarSeries BarKind="Rectangle" Id="S0" YPath="Qtd">
+                                                    </caChart:BarSeries>
+                                                </caChart:XYChart>
+                                            </ScrollViewer>
+                                        </Grid>
+                                    </sdk:TabItem>
+
+                                    <sdk:TabItem Header="Por Valores">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Background="#4000CFFC" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                                                    <telerik:RadButton Name="VendorValPrintButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Click="VendorValPrintButton_Click" >
+                                                        <Button.Content>
+                                                            <Image Source="/GestaoApp;component/Images/IconMSOffice/32/print.png" Width="22" Height="22" />
+                                                        </Button.Content>
+                                                        <ToolTipService.ToolTip>
+                                                            <ToolTip Content="Imprimir..."></ToolTip>
+                                                        </ToolTipService.ToolTip>
+                                                    </telerik:RadButton>
+                                                </StackPanel>
+                                            </Grid>
+
+                                            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" >
+                                                <caChart:XYChart Name="VendorValBarChart" DataSource="{Binding VendorList}" DefaultStripesVisible="True" Height="600" EnableAnimation="False" Orientation="Horizontal" EnableDataPointPopup="False" HighlightDataPointOnHover="False" Is3D="False" Theme="Glass" Margin="5,20,5,20" UseDifferentBarColors="True" XPath="Name">
+                                                    <caChart:BarSeries BarKind="Rectangle" Id="S0" YPath="Val">
+                                                    </caChart:BarSeries>
+                                                </caChart:XYChart>
+                                            </ScrollViewer>
+                                            
+                                        </Grid>
+                                    </sdk:TabItem>
+                                    
+                                    <sdk:TabItem Header="Dados" >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Background="#4000CFFC" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                                                    <telerik:RadButton Name="VendorPrintButton" Style="{StaticResource ButtonBarStyle}" Margin="1, 0, 1, 0" Click="VendorPrintButton_Click" >
+                                                        <Button.Content>
+                                                            <Image Source="/GestaoApp;component/Images/IconMSOffice/32/print.png" Width="22" Height="22" />
+                                                        </Button.Content>
+                                                        <ToolTipService.ToolTip>
+                                                            <ToolTip Content="Imprimir..."></ToolTip>
+                                                        </ToolTipService.ToolTip>
+                                                    </telerik:RadButton>
+                                                </StackPanel>
+                                            </Grid>
+
+                                            <telerik:RadGridView Name="VendorGridView" Grid.Row="1" Exporting="GridView_Exporting" ItemsSource="{Binding VendorList}" IsSynchronizedWithCurrentItem="True" BorderThickness="0" BorderBrush="{x:Null}" AutoGenerateColumns="true" IsFilteringAllowed="False" IsEnabled="True" IsReadOnly="False" GridLinesVisibility="Horizontal" ShowGroupPanel="False" CanUserInsertRows="False" CanUserDeleteRows="False" />
+
+                                        </Grid>
+
+                                    </sdk:TabItem>
+
+                                </sdk:TabControl>
+                            </Grid>
+                        </caCommon:DashboardPanel>
+
+                    </sdk:TabItem>
+                </sdk:TabControl>
+
+            </Grid>
+        </caCommon:DashboardLayout>
+    </Grid>
+    
+</UserControl>
+

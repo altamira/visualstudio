@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Ordem_Servico_Componente] (
+    [cd_ordem_servico]          INT          NOT NULL,
+    [cd_item_ordem_servico]     INT          NOT NULL,
+    [dt_ordem_servico]          DATETIME     NOT NULL,
+    [nm_produto_ordem_servico]  VARCHAR (15) NOT NULL,
+    [qt_fabricacao_componente]  FLOAT (53)   NOT NULL,
+    [dt_necessidade_componente] DATETIME     NOT NULL,
+    [cd_pedido_venda]           INT          NULL,
+    [cd_item_pedido_venda]      INT          NULL,
+    [cd_diametro_material_comp] INT          NULL,
+    [nm_obs_comp_especial]      VARCHAR (40) NULL,
+    [cd_tipo_forma_mat_prima]   INT          NULL,
+    [qt_comprimento_material]   FLOAT (53)   NULL,
+    [qt_barra_comp_especial]    FLOAT (53)   NULL,
+    [cd_maquina_operacao_1]     INT          NULL,
+    [cd_maquina_operacao_2]     INT          NULL,
+    [qt_lote_fabricacao_prod]   FLOAT (53)   NULL,
+    [qt_duracao_comp_especial]  FLOAT (53)   NULL,
+    [dt_fabricacao_componente]  DATETIME     NULL,
+    [ic_emitida_ordem_servico]  CHAR (1)     NOT NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    CONSTRAINT [PK_Ordem_Servico_Componente] PRIMARY KEY CLUSTERED ([cd_ordem_servico] ASC, [cd_item_ordem_servico] ASC) WITH (FILLFACTOR = 90)
+);
+

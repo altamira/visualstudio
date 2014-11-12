@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Ordem_Servico_CNC] (
+    [cd_pedido_venda]          INT        NOT NULL,
+    [cd_item_pedido_venda]     INT        NOT NULL,
+    [cd_placa]                 INT        NOT NULL,
+    [dt_emissao_ordem_servico] DATETIME   NULL,
+    [qt_item_ordem_servico]    FLOAT (53) NULL,
+    [nm_fantasia_cliente]      CHAR (15)  NULL,
+    [dt_entrega]               DATETIME   NULL,
+    [dt_pedido]                DATETIME   NULL,
+    [qt_espessura]             FLOAT (53) NULL,
+    [nm_componente]            CHAR (10)  NULL,
+    [sg_placa]                 CHAR (10)  NULL,
+    [ic_conf_prog]             CHAR (1)   NULL,
+    [nm_programa_cnc]          CHAR (10)  NULL,
+    [nm_arquivo_cnc]           CHAR (10)  NULL,
+    [sg_serie]                 CHAR (10)  NULL,
+    [sg_sub_serie]             CHAR (10)  NULL,
+    [nm_fantasia_maquina]      CHAR (10)  NULL,
+    [cd_mat_prima]             INT        NULL,
+    [cd_usuario]               INT        NULL,
+    [dt_usuario]               DATETIME   NULL,
+    CONSTRAINT [PK_Ordem_Servico_CNC] PRIMARY KEY CLUSTERED ([cd_pedido_venda] ASC, [cd_item_pedido_venda] ASC, [cd_placa] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Ordem_Servico_CNC_Materia_Prima] FOREIGN KEY ([cd_mat_prima]) REFERENCES [dbo].[Materia_Prima] ([cd_mat_prima]),
+    CONSTRAINT [FK_Ordem_Servico_CNC_Placa] FOREIGN KEY ([cd_placa]) REFERENCES [dbo].[Placa] ([cd_placa])
+);
+

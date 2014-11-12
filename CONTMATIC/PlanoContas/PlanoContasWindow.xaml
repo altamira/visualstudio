@@ -1,0 +1,387 @@
+﻿<Window x:Class="CONTMATIC.PlContasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:CONTMATIC" Title="PlContas" WindowStartupLocation="CenterScreen" Height="547" Width="1023">
+
+    <Window.Resources>
+        <Style x:Key="CellCenterAlign">
+            <Setter Property="Control.HorizontalAlignment"
+            Value="Center" />
+        </Style>
+        <Style x:Key="CellCenterRight">
+            <Setter Property="Control.HorizontalAlignment"
+            Value="Right" />
+        </Style>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+        <Style
+    x:Key="LinkButton"
+    TargetType="Button">
+            <Setter
+        Property="Template">
+                <Setter.Value>
+                    <ControlTemplate
+                TargetType="Button">
+                        <TextBlock
+                    TextDecorations="Underline">
+                <ContentPresenter /></TextBlock>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter
+        Property="Foreground"
+        Value="Blue" />
+            <Style.Triggers>
+                <Trigger
+            Property="IsMouseOver"
+            Value="true">
+                    <Setter
+                Property="Foreground"
+                Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" VerticalAlignment="Top">
+            <MenuItem Header="Sair" Click="AppExit">
+                <!--<MenuItem Header="Plano de Contas" Click="PlContasOpenWindow"/>-->
+                <MenuItem Header="Configuração" Click="ConfigOpenWindow"/>
+                <!--<MenuItem Header="Sair" Click="AppExit"/>-->
+            </MenuItem>
+        </Menu>
+
+        <TabControl Grid.Row="1" Name="IntegracaoTabControl" >
+
+            <TabItem Header="Lançamentos" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Header="Filtro" Grid.Row="0" Margin="5" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <ComboBox Name="TipoDataComboBox" Margin="5" >
+                                <ComboBoxItem Content="Emissao" />
+                                <ComboBoxItem Content="Vencimento" />
+                                <ComboBoxItem Content="Pagamento" IsSelected="True" />
+                                <ComboBoxItem Content="Faturamento" />
+                            </ComboBox>
+                            <Label Content="Data Inicial:" Margin="5" />
+                            <DatePicker Name="DataInicialDatePicker" Width="100" Margin="5" />
+                            <Label Content="Data Final:" Margin="5" />
+                            <DatePicker Name="DataFinalDatePicker" Width="100" Margin="5" />
+                            <CheckBox Name="PagarCheckBox" VerticalAlignment="Center" Content="Pagar" IsChecked="True" Width="60" Margin="5" />
+                            <CheckBox Name="ReceberCheckBox" VerticalAlignment="Center" Content="Receber" IsChecked="True" Width="60" Margin="5" />
+                            <Label Content="Origem:" Margin="5" />
+                            <ComboBox Name="OrigemComboBox" Width="100" Margin="5" >
+                                <ComboBoxItem Content="Todos" IsSelected="True" />
+                                <ComboBoxItem Content="NF Mercantil" />
+                                <ComboBoxItem Content="NF Servico" />
+                                <ComboBoxItem Content="NF Fornecimento" />
+                                <ComboBoxItem Content="Diversos" />
+                                <ComboBoxItem Content="Impostos" />
+                                <ComboBoxItem Content="Pedido" />
+                                <ComboBoxItem Content="Previsão" />
+                            </ComboBox>
+                            <Label Content="Banco:" Margin="5" />
+                            <ComboBox Name="BancoComboBox" Width="100" Margin="5" >
+                                <ComboBoxItem Tag="Todos" Content="Todos" IsSelected="True" />
+                                <ComboBoxItem Tag="655" Content="655-BANCO VOTORANTIM S/A" />
+                                <ComboBoxItem Tag="237" Content="237-BRADESCO" />
+                                <ComboBoxItem Tag="001" Content="001-BRASIL" />
+                                <ComboBoxItem Tag="104" Content="104-CAIXA ECONOMICA FEDERAL" />
+                                <ComboBoxItem Tag="000" Content="000-CARTEIRA" />
+                                <ComboBoxItem Tag="999" Content="999-CHEQUES" />
+                                <ComboBoxItem Tag="745" Content="745-CITIBANK" />
+                                <ComboBoxItem Tag="002" Content="002-DEVOLUÇÃO" />
+                                <ComboBoxItem Tag="399" Content="399-HSBC" />
+                                <ComboBoxItem Tag="341" Content="341-ITAU" />
+                                <ComboBoxItem Tag="033" Content="033-SANTANDER" />
+                            </ComboBox>
+                            <Label Content="Filtro:" Margin="5" />
+                            <TextBox Name="FiltroTextBox" Width="150" Margin="5" />
+                            <Button VerticalAlignment="Center"  Style="{StaticResource LinkButton}" Content="Limpar Filtro" FontSize="9" Margin="5,0,5,0" Click="ClearFilterButton_Click" />
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Lançamento" Grid.Row="1" Margin="5" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="C/C Debito:" BorderThickness="1" FontSize="10" Grid.ColumnSpan="3" Padding="0" Margin="1" />
+                            <TextBox Name="CCDebitoReduzidaTextBox" Grid.Row="1" Grid.Column="0" Margin="2" LostFocus="CCDebitoReduzidaTextBox_LostFocus" GotKeyboardFocus="TextBox_SelectAll" GotMouseCapture="TextBox_SelectAll" GotFocus="TextBox_SelectAll" />
+                            <TextBox Name="CCDebitoTextBox" Grid.Row="1" IsEnabled="False" Grid.Column="1" Margin="2" />
+                            <TextBox Name="CCDebitoNomeTextBox" IsEnabled="False" BorderThickness="1" Grid.Row="1" Grid.Column="2" Margin="2" />
+
+                            <Label Content="C/C Credito:" BorderThickness="1" FontSize="10" Grid.Column="3" Grid.ColumnSpan="3" Padding="0" Margin="1" />
+                            <TextBox Name="CCCreditoReduzidaTextBox" Grid.Row="1" Grid.Column="3" Margin="2" LostFocus="CCCreditoReduzidaTextBox_LostFocus" GotKeyboardFocus="TextBox_SelectAll" GotMouseCapture="TextBox_SelectAll" GotFocus="TextBox_SelectAll" />
+                            <TextBox Name="CCCreditoTextBox" IsEnabled="False" Grid.Row="1" Grid.Column="4" Margin="2" />
+                            <TextBox Name="CCCreditoNomeTextBox" IsEnabled="False" Grid.Row="1" Grid.Column="5" Margin="2" />
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,5,0" >
+                                <Button Style="{StaticResource LinkButton}" Content="Cliente" FontSize="9" Margin="5,0,5,0" Click="CCDebitoClienteButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Fornecedor" FontSize="9" Margin="5,0,5,0" Click="CCDebitoFornecedorButton_Click" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Margin="0,0,5,0" >
+                                <Button Style="{StaticResource LinkButton}" Content="Cliente" FontSize="9" Margin="5,0,5,0" Click="CCCreditoClienteButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Fornecedor" FontSize="9" Margin="5,0,5,0" Click="CCCreditoFornecedorButton_Click" />
+                            </StackPanel>
+
+                            <Label Content="Histórico:" BorderThickness="1" FontSize="10" Grid.Row="3" Grid.ColumnSpan="3" Padding="0" Margin="1" />
+                            <TextBox Name="HistoricoCodigoTextBox" Grid.Row="4" Grid.Column="0" Margin="2" LostFocus="HistoricoCodigoTextBox_LostFocus" GotKeyboardFocus="TextBox_SelectAll" GotMouseCapture="TextBox_SelectAll" GotFocus="TextBox_SelectAll" />
+                            <TextBox Name="HistoricoDescricaoTextBox" IsEnabled="False" Padding="0" Margin="2" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+
+                            <Label Content="Complemento:" BorderThickness="1" FontSize="10" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Padding="0" Margin="1" />
+                            <TextBox Name="HistoricoComplementoTextBox" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3" Margin="2" AutoWordSelection="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" >
+                                <Button Style="{StaticResource LinkButton}" Content="Documento" FontSize="9" Margin="5,0,5,0" Click="ComplementoDocumentoButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Pedido" FontSize="9" Margin="5,0,5,0" Click="ComplementoPedidoButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Vencimento" FontSize="9" Margin="5,0,5,0" Click="ComplementoVencimentoButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Pagamento" FontSize="9" Margin="5,0,5,0" Click="ComplementoPagamentoButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="CNPJ" FontSize="9" Margin="5,0,5,0" Click="ComplementoCNPJButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Titular" FontSize="9" Margin="5,0,5,0" Click="ComplementoTitularButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Valor" FontSize="9" Margin="5,0,5,0" Click="ComplementoValorButton_Click" />
+                                <Button Style="{StaticResource LinkButton}" Content="Banco" FontSize="9" Margin="5,0,5,0" Click="ComplementoBancoButton_Click" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" >
+                                <Label Content="Data do Lançamento:" />
+                                <RadioButton Name="PagamentoRadioButton" IsChecked="True" VerticalAlignment="Center" Content="Usar a Data de Pagamento" Margin="5,0,5,0" />
+                                <RadioButton Name="FaturamentoRadioButton" VerticalAlignment="Center" Content="Usar a Data de Faturamento" />
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <Grid Grid.Row="2" Margin="5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <Button Content="Carregar Lista" Margin="5" Click="CarregarListaLancamentos" />
+                            <Button Content="Atualizar CONTMATIC" Margin="5" Click="UpdateLancamentos" />
+                            <Button Content="Marcar Todos" Margin="5" Click="CheckAllLancamentos" />
+                            <Button Content="Desmarcar Todos" Margin="5" Click="UncheckAllLancamentos" />
+                            <Button Content="Marcar Selecionados" Margin="5" Click="CheckSelectedLancamentos" />
+                            <Button Content="Desmarcar Selecionados" Margin="5" Click="UncheckSelectedLancamentos" />
+                            <Button Content="Exportar Excel" Margin="5" Click="ExportExcel" />
+                        </StackPanel>
+
+                        <ProgressBar Name="ProgressBarLancamentos" Height="15" Visibility="Hidden" Grid.Column="1" Background="AliceBlue" Margin="5,1,5,1" />
+
+                    </Grid>
+
+                    <DataGrid Grid.Row="3" Margin="5" Name="LancamentosFluxoCaixaDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" >
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Width="30" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Selecionado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Titulo" ElementStyle="{StaticResource CellCenterAlign}" Width="50" Binding="{Binding Titulo}" />
+                            <DataGridTextColumn Header="Documento" ElementStyle="{StaticResource CellCenterAlign}" Width="50" Binding="{Binding Documento}" />
+                            <DataGridTextColumn Header="" ElementStyle="{StaticResource CellCenterAlign}" Width="10" Binding="{Binding Parcela}" />
+                            <DataGridTextColumn Header="" ElementStyle="{StaticResource CellCenterAlign}" Width="10" Binding="{Binding Parcelas}" />
+                            <DataGridTextColumn Header="Pedido" ElementStyle="{StaticResource CellCenterAlign}" Width="50" Binding="{Binding Pedido}" />
+                            <DataGridTextColumn Header="Origem" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding Origem}" />
+                            <DataGridTextColumn Header="Emissao" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Emissao, StringFormat=\{0:dd\/MM\/yy\}}" />
+                            <DataGridTextColumn Header="Vencimento" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Vencimento, StringFormat=\{0:dd\/MM\/yy\}}" />
+                            <DataGridTextColumn Header="Pagamento" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Pagamento, StringFormat=\{0:dd\/MM\/yy\}}" />
+                            <DataGridTextColumn Header="Faturamento" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Faturamento, StringFormat=\{0:dd\/MM\/yy\}}" />
+                            <DataGridTextColumn Header="CNPJ" ElementStyle="{StaticResource CellCenterAlign}" Width="120" Binding="{Binding CNPJ}" />
+                            <DataGridTextColumn Header="Titular" Width="*" Binding="{Binding Titular}" />
+                            <!--<DataGridTextColumn Header="Tipo" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Tipo}" />-->
+                            <DataGridTextColumn Header="Valor" ElementStyle="{StaticResource CellCenterRight}" Width="70" Binding="{Binding Valor, StringFormat=\{0:N2\}}" />
+                            <DataGridTextColumn Header="Pago" ElementStyle="{StaticResource CellCenterRight}" Width="70" Binding="{Binding ValorBaixa, StringFormat=\{0:N2\}}" />
+                            <DataGridTextColumn Header="Tipo" ElementStyle="{StaticResource CellCenterAlign}" Width="50" Binding="{Binding Tipo}" />
+                            <DataGridTextColumn Header="Banco" Width="30" Binding="{Binding Banco}" />
+                            <!--<DataGridTextColumn Header="Situação" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Situacao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
+                            <DataGridTextColumn Header="Lancamento" ElementStyle="{StaticResource CellCenterAlign}" Width="40" Binding="{Binding Lancamento}" />
+                            <DataGridTextColumn Header="Sequencia" ElementStyle="{StaticResource CellCenterAlign}" Width="40" Binding="{Binding Sequencia}" />
+                            <DataGridTextColumn Header="Debito" ElementStyle="{StaticResource CellCenterAlign}" Width="40" Binding="{Binding Debito}" />
+                            <DataGridTextColumn Header="Credito" ElementStyle="{StaticResource CellCenterAlign}" Width="40" Binding="{Binding Credito}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid Grid.Row="4" Margin="5" >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Observação do Lançamento:" Margin="0,0,0,0" Padding="0" />
+
+                        <Border Grid.Row="1" BorderThickness="1" Margin="0" >
+                            <TextBlock Text="{Binding ElementName=LancamentosFluxoCaixaDataGrid, Path=SelectedItem.Observacao}" Height="20" TextWrapping="Wrap" AllowDrop="True" Padding="0" Foreground="Red" />
+                        </Border>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Cadastros">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="5">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" >
+                            <Button Content="Carregar Lista" Margin="5" Click="CarregarLista" />
+                            <Button Content="Atualizar CONTMATIC" Margin="5" Click="UpdatePlanoContas" />
+                            <Button Content="Selecionar Todos" Margin="5" Click="CheckAll" />
+                            <Button Content="Desmarcar Todos" Margin="5" Click="UncheckAll" />
+                            <Button Content="Exportar Excel" Margin="5" Click="ExportExcel" />
+                        </StackPanel>
+
+                        <ProgressBar Name="ProgressBarCadastros" Height="15" Visibility="Hidden" Grid.Column="1" Background="AliceBlue" Margin="5,1,5,1" />
+
+                    </Grid>
+
+                    <TabControl Grid.Row="1" Margin="5" Name="CadastrosTabControl" >
+                    <TabItem Header="Plano de Contas" IsSelected="True">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox Name="ProcurarContaContabilTextbox" Width="100" Margin="5" Text="" />
+                                <Button Content="Procurar" Margin="5" Click="ProcurarContaContabilButton" />
+                                <Button Content="Proximo >>" Margin="5" Click="ProcurarProximoContaContabilButton" />
+                            </StackPanel>
+
+                            <DataGrid Grid.Row="1" Name="PlanoContasDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Conta" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding Conta}" />
+                                    <DataGridTextColumn Header="Antiga" ElementStyle="{StaticResource CellCenterAlign}" Width="80" Binding="{Binding ContaAntiga}" />
+                                    <DataGridCheckBoxColumn Width="30" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Selecionado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding Habilitado, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                    <!--<DataGridCheckBoxColumn Width="30" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Habilitado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <DataGridCheckBoxColumn Header="Cliente" Width="40" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Cliente, Mode=TwoWay}" />
+                                    <DataGridCheckBoxColumn Header="Fornec" Width="40" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Fornecedor, Mode=TwoWay}" />-->
+                                    <DataGridTextColumn Header="CNPJ" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding CNPJ}" />
+                                    <DataGridTextColumn Header="Nome" Width="*" Binding="{Binding Nome}" />
+                                    <DataGridTextColumn Header="Reduzida" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding Reduzida, StringFormat=\{0:0000000\}}" />
+                                    <DataGridTextColumn Header="Antiga" ElementStyle="{StaticResource CellCenterAlign}" Width="70" Binding="{Binding ReduzidaAntiga, StringFormat=\{0:0000000\}}" />
+                                    <DataGridTextColumn Header="Pessoa" ElementStyle="{StaticResource CellCenterAlign}" Width="30" Binding="{Binding Pessoa}" />
+                                    <DataGridTextColumn Header="Tipo" ElementStyle="{StaticResource CellCenterAlign}" Width="30" Binding="{Binding Tipo}" />
+                                    <DataGridTextColumn Header="Situação" ElementStyle="{StaticResource CellCenterAlign}" Width="150" Binding="{Binding Situacao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Participantes" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox Name="ProcurarParticipanteTextbox" Width="150" Margin="5" Text="" />
+                                <Button Content="Procurar" Margin="5" Click="ProcurarParticipanteButton" />
+                                <Button Content="Proximo >>" Margin="5" Click="ProcurarProximoParticipanteButton" />
+                            </StackPanel>
+
+                            <DataGrid Grid.Row="1" Name="ParticipantesDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" >
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Width="30" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Selecionado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding Habilitado, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                    <DataGridTextColumn Header="CNPJ" ElementStyle="{StaticResource CellCenterAlign}" Width="110" Binding="{Binding CNPJ}" />
+                                    <DataGridTextColumn Header="Nome" Width="*" Binding="{Binding Nome}" />
+                                    <DataGridTextColumn Header="Pessoa" ElementStyle="{StaticResource CellCenterAlign}" Width="30" Binding="{Binding Pessoa}" />
+                                    <DataGridTextColumn Header="Tipo" ElementStyle="{StaticResource CellCenterAlign}" Width="30" Binding="{Binding Tipo}" />
+                                    <DataGridTextColumn Header="Cliente" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding CCCliente}" />
+                                    <DataGridTextColumn Header="Fornecedor" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding CCFornecedor}" />
+                                    <DataGridTextColumn Header="Situação" ElementStyle="{StaticResource CellCenterAlign}" Width="150" Binding="{Binding Situacao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Nota Fiscal/CFOP" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox Name="ProcurarNotaFiscalTextbox" Width="150" Margin="5" Text="" />
+                                <Button Content="Procurar" Margin="5" Click="ProcurarNotaFiscalButton" />
+                                <Button Content="Proximo >>" Margin="5" Click="ProcurarProximaNotaFiscalButton" />
+                            </StackPanel>
+
+                            <DataGrid Grid.Row="1" Name="NotasFiscaisDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" >
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Width="30" ElementStyle="{StaticResource CellCenterAlign}" Binding="{Binding Selecionado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding Habilitado, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                    <DataGridTextColumn Header="Numero" ElementStyle="{StaticResource CellCenterAlign}" Width="80" Binding="{Binding Numero}" />
+                                    <DataGridTextColumn Header="Data" ElementStyle="{StaticResource CellCenterAlign}" Width="60" Binding="{Binding Data, StringFormat=\{0:dd\/MM\}}" />
+                                    <DataGridTextColumn Header="Emissão" ElementStyle="{StaticResource CellCenterAlign}" Width="60" Binding="{Binding Emissao, StringFormat=\{0:dd\/MM\}}" />
+                                    <DataGridTextColumn Header="CNPJ" ElementStyle="{StaticResource CellCenterAlign}" Width="120" Binding="{Binding CNPJ}" />
+                                    <DataGridTextColumn Header="CFOP" ElementStyle="{StaticResource CellCenterAlign}" Width="40" Binding="{Binding CentenaCFOP}" />
+                                    <DataGridTextColumn Header="Conta Contabil" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding ContaContabil}" />
+                                    <DataGridTextColumn Header="Nova Conta Contabil" ElementStyle="{StaticResource CellCenterAlign}" Width="100" Binding="{Binding NovaContaContabil}" />
+                                    <DataGridTextColumn Header="Operação" ElementStyle="{StaticResource CellCenterAlign}" Width="40" Binding="{Binding Operacao}" />
+                                    <DataGridTextColumn Header="Valor" ElementStyle="{StaticResource CellCenterRight}" Width="100" Binding="{Binding ValorContabil, StringFormat=\{0:N2\}}" />
+                                    <DataGridTextColumn Header="Situação" ElementStyle="{StaticResource CellCenterAlign}" Width="*" Binding="{Binding Situacao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+
+                </Grid>
+            </TabItem>
+            
+        </TabControl>
+        
+        <StatusBar Grid.Row="2" Name="ProgressStatusBar" >
+            <StatusBarItem>
+                <Label Name="StatusBarLabel" Margin="5,0,5,0"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

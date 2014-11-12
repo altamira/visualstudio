@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Boletim_Analise] (
+    [cd_boletim_analise] INT          NOT NULL,
+    [nm_boletim_analise] VARCHAR (10) NOT NULL,
+    [cd_produto]         INT          NULL,
+    [dt_fabricacao]      DATETIME     NULL,
+    [dt_validade]        DATETIME     NULL,
+    [pc_concentracao]    FLOAT (53)   NULL,
+    [pc_agua]            FLOAT (53)   NULL,
+    [vl_ph_solucao]      FLOAT (53)   NULL,
+    [pc_insoluveis_agua] FLOAT (53)   NULL,
+    [vl_fe]              FLOAT (53)   NULL,
+    [pc_cloro_livre]     FLOAT (53)   NULL,
+    [vl_densidade]       FLOAT (53)   NULL,
+    [vl_temperatura]     FLOAT (53)   NULL,
+    [nm_odor]            VARCHAR (30) NULL,
+    [nm_aspecto]         VARCHAR (50) NULL,
+    [cd_cliente]         INT          NULL,
+    [cd_nota_saida]      INT          NULL,
+    [dt_emissao_nota]    DATETIME     NULL,
+    [ds_observacao]      TEXT         NULL,
+    [cd_analista]        INT          NULL,
+    [cd_tecnico]         INT          NULL,
+    CONSTRAINT [PK_Boletim_Analise] PRIMARY KEY CLUSTERED ([cd_boletim_analise] ASC) WITH (FILLFACTOR = 90)
+);
+

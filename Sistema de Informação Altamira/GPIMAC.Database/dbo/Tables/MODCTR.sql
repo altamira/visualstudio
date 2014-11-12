@@ -1,0 +1,77 @@
+﻿CREATE TABLE [dbo].[MODCTR] (
+    [CMod0Tab]       CHAR (200)     NOT NULL,
+    [CMod0Id]        CHAR (250)     NOT NULL,
+    [CMod0DtH]       DATETIME       NOT NULL,
+    [CMod0AttId]     CHAR (200)     NOT NULL,
+    [CMod0AttNom]    CHAR (200)     NULL,
+    [CMod0AttValAnt] VARCHAR (3000) NULL,
+    [CMod0AttValNov] VARCHAR (3000) NULL,
+    [CMod0Dat]       DATETIME       NULL,
+    [CMod0Usu]       CHAR (20)      NULL,
+    [CMod0Aca]       CHAR (10)      NULL,
+    [CMod0EmlEnv]    CHAR (1)       NULL,
+    PRIMARY KEY CLUSTERED ([CMod0Tab] ASC, [CMod0Id] ASC, [CMod0DtH] ASC, [CMod0AttId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UMODCTRA]
+    ON [dbo].[MODCTR]([CMod0Tab] ASC, [CMod0DtH] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UMODCTRB]
+    ON [dbo].[MODCTR]([CMod0DtH] DESC);
+
+
+GO
+
+
+
+
+
+
+
+CREATE TRIGGER [dbo].[NOTIFICACAO_LIBERACAO_PEDIDO] 
+   ON  [dbo].[MODCTR]
+   AFTER INSERT
+AS 
+BEGIN
+
+	SET NOCOUNT ON;
+	
+	DECLARE @PEDIDO			NVARCHAR(10)
+	
+	SET @PEDIDO = NULL
+	
+	SELECT TOP 1
+		@PEDIDO = CAST(SUBSTRING(M.[CMod0Id], 9, 10) AS INT)
+	FROM 
+		inserted M
+	WHERE
+		LTRIM(RTRIM(M.[CMod0AttId])) = 'LPLIB' AND 
+		(LTRIM(RTRIM(M.[CMod0AttValAnt])) = 'N' OR LTRIM(RTRIM(M.[CMod0AttValAnt])) = 'INEXISTENTE') AND
+		LTRIM(RTRIM(M.[CMod0AttValNov])) = 'S'			
+		
+	IF ISNULL(LEN(@PEDIDO), 0) > 0
+	BEGIN
+		IF ISNUMERIC(LTRIM(RTRIM(@PEDIDO))) = 1
+		BEGIN
+			DECLARE @P	INT
+			SET @P = CAST(LTRIM(RTRIM(@PEDIDO)) AS INT)
+			EXEC GPSP_AvisoLiberacaoPedido 	@P			
+		END
+	END
+
+END
+
+
+
+
+
+
+
+GO
+DISABLE TRIGGER [dbo].[NOTIFICACAO_LIBERACAO_PEDIDO]
+    ON [dbo].[MODCTR];
+

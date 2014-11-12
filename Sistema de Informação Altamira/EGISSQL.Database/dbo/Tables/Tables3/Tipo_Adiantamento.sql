@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Tipo_Adiantamento] (
+    [cd_tipo_adiantamento]          INT          NOT NULL,
+    [nm_tipo_adiantamento]          VARCHAR (40) NULL,
+    [sg_tipo_adiantamento]          CHAR (10)    NULL,
+    [ic_padrao_tipo_adiantamento]   CHAR (1)     NULL,
+    [cd_conta]                      INT          NULL,
+    [cd_usuario]                    INT          NULL,
+    [dt_usuario]                    DATETIME     NULL,
+    [cd_conta_debito]               INT          NULL,
+    [ic_dinheiro_tipo_adiantamento] CHAR (1)     NULL,
+    [ic_pad_tipo_adiantamento]      CHAR (1)     NULL,
+    [cd_conta_credito_pc]           INT          NULL,
+    [ic_gera_caixa]                 CHAR (1)     NULL,
+    [ic_deposito_adiantamento]      CHAR (1)     NULL,
+    [cd_tipo_viagem]                INT          NULL,
+    [ic_cartao_tipo_adiantamento]   CHAR (1)     NULL,
+    [cd_cartao_credito]             INT          NULL,
+    [ic_gera_adiantamento]          CHAR (1)     NULL,
+    [ic_gera_ap]                    CHAR (1)     NULL,
+    [ic_gera_contas_pagar]          CHAR (1)     NULL,
+    [ic_gera_email_aprovacao]       CHAR (1)     NULL,
+    [ds_tipo_adiantamento]          TEXT         NULL,
+    CONSTRAINT [PK_Tipo_Adiantamento] PRIMARY KEY CLUSTERED ([cd_tipo_adiantamento] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Tipo_Adiantamento_Tipo_Cartao_Credito] FOREIGN KEY ([cd_cartao_credito]) REFERENCES [dbo].[Tipo_cartao_credito] ([cd_cartao_credito])
+);
+

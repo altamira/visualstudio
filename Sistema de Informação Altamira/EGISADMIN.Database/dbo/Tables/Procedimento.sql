@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Procedimento] (
+    [cd_procedimento]           INT           NOT NULL,
+    [nm_procedimento]           VARCHAR (60)  NOT NULL,
+    [nm_sql_procedimento]       VARCHAR (80)  NULL,
+    [ds_procedimento]           TEXT          NULL,
+    [dt_criacao_procedimento]   DATETIME      NULL,
+    [dt_alteracao_procedimento] DATETIME      NULL,
+    [cd_usuario_procedimento]   INT           NULL,
+    [cd_usuario]                INT           NULL,
+    [dt_usuario]                DATETIME      NULL,
+    [CD_USUARIO_ATUALIZA]       INT           NULL,
+    [DT_ATUALIZA]               DATETIME      NULL,
+    [cd_autor]                  INT           NULL,
+    [cd_modulo]                 INT           NULL,
+    [nm_arquivo_procedimento]   VARCHAR (100) NULL,
+    [ic_sap_admin]              CHAR (1)      NULL,
+    [ds_sql_procedimento]       TEXT          NULL,
+    [ic_padrao_procedimento]    CHAR (1)      NULL,
+    [ic_filtrar_moeda]          CHAR (1)      NULL,
+    [ic_processo_procedimento]  CHAR (1)      NULL,
+    [ds_processo_procedimento]  TEXT          NULL,
+    [cd_classe]                 INT           NULL,
+    [ic_selecao_parametro]      CHAR (1)      NULL,
+    [ic_formula_financeiro]     CHAR (1)      NULL,
+    CONSTRAINT [PK_Procedimento] PRIMARY KEY CLUSTERED ([cd_procedimento] ASC) WITH (FILLFACTOR = 90)
+);
+

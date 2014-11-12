@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[ORC_EstrutMetalica] (
+    [em_Orcamento]      VARCHAR (50)    NOT NULL,
+    [em_Altura]         DECIMAL (18, 2) NULL,
+    [em_Profundidade]   DECIMAL (18, 2) NULL,
+    [em_Largura]        DECIMAL (18, 2) NULL,
+    [em_Modulos]        TINYINT         NULL,
+    [em_Bandejas]       TINYINT         NULL,
+    [em_Peso]           DECIMAL (18, 2) NULL,
+    [em_Cor]            VARCHAR (50)    NULL,
+    [em_Acabamento]     VARCHAR (100)   NULL,
+    [em_Retentor]       VARCHAR (30)    NULL,
+    [em_DivGaveta]      TINYINT         NULL,
+    [em_DivBandeja]     TINYINT         NULL,
+    [em_PortaEtiqueta]  TINYINT         NULL,
+    [em_Total]          DECIMAL (18, 2) NULL,
+    [em_IPI]            DECIMAL (18, 2) NULL,
+    [em_Sapatas]        BIT             NOT NULL,
+    [em_FechLateral]    TINYINT         NULL,
+    [em_FechFundo]      TINYINT         NULL,
+    [em_GavetaSimples]  TINYINT         NULL,
+    [em_GavetaPlastica] TINYINT         NULL,
+    [em_GavetaDupla]    TINYINT         NULL,
+    [em_GavetaTripla]   TINYINT         NULL,
+    [em_Porta]          TINYINT         NULL,
+    [em_Tipo]           TINYINT         NULL,
+    [em_OBS]            VARCHAR (255)   NULL
+);
+

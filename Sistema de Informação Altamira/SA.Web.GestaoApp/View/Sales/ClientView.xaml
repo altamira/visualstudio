@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="GestaoApp.View.Sales.ClientView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:action="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"  
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:triggers="clr-namespace:GestaoApp.Behaviors.Triggers"
+    xmlns:helpers="clr-namespace:GestaoApp.Helpers"
+    xmlns:viewmodel="clr-namespace:GestaoApp.ViewModel"
+    xmlns:control="clr-namespace:GestaoApp.Controls"
+    xmlns:view="clr-namespace:GestaoApp.View"
+    mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="750" >
+
+    <UserControl.Resources>
+        <!--<helpers:ConvertBoolToVisibility x:Key="ConvertBoolToVisibility" />-->
+        <!--<helpers:ConvertDataRow x:Key="ConvertDataRow" />-->
+        <!--<helpers:Base64ImageConverter x:Key="Base64ImageConverter" />-->
+        <!--<viewmodel:VendorSearchViewModel x:Key="VendorSearchViewModel" />-->
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" >
+
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <control:SearchListView Grid.Column="0" Title="Busca de Clientes" DataContext="{Binding}" ItemTemplate="{StaticResource ClientListTemplate}" />
+
+        <sdk:TabControl Grid.Column="1" Margin="5, 5, 5, 5">
+            <sdk:TabItem Header="Informações Básicas">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="CodeNome" VerticalAlignment="Top" Width="78" />
+                    <TextBlock Grid.Row="0" Height="23" Margin="102,5,6,0" Text="{Binding Path=SelectedItem.CodeName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top"  />
+
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Representante" VerticalAlignment="Top" Width="90" />
+                    <TextBlock Grid.Row="1" Height="23" Margin="102,5,6,0" Text="{Binding SelectedItem.Vendor.Name, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top"  />
+
+                    <TextBlock Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Mídia" VerticalAlignment="Top" Width="78" />
+                    <TextBlock Grid.Row="2" Height="23" Margin="102,5,6,0" Text="{Binding SelectedItem.Media.Description, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top"  />
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.Row="3" Margin="5, 5, 5, 5" DataContext="{Binding FoneViewModel}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Telefones" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.Row="4" Margin="5, 5, 5, 5" DataContext="{Binding EmailViewModel}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Emails" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Endereços">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Margin="5, 5, 5, 5" DataContext="{Binding AddressViewModel}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Endereços" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="Contatos">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".35*" />
+                        <ColumnDefinition Width=".65*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border Style="{StaticResource WindowBorderStyle}" Margin="5, 5, 5, 5" Grid.RowSpan="2" DataContext="{Binding PersonViewModel}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Contatos" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Margin="5, 5, 5, 5" Grid.Column="1" DataContext="{Binding PersonViewModel.FoneViewModel}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Telefones" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource WindowBorderStyle}" Margin="5, 5, 5, 5" Grid.Row="1" Grid.Column="1" DataContext="{Binding PersonViewModel.EmailViewModel}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Emails" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+    </Grid>
+
+</UserControl>

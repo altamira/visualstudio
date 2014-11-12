@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Servico_Especial] (
+    [cd_servico_especial]         INT          NOT NULL,
+    [nm_servico_especial]         VARCHAR (40) NOT NULL,
+    [sg_servico_especial]         CHAR (10)    NOT NULL,
+    [cd_usuario]                  INT          NOT NULL,
+    [dt_usuario]                  DATETIME     NOT NULL,
+    [nm_fantasia_servico_espec]   VARCHAR (40) NULL,
+    [ic_processo_servico_espec]   CHAR (1)     NULL,
+    [ic_mapa_servico_especial]    CHAR (1)     NULL,
+    [vl_servico_especial]         FLOAT (53)   NULL,
+    [nm_fantasia_serv_especial]   VARCHAR (15) NULL,
+    [ic_processo_serv_especial]   CHAR (1)     NULL,
+    [ic_mapa_serv_especial]       CHAR (1)     NULL,
+    [ic_fornec_serv_especial]     CHAR (1)     NULL,
+    [ic_fornecedor_serv_especial] CHAR (1)     NULL,
+    [ic_unidade_servico]          CHAR (1)     NULL,
+    [cd_unidade_medida]           INT          NULL,
+    [qt_fator_conversao_servico]  FLOAT (53)   NULL,
+    [ic_sinal_conversao_servico]  CHAR (1)     NULL,
+    [ic_tipo_custo_servico]       CHAR (1)     NULL,
+    [qt_lote_minimo_servico]      FLOAT (53)   NULL,
+    [vl_minimo_servico]           FLOAT (53)   NULL,
+    [ds_servico_especial]         TEXT         NULL,
+    CONSTRAINT [PK_Servico_Especial] PRIMARY KEY CLUSTERED ([cd_servico_especial] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Servico_Especial_Unidade_Medida] FOREIGN KEY ([cd_unidade_medida]) REFERENCES [dbo].[Unidade_Medida] ([cd_unidade_medida])
+);
+

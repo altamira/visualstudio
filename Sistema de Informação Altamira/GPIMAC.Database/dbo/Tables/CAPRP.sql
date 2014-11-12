@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CAPRP] (
+    [CPrP0Cod]    CHAR (1)  NOT NULL,
+    [CPrP0Nom]    CHAR (20) NULL,
+    [CPrP0Tip]    CHAR (1)  NULL,
+    [CPrP0CSTOri] CHAR (1)  NULL,
+    PRIMARY KEY CLUSTERED ([CPrP0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAPRPA]
+    ON [dbo].[CAPRP]([CPrP0Nom] ASC);
+

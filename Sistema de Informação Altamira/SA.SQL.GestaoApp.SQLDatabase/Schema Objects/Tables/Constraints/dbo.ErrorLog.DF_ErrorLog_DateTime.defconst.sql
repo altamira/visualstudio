@@ -1,0 +1,11 @@
+﻿/****** Object:  Default [DF_ErrorLog_DateTime]    Script Date: 09/21/2011 17:29:26 ******/
+/****** Object:  Default [DF_ErrorLog_DateTime]    Script Date: 01/17/2012 12:44:42 ******/
+ALTER TABLE [dbo].[ErrorLog] ADD  CONSTRAINT [DF_ErrorLog_DateTime]  DEFAULT (getdate()) FOR [DateTime]
+
+
+
+
+
+
+
+

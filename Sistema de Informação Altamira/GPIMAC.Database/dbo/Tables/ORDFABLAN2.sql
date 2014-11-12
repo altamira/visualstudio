@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[ORDFABLAN2] (
+    [OrdEmp]    CHAR (2)        NOT NULL,
+    [OrdCod]    INT             NOT NULL,
+    [CMPCOD]    CHAR (60)       NOT NULL,
+    [OrdCMPQtd] DECIMAL (11, 4) NULL,
+    [ORDCMUTIL] DECIMAL (11, 4) NULL,
+    [OrdCmpGer] CHAR (1)        NULL,
+    PRIMARY KEY CLUSTERED ([OrdEmp] ASC, [OrdCod] ASC, [CMPCOD] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IORDFABLAN2B]
+    ON [dbo].[ORDFABLAN2]([CMPCOD] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAORDFABLAN2A]
+    ON [dbo].[ORDFABLAN2]([OrdCod] ASC, [CMPCOD] ASC);
+

@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[CR_CliProv] (
+    [vecl_Codigo] CHAR (14) NOT NULL,
+    CONSTRAINT [PK_CR_CLIPROV] PRIMARY KEY NONCLUSTERED ([vecl_Codigo] ASC) WITH (FILLFACTOR = 90)
+);
+

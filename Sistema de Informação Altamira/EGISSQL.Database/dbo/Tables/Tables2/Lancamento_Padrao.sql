@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Lancamento_Padrao] (
+    [cd_lancamento_padrao]      INT          NOT NULL,
+    [nm_lancamento_padrao]      VARCHAR (40) NOT NULL,
+    [cd_conta_debito_padrao]    INT          NULL,
+    [cd_conta_credito_padrao]   INT          NULL,
+    [cd_historico_contabil]     INT          NULL,
+    [ic_compl_historico_padrao] CHAR (1)     NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [cd_tipo_contabilizacao]    INT          NULL,
+    [nm_obs_lancamento_padrao]  VARCHAR (30) NULL,
+    [ic_ctbs_lancamento_padrao] CHAR (1)     NULL,
+    [ic_tipo_operacao]          CHAR (1)     NULL,
+    [cd_tipo_mercado]           INT          NULL,
+    [cd_mas_deb_lancto_padrao]  VARCHAR (15) NULL,
+    [cd_mas_cred_lancto_padrao] VARCHAR (15) NULL,
+    [cd_conta_plano]            INT          NULL,
+    [cd_empresa]                INT          NULL,
+    [cd_departamento]           INT          NULL,
+    [cd_modulo]                 INT          NULL,
+    [cd_lote_contabil_padrao]   INT          NULL,
+    [ds_historico_lancto_pad]   TEXT         NULL,
+    [cd_conta_debito]           INT          NULL,
+    [cd_conta_credito]          INT          NULL,
+    CONSTRAINT [PK_Lancamento_Padrao] PRIMARY KEY CLUSTERED ([cd_lancamento_padrao] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Lancamento_Padrao_Tipo_Contabilizacao] FOREIGN KEY ([cd_tipo_contabilizacao]) REFERENCES [dbo].[Tipo_Contabilizacao] ([cd_tipo_contabilizacao])
+);
+

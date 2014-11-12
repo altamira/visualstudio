@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Cheque_Terceiro] (
+    [cd_cheque_terceiro]         INT          NOT NULL,
+    [dt_cheque_terceiro]         DATETIME     NULL,
+    [dt_deposito_cheque]         DATETIME     NULL,
+    [dt_repasse_cheque]          DATETIME     NULL,
+    [cd_banco]                   INT          NULL,
+    [nm_agencia_cheque_terceiro] VARCHAR (20) NULL,
+    [nm_conta_cheque]            VARCHAR (30) NULL,
+    [vl_cheque_terceiro]         FLOAT (53)   NULL,
+    [cd_cliente]                 INT          NULL,
+    [cd_tipo_destinatario]       INT          NULL,
+    [dt_baixa_cheque]            DATETIME     NULL,
+    [dt_cancelamento_cheque]     DATETIME     NULL,
+    [nm_motivo_cancelamento]     VARCHAR (60) NULL,
+    [dt_devolucao_cheque]        DATETIME     NULL,
+    [nm_obs_cheque]              VARCHAR (40) NULL,
+    [nm_motvdev_cheque]          VARCHAR (60) NULL,
+    [nm_cheque_terceiro]         VARCHAR (25) NULL,
+    [cd_fone_cheque]             VARCHAR (15) NULL,
+    [cd_usuario]                 INT          NULL,
+    [dt_usuario]                 DATETIME     NULL,
+    [nm_razao_social_cheque]     VARCHAR (60) NULL,
+    [cd_pedido_venda]            INT          NULL,
+    CONSTRAINT [PK_Cheque_Terceiro] PRIMARY KEY CLUSTERED ([cd_cheque_terceiro] ASC) WITH (FILLFACTOR = 90)
+);
+

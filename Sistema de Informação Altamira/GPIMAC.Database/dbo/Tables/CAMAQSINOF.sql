@@ -1,0 +1,32 @@
+﻿CREATE TABLE [dbo].[CAMAQSINOF] (
+    [LMACOD]     CHAR (6)        NOT NULL,
+    [OrdEmp]     CHAR (2)        NOT NULL,
+    [OrdCod]     INT             NOT NULL,
+    [CPSSeq]     SMALLINT        NOT NULL,
+    [LMa1Pri]    INT             NULL,
+    [LMa1QtdEmp] DECIMAL (11, 4) NULL,
+    [LMa1QtdRea] DECIMAL (11, 4) NULL,
+    [Lma1CodBar] CHAR (10)       NULL,
+    PRIMARY KEY CLUSTERED ([LMACOD] ASC, [OrdEmp] ASC, [OrdCod] ASC, [CPSSeq] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAMAQSINOFA]
+    ON [dbo].[CAMAQSINOF]([LMACOD] ASC, [LMa1Pri] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAMAQSINOFB]
+    ON [dbo].[CAMAQSINOF]([LMACOD] ASC, [LMa1Pri] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAMAQSINOFC]
+    ON [dbo].[CAMAQSINOF]([OrdEmp] ASC, [OrdCod] ASC, [CPSSeq] ASC, [LMa1Pri] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UCAMAQSINOFD]
+    ON [dbo].[CAMAQSINOF]([OrdEmp] ASC, [OrdCod] ASC, [CPSSeq] ASC, [LMa1Pri] DESC);
+

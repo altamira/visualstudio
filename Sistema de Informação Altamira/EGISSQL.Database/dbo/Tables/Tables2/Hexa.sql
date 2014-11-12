@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Hexa] (
+    [CODIGO]     FLOAT (53)     NULL,
+    [REFERENCIA] NVARCHAR (255) NULL,
+    [DESCRICAO]  NVARCHAR (255) NULL,
+    [EMBALAGEM]  NVARCHAR (255) NULL,
+    [PRECO]      FLOAT (53)     NULL
+);
+

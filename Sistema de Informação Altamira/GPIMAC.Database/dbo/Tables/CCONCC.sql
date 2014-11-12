@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[CCONCC] (
+    [CcoCod]   CHAR (11) NOT NULL,
+    [CagCod]   SMALLINT  NOT NULL,
+    [CBACOD]   CHAR (3)  NOT NULL,
+    [CcoDv]    SMALLINT  NULL,
+    [CcoDatAb] DATETIME  NULL,
+    PRIMARY KEY CLUSTERED ([CcoCod] ASC, [CagCod] ASC, [CBACOD] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICCONCC2]
+    ON [dbo].[CCONCC]([CagCod] ASC, [CBACOD] ASC);
+

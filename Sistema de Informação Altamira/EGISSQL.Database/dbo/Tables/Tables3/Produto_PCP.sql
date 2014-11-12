@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Produto_PCP] (
+    [cd_produto]                INT          NOT NULL,
+    [ic_furacao_fixacao_pcp]    CHAR (1)     NULL,
+    [nm_espessura_aco1_pcp]     VARCHAR (10) NULL,
+    [nm_espessura_aco2_pcp]     VARCHAR (10) NULL,
+    [qt_tolerancia_aco1_pcp]    FLOAT (53)   NULL,
+    [qt_tolerancia_aco2_pcp]    FLOAT (53)   NULL,
+    [ic_desenho_produto_pcp]    CHAR (1)     NULL,
+    [ic_mapa_fabricacao_pinos]  CHAR (1)     NULL,
+    [qt_comprimento_material]   FLOAT (53)   NULL,
+    [qt_lote_fabricacao_prod]   FLOAT (53)   NULL,
+    [qt_industrializacao_fora]  FLOAT (53)   NULL,
+    [cd_tipo_forma_mat_prima]   INT          NULL,
+    [cd_diametro_material_comp] INT          NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [nm_diametro_material_pcp]  CHAR (15)    NULL,
+    [cd_diam_mat_comp]          INT          NULL,
+    [cd_mat_prima_torno]        INT          NULL,
+    [qt_consumo_mes_produto]    FLOAT (53)   NULL,
+    [cd_tipo_mercado]           INT          NULL,
+    [qt_lote_fabricacao]        FLOAT (53)   NULL,
+    [cd_tipo_espessura_produto] INT          NULL,
+    [ic_controle_mapa_produto]  CHAR (1)     NULL,
+    CONSTRAINT [PK_Produto_PCP] PRIMARY KEY CLUSTERED ([cd_produto] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Produto_Pcp_Tipo_Produto_Espessura] FOREIGN KEY ([cd_tipo_espessura_produto]) REFERENCES [dbo].[Tipo_Produto_Espessura] ([cd_tipo_produto_espessura])
+);
+

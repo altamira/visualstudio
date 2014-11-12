@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<POPConnector>
+  <server>mail.altamira.com.br</server>
+  <port>110</port>
+  <user>teste.nfe@altamira.com.br</user>
+  <password>1234</password>
+  <interval>900</interval>
+</POPConnector>

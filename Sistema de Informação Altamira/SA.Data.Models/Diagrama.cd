@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SA.Data.Models.Financeiro.Bancos.Banco">
+    <Position X="0.5" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB">
+            <Compartments>
+              <Compartment Name="Nested Types" Collapsed="false" />
+            </Compartments>
+            <NestedTypes>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_MOVIMENTO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_CONTA_FORNECEDOR" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.MODALIDADE_PAGAMENTO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.CODIGO_LANCAMENTO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Cabecalho" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.DADOS" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Retorno">
+                <Compartments>
+                  <Compartment Name="Nested Types" Collapsed="false" />
+                </Compartments>
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Convenio" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.ORIGEM_ARQUIVO">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.NIVEL_INFORMACAO_RETORNO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Remessa">
+                <Compartments>
+                  <Compartment Name="Nested Types" Collapsed="false" />
+                </Compartments>
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.CNABAtributo" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_DOCUMENTO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_PROCESSAMENTO">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Instrucao" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.CODIGO_MOVIMENTO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_REGISTRO">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Registro" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_INSCRICAO">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.TIPO_SERVICO">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Struct Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Ocorrencia" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Struct>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Arquivo" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Rodape" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Enum Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.SITUACAO_AGENDAMENTO" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Enum>
+              <Class Name="SA.Data.Models.Financeiro.Bancos.Banco.Bradesco.CNAB.Empresa" Collapsed="true">
+                <TypeIdentifier>
+                  <NewMemberFileName>Financeiro\Bancos\Bradesco\Bradesco.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+            </NestedTypes>
+            <TypeIdentifier>
+              <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Class>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>Financeiro\Bancos\Bradesco.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Financeiro\Bancos\Banco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

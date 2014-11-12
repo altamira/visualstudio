@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[SGUSUACE] (
+    [SgUsu0Cod]    CHAR (20)  NOT NULL,
+    [SgUsu1DatHor] DATETIME   NOT NULL,
+    [SgUsu1PrgCod] CHAR (50)  NULL,
+    [SgUsu1PrgNom] CHAR (250) NULL,
+    PRIMARY KEY CLUSTERED ([SgUsu0Cod] ASC, [SgUsu1DatHor] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USGUSUACEA]
+    ON [dbo].[SGUSUACE]([SgUsu1PrgCod] ASC, [SgUsu1DatHor] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USGUSUACEB]
+    ON [dbo].[SGUSUACE]([SgUsu1DatHor] DESC, [SgUsu1PrgCod] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USGUSUACEC]
+    ON [dbo].[SGUSUACE]([SgUsu0Cod] ASC, [SgUsu1DatHor] DESC);
+

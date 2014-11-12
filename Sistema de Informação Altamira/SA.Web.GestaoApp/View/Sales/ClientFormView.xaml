@@ -1,0 +1,131 @@
+﻿<controls:ChildWindow x:Class="GestaoApp.View.Sales.ClientFormView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+           xmlns:control="clr-namespace:GestaoApp.Controls"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           Width="800" Height="600" 
+           Title="Cadastro de Clientes">
+
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <input:ValidationSummary Name="ValidationSummary"  />
+
+        <sdk:TabControl Name="Tabs" Grid.Row="1" Grid.Column="1" Margin="5, 5, 5, 5">
+            
+            <sdk:TabItem Name="InfoTab" Header="Informações Básicas">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,14,0,0" Text="Codenome" VerticalAlignment="Top" Width="78" />
+                    <TextBox Name="CodeNameTextBox" Height="23" Margin="116,5,6,0" Text="{Binding Path=SelectedItem.CodeName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" VerticalAlignment="Top" />
+
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Representante" VerticalAlignment="Top" Width="104" />
+                    <control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Vendor, Mode=TwoWay}"
+                                                 ValueMemberPath="Name"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="VendorAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="1" BorderBrush="{StaticResource DefaultBorderColor}" Margin="116,5,6,0">
+                    </control:AutoCompleteComboBox>
+
+                    <TextBlock Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="6,10,0,0" Text="Mídia" VerticalAlignment="Top" Width="78" />
+                    <control:AutoCompleteComboBox 
+                                                 SelectedItem="{Binding SelectedItem.Media, Mode=TwoWay}"
+                                                 ValueMemberPath="Description"
+                                                 IsTextCompletionEnabled="True" 
+                                                 x:Name="MediaAutoCompleteComboBox" 
+                                                 Height="25" Grid.Row="2" BorderBrush="{StaticResource DefaultBorderColor}" Margin="116,5,6,0" >
+                    </control:AutoCompleteComboBox>
+                    
+                    <!--<control:SearchGridView Title="Telefones" Grid.Row="5" DataContext="{Binding FoneViewModel}" />-->
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.Row="3" Margin="5, 5, 5, 5" DataContext="{Binding SelectedItem}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Telefones" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" ItemsSource="{Binding ContactFone, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                    <!--<control:SearchListView Title="Emails" Grid.Row="6" DataContext="{Binding EmailViewModel}" />-->
+                    <Border Style="{StaticResource WindowBorderStyle}" Grid.Row="4" Margin="5, 5, 5, 5" DataContext="{Binding SelectedItem}" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border BorderThickness="0, 0, 0, 1" BorderBrush="{StaticResource DefaultBorderColor}" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#F1F5FB">
+                                    <TextBlock Text="Emails" Margin="2,0,0,0"  VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+
+                            <telerik:RadGridView BorderThickness="0" Grid.Row="2" BorderBrush="{x:Null}" SelectedItem="{Binding ContactEmail, Mode=TwoWay}" ItemsSource="{Binding SearchResultList, Mode=TwoWay}" CanUserDeleteRows="False" CanUserInsertRows="False" IsFilteringAllowed="False" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" IsReadOnly="True" />
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </sdk:TabItem>
+            
+            <sdk:TabItem Name="AddressTab" Header="Endereços">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <control:SearchGridView Title="Endereços" DataContext="{Binding AddressViewModel}" />
+                </Grid>
+            </sdk:TabItem>
+            
+            <sdk:TabItem Name="PersonTab" Header="Pessoas de Contato">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <control:SearchGridView Title="Pessoas de Contato" Grid.Row="0" DataContext="{Binding PersonViewModel}" />
+
+                    <control:SearchGridView Title="Telefones" Grid.Row="1" DataContext="{Binding PersonViewModel.FoneViewModel}" />
+
+                    <control:SearchListView Title="Emails" Grid.Row="2" DataContext="{Binding PersonViewModel.EmailViewModel}" />
+                </Grid>
+            </sdk:TabItem>
+            
+        </sdk:TabControl>
+        
+        <Border Grid.Row="2" BorderBrush="{StaticResource DefaultBorderColor}" BorderThickness="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="SaveButton" Content="Gravar" Width="75" Height="25" Margin="5" Click="SaveButton_Click" />
+                <Button x:Name="CancelButton" Content="Cancelar" Width="75" Height="25" Margin="5" Click="CancelButton_Click" />
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</controls:ChildWindow>

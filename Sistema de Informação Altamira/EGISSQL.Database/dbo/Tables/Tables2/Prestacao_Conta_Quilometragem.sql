@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Prestacao_Conta_Quilometragem] (
+    [cd_prestacao]             INT          NOT NULL,
+    [cd_item_km_prestacao]     INT          NOT NULL,
+    [dt_item_km_prestacao]     DATETIME     NULL,
+    [nm_finalidade_item_km]    VARCHAR (40) NULL,
+    [nm_obs_item_km_prestacao] VARCHAR (40) NULL,
+    [qt_item_km_prestacao]     FLOAT (53)   NULL,
+    [cd_usuario]               INT          NULL,
+    [dt_usuario]               DATETIME     NULL,
+    [cd_prestacao_km]          INT          NOT NULL,
+    [cd_centro_custo]          INT          NULL,
+    [cd_projeto_viagem]        INT          NULL,
+    [nm_projeto_viagem]        VARCHAR (40) NULL,
+    [cd_percurso]              INT          NULL,
+    [dt_inicio_km_prestacao]   DATETIME     NULL,
+    [dt_fim_km_prestacao]      DATETIME     NULL,
+    [qt_padrao_km_prestacao]   FLOAT (53)   NULL,
+    [cd_local_origem]          INT          NULL,
+    [nm_local_origem]          VARCHAR (40) NULL,
+    [cd_cidade_origem]         INT          NULL,
+    [cd_local_destino]         INT          NULL,
+    [nm_local_destino]         VARCHAR (40) NULL,
+    [cd_cidade_destino]        INT          NULL,
+    CONSTRAINT [PK_Prestacao_Conta_Quilometragem] PRIMARY KEY CLUSTERED ([cd_prestacao_km] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Prestacao_Conta_Quilometragem_Prestacao_Conta] FOREIGN KEY ([cd_prestacao]) REFERENCES [dbo].[Prestacao_Conta] ([cd_prestacao])
+);
+

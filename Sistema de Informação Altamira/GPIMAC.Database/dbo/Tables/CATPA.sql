@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[CATPA] (
+    [CTpA0Cod] INT        IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
+    [CTpA0Nom] CHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([CTpA0Cod] ASC)
+);
+
+
+GO
+GRANT SELECT
+    ON OBJECT::[dbo].[CATPA] TO [altanet]
+    AS [dbo];
+

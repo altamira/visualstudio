@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[CACLI1] (
+    [CCCGC] CHAR (18)  NOT NULL,
+    [CCSEQ] SMALLINT   NOT NULL,
+    [CCNO1] CHAR (30)  NULL,
+    [CCSE1] CHAR (20)  NULL,
+    [CCCAR] CHAR (20)  NULL,
+    [CCFD1] CHAR (3)   NULL,
+    [CCFO1] CHAR (9)   NULL,
+    [CCRA1] CHAR (5)   NULL,
+    [CCFD2] CHAR (3)   NULL,
+    [CCFA1] CHAR (9)   NULL,
+    [CCRA2] CHAR (5)   NULL,
+    [CCFD3] CHAR (3)   NULL,
+    [CCCE1] CHAR (9)   NULL,
+    [CCMA1] CHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([CCCGC] ASC, [CCSEQ] ASC)
+);
+

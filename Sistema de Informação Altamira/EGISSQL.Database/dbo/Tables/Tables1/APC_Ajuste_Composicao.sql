@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[APC_Ajuste_Composicao] (
+    [cd_controle]        INT          NOT NULL,
+    [cd_item_ajuste]     INT          NOT NULL,
+    [cd_conta]           INT          NULL,
+    [cd_dimensao]        INT          NULL,
+    [vl_saldo_anterior]  FLOAT (53)   NULL,
+    [vl_debito]          FLOAT (53)   NULL,
+    [vl_credito]         FLOAT (53)   NULL,
+    [vl_saldo_atual]     FLOAT (53)   NULL,
+    [vl_transacao]       FLOAT (53)   NULL,
+    [nm_obs_ajuste]      VARCHAR (60) NULL,
+    [cd_usuario]         INT          NULL,
+    [dt_usuario]         DATETIME     NULL,
+    [ic_tipo_lancamento] CHAR (1)     NULL,
+    [cd_centro_custo]    INT          NULL,
+    [vl_ajuste]          FLOAT (53)   NULL,
+    [cd_tipo_ajuste]     INT          NULL,
+    [cd_assunto]         INT          NULL,
+    [cd_unidade_negocio] INT          NULL,
+    [cd_divisao_unidade] INT          NULL,
+    CONSTRAINT [PK_APC_Ajuste_Composicao] PRIMARY KEY CLUSTERED ([cd_controle] ASC, [cd_item_ajuste] ASC),
+    CONSTRAINT [FK_APC_Ajuste_Composicao_APC_Assunto] FOREIGN KEY ([cd_assunto]) REFERENCES [dbo].[APC_Assunto] ([cd_assunto]),
+    CONSTRAINT [FK_APC_Ajuste_Composicao_APC_Tipo_Ajuste] FOREIGN KEY ([cd_tipo_ajuste]) REFERENCES [dbo].[APC_Tipo_Ajuste] ([cd_tipo_ajuste]),
+    CONSTRAINT [FK_APC_Ajuste_Composicao_Divisao_Unidade_Negocio] FOREIGN KEY ([cd_divisao_unidade]) REFERENCES [dbo].[Divisao_Unidade_Negocio] ([cd_divisao_unidade]),
+    CONSTRAINT [FK_APC_Ajuste_Composicao_Unidade_Negocio] FOREIGN KEY ([cd_unidade_negocio]) REFERENCES [dbo].[Unidade_Negocio] ([cd_unidade_negocio])
+);
+

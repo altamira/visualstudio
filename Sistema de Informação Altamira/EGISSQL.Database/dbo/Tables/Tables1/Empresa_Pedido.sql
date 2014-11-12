@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Empresa_Pedido] (
+    [cd_empresa]                INT          NOT NULL,
+    [cd_pedido_empresa]         INT          NOT NULL,
+    [ic_logotipo_pedido]        CHAR (1)     NULL,
+    [ic_esptecnica_pedido]      CHAR (1)     NULL,
+    [ic_ordem_separacao_pedido] CHAR (1)     NULL,
+    [ds_mensagem_pedido]        TEXT         NULL,
+    [ic_endereco_pedido]        CHAR (1)     NULL,
+    [ic_desctecproduto_pedido]  CHAR (1)     NULL,
+    [ic_kardex_produto_pedido]  CHAR (1)     NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [ic_logotipo_ped_empresa]   CHAR (1)     NULL,
+    [ic_desconto_item_pedido]   CHAR (1)     NULL,
+    [ic_obs_item_pedido]        CHAR (1)     NULL,
+    [NM_TITULO_PEDIDO]          VARCHAR (20) NULL,
+    [IC_MSG_CUSTO_FINANCEIRO]   CHAR (1)     NULL,
+    [ic_mostrar_perfil_entrega] CHAR (1)     NULL,
+    [ic_pedido_venda]           CHAR (1)     NULL,
+    [ic_mascara_produto]        CHAR (1)     NULL,
+    [ic_data_necessidade]       CHAR (1)     NULL,
+    [qt_fonte_item]             INT          NULL,
+    CONSTRAINT [PK_Empresa_Pedido] PRIMARY KEY CLUSTERED ([cd_empresa] ASC, [cd_pedido_empresa] ASC) WITH (FILLFACTOR = 90)
+);
+

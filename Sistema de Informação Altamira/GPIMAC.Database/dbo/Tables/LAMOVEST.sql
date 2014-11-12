@@ -1,0 +1,73 @@
+﻿CREATE TABLE [dbo].[LAMOVEST] (
+    [MOVLAN]    INT             NOT NULL,
+    [MOVDAT]    DATETIME        NULL,
+    [TRACOD]    CHAR (6)        NULL,
+    [MovDoc]    INT             NULL,
+    [MovQtd]    DECIMAL (11, 4) NULL,
+    [MovVal]    MONEY           NULL,
+    [MovIcm]    MONEY           NULL,
+    [MovIPI]    MONEY           NULL,
+    [MovTra]    CHAR (1)        NULL,
+    [MovLot]    INT             NULL,
+    [MOVEMP]    CHAR (2)        NULL,
+    [MovEstAnt] DECIMAL (11, 4) NULL,
+    [MovDocTip] CHAR (2)        NULL,
+    [MovDocSeq] SMALLINT        NULL,
+    [MovProTip] CHAR (2)        NULL,
+    [MovProCod] CHAR (60)       NULL,
+    [MovObs]    VARCHAR (1000)  NULL,
+    [MovUsu]    CHAR (20)       NULL,
+    [MovDtH]    DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([MOVLAN] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ILAMOVESTB]
+    ON [dbo].[LAMOVEST]([TRACOD] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTA]
+    ON [dbo].[LAMOVEST]([MovDoc] ASC, [MOVLAN] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTB]
+    ON [dbo].[LAMOVEST]([MovProCod] ASC, [MovProTip] ASC, [TRACOD] ASC, [MovQtd] ASC, [MovDoc] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTC]
+    ON [dbo].[LAMOVEST]([MOVDAT] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTD]
+    ON [dbo].[LAMOVEST]([MOVDAT] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTE]
+    ON [dbo].[LAMOVEST]([MovProCod] ASC, [MovProTip] ASC, [MOVEMP] ASC, [MOVLAN] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTF]
+    ON [dbo].[LAMOVEST]([MOVLAN] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTG]
+    ON [dbo].[LAMOVEST]([MOVEMP] ASC, [MovProTip] ASC, [MovProCod] ASC, [MOVLAN] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTH]
+    ON [dbo].[LAMOVEST]([MOVEMP] ASC, [MovProTip] ASC, [MovProCod] ASC, [MovLot] ASC, [MOVLAN] DESC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ULAMOVESTI]
+    ON [dbo].[LAMOVEST]([MOVEMP] ASC, [MovLot] ASC);
+

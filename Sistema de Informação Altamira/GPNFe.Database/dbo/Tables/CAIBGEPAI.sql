@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CAIBGEPAI] (
+    [GPPai0Cod] SMALLINT  NOT NULL,
+    [GPPai0Nom] CHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([GPPai0Cod] ASC)
+);
+

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>OpenPop.SQLServer</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f6653b13-6e7e-495b-95c1-dc825a04fa45}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>OpenPop</RootNamespace>
+    <AssemblyName>OpenPop</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>OpenPop.snk</AssemblyOriginatorKeyFile>
+    <Trustworthy>True</Trustworthy>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AI</DefaultCollation>
+    <PermissionSet>EXTERNAL_ACCESS</PermissionSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>SQLCLR</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>SQLCLR</DefineConstants>
+    <SqlTargetName>OpenPop</SqlTargetName>
+    <SqlCodeAnalysisRules>+!Microsoft.Rules.Data.SR0014;+!Microsoft.Rules.Data.SR0008;+!Microsoft.Rules.Data.SR0010;+!Microsoft.Rules.Data.SR0013;+!Microsoft.Rules.Data.SR0001;+!Microsoft.Rules.Data.SR0009;+!Microsoft.Rules.Data.SR0012;+!Microsoft.Rules.Data.SR0011;+!Microsoft.Rules.Data.SR0016;+!Microsoft.Rules.Data.SR0015;+!Microsoft.Rules.Data.SR0005;+!Microsoft.Rules.Data.SR0006;+!Microsoft.Rules.Data.SR0004;+!Microsoft.Rules.Data.SR0007</SqlCodeAnalysisRules>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Common" />
+    <Folder Include="Mime" />
+    <Folder Include="Pop3" />
+    <Folder Include="Common\Logging" />
+    <Folder Include="Mime\Decode" />
+    <Folder Include="Mime\Header" />
+    <Folder Include="Mime\Traverse" />
+    <Folder Include="Pop3\Exceptions" />
+    <Folder Include="Mail" />
+    <Folder Include="Mail\Procedures" />
+    <Folder Include="Mail\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\StreamUtility.cs" />
+    <Compile Include="Common\Logging\DefaultLogger.cs" />
+    <Compile Include="Common\Logging\DiagnosticsLogger.cs" />
+    <Compile Include="Common\Logging\FileLogger.cs" />
+    <Compile Include="Common\Logging\ILog.cs" />
+    <Compile Include="Mime\Decode\Base64.cs" />
+    <Compile Include="Mime\Decode\EncodedWord.cs" />
+    <Compile Include="Mime\Decode\EncodingFinder.cs" />
+    <Compile Include="Mime\Decode\QuotedPrintable.cs" />
+    <Compile Include="Mime\Decode\Rfc2231Decoder.cs" />
+    <Compile Include="Mime\Decode\Rfc2822DateTime.cs" />
+    <Compile Include="Mime\Decode\SizeParser.cs" />
+    <Compile Include="Mime\Decode\Utility.cs" />
+    <Compile Include="Mime\Header\ContentTransferEncoding.cs" />
+    <Compile Include="Mime\Header\HeaderExtractor.cs" />
+    <Compile Include="Mime\Header\HeaderFieldParser.cs" />
+    <Compile Include="Mime\Header\MessageHeader.cs" />
+    <Compile Include="Mime\Header\Received.cs" />
+    <Compile Include="Mime\Header\RfcMailAddress.cs" />
+    <Compile Include="Mime\Traverse\AnswerMessageTraverser.cs" />
+    <Compile Include="Mime\Traverse\AttachmentFinder.cs" />
+    <Compile Include="Mime\Traverse\FindAllMessagePartsWithMediaType.cs" />
+    <Compile Include="Mime\Traverse\FindFirstMessagePartWithMediaType.cs" />
+    <Compile Include="Mime\Traverse\IAnswerMessageTraverser.cs" />
+    <Compile Include="Mime\Traverse\IQuestionAnswerMessageTraverser.cs" />
+    <Compile Include="Mime\Traverse\MultipleMessagePartFinder.cs" />
+    <Compile Include="Mime\Traverse\TextVersionFinder.cs" />
+    <Compile Include="Mime\Message.cs" />
+    <Compile Include="Mime\MessagePart.cs" />
+    <Compile Include="Pop3\Exceptions\InvalidLoginException.cs" />
+    <Compile Include="Pop3\Exceptions\InvalidUseException.cs" />
+    <Compile Include="Pop3\Exceptions\LoginDelayException.cs" />
+    <Compile Include="Pop3\Exceptions\PopClientException.cs" />
+    <Compile Include="Pop3\Exceptions\PopServerException.cs" />
+    <Compile Include="Pop3\Exceptions\PopServerLockedException.cs" />
+    <Compile Include="Pop3\Exceptions\PopServerNotAvailableException.cs" />
+    <Compile Include="Pop3\Exceptions\PopServerNotFoundException.cs" />
+    <Compile Include="Pop3\Apop.cs" />
+    <Compile Include="Pop3\AuthenticationMethod.cs" />
+    <Compile Include="Pop3\ConnectionState.cs" />
+    <Compile Include="Pop3\CramMd5.cs" />
+    <Compile Include="Pop3\Disposable.cs" />
+    <Compile Include="Pop3\Pop3Client.cs" />
+    <Compile Include="Mail\Procedures\Message.Fetch.cs" />
+    <Compile Include="Mail\Procedures\Message.List.Attachments.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenPop.snk" />
+    <None Include="app.config" />
+    <None Include="OpenPop.SQLServer.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="OpenPop.SQLServer.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Mail\Mail.sql" />
+  </ItemGroup>
+</Project>

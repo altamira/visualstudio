@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="SA.WPF.Application.Materiais"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fields="clr-namespace:SA.WPF.ControlLibrary;assembly=SA.WPF.ControlLibrary" 
+             xmlns:controls="clr-namespace:SA.WPF.CustomControlLibrary;assembly=SA.WPF.CustomControlLibrary"
+             mc:Ignorable="d" 
+             d:DesignHeight="299" d:DesignWidth="632" >
+    <Grid x:Name="Grid" DataContext="{Binding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <!--<RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Label Content="Orçamentos" />
+        
+        <!--<fields:Name Grid.Row="1" Name="nameField1" />
+        <fields:Name Grid.Row="2" Name="nameField2" />
+        <fields:Name Grid.Row="3" Name="nameField3" />
+        <fields:Name Grid.Row="4" Name="nameField4" />
+        <fields:Name Grid.Row="5" Name="nameField5" />-->
+
+        <controls:FieldName Grid.Row="1" Caption="Código do Representante" Value="{Binding Path=Descricao, Mode=TwoWay}" CaptionWidth="150" />
+        <controls:FieldName Grid.Row="2" Caption="Descrição" Value="{Binding Path=Estoque, Mode=OneWay}" CaptionWidth="150" />
+
+        <TextBox Grid.Row="3" Height="20" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <Button Content="Conteudo" Grid.Row="1" Grid.Column="1" Click="Button_Click" />
+        <DataGrid AutoGenerateColumns="True" Grid.Row="4" Name="OrcamentoDataGrid" ItemsSource="{Binding}" />
+        <DataGrid AutoGenerateColumns="True" Grid.Column="1" Grid.Row="4" Name="ProdutosDataGrid" ItemsSource="{Binding}" />
+    </Grid>
+</UserControl>

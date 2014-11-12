@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CAMONTIP] (
+    [CTpMCod] CHAR (5)  NOT NULL,
+    [CTpMNom] CHAR (80) NULL,
+    PRIMARY KEY CLUSTERED ([CTpMCod] ASC)
+);
+

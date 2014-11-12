@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DBTECNEQUIP.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f50472bb-45d0-4aff-a1e2-d905a25eae00}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DBTECNEQUIP.Database</RootNamespace>
+    <AssemblyName>DBTECNEQUIP.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>Latin1_General_CI_AI</DefaultCollation>
+    <AnsiNulls>False</AnsiNulls>
+    <QuotedIdentifier>False</QuotedIdentifier>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>CHECKSUM</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>100</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>GLOBAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>FULL</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Co_Espessura.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_Fornecedor.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_HistoricoChapa.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_ItemNota.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_ItemPedido.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_ParcelasPedido.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_Pasta.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_Pedido.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_Servico.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\Co_Tipo.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\Co_Usina.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_Descricao.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_DespesaImposto.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_Grupo.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_Pessoais.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_Previsao.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_SinalPedido.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_SubGrupo.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_Terceiro.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\DespesaImposto.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\FN_Bancos.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\PRE_TipoMP.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\SI_Auxiliar.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\SI_Usuario.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_HistoricoBobina.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_DespesaImpostoDetalhe.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_NotaFiscal.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CP_NotaFiscalDetalhe.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_Almoxarifado.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\Co_Bobina.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\CO_DescricaoCredito.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\ALTAMIRA_Alessandro.sql" />
+    <Build Include="Security\ALTAMIRA_Alessandro_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_EXCLUI.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_FECHA.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_INCLUIR.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_MONTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_SELECIONA.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALPAR_SELECIONA.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_OPATUALIZA_RELATORIO.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_OPDESPIMPOSTNAO_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPDESPIMPOSTO_DEVOLVE.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_OPDESPIMPOSTO_RELATORIO.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_OPDESPIMPREIMPR_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPIMPRIME_RELATORIO.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_OPNOTAFISCALNAO_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPNOTAFISCALREI_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPREIMPRESSAO_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPSINALNAO_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPSINALPEDREI_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_OPSINALREI_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_PAGAMDIARIODES_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_PAGAMDIARIOFOR_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_PAGAMDIARIOIMP_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_PESSOAIS_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_PESSOAIS_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_PESSOAIS_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SUBGRUPO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SUBGRUPO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SUBGRUPO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_TERCEIRO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_TERCEIRO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_TERCEIRO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPFN_BANCOS_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPFN_BANCOS_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPFN_BANCOS_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPSI_ALTERA_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPSI_CADASTRA_USUARIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXABOBINA_EXECUTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXAPEDIDO_EXECUTA.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCO_BOBINAEXTRATODT_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BOBINAEXTRATORS_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\dt_verstamp003.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CREDITO_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_DESTINACAO_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_DESTINACAODET_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_ITEMPEDIDO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_ITEMPEDIDO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_PEDIDO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_PEDIDO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_PEDIDO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_ANALITICOMENSAL_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONSCOPIACHEQUE_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONSPREVDIADET_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_CONSPREVISAOMES.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONSPREVISAOMES_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONTACORRENTEDES_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_CONTACORRENTEFOR_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONTACORRENTEIMP_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTO_VISUALIZA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTODET_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTODET_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTODET_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESTINACAO_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_MOVIFORNECEDOR_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_MOVIMENTOMESDES_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_MOVIMENTOMESFOR_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_MOVIMENTOMESIMP_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_PENDENTESFORNEC_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_PENDENTESIMPOSTO_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_PREVISAO_ALTERAR.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_PREVISAO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_PREVISAO_INCLUIR.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_SINALLIMPA_EXECUTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SINALPEDIDO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SINALPEDIDO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SINALPEDIDO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_SINALSELECIONA_EXECUTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_ALMOXA_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_ALMOXA_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_ALMOXA_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXABOBINA_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXACHAPA_EXECUTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DEVOLVE_NFISCAL.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXACHAPA_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXAITEM_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BAIXAPEDIDO_VISUALIZA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_BOBINAPENDENTE_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CHAPAEXTRATODT_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CHAPAEXTRATORS_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CHAPAPENDENTE_SELECIONA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CONJUNTO_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CONSULTAPRODFORN_SELECAO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CONTACORRENTEFOR_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CONTACORRENTEPRO_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_CREDITO_RELATORIO.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_FORNECEDOR_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_FORNECEDOR_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_FORNECEDOR_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_FORNECEDOR_VISUALIZA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_NOTAFISCAL_INCLUIR.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCO_PASTA_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_PASTA_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_PASTA_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_PEDIDO_VISUALIZA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_SERVICO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_SERVICO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCO_SERVICO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONSPREVDIARIA_CONSULTA.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_CONSPREVDIATOTAL_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_CONSPREVISAOMES_RELATORIO.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_DESCRICAO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESCRICAO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESCRICAO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_DESPESAIMPOSTO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_GRUPO_ALTERAR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_GRUPO_EXCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_GRUPO_INCLUIR.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_MOVIMENTOMESTOT_CONSULTA.sql" />
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_ALTERAR.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\SPCP_NOTAFISCALDET_BAIXA.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\Permissions.sql" />
+  </ItemGroup>
+</Project>

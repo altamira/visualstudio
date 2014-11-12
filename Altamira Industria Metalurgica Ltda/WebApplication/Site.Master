@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>Altamira - Gestão de Vendas</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <table class="header">
+    <tr>
+        <td width="30%">
+            
+            
+            <asp:Table ID="Table1" runat="server" Height="100%" Width="100%">
+                <asp:TableRow runat="server">
+                <asp:TableCell HorizontalAlign="Center">
+                    <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" 
+                Font-Size="Large" Font-Strikeout="False" Font-Underline="False" 
+                ForeColor="White" NavigateUrl="~/Default.aspx"><asp:Image ID="Image1" ImageUrl="~/Images/Altamira.png" runat="server" Width="45" Height="45" /></asp:HyperLink></asp:TableCell>
+                <asp:TableCell><asp:HyperLink ID="HyperLink8" runat="server" Font-Bold="True" 
+                Font-Size="Large" Font-Strikeout="False" Font-Underline="False" 
+                ForeColor="White" NavigateUrl="~/Default.aspx">
+                Sistema Gestão de Vendas</asp:HyperLink></asp:TableCell>
+                </asp:TableRow>
+
+            </asp:Table>
+            
+        </td>
+        <td width="30%">
+            <%--<asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="true" IncludeStyleBlock="false" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Principal" Value="Principal"/>
+                    <asp:MenuItem NavigateUrl="~/Recados.aspx" Text="Recados" Value="Recados"/>
+                    <asp:MenuItem NavigateUrl="~/Orcamentos.aspx" Text="Orçamentos" Value="Orçamentos"/>
+                    <asp:MenuItem NavigateUrl="~/Pedidos.aspx" Text="Pedidos" Value="Pedidos"/>
+                    <asp:MenuItem NavigateUrl="~/Support.aspx" Text="Ajuda" Value="Ajuda"/>
+                </Items>
+            </asp:Menu>--%>
+            <table width="100%" style="background-color:transparent">
+            <tr>
+                <td align="center" valign="middle" width="20%">
+                    <asp:HyperLink ID="HyperLink2" 
+                        runat="server" ImageUrl="~/Images/png/Edit_5_32x32x32.png" 
+                        NavigateUrl="~/Recados.aspx">Recados</asp:HyperLink></td>
+                <td align="center" valign="middle" width="20%">
+                    <asp:HyperLink ID="HyperLink6" 
+                        runat="server" ImageUrl="~/Images/png/Profile_2_32x32x32.png" 
+                        NavigateUrl="~/Visitas.aspx">Visitas</asp:HyperLink></td>
+                <td align="center" valign="middle" width="20%"><asp:HyperLink ID="HyperLink3" 
+                        runat="server" ImageUrl="~/Images/png/analysis_5_32x32x32.png" 
+                        NavigateUrl="~/Orcamentos.aspx">Orçamentos</asp:HyperLink></td>
+                <td align="center" valign="middle" width="20%"><asp:HyperLink ID="HyperLink4" runat="server" ImageUrl="~/Images/png/options_32x32x32.png" NavigateUrl="~/Pedidos.aspx">Pedidos</asp:HyperLink></td>
+                <td align="center" valign="middle" width="20%">
+                    <asp:HyperLink ID="HyperLink7" 
+                        runat="server" ImageUrl="~/Images/png/supplies_7_32x32x32.png" 
+                        NavigateUrl="~/Financeiro.aspx" Visible="False">Pedidos</asp:HyperLink></td>
+                <td align="center" valign="middle" width="20%"><asp:HyperLink ID="HyperLink5" 
+                        runat="server" ImageUrl="~/Images/png/Help_2_32x32x32.png" 
+                        NavigateUrl="~/Support.aspx">Ajuda</asp:HyperLink></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="White" Text="Recados"></asp:Label>
+                </td>
+                <td align="center">
+                    <asp:Label ID="Label5" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="White" Text="Visitas"></asp:Label>
+                </td>
+                <td align="center">
+                    <asp:Label ID="Label2" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="White" Text="Orçamentos"></asp:Label>
+                </td>
+                <td align="center">
+                    <asp:Label ID="Label3" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="White" Text="Pedidos"></asp:Label>
+                </td>
+                <td align="center">
+                    <asp:Label ID="Label6" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="White" Text="Financeiro" Visible="False"></asp:Label>
+                </td>
+                <td align="center">
+                    <asp:Label ID="Label4" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="White" Text="Ajuda"></asp:Label>
+                </td>
+            </tr>
+            </table>
+        </td>
+        <td width="20%" align="right" valign="bottom">
+            <table style="width:100%;">
+                <tr>
+                    <td align="right">
+            <table>
+                <tr>
+                    <td><asp:Label ID="UserName" runat="server" Font-Bold="True" Font-Size="Small" 
+                            ForeColor="White"></asp:Label></td>
+                    <td align="right"><asp:ImageButton ID="LogoutButtom" runat="server" ImageUrl="~/Images/png/Action-lock_6_32x32x32.png" onclick="LogoutButtom_Click" ToolTip="Sair" /></td>
+                </tr>
+            </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" 
+                        style="font-family: Arial, Helvetica, sans-serif; font-size: x-small; color: #FFFFFF">
+                        A sessão é válida até
+                        <asp:Label ID="ValidadeLabel" runat="server" Font-Bold="False" 
+                            Font-Size="X-Small" ForeColor="White" Text="Label"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"><table width="100%" style="background-color: #FFFFFF"><tr><td><asp:ContentPlaceHolder ID="MainContent" runat="server"/></td></tr></table></td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>

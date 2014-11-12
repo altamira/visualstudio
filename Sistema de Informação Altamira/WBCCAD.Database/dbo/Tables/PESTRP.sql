@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[PESTRP] (
+    [PESTRP_CODIGO] INT NULL
+);
+

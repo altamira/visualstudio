@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Produto_Cliente] (
+    [cd_cliente]                INT          NOT NULL,
+    [cd_produto]                INT          NOT NULL,
+    [nm_fantasia_prod_cliente]  VARCHAR (30) NOT NULL,
+    [ic_proposta_prod_cliente]  CHAR (1)     NULL,
+    [ic_ped_vend_prod_cliente]  CHAR (1)     NULL,
+    [ic_nf_produto_cliente]     CHAR (1)     NULL,
+    [nm_produto_cliente]        VARCHAR (50) NULL,
+    [ic_desc_produto_cliente]   CHAR (1)     NULL,
+    [nm_obs_produto_cliente]    VARCHAR (50) NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [cd_moeda]                  INT          NULL,
+    [vl_produto_cliente]        FLOAT (53)   NULL,
+    [dt_preco_produto_cliente]  DATETIME     NULL,
+    [cd_termo_comercial]        INT          NULL,
+    [cd_tabela_preco]           INT          NULL,
+    [cd_aplicacao_markup]       INT          NULL,
+    [qt_minimo_produto_cliente] FLOAT (53)   NULL,
+    [cd_desenho_produto]        VARCHAR (30) NULL,
+    [cd_rev_desenho_produto]    VARCHAR (5)  NULL,
+    [dt_rev_produto_cliente]    DATETIME     NULL,
+    [ic_preco_final_cliente]    CHAR (1)     NULL,
+    CONSTRAINT [FK_Produto_Cliente_Aplicacao_Markup] FOREIGN KEY ([cd_aplicacao_markup]) REFERENCES [dbo].[Aplicacao_Markup] ([cd_aplicacao_markup]),
+    CONSTRAINT [FK_Produto_Cliente_Moeda] FOREIGN KEY ([cd_moeda]) REFERENCES [dbo].[Moeda] ([cd_moeda]),
+    CONSTRAINT [FK_Produto_Cliente_Tabela_Preco] FOREIGN KEY ([cd_tabela_preco]) REFERENCES [dbo].[Tabela_Preco] ([cd_tabela_preco])
+);
+

@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Parametro_Entrada] (
+    [cd_empresa]                 INT        NOT NULL,
+    [cd_item_parametro_entrada]  INT        NOT NULL,
+    [cd_destinacao_produto]      INT        NULL,
+    [cd_plano_compra]            INT        NULL,
+    [cd_operacao_fiscal]         INT        NULL,
+    [cd_lancamento_padrao]       INT        NULL,
+    [ic_clasfiscal_entrada]      CHAR (1)   NULL,
+    [cd_tributacao]              INT        NULL,
+    [ic_icms_calculo_substrib]   CHAR (1)   NULL,
+    [pc_aliqicms_entrada]        FLOAT (53) NULL,
+    [cd_usuario]                 INT        NULL,
+    [dt_usuario]                 DATETIME   NULL,
+    [cd_tributacao_paulista]     INT        NULL,
+    [cd_tributacao_federal]      INT        NULL,
+    [ic_ipi_incorporado_produto] CHAR (1)   NULL,
+    [cd_aplicacao]               INT        NULL,
+    CONSTRAINT [PK_Parametro_Entrada] PRIMARY KEY CLUSTERED ([cd_empresa] ASC, [cd_item_parametro_entrada] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Parametro_Entrada_Aplicacao] FOREIGN KEY ([cd_aplicacao]) REFERENCES [dbo].[Aplicacao] ([cd_aplicacao]),
+    CONSTRAINT [FK_Parametro_Entrada_Lancamento_Padrao] FOREIGN KEY ([cd_lancamento_padrao]) REFERENCES [dbo].[Lancamento_Padrao] ([cd_lancamento_padrao]),
+    CONSTRAINT [FK_Parametro_Entrada_Operacao_Fiscal] FOREIGN KEY ([cd_operacao_fiscal]) REFERENCES [dbo].[Operacao_Fiscal] ([cd_operacao_fiscal]),
+    CONSTRAINT [FK_Parametro_Entrada_Plano_Compra] FOREIGN KEY ([cd_plano_compra]) REFERENCES [dbo].[Plano_Compra] ([cd_plano_compra]),
+    CONSTRAINT [FK_Parametro_Entrada_Tributacao] FOREIGN KEY ([cd_tributacao]) REFERENCES [dbo].[Tributacao] ([cd_tributacao])
+);
+

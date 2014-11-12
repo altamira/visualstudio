@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Filial_Empresa] (
+    [cd_filial_empresa]       INT           NOT NULL,
+    [cd_empresa]              INT           NOT NULL,
+    [nm_fantasia_filial_emp]  VARCHAR (30)  NOT NULL,
+    [nm_razao_filial_emp]     VARCHAR (30)  NOT NULL,
+    [nm_endereco_filial_emp]  VARCHAR (50)  NULL,
+    [cd_cep_filial_empresa]   CHAR (9)      NULL,
+    [nm_bairro_filial_emp]    VARCHAR (30)  NULL,
+    [cd_pais]                 INT           NULL,
+    [cd_estado]               INT           NULL,
+    [cd_cidade]               INT           NULL,
+    [cd_operadora]            INT           NULL,
+    [cd_telefone_filial_emp]  VARCHAR (20)  NULL,
+    [cd_fax_filial_empresa]   VARCHAR (20)  NULL,
+    [nm_dominio_internet]     VARCHAR (50)  NULL,
+    [nm_email_filial_empresa] VARCHAR (50)  NULL,
+    [cd_cgc_filial_empresa]   CHAR (14)     NULL,
+    [cd_iestadual_filial_emp] CHAR (20)     NULL,
+    [nm_caixa_postal]         VARCHAR (20)  NULL,
+    [dt_cadastro_filial_emp]  DATETIME      NULL,
+    [nm_caminho_logo]         VARCHAR (100) NULL,
+    [cd_usuario]              INT           NOT NULL,
+    [dt_usuario]              DATETIME      NOT NULL,
+    CONSTRAINT [PK_Filial_Empresa] PRIMARY KEY CLUSTERED ([cd_filial_empresa] ASC) WITH (FILLFACTOR = 90)
+);
+

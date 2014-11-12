@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Ordem_Servico_Parcela] (
+    [cd_ordem_servico]          INT          NOT NULL,
+    [cd_parcela_ord_serv]       INT          NOT NULL,
+    [dt_vcto_parcela_ord_serv]  DATETIME     NULL,
+    [vl_parcela_ord_serv]       FLOAT (53)   NULL,
+    [nm_obs_parcela_ord_serv]   VARCHAR (30) NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [ic_dt_especifica_ord_serv] CHAR (1)     NULL,
+    [cd_ident_parc_ord_serv]    VARCHAR (25) NULL,
+    [ic_editado_parc_ord_serv]  CHAR (1)     NULL,
+    [cd_mes]                    INT          NULL,
+    [cd_ano]                    INT          NULL,
+    [cd_banco]                  INT          NULL,
+    [nm_agencia_banco_caixa]    VARCHAR (40) NULL,
+    [nm_obs_parcela_caixa]      VARCHAR (40) NULL,
+    [cd_tipo_pagamento]         INT          NULL,
+    [cd_conta_banco]            VARCHAR (15) NULL,
+    [cd_cheque_banco]           VARCHAR (15) NULL,
+    [cd_cartao_credito]         VARCHAR (30) NULL,
+    [cd_tipo_documento]         INT          NULL,
+    CONSTRAINT [PK_Ordem_Servico_Parcela] PRIMARY KEY CLUSTERED ([cd_ordem_servico] ASC, [cd_parcela_ord_serv] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Ordem_Servico_Parcela_Tipo_Pagamento_Caixa] FOREIGN KEY ([cd_tipo_pagamento]) REFERENCES [dbo].[Tipo_Pagamento_Caixa] ([cd_tipo_pagamento])
+);
+

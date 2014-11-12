@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[M012101] (
+    [CDCOD]  CHAR (6)  NOT NULL,
+    [CDNOM]  CHAR (30) NULL,
+    [CDATU]  MONEY     NULL,
+    [CDME01] MONEY     NULL,
+    [CDME02] MONEY     NULL,
+    [CDME03] MONEY     NULL,
+    [CDME04] MONEY     NULL,
+    [CDME05] MONEY     NULL,
+    [CDME06] MONEY     NULL,
+    [CDME07] MONEY     NULL,
+    [CDME08] MONEY     NULL,
+    [CDME09] MONEY     NULL,
+    [CDME10] MONEY     NULL,
+    [CDME11] MONEY     NULL,
+    [CDME12] MONEY     NULL,
+    PRIMARY KEY CLUSTERED ([CDCOD] ASC)
+);
+

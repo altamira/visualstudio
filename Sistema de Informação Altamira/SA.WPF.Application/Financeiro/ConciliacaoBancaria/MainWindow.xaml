@@ -1,0 +1,46 @@
+﻿<RibbonWindow x:Class="SA.WPF.Application.Financeiro.ConciliacaoBancaria.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+        mc:Ignorable="d"
+        Title="Financeiro"  >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Ribbon x:Name="RibbonMain" >
+
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Collapsed" />
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab Header="Conta Corrente">
+                <RibbonGroup Header="Movimentação Bancária">
+
+                    <RibbonButton 
+						LargeImageSource="..\..\Images\options_4_48x48x32.png"
+						Label="Lançamento"
+						Click="LancamentoContaCorrente_Click" />
+
+                    <RibbonButton 
+						LargeImageSource="..\..\Images\Select_1_48x48x32.png"
+						Label="Conciliação"
+						Click="ConciliacaoContaCorrente_Click" />
+
+
+                </RibbonGroup>
+
+            </RibbonTab>
+
+        </Ribbon>
+
+        <!--<DockPanel Grid.Row="1" >
+            <controls:CloseableTab x:Name="MainTab" Background="#FFD9E5F3" Style="{DynamicResource CloseableTabStyle}" />
+        </DockPanel>-->
+
+    </Grid>
+</RibbonWindow>

@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[LISCAT] (
+    [Lis0Cod] SMALLINT  NOT NULL,
+    [Lis0Cab] CHAR (30) NULL,
+    [Lis0Rod] CHAR (80) NULL,
+    PRIMARY KEY CLUSTERED ([Lis0Cod] ASC)
+);
+

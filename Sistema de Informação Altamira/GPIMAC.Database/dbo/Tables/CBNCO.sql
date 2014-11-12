@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[CBNCO] (
+    [CbCod] SMALLINT  NOT NULL,
+    [CbDv]  SMALLINT  NULL,
+    [CbNom] CHAR (40) NULL,
+    PRIMARY KEY CLUSTERED ([CbCod] ASC)
+);
+

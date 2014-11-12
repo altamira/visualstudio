@@ -1,0 +1,35 @@
+﻿CREATE TABLE [dbo].[OPROM] (
+    [OPR0Emp]       CHAR (2)       NOT NULL,
+    [OPR0Cod]       INT            NOT NULL,
+    [OPR0Dat]       DATETIME       NULL,
+    [OPR0UsuCri]    CHAR (20)      NULL,
+    [OPR0DtHCri]    DATETIME       NULL,
+    [OPR0UsuCodRes] CHAR (20)      NULL,
+    [OPR0CSerCod]   CHAR (8)       NULL,
+    [OPR0Obs]       VARCHAR (1000) NULL,
+    [OPR0DatPrI]    DATETIME       NULL,
+    [OPR0CMAQCOD]   CHAR (5)       NULL,
+    [OPR0MPr0Cod]   CHAR (60)      NULL,
+    PRIMARY KEY CLUSTERED ([OPR0Emp] ASC, [OPR0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IOPROMB]
+    ON [dbo].[OPROM]([OPR0CSerCod] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IOPROMC]
+    ON [dbo].[OPROM]([OPR0UsuCodRes] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IOPROMD]
+    ON [dbo].[OPROM]([OPR0MPr0Cod] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IOPROME]
+    ON [dbo].[OPROM]([OPR0CMAQCOD] ASC);
+

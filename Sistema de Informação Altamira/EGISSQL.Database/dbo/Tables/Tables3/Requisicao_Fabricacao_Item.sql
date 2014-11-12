@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Requisicao_Fabricacao_Item] (
+    [cd_requisicao]             INT          NOT NULL,
+    [cd_item_requisicao]        INT          NOT NULL,
+    [cd_produto]                INT          NULL,
+    [nm_produto_requisicao]     VARCHAR (40) NULL,
+    [qt_item_requisicao]        FLOAT (53)   NULL,
+    [cd_processo_producao]      INT          NULL,
+    [cd_usuario]                INT          NULL,
+    [dt_usuario]                DATETIME     NULL,
+    [cd_fase_produto]           INT          NULL,
+    [nm_obs_item_req_fab]       VARCHAR (40) NULL,
+    [ic_estoque_req_fabricacao] CHAR (1)     NULL,
+    [qt_fabricada_req_fab]      FLOAT (53)   NULL,
+    [dt_item_estoque_req]       DATETIME     NULL,
+    [cd_unidade_medida]         INT          NULL,
+    [ds_item_req_fabricacao]    TEXT         NULL,
+    [cd_processo]               INT          NULL,
+    [cd_item_pedido_venda]      INT          NULL,
+    [cd_pedido_venda]           INT          NULL,
+    [ic_estoque_requisicao]     CHAR (1)     NULL,
+    [cd_mascara_produto]        VARCHAR (20) NULL,
+    CONSTRAINT [PK_Requisicao_Fabricacao_Item] PRIMARY KEY CLUSTERED ([cd_requisicao] ASC, [cd_item_requisicao] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Requisicao_Fabricacao_Item_Produto] FOREIGN KEY ([cd_produto]) REFERENCES [dbo].[Produto] ([cd_produto])
+);
+

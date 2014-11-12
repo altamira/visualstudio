@@ -1,0 +1,23 @@
+﻿<Application   
+  x:Class="GestaoApp.App"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:app="clr-namespace:GestaoApp"
+  Startup="Application_Startup"
+  UnhandledException="Application_UnhandledException">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/GestaoApp;component/Assets/Styles.xaml"/> 
+                <ResourceDictionary Source="/GestaoApp;component/Assets/Templates.xaml"/>
+                <ResourceDictionary Source="/GestaoApp;component/Themes/Generic.xaml"/>
+                <ResourceDictionary>
+                    <app:ResourceWrapper x:Key="ResourceWrapper" />
+                    <!--<app:NotOperatorValueConverter x:Key="NotOperatorValueConverter" />-->
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

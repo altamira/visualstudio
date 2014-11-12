@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[CAGRPCAPPRD] (
+    [CGrco1]          CHAR (5)   NOT NULL,
+    [CGrIniWBCCAD]    CHAR (200) NOT NULL,
+    [CGrSIn0Cod]      CHAR (8)   NOT NULL,
+    [CGrCMaqCod]      CHAR (5)   NULL,
+    [CGrCpPPesDia]    MONEY      NULL,
+    [CGrIniWBCCADTam] SMALLINT   NULL,
+    [CGRMod]          SMALLINT   NULL,
+    PRIMARY KEY CLUSTERED ([CGrco1] ASC, [CGrIniWBCCAD] ASC, [CGrSIn0Cod] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICAGRPCAPPRDB]
+    ON [dbo].[CAGRPCAPPRD]([CGrCMaqCod] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ICAGRPCAPPRDC]
+    ON [dbo].[CAGRPCAPPRD]([CGrSIn0Cod] ASC);
+

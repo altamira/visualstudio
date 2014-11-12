@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0312968-B300-4FBB-BD60-8988EA53B7D8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SA.WpfRibbonApplication</RootNamespace>
+    <AssemblyName>SA.WpfRibbonApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RibbonControlsLibrary" />
+    <Reference Include="Microsoft.Windows.Shell" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Financeiro\CNAB.xaml.cs">
+      <DependentUpon>CNAB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Cobranca.xaml.cs">
+      <DependentUpon>Cobranca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\ResumoDeTitulosAPagar.xaml.cs">
+      <DependentUpon>ResumoDeTitulosAPagar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FluxoCaixa.xaml.cs">
+      <DependentUpon>FluxoCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MainViewModel.cs" />
+    <Compile Include="Materiais.xaml.cs">
+      <DependentUpon>Materiais.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Page Include="Financeiro\CNAB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Financeiro\Cobranca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Financeiro\ResumoDeTitulosAPagar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FluxoCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Materiais.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Models\PivotTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\PivotTest.xaml.cs">
+      <DependentUpon>PivotTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LargeIcon.png" />
+    <Resource Include="Images\SmallIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\theme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\About-me_2_72x72x32.png" />
+    <Resource Include="Images\About-me_3_64x64x32 %281%29.png" />
+    <Resource Include="Images\About-me_3_64x64x32.png" />
+    <Resource Include="Images\About-me_4_48x48x32.png" />
+    <Resource Include="Images\About-me_5_32x32x32.png" />
+    <Resource Include="Images\About-me_6_24x24x32.png" />
+    <Resource Include="Images\About-me_7_16x16x32.png" />
+    <Resource Include="Images\Action-lock_1_128x128x32.png" />
+    <Resource Include="Images\Action-lock_2_96x96x32.png" />
+    <Resource Include="Images\Action-lock_3_72x72x32.png" />
+    <Resource Include="Images\Action-lock_4_64x64x32.png" />
+    <Resource Include="Images\Action-lock_5_48x48x32.png" />
+    <Resource Include="Images\Action-lock_6_32x32x32.png" />
+    <Resource Include="Images\Action-lock_7_24x24x32.png" />
+    <Resource Include="Images\Action-lock_8_16x16x32.png" />
+    <Resource Include="Images\Adobe_PDF_icon.png" />
+    <Resource Include="Images\analysis_1_256x256x32.png" />
+    <Resource Include="Images\analysis_2_128x128x32.png" />
+    <Resource Include="Images\analysis_4_48x48x32.png" />
+    <Resource Include="Images\analysis_5_32x32x32.png" />
+    <Resource Include="Images\analysis_6_24x24x32.png" />
+    <Resource Include="Images\analysis_7_16x16x32.png" />
+    <Resource Include="Images\calendar-selection-day_1_256x256x32.png" />
+    <Resource Include="Images\calendar-selection-day_2_128x128x32.png" />
+    <Resource Include="Images\calendar-selection-day_3_64x64x32.png" />
+    <Resource Include="Images\calendar-selection-day_4_48x48x32.png" />
+    <Resource Include="Images\calendar-selection-day_5_32x32x32.png" />
+    <Resource Include="Images\calendar-selection-day_6_24x24x32.png" />
+    <Resource Include="Images\calendar-selection-day_7_16x16x32.png" />
+    <Resource Include="Images\calendar-selection-month_1_256x256x32.png" />
+    <Resource Include="Images\calendar-selection-month_2_128x128x32.png" />
+    <Resource Include="Images\calendar-selection-month_3_64x64x32.png" />
+    <Resource Include="Images\calendar-selection-month_4_48x48x32.png" />
+    <Resource Include="Images\calendar-selection-month_5_32x32x32.png" />
+    <Resource Include="Images\calendar-selection-month_6_24x24x32.png" />
+    <Resource Include="Images\calendar-selection-month_7_16x16x32.png" />
+    <Resource Include="Images\calendar-selection-week_1_256x256x32.png" />
+    <Resource Include="Images\calendar-selection-week_2_128x128x32.png" />
+    <Resource Include="Images\calendar-selection-week_3_64x64x32.png" />
+    <Resource Include="Images\calendar-selection-week_4_48x48x32.png" />
+    <Resource Include="Images\calendar-selection-week_5_32x32x32.png" />
+    <Resource Include="Images\calendar-selection-week_6_24x24x32.png" />
+    <Resource Include="Images\calendar-selection-week_7_16x16x32.png" />
+    <Resource Include="Images\document_pdf.png" />
+    <Resource Include="Images\document_pdf_text.png" />
+    <Resource Include="Images\doc_pdf.png" />
+    <Resource Include="Images\Edit_1_128x128x32.png" />
+    <Resource Include="Images\Edit_2_96x96x32.png" />
+    <Resource Include="Images\Edit_3_64x64x32.png" />
+    <Resource Include="Images\Edit_4_48x48x32.png" />
+    <Resource Include="Images\Edit_5_32x32x32.png" />
+    <Resource Include="Images\Edit_6_16x16x32.png" />
+    <Resource Include="Images\filetype_pdf.png" />
+    <Resource Include="Images\Help_1_48x48x32.png" />
+    <Resource Include="Images\Help_2_32x32x32.png" />
+    <Resource Include="Images\Help_3_24x24x32.png" />
+    <Resource Include="Images\Help_4_16x16x32.png" />
+    <Resource Include="Images\mime_pdf.png" />
+    <Resource Include="Images\Modify_1_48x48x32.png" />
+    <Resource Include="Images\Modify_2_32x32x32.png" />
+    <Resource Include="Images\Modify_3_24x24x32.png" />
+    <Resource Include="Images\Modify_4_16x16x32.png" />
+    <Resource Include="Images\options_16x16x32.png" />
+    <Resource Include="Images\options_1_256x256x32.png" />
+    <Resource Include="Images\options_2_128x128x32.png" />
+    <Resource Include="Images\options_32x32x32.png" />
+    <Resource Include="Images\options_3_64x64x32.png" />
+    <Resource Include="Images\options_4_48x48x32.png" />
+    <Resource Include="Images\options_6_24x24x32.png" />
+    <Resource Include="Images\PDF-Logo-small.png" />
+    <Resource Include="Images\pdf.png" />
+    <Resource Include="Images\pdf_10_64x64x32.png" />
+    <Resource Include="Images\pdf_11_48x48x32.png" />
+    <Resource Include="Images\pdf_12_32x32x32.png" />
+    <Resource Include="Images\pdf_13_24x24x32.png" />
+    <Resource Include="Images\pdf_14_16x16x32.png" />
+    <Resource Include="Images\pdf_1_48x48x8.png" />
+    <Resource Include="Images\pdf_5_256x256x32.png" />
+    <Resource Include="Images\pdf_6_128x128x32.png" />
+    <Resource Include="Images\pdf_7_96x96x32.png" />
+    <Resource Include="Images\pdf_8_80x80x32.png" />
+    <Resource Include="Images\pdf_9_72x72x32.png" />
+    <Resource Include="Images\pdf_document.png" />
+    <Resource Include="Images\Profile_1_48x48x32.png" />
+    <Resource Include="Images\Profile_2_32x32x32.png" />
+    <Resource Include="Images\Profile_3_24x24x32.png" />
+    <Resource Include="Images\Profile_4_16x16x32.png" />
+    <Resource Include="Images\Select_1_48x48x32.png" />
+    <Resource Include="Images\Select_2_32x32x32.png" />
+    <Resource Include="Images\Select_3_16x16x32.png" />
+    <Resource Include="Images\stock_save_pdf.png" />
+    <Resource Include="Images\Stop_1_48x48x32.png" />
+    <Resource Include="Images\Stop_2_32x32x32.png" />
+    <Resource Include="Images\Stop_3_16x16x32.png" />
+    <Resource Include="Images\supplies_1_256x256x32 %281%29.png" />
+    <Resource Include="Images\supplies_1_256x256x32.png" />
+    <Resource Include="Images\supplies_2_128x128x32.png" />
+    <Resource Include="Images\supplies_3_96x96x32.png" />
+    <Resource Include="Images\supplies_4_72x72x32.png" />
+    <Resource Include="Images\supplies_5_64x64x32.png" />
+    <Resource Include="Images\supplies_6_48x48x32.png" />
+    <Resource Include="Images\supplies_7_32x32x32.png" />
+    <Resource Include="Images\supplies_8_24x24x32.png" />
+    <Resource Include="Images\supplies_9_16x16x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BoletoNet\Boleto.Net\Boleto.Net\Boleto.Net.csproj">
+      <Project>{F173E80B-E36B-48AD-B483-A27F8CA86F3C}</Project>
+      <Name>Boleto.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary\SA.Data.Models.csproj">
+      <Project>{9876D225-E5FF-4985-93B2-A553E7B677ED}</Project>
+      <Name>SA.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfControlLibrary\WpfControlLibrary.csproj">
+      <Project>{F6942585-3CC8-4F77-B252-2C07154467B3}</Project>
+      <Name>WpfControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfCustomControlLibrary\WpfCustomControlLibrary.csproj">
+      <Project>{4C94BAD4-35CD-4444-B1A5-56FA4B1B2115}</Project>
+      <Name>WpfCustomControlLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\barcode_add.png" />
+    <Resource Include="Images\barcode_arrow_down.png" />
+    <Resource Include="Images\barcode_arrow_right.png" />
+    <Resource Include="Images\barcode_checkmark.png" />
+    <Resource Include="Images\barcode_delete.png" />
+    <Resource Include="Images\barcode_diskette.png" />
+    <Resource Include="Images\barcode_gear.png" />
+    <Resource Include="Images\barcode_pencil %281%29.png" />
+    <Resource Include="Images\barcode_pencil.png" />
+    <Resource Include="Images\barcode_reader_mdpi.png" />
+    <Resource Include="Images\barcode_refresh.png" />
+    <Resource Include="Images\barcode_reload.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

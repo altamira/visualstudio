@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Banco] (
+    [cd_banco]                     INT           NOT NULL,
+    [nm_banco]                     VARCHAR (40)  NOT NULL,
+    [nm_fantasia_banco]            VARCHAR (20)  NULL,
+    [sg_banco]                     CHAR (15)     NULL,
+    [cd_numero_banco]              INT           NULL,
+    [cd_usuario]                   INT           NULL,
+    [dt_usuario]                   DATETIME      NULL,
+    [cd_conta]                     INT           NULL,
+    [ic_financeira_banco]          CHAR (1)      NULL,
+    [cd_identificacao_empresa]     VARCHAR (50)  NULL,
+    [vl_tarifa_ted]                FLOAT (53)    NULL,
+    [nm_logotipo_banco]            VARCHAR (100) NULL,
+    [ic_pad_cambio_banco]          CHAR (1)      NULL,
+    [nm_aba_banco]                 VARCHAR (20)  NULL,
+    [cd_formulario]                INT           NULL,
+    [cd_arquivo_magnetico_remessa] INT           NULL,
+    [cd_arquivo_magnetico_retorno] INT           NULL,
+    [cd_plano_financeiro]          INT           NULL,
+    [ds_banco]                     TEXT          NULL,
+    [nm_dominio_banco]             VARCHAR (255) NULL,
+    [qt_dia_limite_cnab_banco]     INT           NULL,
+    [ic_bloqueio_cnab_banco]       CHAR (1)      NULL,
+    CONSTRAINT [PK_Banco] PRIMARY KEY CLUSTERED ([cd_banco] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_Banco_Formulario] FOREIGN KEY ([cd_formulario]) REFERENCES [dbo].[Formulario] ([cd_formulario])
+);
+
