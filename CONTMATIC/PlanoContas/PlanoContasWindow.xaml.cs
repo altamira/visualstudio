@@ -34,7 +34,7 @@ namespace CONTMATIC
         private const float Version = 1.6f;
 
         private const string EmpresaAtiva = "ALTAMIRA";
-        private const string AnoAtivo = "2014";
+        private const string AnoAtivo = "2015";
 
         //PlCtaAux plctaaux = new PlCtaAux();
         PlContas plcontas = new PlContas();
@@ -137,17 +137,17 @@ namespace CONTMATIC
 
                 this.Cursor = Cursors.Arrow;
 
-                if (token.CompareTo(remotetoken) != 0)
+                /*if (token.CompareTo(remotetoken) != 0)
                 {
                     MessageBox.Show("Não foi possivel validar a sessão do usuário.\n\nO programa será finalizado.", "Altamira - Integracao Contabil", MessageBoxButton.OK, MessageBoxImage.Stop);
                     AppExit(this, new RoutedEventArgs());
-                }
+                }*/
 
-                if (Version < CurrentVersion)
+                /*if (Version < CurrentVersion)
                 {
                     MessageBox.Show(string.Format("A versão deste programa é {0:F}, para funcionar corretamente precisa ser atualizado para a versão {1:F}.\n\nO programa será finalizado.", Version, CurrentVersion), "Altamira - Integracao Contabil", MessageBoxButton.OK, MessageBoxImage.Stop);
                     AppExit(this, new RoutedEventArgs());
-                }
+                }*/
 
             }
             catch (Exception ex)

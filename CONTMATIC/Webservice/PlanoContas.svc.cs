@@ -276,15 +276,15 @@ namespace Webservice
 
         public float GetCurrentVersion(string Token, DateTime RequestDateTime)
         {
-            string currentToken = GenerateToken(RequestDateTime);
+            /*string currentToken = GenerateToken(RequestDateTime);
 
             if (currentToken.CompareTo(Token) != 0)
             {
                 Log("VERSAO", "INVALID TOKEN");
                 return 0f;
-            }
+            }*/
 
-            Log("VERSAO", currentToken);
+            //Log("VERSAO", currentToken);
 
             return VERSAO;
         }
